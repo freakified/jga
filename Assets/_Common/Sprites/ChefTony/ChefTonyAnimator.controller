@@ -8,8 +8,8 @@ AnimatorController:
   m_Name: ChefTonyAnimator
   serializedVersion: 2
   m_AnimatorParameters:
-  - m_Name: IsMoving
-    m_Type: 4
+  - m_Name: Speed
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -43,8 +43,8 @@ Transition:
   m_TransitionDuration: .0070027858
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: IsMoving
+  - m_ConditionMode: 3
+    m_ConditionEvent: Speed
     m_EventTreshold: .100000001
     m_ExitTime: .75
   m_Atomic: 0
@@ -61,8 +61,8 @@ Transition:
   m_TransitionDuration: .00504202629
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsMoving
+  - m_ConditionMode: 4
+    m_ConditionEvent: Speed
     m_EventTreshold: .100000001
     m_ExitTime: 1
   m_Atomic: 0
@@ -115,7 +115,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 8d284e6d6dc5b4531821269c05b2d061, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 36, y: 168, z: 0}
+  m_Position: {x: 36, y: 108, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -130,7 +130,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: d08499abb5743475cba1b9e927bbf232, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 288, y: 96, z: 0}
+  m_Position: {x: 300, y: 60, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -140,7 +140,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Idle
-  m_Speed: 1
+  m_Speed: .5
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: d23c6ffa16afb49999f1c31ecb1039b3, type: 2}
@@ -165,10 +165,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110234769}
-      second:
-      - {fileID: 110196062}
-    data:
       first: {fileID: 110247180}
       second:
       - {fileID: 110100000}
@@ -177,6 +173,10 @@ StateMachine:
       first: {fileID: 110200000}
       second:
       - {fileID: 110113299}
+    data:
+      first: {fileID: 110234769}
+      second:
+      - {fileID: 110196062}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -192, y: 24, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
