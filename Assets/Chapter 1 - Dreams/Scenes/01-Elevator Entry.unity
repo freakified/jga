@@ -132,9 +132,9 @@ Camera:
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
-  field of view: 60
+  field of view: 17
   orthographic: 1
-  orthographic size: 180
+  orthographic size: 1.79999995
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -154,6 +154,45 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1 &115193896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 115193898}
+  - 68: {fileID: 115193897}
+  m_Layer: 0
+  m_Name: FloorCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!68 &115193897
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115193896}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Points:
+  - {x: -.5, y: 0}
+  - {x: .5, y: 0}
+--- !u!4 &115193898
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115193896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.34000003, z: 0}
+  m_LocalScale: {x: 6.4000001, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1499170083}
 --- !u!1 &339664072
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +383,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1795993608}
+  - {fileID: 115193898}
   m_Father: {fileID: 0}
 --- !u!1 &1795993606
 GameObject:
@@ -354,8 +394,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1795993608}
   - 212: {fileID: 1795993607}
-  - 95: {fileID: 1795993609}
   - 114: {fileID: 1795993610}
+  - 50: {fileID: 1795993611}
+  - 61: {fileID: 1795993612}
+  - 95: {fileID: 1795993609}
   m_Layer: 0
   m_Name: Chef Tony
   m_TagString: Untagged
@@ -393,7 +435,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1795993606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -179.4496, y: -91.7100449, z: 0}
+  m_LocalPosition: {x: -1.66517878, y: -.764625669, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1499170083}
@@ -408,7 +450,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 50c0d85bea97148119c059e4e901ee85, type: 2}
   m_CullingMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
 --- !u!114 &1795993610
@@ -423,6 +465,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
+--- !u!50 &1795993611
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1795993606}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 1
+  m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!61 &1795993612
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1795993606}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .600000024, y: .600000024}
+  m_Center: {x: -.100000001, y: -.100000001}
 --- !u!1 &1874910526
 GameObject:
   m_ObjectHideFlags: 0
