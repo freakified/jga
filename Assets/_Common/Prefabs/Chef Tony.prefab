@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 61: {fileID: 6100000}
   - 95: {fileID: 9500000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Chef Tony
   m_TagString: Untagged
@@ -85,7 +86,20 @@ MonoBehaviour:
   facingRight: 1
   moveForce: 200
   maxSpeed: 1
-  flipOffset: .400000006
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526db2f2094c8462d90982041b5390e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadowPrefab: {fileID: 400000, guid: 1375b12de5c234a36b2f4182219ee88b, type: 2}
+  shadowOffsetX: 0
+  shadowPositionY: -1.33000004
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -105,7 +119,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: c5283e33eb86d459689dbf05000c006e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

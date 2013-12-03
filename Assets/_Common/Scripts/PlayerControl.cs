@@ -13,8 +13,6 @@ public class PlayerControl : MonoBehaviour
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
 	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
-
-	public float flipOffset = .4f;		    // How much the player should be offset when changing direction
 	
 	private Animator anim;					// Reference to the player's animator component.
 	
@@ -65,16 +63,6 @@ public class PlayerControl : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
-
-		// Offset the position, if necessary
-		Vector3 thePosition = transform.localPosition;
-
-		if (facingRight)
-			thePosition.x += flipOffset;
-		else
-			thePosition.x -= flipOffset;
-
-		transform.localPosition = thePosition;
 
 	}
 
