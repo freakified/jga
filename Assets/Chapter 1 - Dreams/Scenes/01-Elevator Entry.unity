@@ -340,8 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f476c3692f7994ce2bc1bc5f3b55faf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flickerDelay: .100000001
-  flickerProbability: .00999999978
+  flickerDelay: .699999988
+  flickerProbability: .100000001
 --- !u!1 &540407389
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +389,50 @@ Transform:
   m_GameObject: {fileID: 540407389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!1 &682367758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 682367760}
+  - 114: {fileID: 682367759}
+  m_Layer: 0
+  m_Name: Scripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &682367759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682367758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e16d905ca544184b4ad63065e58536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenplay: {fileID: 4900000, guid: 4cbee248ca9a6406e8143dbf06ad4727, type: 3}
+  dialogSpeakerText: {fileID: 13200000, guid: 04f51bd96936743cfbd1cea185c3c7b1, type: 2}
+  dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
+  textBox: {fileID: 400000, guid: 4d17151a3ad024e60aec564ac5a921ff, type: 2}
+  dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
+  playAtStart: 1
+--- !u!4 &682367760
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682367758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0523375198, y: -.271346182, z: 3.24682617}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -476,6 +520,10 @@ Prefab:
     - target: {fileID: 400000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: m_Center.x
+      value: .129999995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
@@ -696,7 +744,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: .600000024, y: .600000024}
-  m_Center: {x: -.100000001, y: -.100000001}
+  m_Center: {x: .129999995, y: -.100000001}
 --- !u!114 &1795993613
 MonoBehaviour:
   m_ObjectHideFlags: 0
