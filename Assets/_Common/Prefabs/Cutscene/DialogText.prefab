@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12452f3bc57454987888bf741e624f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wrapAtWidth: 466
+  wrapAtWidth: 440
   targetResolutionWidth: 640
 --- !u!132 &13200000
 GUIText:
