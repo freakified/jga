@@ -17,6 +17,5 @@ public class InstadieOnCollide : MonoBehaviour {
 			enabled = false;
 		}
 
-
 	}
 }

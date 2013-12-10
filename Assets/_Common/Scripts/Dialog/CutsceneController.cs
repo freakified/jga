@@ -16,8 +16,10 @@ public class CutsceneController : MonoBehaviour {
 	public Transform textBox;
 	public GUIText dialogNextText;
 
+	[HideInInspector]
 	public delegate void ChangedEventHandler(int newCutscenePosition);
 	public static event ChangedEventHandler OnCutsceneChange;
+	[HideInInspector]
 
 	private Vector3 speakerTextPos = new Vector3(0.04f, 0.95f, 3f);
 	private Vector3 dialogTextPos = new Vector3(0.04f, 0.89f, 3f);
