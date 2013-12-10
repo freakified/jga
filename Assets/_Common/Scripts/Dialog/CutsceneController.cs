@@ -16,6 +16,8 @@ public class CutsceneController : MonoBehaviour {
 	public Transform textBox;
 	public GUIText dialogNextText;
 
+	public delegate void ChangedEventHandler(int newCutscenePosition);
+	public static event ChangedEventHandler OnCutsceneChange;
 
 	private Vector3 speakerTextPos = new Vector3(0.04f, 0.95f, 3f);
 	private Vector3 dialogTextPos = new Vector3(0.04f, 0.89f, 3f);
@@ -32,9 +34,9 @@ public class CutsceneController : MonoBehaviour {
 
 	/// <summary>
 	/// What position in the cutscene are we at?
-	/// (-1 means the cutscene hasn't started yet)
+	/// (0 means the cutscene hasn't started yet)
 	/// </summary>
-	private int cutscenePosition = -1;
+	private int cutscenePosition = 0;
 
 	/// <summary>
 	/// The text speed, in characters per second
@@ -68,15 +70,15 @@ public class CutsceneController : MonoBehaviour {
 		if(dialogText.enabled) {
 
 			// if there's still text left to show
-			if(currentChar < cutsceneElements[cutscenePosition].dialogText.Length) {
+			if(currentChar < cutsceneElements[cutscenePosition - 1].dialogText.Length) {
 
 				//ensure that we don't accidentally blow past the end of the string
 				currentChar = Mathf.Min(
 					currentChar + textSpeed * Time.deltaTime,
-					cutsceneElements[cutscenePosition].dialogText.Length);
+					cutsceneElements[cutscenePosition - 1].dialogText.Length);
 
 				dialogText.text = 
-					cutsceneElements[cutscenePosition].dialogText.Substring(0, (int)currentChar);
+					cutsceneElements[cutscenePosition - 1].dialogText.Substring(0, (int)currentChar);
 			} else {
 				dialogNextText.enabled = true;
 			}
@@ -111,11 +113,9 @@ public class CutsceneController : MonoBehaviour {
 		// increment the cutscene counter
 		cutscenePosition++;
 
-		if(cutscenePosition < cutsceneElements.Count) {
+		if(cutscenePosition <= cutsceneElements.Count) {
 
-			// TODO notify registered listeners of the new position
-
-			CutsceneElement currentCutsceneElement = cutsceneElements[cutscenePosition];
+			CutsceneElement currentCutsceneElement = cutsceneElements[cutscenePosition - 1];
 
 			if(currentCutsceneElement.hasDialog) {
 				setDialogVisibility(true);
@@ -129,6 +129,10 @@ public class CutsceneController : MonoBehaviour {
 		} else {
 			setDialogVisibility(false);
 		}
+
+		//notify registered listeners of the new position
+		if(OnCutsceneChange != null)
+			OnCutsceneChange(cutscenePosition);
 
 	}
 

@@ -12,7 +12,7 @@ public class PlayerControl : MonoBehaviour
 	[HideInInspector]
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
-	public float maxSpeed = 5f;				// The fastest the player can travel in the x axis.
+	public float maxSpeed = 1f;				// The fastest the player can travel in the x axis.
 	
 	private Animator anim;					// Reference to the player's animator component.
 	
