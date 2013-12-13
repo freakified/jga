@@ -30,7 +30,8 @@ public class CutsceneController : MonoBehaviour {
 	/// <summary>
 	/// Should the cutscene begin automatically when the scene starts?
 	/// </summary>
-	public bool playAtStart = false;
+	public bool autoplayAtStart = true;
+	public float delayBeforeAutoplay = 2f;
 	
 	private List<CutsceneElement> cutsceneElements;
 
@@ -53,8 +54,8 @@ public class CutsceneController : MonoBehaviour {
 
 		populateCutsceneElements();
 
-		if(playAtStart)
-			playNext();
+		if(autoplayAtStart)
+			Invoke("playNext", delayBeforeAutoplay);
 	}
 	
 	// Update is called once per frame
@@ -62,7 +63,7 @@ public class CutsceneController : MonoBehaviour {
 
 		//if the [spacebar] indicator is displayed, and the person presses Fire1, 
 		// then go to the next dialog
-		if(Input.GetButtonDown("Fire1") && dialogNextText.enabled) {
+		if(Input.GetButtonDown("Select") && dialogNextText.enabled) {
 			dialogNextText.enabled = false;
 			currentChar = 0;
 			playNext();

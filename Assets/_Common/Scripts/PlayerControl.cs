@@ -9,18 +9,39 @@ public class PlayerControl : MonoBehaviour
 {
 	[HideInInspector]
 	public bool facingRight = true;			// For determining which way the player is currently facing.
+
 	[HideInInspector]
+	public bool jump = false;				// Condition for whether the player should jump.
+
 
 	public float moveForce = 365f;			// Amount of force added to move the player left and right.
+	public float jumpForce = 100f;			// Amount of force added when the player jumps.
 	public float maxSpeed = 1f;				// The fastest the player can travel in the x axis.
-	
+
+	private bool grounded = false;			// Whether or not the player is grounded.
+	private Transform groundCheck;			// A position marking where to check if the player is grounded.
 	private Animator anim;					// Reference to the player's animator component.
-	
+
 	
 	void Start()
 	{
-
 		anim = GetComponent<Animator>();
+		groundCheck = transform.Find("GroundCheck");
+
+	}
+
+	void Update()
+	{
+
+		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+		grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
+
+
+		// If the jump button is pressed and the player is grounded then the player should jump.
+		if(Input.GetButtonDown("Select") && grounded) {
+			jump = true;
+			anim.SetBool("IsJumping", true);
+		}
 	}
 	
 	
@@ -50,6 +71,20 @@ public class PlayerControl : MonoBehaviour
 		else if(h < 0 && facingRight)
 			// ... flip the player.
 			Flip();
+
+
+		// If the player should jump...
+		if(jump)
+		{
+			
+			// Add a vertical force to the player.
+			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+			
+			// Make sure the player can't jump again until the jump conditions from Update are satisfied.
+			jump = false;
+			anim.SetBool("IsJumping", false);
+
+		}
 
 	}
 	
