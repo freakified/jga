@@ -18,14 +18,16 @@ public class CutsceneController : MonoBehaviour {
 
 	[HideInInspector]
 	public delegate void ChangedEventHandler(int newCutscenePosition);
-	public static event ChangedEventHandler OnCutsceneChange;
 	[HideInInspector]
+	public static event ChangedEventHandler OnCutsceneChange;
+
 
 	private Vector3 speakerTextPos = new Vector3(0.04f, 0.95f, 3f);
 	private Vector3 dialogTextPos = new Vector3(0.04f, 0.89f, 3f);
 	private Vector3 textBoxPos = new Vector3(-0.71f, 1.31f, 3f);
 	private Vector3 dialogNextTextPos = new Vector3(0.64f, 0.82f, 3f);
 
+	private Texture2D m_FadeTexture;
 
 	/// <summary>
 	/// Should the cutscene begin automatically when the scene starts?

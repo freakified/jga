@@ -3,7 +3,7 @@ using System.Collections;
 
 abstract public class CutscenePuppeteer : MonoBehaviour {
 
-	protected int CurrentScene = -1;
+	protected int CurrentScene = 0;
 	protected float elapsedTime = 0;
 	protected bool timerRunning = false;
 

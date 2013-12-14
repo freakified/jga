@@ -30,6 +30,11 @@ public class SpriteShadow : MonoBehaviour {
 		//create the shadow
 		shadowTransform = Instantiate(shadowPrefab) as Transform;
 
+		GameObject ground = GameObject.Find("Ground");
+
+		if(ground != null) {
+			shadowPositionY = ground.transform.position.y;
+		}
 		
 	}
 	
