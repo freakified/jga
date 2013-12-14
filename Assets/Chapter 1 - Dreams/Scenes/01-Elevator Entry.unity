@@ -865,6 +865,14 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
   m_RootGameObject: {fileID: 1795993606}
@@ -1042,9 +1050,10 @@ GameObject:
   - 61: {fileID: 1795993612}
   - 95: {fileID: 1795993609}
   - 114: {fileID: 1795993613}
+  - 114: {fileID: 1795993614}
   m_Layer: 0
   m_Name: Chef Tony
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1159,7 +1168,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowPrefab: {fileID: 400000, guid: 1375b12de5c234a36b2f4182219ee88b, type: 2}
   shadowOffsetX: 0
-  shadowPositionY: -1.33000004
+  shadowPositionY: -2.32999992
+--- !u!114 &1795993614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 77c1a8fbbf8e94fd09e2075b1b78626b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1376202008}
+  m_GameObject: {fileID: 1795993606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9acf39eaa414d94b72bee6cd5678ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrozenAtStart: 0
 --- !u!1 &1874910526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1241,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1942083328}
   - 68: {fileID: 1942083327}
+  - 114: {fileID: 1942083329}
   m_Layer: 0
   m_Name: VerticalBoundary
   m_TagString: Untagged
@@ -1250,6 +1273,17 @@ Transform:
   m_LocalScale: {x: 3.60000014, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312162136}
+--- !u!114 &1942083329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1942083326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df15eef45e76f4dd39ad086f61547661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0
