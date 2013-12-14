@@ -27,7 +27,6 @@ public class CutsceneController : MonoBehaviour {
 	private Vector3 textBoxPos = new Vector3(-0.71f, 1.31f, 3f);
 	private Vector3 dialogNextTextPos = new Vector3(0.64f, 0.82f, 3f);
 
-	private Texture2D m_FadeTexture;
 
 	/// <summary>
 	/// Should the cutscene begin automatically when the scene starts?
@@ -103,7 +102,9 @@ public class CutsceneController : MonoBehaviour {
 		dialogText.transform.position = dialogTextPos;
 
 		textBox = Instantiate(textBox) as Transform;
-		textBox.transform.position = textBoxPos;
+		textBox.transform.parent = GameObject.Find("Main Camera").transform;
+		textBox.transform.localPosition = textBoxPos;
+
 
 		dialogNextText = Instantiate(dialogNextText) as GUIText;
 		dialogNextText.transform.position = dialogNextTextPos;
