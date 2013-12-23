@@ -467,7 +467,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 186d581cb5b9a4b38b6b09bf037236d0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!4 &540407391
 Transform:
   m_ObjectHideFlags: 0
@@ -603,6 +603,7 @@ GameObject:
   - 114: {fileID: 682367762}
   - 114: {fileID: 682367759}
   - 114: {fileID: 682367761}
+  - 114: {fileID: 682367763}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -664,6 +665,19 @@ MonoBehaviour:
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
   autoplayAtStart: 0
   delayBeforeAutoplay: 1.5
+--- !u!114 &682367763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682367758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016d0b783331540f3a9befc3501f721f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
+  targetScreenWidth: 640
 --- !u!1 &698148950
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +724,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 698148950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: -.0500000007, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -748,6 +762,10 @@ Prefab:
     - target: {fileID: 400000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
@@ -962,7 +980,7 @@ GameObject:
   - 114: {fileID: 1795993614}
   m_Layer: 0
   m_Name: Chef Tony
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
