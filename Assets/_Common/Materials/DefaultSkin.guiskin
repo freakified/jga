@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: MaroonSkin
+  m_Name: DefaultSkin
   m_EditorClassIdentifier: 
   m_Font: {fileID: 12800000, guid: 44f7c26e7a683445e81d14c810c9a333, type: 3}
   m_box:
@@ -119,7 +119,7 @@ MonoBehaviour:
       m_Bottom: 0
     m_Font: {fileID: 0}
     m_FontSize: 17
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_Alignment: 3
     m_WordWrap: 0
     m_RichText: 1

@@ -10,6 +10,7 @@ public class InstadieOnCollide : MonoBehaviour {
 
 			blood = Instantiate(blood) as ParticleSystem;
 			blood.transform.position = transform.position;
+			blood.Play();
 
 			collider2D.enabled = false;
 			rigidbody2D.Sleep ();

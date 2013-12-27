@@ -14,7 +14,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: IsStabbing
+  - m_Name: IsAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -104,7 +104,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsStabbing
+    m_ConditionEvent: IsAttacking
     m_EventTreshold: 0
     m_ExitTime: .00756288273
   m_Atomic: 0
@@ -140,7 +140,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsStabbing
+    m_ConditionEvent: IsAttacking
     m_EventTreshold: 0
     m_ExitTime: .00672293734
   m_Atomic: 1
@@ -166,7 +166,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Stabbing
+  m_Name: Attacking
   m_Speed: 100
   m_CycleOffset: 0
   m_Motions:
@@ -223,10 +223,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110273087}
-      second:
-      - {fileID: 110143550}
-    data:
       first: {fileID: 110247180}
       second:
       - {fileID: 110100000}
@@ -240,6 +236,10 @@ StateMachine:
       first: {fileID: 110234769}
       second:
       - {fileID: 110196062}
+    data:
+      first: {fileID: 110273087}
+      second:
+      - {fileID: 110143550}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -432, y: 36, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

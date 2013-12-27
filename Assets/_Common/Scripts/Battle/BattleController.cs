@@ -5,16 +5,31 @@ using System.Collections.Generic;
 public class BattleController : MonoBehaviour {
 	public GUISkin guiSkin;
 
-	public int targetScreenWidth = 640;
+	/// <summary>
+	/// The width of the screen at the desired resolution.
+	/// Used to scale the GUI
+	/// </summary>
+	public int TargetScreenWidth = 640;
 
-	// TODO: this should be replaced by the real combatant script
-	private int numCombatants = 3;
-	private int numAttacks = 4;
-	private int currentAttackHover = 0;
+	public List<PlayerCombatant> PlayerCombatants;
+	public List<EnemyCombatant> EnemyCombatants;
+
+	public bool EnabledAtStart = true;
+	
+	private int totalCombatants;
+
+	private bool BattleStarted = false;
+	private int CurrentTurn = 0;
+	private bool TargetSelection = false;
+	private PlayerAttack SelectedAttack;
+	private bool turnNearlyFinished = false;	
 
 	// Use this for initialization
 	void Start () {
-	
+
+		if(EnabledAtStart)
+			StartBattle();
+
 	}
 	
 	// Update is called once per frame
@@ -22,95 +37,194 @@ public class BattleController : MonoBehaviour {
 	
 	}
 
+	public void StartBattle() {
+		totalCombatants = PlayerCombatants.Count + EnemyCombatants.Count;
+		CurrentTurn = 0;
+			
+		BattleStarted = true;
+
+	}
+
 	void OnGUI () {
-		GUI.skin = guiSkin;
+		//print (CurrentTurn);
+		if(BattleStarted) {
+			GUI.skin = guiSkin;
 
-		//scale the sizes of elements to match the actual resolution
-		scaleGUI(guiSkin);
+			//scale the sizes of elements to match the actual resolution
+			scaleGUI(guiSkin);
 
-		// draw the attack selection box
-		int areaHeight = scalePx (50 + 30 * numAttacks);
-		GUILayout.BeginArea (new Rect (0, 0, scalePx (210), areaHeight), 
-		                     guiSkin.customStyles[0]);
-		GUILayout.Label ("ATTACK", guiSkin.customStyles[3]);
-		GUILayout.Button("All-Purpose Slice");
+			int areaHeight;
 
-		Rect b1rect = GUILayoutUtility.GetLastRect();
+			// are we waiting for an animation to finish, and it finished?
+
+			
+			// is it the player's turn?
+			if(CurrentTurn < PlayerCombatants.Count) {
+				if(Event.current.type == EventType.Repaint && turnNearlyFinished &&
+				   !PlayerCombatants[CurrentTurn].AnimationInProgress) {
+					IncrementTurn();
+					turnNearlyFinished = false;
+					return;
+				}
+
+				int numAttacks = PlayerCombatants[CurrentTurn].Attacks.Count;
+				Rect[] attackButtons = new Rect[numAttacks];
+
+				// draw the attack selection box
+
+				if(!TargetSelection) {
+					areaHeight = scalePx (50 + 30 * numAttacks);
+					GUILayout.BeginArea (new Rect (0, 0, scalePx (210), areaHeight), 
+					                     guiSkin.customStyles[0]);
+					GUILayout.Label ("ATTACK", guiSkin.customStyles[3]);
+
+					PlayerAttack attack;
+
+					// display the attacks for the selected player
+					for(int i = 0; i < numAttacks - 1; i++) {
+						attack = PlayerCombatants[CurrentTurn].Attacks[i];
+
+						if(GUILayout.Button(attack.Name)) {
+							TargetSelection = true;
+							SelectedAttack = attack;
+						}
+
+						attackButtons[i] = GUILayoutUtility.GetLastRect();
+
+					}
+
+					// for now, assume that the last move is the healing move
+					// (this can be generalized later, if necessary)
+					GUILayout.Label ("HEAL", guiSkin.customStyles[3]);
+
+					attack = PlayerCombatants[CurrentTurn].Attacks[numAttacks - 1];
+
+					if(GUILayout.Button(attack.Name)) {
+						//TargetSelection = true;
+						SelectedAttack = attack;
+					}
+
+					attackButtons[numAttacks - 1] = GUILayoutUtility.GetLastRect();
+
+					GUILayout.EndArea();
+				}
 
 
-		GUILayout.Button("Rock N' Chop");
+				// now draw the attack description tooltip
 
-		Rect b2rect = GUILayoutUtility.GetLastRect();
+				if(!TargetSelection) {
+					for(int i = 0; i < numAttacks; i++) {
+						if(Event.current.type == EventType.Repaint && 
+						   attackButtons[i].Contains(Event.current.mousePosition )) {
+							GUI.Label (new Rect (scalePx (220), Event.current.mousePosition.y - scalePx (30), scalePx (315), scalePx (55)), 
+							           PlayerCombatants[CurrentTurn].Attacks[i].Description, 
+							           guiSkin.customStyles[2]);
+						}
+					}
+				}
+
+				// target selection box
+				if(TargetSelection && !turnNearlyFinished) {
+					areaHeight = scalePx (60 + 30 * EnemyCombatants.Count);
+					GUILayout.BeginArea (new Rect (0, 0, scalePx (270), areaHeight), 
+					                    guiSkin.customStyles[0]);
+
+					GUILayout.BeginHorizontal();
+					GUILayout.Label ("<b>" + SelectedAttack.Name + "</b>");
+					if(GUILayout.Button("Cancel", GUILayout.ExpandWidth (false))) {
+						TargetSelection = false;
+					}
+					GUILayout.EndHorizontal();
+
+					GUILayout.Label ("SELECT TARGET", guiSkin.customStyles[3]);
+
+					EnemyCombatant enemy;
+					int percentHP;
+					Rect[] targetButtons = new Rect[EnemyCombatants.Count];
+
+					for(int i = 0; i < EnemyCombatants.Count; i++) {
+						enemy = EnemyCombatants[i];
+						percentHP = (int)Mathf.Round(enemy.HitPoints / (float)enemy.MaxHitPoints * 100);
+						
+						if(GUILayout.Button("<b>" + enemy.name + "</b> (" + percentHP + "%)" )) {
+							PlayerCombatants[CurrentTurn].Attack(SelectedAttack, enemy);
+
+							//restore opacity of enemies
+							foreach(EnemyCombatant e in EnemyCombatants) {
+								((SpriteRenderer)e.renderer).color = new Color(1, 1, 1, 1);
+							}
+
+							TargetSelection = false;
+							turnNearlyFinished = true;
+						}
+
+						// add mouseover effect to enemies
+						if(!turnNearlyFinished) {
+							if(Event.current.type == EventType.Repaint && 
+							   GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition )) {
+								((SpriteRenderer)enemy.renderer).color = new Color(1, 1, 1, 1);
+							} else {
+								((SpriteRenderer)enemy.renderer).color = new Color(1, 1, 1, 0.5f);
+							}
+						}
+					}
 
 
-		GUILayout.Button("Sales Pitch");
+					
+					GUILayout.EndArea();
+				}
 
-		Rect b3rect = GUILayoutUtility.GetLastRect();
+				
+			} else { //the turn is not a player's
+
+				// get which enemy's turn it is
+				int enemyIndex = CurrentTurn - PlayerCombatants.Count;
+
+				if(!turnNearlyFinished) {
+					EnemyCombatants[enemyIndex].AutoAttack(PlayerCombatants);
+					turnNearlyFinished = true;
+				} else {
+					// has the enemy finished their attack/animation?
+					if(Event.current.type == EventType.Repaint && 
+					   !EnemyCombatants[enemyIndex].AnimationInProgress) {
+
+						turnNearlyFinished = false;
+						IncrementTurn();
+						return;
+					}
+				}
+			}
+
+			
+			// draw the player combatants' data
+			areaHeight = scalePx (30 * PlayerCombatants.Count + 10);
+
+			GUILayout.BeginArea (new Rect (0, Screen.height - areaHeight, scalePx (180), areaHeight), 
+			                     guiSkin.customStyles[0]);
 
 
+			for(int i = 0; i < PlayerCombatants.Count; i++) {
+				GUILayout.BeginHorizontal();
 
-		GUILayout.Label ("HEAL", guiSkin.customStyles[3]);
-		GUILayout.Button("Fried Chicken Smoothie");
+				string startTag = "<b>";
+				string endTag = "</b>";
 
-		GUILayout.EndArea ();
+				if(i != CurrentTurn) {
+					startTag = "<color=#ffffff55><b>";
+					endTag = "</b></color>";
+				}
 
-		
-	
+				GUILayout.Label (startTag + PlayerCombatants[i].name + endTag);
+				GUILayout.Label (PlayerCombatants[i].HitPoints + "/" + PlayerCombatants[i].MaxHitPoints, 
+				                 guiSkin.customStyles[1], 
+				                 GUILayout.Width(scalePx (75)));
+				GUILayout.EndHorizontal();
+			}
 
-		// now draw the attack description tooltip
+			GUILayout.EndArea ();
 
-		if(Event.current.type == EventType.Repaint && 
-		   b1rect.Contains(Event.current.mousePosition )) {
-			GUI.Label (new Rect (scalePx (220), scalePx (10), scalePx (315), scalePx (55)), 
-					  "Stabs a single target with the Miracle Blade™ All-Purpose Slicer™.", 
-			           guiSkin.customStyles[2]);
+
 		}
-
-		if(Event.current.type == EventType.Repaint && 
-		   b2rect.Contains(Event.current.mousePosition )) {
-			GUI.Label (new Rect (scalePx (220), scalePx (10 + 30), scalePx (315), scalePx (55)), 
-			           "Chops up all enemies, dealing damage to all targets.", 
-			           guiSkin.customStyles[2]);
-		}
-
-		if(Event.current.type == EventType.Repaint && 
-		   b3rect.Contains(Event.current.mousePosition )) {
-			GUI.Label (new Rect (scalePx (220), scalePx (10 + 30 + 30), scalePx (315), scalePx (55)), 
-			           "Puts target to sleep with a lecture on the benefits of the Miracle Blade™ III Perfection Series™.", 
-			           guiSkin.customStyles[2]);
-		}
-
-
-
-
-		// draw the player combatants' data
-		areaHeight = scalePx (30 * numCombatants);
-		GUILayout.BeginArea (new Rect (0, Screen.height - areaHeight, scalePx (180), areaHeight), 
-		                     guiSkin.customStyles[0]);
-
-		// chef tony's data
-		GUILayout.BeginHorizontal();
-			GUILayout.Label ("<b>Chef Tony</b>");
-			GUILayout.Label ("100/100", guiSkin.customStyles[1], GUILayout.Width(scalePx (75)));
-		GUILayout.EndHorizontal();
-		// end chef tony
-
-		// james health
-		GUILayout.BeginHorizontal();
-			GUILayout.Label ("<color=#ffffff55><b>James</b></color>");
-			GUILayout.Label ("<color=red>23</color>/142", guiSkin.customStyles[1], GUILayout.Width(scalePx (75)));
-		GUILayout.EndHorizontal();
-		// end james health
-
-		// lm health
-		GUILayout.BeginHorizontal();
-			GUILayout.Label ("<color=#ffffff55><b>Like Mike</b></color>");
-			GUILayout.Label ("<color=red>23</color>/142", guiSkin.customStyles[1], GUILayout.Width(scalePx (75)));
-		GUILayout.EndHorizontal();
-		// end lm health
-
-
-		GUILayout.EndArea ();
 	}
 
 	private void scaleGUI(GUISkin guiSkin) {
@@ -140,7 +254,12 @@ public class BattleController : MonoBehaviour {
 	}
 
 	private int scalePx(int targetSize) {
-		return (int)((targetSize * Screen.width) / targetScreenWidth);
+		return (int)((targetSize * Screen.width) / TargetScreenWidth);
+	}
+
+	private void IncrementTurn() {
+		CurrentTurn++;
+		CurrentTurn %= totalCombatants;
 	}
 	
 }

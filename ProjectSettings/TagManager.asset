@@ -15,7 +15,7 @@ TagManager:
   Builtin Layer 6: 
   Builtin Layer 7: 
   User Layer 8: Ground
-  User Layer 9: 
+  User Layer 9: ParticleFX
   User Layer 10: 
   User Layer 11: 
   User Layer 12: 
@@ -39,6 +39,10 @@ TagManager:
   User Layer 30: 
   User Layer 31: 
   m_SortingLayers:
+  - name: ParticleFX
+    userID: 1
+    uniqueID: 2095333383
+    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0
