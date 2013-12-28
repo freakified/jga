@@ -7,6 +7,8 @@ abstract public class BattleCombatant : MonoBehaviour {
 	public int MaxHitPoints {get; protected set; }
 	public bool AnimationInProgress { get; protected set; }
 
+	protected Animator anim;
+
 	protected float elapsedTime = 0;
 	protected bool timerRunning = false;
 	
@@ -21,7 +23,9 @@ abstract public class BattleCombatant : MonoBehaviour {
 	// Use this for initialization
 	public virtual void Start () {
 		AnimationInProgress = false;
-		
+
+		anim = GetComponent<Animator>();
+
 		if(damageParticles != null) {
 			particles = Instantiate(damageParticles) as ParticleSystem;
 			particles.transform.position = transform.position;
@@ -36,6 +40,10 @@ abstract public class BattleCombatant : MonoBehaviour {
 
 	public void Heal (int amount) {
 		HitPoints = (int)Mathf.Clamp(HitPoints + amount, 0, MaxHitPoints);
+
+		if(anim != null) {
+			anim.SetInteger("HP", HitPoints);
+		}
 	}
 
 	public void Damage (int amount) {
@@ -46,7 +54,10 @@ abstract public class BattleCombatant : MonoBehaviour {
 			particles.transform.position = transform.position;
 			particles.time = 0;
 			particles.Play();
+		}
 
+		if(anim != null) {
+			anim.SetInteger("HP", HitPoints);
 		}
 	}
 

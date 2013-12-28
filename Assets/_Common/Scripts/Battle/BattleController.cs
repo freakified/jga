@@ -11,8 +11,8 @@ public class BattleController : MonoBehaviour {
 	/// </summary>
 	public int TargetScreenWidth = 640;
 
-	public List<PlayerCombatant> PlayerCombatants;
-	public List<EnemyCombatant> EnemyCombatants;
+	public List<BattleCombatant> PlayerCombatants;
+	public List<BattleCombatant> EnemyCombatants;
 
 	public bool EnabledAtStart = true;
 	
@@ -22,7 +22,7 @@ public class BattleController : MonoBehaviour {
 	private int CurrentTurn = 0;
 	private bool TargetSelection = false;
 	private PlayerAttack SelectedAttack;
-	private bool turnNearlyFinished = false;	
+	private bool waitingForAttack = false;	
 
 	// Use this for initialization
 	void Start () {
@@ -60,14 +60,14 @@ public class BattleController : MonoBehaviour {
 			
 			// is it the player's turn?
 			if(CurrentTurn < PlayerCombatants.Count) {
-				if(Event.current.type == EventType.Repaint && turnNearlyFinished &&
+				if(Event.current.type == EventType.Repaint && waitingForAttack &&
 				   !PlayerCombatants[CurrentTurn].AnimationInProgress) {
 					IncrementTurn();
-					turnNearlyFinished = false;
+					waitingForAttack = false;
 					return;
 				}
 
-				int numAttacks = PlayerCombatants[CurrentTurn].Attacks.Count;
+				int numAttacks = ((PlayerCombatant)PlayerCombatants[CurrentTurn]).Attacks.Count;
 				Rect[] attackButtons = new Rect[numAttacks];
 
 				// draw the attack selection box
@@ -82,7 +82,7 @@ public class BattleController : MonoBehaviour {
 
 					// display the attacks for the selected player
 					for(int i = 0; i < numAttacks - 1; i++) {
-						attack = PlayerCombatants[CurrentTurn].Attacks[i];
+						attack = ((PlayerCombatant)PlayerCombatants[CurrentTurn]).Attacks[i];
 
 						if(GUILayout.Button(attack.Name)) {
 							TargetSelection = true;
@@ -97,10 +97,10 @@ public class BattleController : MonoBehaviour {
 					// (this can be generalized later, if necessary)
 					GUILayout.Label ("HEAL", guiSkin.customStyles[3]);
 
-					attack = PlayerCombatants[CurrentTurn].Attacks[numAttacks - 1];
+					attack = ((PlayerCombatant)PlayerCombatants[CurrentTurn]).Attacks[numAttacks - 1];
 
 					if(GUILayout.Button(attack.Name)) {
-						//TargetSelection = true;
+						TargetSelection = true;
 						SelectedAttack = attack;
 					}
 
@@ -117,15 +117,23 @@ public class BattleController : MonoBehaviour {
 						if(Event.current.type == EventType.Repaint && 
 						   attackButtons[i].Contains(Event.current.mousePosition )) {
 							GUI.Label (new Rect (scalePx (220), Event.current.mousePosition.y - scalePx (30), scalePx (315), scalePx (55)), 
-							           PlayerCombatants[CurrentTurn].Attacks[i].Description, 
+							           ((PlayerCombatant)PlayerCombatants[CurrentTurn]).Attacks[i].Description, 
 							           guiSkin.customStyles[2]);
 						}
 					}
 				}
 
 				// target selection box
-				if(TargetSelection && !turnNearlyFinished) {
-					areaHeight = scalePx (60 + 30 * EnemyCombatants.Count);
+				if(TargetSelection && !waitingForAttack) {
+
+					List<BattleCombatant> availableTargets;
+
+					if(SelectedAttack.IsHealingMove)
+						availableTargets = PlayerCombatants;
+					else
+						availableTargets = EnemyCombatants;
+
+					areaHeight = scalePx (60 + 30 * availableTargets.Count);
 					GUILayout.BeginArea (new Rect (0, 0, scalePx (270), areaHeight), 
 					                    guiSkin.customStyles[0]);
 
@@ -138,35 +146,44 @@ public class BattleController : MonoBehaviour {
 
 					GUILayout.Label ("SELECT TARGET", guiSkin.customStyles[3]);
 
-					EnemyCombatant enemy;
+					BattleCombatant availableTarget;
 					int percentHP;
-					Rect[] targetButtons = new Rect[EnemyCombatants.Count];
+					Rect[] targetButtons = new Rect[availableTargets.Count];
 
-					for(int i = 0; i < EnemyCombatants.Count; i++) {
-						enemy = EnemyCombatants[i];
-						percentHP = (int)Mathf.Round(enemy.HitPoints / (float)enemy.MaxHitPoints * 100);
-						
-						if(GUILayout.Button("<b>" + enemy.name + "</b> (" + percentHP + "%)" )) {
-							PlayerCombatants[CurrentTurn].Attack(SelectedAttack, enemy);
+					for(int i = 0; i < availableTargets.Count; i++) {
+						availableTarget = availableTargets[i];
+						percentHP = (int)Mathf.Round(availableTarget.HitPoints / (float)availableTarget.MaxHitPoints * 100);
+
+
+						if(availableTarget.HitPoints == 0)
+							GUI.enabled = false;
+
+						if(GUILayout.Button("<b>" + availableTarget.name + "</b> (" + percentHP + "%)" )) {
+							((PlayerCombatant)PlayerCombatants[CurrentTurn]).Attack(SelectedAttack, availableTarget);
 
 							//restore opacity of enemies
-							foreach(EnemyCombatant e in EnemyCombatants) {
-								((SpriteRenderer)e.renderer).color = new Color(1, 1, 1, 1);
+							foreach(BattleCombatant c in availableTargets) {
+								((SpriteRenderer)c.renderer).color = new Color(1, 1, 1, 1);
 							}
 
 							TargetSelection = false;
-							turnNearlyFinished = true;
+							waitingForAttack = true;
 						}
 
+
+
 						// add mouseover effect to enemies
-						if(!turnNearlyFinished) {
+						if(!waitingForAttack) {
 							if(Event.current.type == EventType.Repaint && 
 							   GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition )) {
-								((SpriteRenderer)enemy.renderer).color = new Color(1, 1, 1, 1);
+								((SpriteRenderer)availableTarget.renderer).color = new Color(1, 1, 1, 1);
 							} else {
-								((SpriteRenderer)enemy.renderer).color = new Color(1, 1, 1, 0.5f);
+								((SpriteRenderer)availableTarget.renderer).color = new Color(1, 1, 1, 0.5f);
 							}
 						}
+
+						if(availableTarget.HitPoints == 0)
+							GUI.enabled = true;
 					}
 
 
@@ -180,15 +197,15 @@ public class BattleController : MonoBehaviour {
 				// get which enemy's turn it is
 				int enemyIndex = CurrentTurn - PlayerCombatants.Count;
 
-				if(!turnNearlyFinished) {
-					EnemyCombatants[enemyIndex].AutoAttack(PlayerCombatants);
-					turnNearlyFinished = true;
+				if(!waitingForAttack) {
+					((EnemyCombatant)EnemyCombatants[enemyIndex]).AutoAttack(PlayerCombatants);
+					waitingForAttack = true;
 				} else {
 					// has the enemy finished their attack/animation?
 					if(Event.current.type == EventType.Repaint && 
 					   !EnemyCombatants[enemyIndex].AnimationInProgress) {
 
-						turnNearlyFinished = false;
+						waitingForAttack = false;
 						IncrementTurn();
 						return;
 					}
@@ -223,7 +240,14 @@ public class BattleController : MonoBehaviour {
 
 			GUILayout.EndArea ();
 
-
+			//finally, check if either side has won/lost
+			if(PlayerCombatants.Find((BattleCombatant c) => c.HitPoints > 0) == null) {
+				//this means the players are all dead
+				PlayersDefeated();
+			} else if(EnemyCombatants.Find((BattleCombatant c) => c.HitPoints > 0) == null) {
+				// this means the enemies are all dead
+				EnemiesDefeated();
+			}
 		}
 	}
 
@@ -258,8 +282,30 @@ public class BattleController : MonoBehaviour {
 	}
 
 	private void IncrementTurn() {
+		//increase to the next sequential turn number
 		CurrentTurn++;
 		CurrentTurn %= totalCombatants;
+
+		//if the player at that turn is dead, skip their turn
+		if(CurrentTurn < PlayerCombatants.Count) {
+			if(PlayerCombatants[CurrentTurn].HitPoints == 0) {
+				IncrementTurn();
+			}
+		} else {
+			if(EnemyCombatants[CurrentTurn - PlayerCombatants.Count].HitPoints == 0) {
+				IncrementTurn();
+			}
+		}
+
+	}
+
+	private void PlayersDefeated() {
+		// TODO go to game over screen or lose lives or something
+	}
+
+	private void EnemiesDefeated() {
+		BattleStarted = false;
+		// TODO notify cutscene manager of the battle's completion
 	}
 	
 }

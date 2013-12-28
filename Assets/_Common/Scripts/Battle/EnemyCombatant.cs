@@ -6,7 +6,7 @@ abstract public class EnemyCombatant : BattleCombatant {
 	
 	public List<PlayerAttack> Attacks { get; protected set; }
 
-	protected PlayerCombatant target;
+	protected BattleCombatant target;
 
 	public override void Start () {
 		base.Start ();
@@ -17,5 +17,5 @@ abstract public class EnemyCombatant : BattleCombatant {
 	/// <summary>
 	/// Automatically selects a target and attacks it
 	/// </summary>
-	abstract public void AutoAttack (List<PlayerCombatant> playerList);
+	abstract public void AutoAttack (List<BattleCombatant> targetList);
 }

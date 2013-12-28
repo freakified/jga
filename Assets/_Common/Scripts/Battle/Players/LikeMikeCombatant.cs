@@ -38,7 +38,7 @@ public class LikeMikeCombatant : PlayerCombatant {
 		
 	}
 
-	public override void Attack(PlayerAttack attack, EnemyCombatant target) {
+	public override void Attack(PlayerAttack attack, BattleCombatant target) {
 		
 	}
 }

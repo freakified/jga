@@ -9,7 +9,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 	public AudioClip knifeSlash;
 
 	private PlayerAttack currentAttack;
-	private EnemyCombatant currentAttackTarget;
+	private BattleCombatant currentAttackTarget;
 
 	private enum AnimationSequence { None, JumpForward, JumpBackward }
 
@@ -29,12 +29,13 @@ public class ChefTonyCombatant : PlayerCombatant {
 		//set up basic stats
 		MaxHitPoints = 100;
 		HitPoints = 100;
+		anim.SetInteger("HP", HitPoints);
 
 		//set up the list of attacks
 		PlayerAttack attack1 = new PlayerAttack();
 		attack1.Name = "All-Purpose Slice";
 		attack1.Description = "Stabs a single target with the Miracle Blade™ All-Purpose Slicer™.";
-		attack1.BasePower = 25;
+		attack1.BasePower = 75;
 		attack1.IsHealingMove = false;
 
 		PlayerAttack attack2 = new PlayerAttack();
@@ -61,7 +62,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 				Vector2 launchVelocity = new Vector2(7f, 0f);
 
 				//calculated the needed initial vertical speed to reach the target
-				float dist = currentAttackTarget.transform.position.x - transform.position.x - 0.5f;
+				float dist = currentAttackTarget.transform.position.x - transform.position.x - 0.3f;
 				float time = dist / launchVelocity.x;
 				launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
 
@@ -113,12 +114,17 @@ public class ChefTonyCombatant : PlayerCombatant {
 		}
 	}
 
-	public override void Attack(PlayerAttack attack, EnemyCombatant target) {
+	public override void Attack(PlayerAttack attack, BattleCombatant target) {
 		currentAttack = attack;
 		currentAttackTarget = target;
-		AnimationInProgress = true;
-		currentAnimation = AnimationSequence.JumpForward;
-		attackAnimationState = AttackAnimationState.NeedsToStart;
+
+		if(attack.Name == "Fried Chicken Smoothie") {
+			currentAttackTarget.Heal(attack.BasePower);
+		} else if(attack.Name == "All-Purpose Slice") {
+			AnimationInProgress = true;
+			currentAnimation = AnimationSequence.JumpForward;
+			attackAnimationState = AttackAnimationState.NeedsToStart;
+		}
 
 	}
 	

@@ -19,5 +19,5 @@ abstract public class PlayerCombatant : BattleCombatant {
 	/// </summary>
 	/// <param name="attack">The attack to use</param>
 	/// <param name="attack">The target</param>
-	abstract public void Attack (PlayerAttack attack, EnemyCombatant target);
+	abstract public void Attack (PlayerAttack attack, BattleCombatant target);
 }
