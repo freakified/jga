@@ -13,12 +13,12 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 			elapsedTime += Time.deltaTime;
 	}
 
-	void OnEnable() {
+	public virtual void OnEnable() {
 		CutsceneController.OnCutsceneChange += UpdateSceneNumber;
 	}
 	
 	
-	void OnDisable() {
+	public virtual void OnDisable() {
 		CutsceneController.OnCutsceneChange -= UpdateSceneNumber;
 	}
 

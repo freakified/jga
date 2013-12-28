@@ -15,6 +15,11 @@ public class BattleController : MonoBehaviour {
 	public List<BattleCombatant> EnemyCombatants;
 
 	public bool EnabledAtStart = true;
+
+	[HideInInspector]
+	public delegate void BattleEventHandler(BattleEvent eventType);
+	[HideInInspector]
+	public static event BattleEventHandler OnBattleEvent;
 	
 	private int totalCombatants;
 
@@ -40,6 +45,9 @@ public class BattleController : MonoBehaviour {
 	public void StartBattle() {
 		totalCombatants = PlayerCombatants.Count + EnemyCombatants.Count;
 		CurrentTurn = 0;
+
+		//notify any listeners that the battle started
+		OnBattleEvent(BattleEvent.Started);
 			
 		BattleStarted = true;
 
@@ -148,7 +156,6 @@ public class BattleController : MonoBehaviour {
 
 					BattleCombatant availableTarget;
 					int percentHP;
-					Rect[] targetButtons = new Rect[availableTargets.Count];
 
 					for(int i = 0; i < availableTargets.Count; i++) {
 						availableTarget = availableTargets[i];
@@ -305,7 +312,7 @@ public class BattleController : MonoBehaviour {
 
 	private void EnemiesDefeated() {
 		BattleStarted = false;
-		// TODO notify cutscene manager of the battle's completion
+		OnBattleEvent(BattleEvent.Finished);
 	}
 	
 }

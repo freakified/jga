@@ -23,9 +23,6 @@ public class ChefTonyCombatant : PlayerCombatant {
 	public override void Start () {
 		base.Start ();
 
-		//save initial position
-		initialPosition = transform.position;
-
 		//set up basic stats
 		MaxHitPoints = 100;
 		HitPoints = 100;
@@ -121,6 +118,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 		if(attack.Name == "Fried Chicken Smoothie") {
 			currentAttackTarget.Heal(attack.BasePower);
 		} else if(attack.Name == "All-Purpose Slice") {
+			initialPosition = transform.position;
 			AnimationInProgress = true;
 			currentAnimation = AnimationSequence.JumpForward;
 			attackAnimationState = AttackAnimationState.NeedsToStart;

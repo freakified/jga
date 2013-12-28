@@ -170,7 +170,7 @@ public class CutsceneController : MonoBehaviour {
 		CutsceneElement newElement = new CutsceneElement();
 
 		// if the line is not denoted as blank...
-		if (line != "...") {
+		if (line != "***") {
 			string[] splitLine = line.Split (new char[] {':'}, 2);
 
 			newElement.hasDialog = true;
@@ -205,7 +205,6 @@ public class CutsceneController : MonoBehaviour {
 		public string dialogText;
 
 		public override string ToString () {
-
 			return  "(" + this.hasDialog + ")" + this.speakerName + "::" + this.dialogText + "\n";
 		}
 	}
