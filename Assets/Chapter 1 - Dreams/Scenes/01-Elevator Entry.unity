@@ -86,6 +86,7 @@ GameObject:
   - 92: {fileID: 12071419}
   - 124: {fileID: 12071418}
   - 81: {fileID: 12071417}
+  - 114: {fileID: 12071422}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -154,6 +155,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &12071422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12071416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f0992714b6a435e8e3510e4284d13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInDuration: 2
+  fadeInFrom: {r: 0, g: 0, b: 0, a: 1}
+  isFading: 1
 --- !u!1 &29332793
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +777,6 @@ GameObject:
   - 4: {fileID: 682367760}
   - 114: {fileID: 682367762}
   - 114: {fileID: 682367761}
-  - 114: {fileID: 682367759}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -770,20 +784,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &682367759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682367758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2f0992714b6a435e8e3510e4284d13e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeInDuration: 2
-  fadeInFrom: {r: 0, g: 0, b: 0, a: 1}
-  isFading: 1
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0

@@ -36,13 +36,11 @@ public class S2Puppeteer : CutscenePuppeteer {
 		if(CurrentScene == 0) {
 			if(ChefTony.transform.position.x > -1.79) {
 				// next: Chef Tony needs disable/enable control methods
-				//ChefTony.GetComponent<PlayerFreeze>().Freeze();
+				ChefTony.GetComponent<PlayerFreeze>().Freeze();
 
 				//start the cutscene
-				//nextScene();
+				nextScene();
 			}
-		} else if(CurrentScene == 7) {
-
 		}
 
 		if(ChefTony.transform.position.x > 2.4 && !elevTriggered) {
