@@ -1055,7 +1055,7 @@ ParticleSystem:
       minMaxState: 1
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     type: 0
     plane0: {fileID: 400000, guid: b639b194f2258428c8ccb0a6eabddd4e, type: 2}
     plane1: {fileID: 0}

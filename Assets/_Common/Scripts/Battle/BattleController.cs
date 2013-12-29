@@ -149,6 +149,12 @@ public class BattleController : MonoBehaviour {
 					GUILayout.Label ("<b>" + SelectedAttack.Name + "</b>");
 					if(GUILayout.Button("Cancel", GUILayout.ExpandWidth (false))) {
 						TargetSelection = false;
+
+						//restore opacity of targets
+						foreach(BattleCombatant c in availableTargets) {
+							((SpriteRenderer)c.renderer).color = new Color(1, 1, 1, 1);
+						}
+
 					}
 					GUILayout.EndHorizontal();
 
@@ -168,7 +174,7 @@ public class BattleController : MonoBehaviour {
 						if(GUILayout.Button("<b>" + availableTarget.name + "</b> (" + percentHP + "%)" )) {
 							((PlayerCombatant)PlayerCombatants[CurrentTurn]).Attack(SelectedAttack, availableTarget);
 
-							//restore opacity of enemies
+							//restore opacity of targets
 							foreach(BattleCombatant c in availableTargets) {
 								((SpriteRenderer)c.renderer).color = new Color(1, 1, 1, 1);
 							}
@@ -180,7 +186,7 @@ public class BattleController : MonoBehaviour {
 
 
 						// add mouseover effect to enemies
-						if(!waitingForAttack) {
+						if(TargetSelection) {
 							if(Event.current.type == EventType.Repaint && 
 							   GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition )) {
 								((SpriteRenderer)availableTarget.renderer).color = new Color(1, 1, 1, 1);

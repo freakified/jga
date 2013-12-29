@@ -7,6 +7,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 //	public bool EnableHealAttack = true;
 
 	public AudioClip knifeSlash;
+	public AudioClip healSound;
 
 	private PlayerAttack currentAttack;
 	private BattleCombatant currentAttackTarget;
@@ -116,6 +117,8 @@ public class ChefTonyCombatant : PlayerCombatant {
 		currentAttackTarget = target;
 
 		if(attack.Name == "Fried Chicken Smoothie") {
+			anim.Play("Jumping");
+			playSound(healSound);
 			currentAttackTarget.Heal(attack.BasePower);
 		} else if(attack.Name == "All-Purpose Slice") {
 			initialPosition = transform.position;

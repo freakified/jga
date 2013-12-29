@@ -6,7 +6,7 @@ public class InstadieOnCollide : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if(coll.collider.name != "Ground") {
-			GetComponent<Animator>().Play ("Dying");
+			GetComponent<Animator>().SetInteger ("HP", 0);
 
 			blood = Instantiate(blood) as ParticleSystem;
 			blood.transform.position = transform.position;
