@@ -1243,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageParticles: {fileID: 19800000, guid: 7e814593eb1c14786ad023a205edd9c5, type: 2}
   knifeSlash: {fileID: 8300000, guid: e7da17a40e8f743efbfe45424ad3a286, type: 3}
+  healSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
 --- !u!1 &1874910526
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ Transition:
   - m_ConditionMode: 5
     m_ConditionEvent: IsJumping
     m_EventTreshold: 0
-    m_ExitTime: 2
+    m_ExitTime: .5
   m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
@@ -254,10 +254,10 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Jumping
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 12ee5c11fb47348ce89d67b363bb1763, type: 2}
+  - {fileID: 7400000, guid: c14d8da9a2c7f4a1a92618eb410c1559, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 288, y: 48, z: 0}
   m_IKOnFeet: 0

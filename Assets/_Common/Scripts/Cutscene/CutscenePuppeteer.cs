@@ -6,6 +6,7 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 	protected int CurrentScene = 0;
 	protected float elapsedTime = 0;
 	protected bool timerRunning = false;
+	private CameraFade fader;
 
 
 	public virtual void Update() {
@@ -15,6 +16,8 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 
 	public virtual void OnEnable() {
 		CutsceneController.OnCutsceneChange += UpdateSceneNumber;
+
+		fader = Camera.main.GetComponent<CameraFade>();
 	}
 	
 	
@@ -52,6 +55,12 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 
 	protected void playSound(AudioClip sound) {
 		AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
+	}
+
+	protected IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
+		fader.StartFade(fadeTo, seconds);
+		yield return new WaitForSeconds(seconds);
+		Application.LoadLevel(nextScene);
 	}
 
 	
