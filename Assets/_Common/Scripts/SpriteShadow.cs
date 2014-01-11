@@ -22,8 +22,11 @@ public class SpriteShadow : MonoBehaviour {
 	/// </summary>
 	public float shadowPositionY;
 
+
+	private bool yPositionAsOffset = false;
 	private Transform shadowTransform;
 	private Vector2 shadowPosition;
+	private float shadowOffsetY;
 
 	// Use this for initialization
 	void Start () {
@@ -35,15 +38,34 @@ public class SpriteShadow : MonoBehaviour {
 		if(ground != null) {
 			shadowPositionY = ground.transform.position.y;
 		}
-		
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		shadowPosition = transform.position;
 		shadowPosition.x = transform.position.x + shadowOffsetX;
-		shadowPosition.y = shadowPositionY;
+
+		if(!yPositionAsOffset) {
+			shadowPosition.y = shadowPositionY;
+		} else {
+			shadowPosition.y = transform.position.y + shadowOffsetY;
+		}
 
 		shadowTransform.position = shadowPosition;
+	}
+
+	/// <summary>
+	/// Causes the shadow will move with the sprite along the Y axis.
+	/// </summary>
+	public void LockShadowY() {
+		shadowOffsetY = shadowPositionY - transform.position.y;
+
+		yPositionAsOffset = true;
+	}
+
+	public void UnlockShadowY() {
+		yPositionAsOffset = false;
 	}
 }

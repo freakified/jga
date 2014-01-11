@@ -58,9 +58,11 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 	}
 
 	protected IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
+		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
 		fader.StartFade(fadeTo, seconds);
 		yield return new WaitForSeconds(seconds);
-		Application.LoadLevel(nextScene);
+		if(nextScene != null)
+			Application.LoadLevel(nextScene);
 	}
 
 	
