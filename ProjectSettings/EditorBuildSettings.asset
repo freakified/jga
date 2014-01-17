@@ -6,6 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Chapter 1 - Dreams/Scenes/01-Elevator Entry.unity
+    path: Assets/Chapter 1 - Dreams/Scenes/01 Elevator Entry.unity
   - enabled: 1
-    path: Assets/Chapter 1 - Dreams/Scenes/02-Elevator Entry 2.unity
+    path: Assets/Chapter 1 - Dreams/Scenes/02 Elevator Entry 2.unity
+  - enabled: 1
+    path: Assets/Chapter 1 - Dreams/Scenes/03 Elevator Entry 3.unity
+  - enabled: 1
+    path: Assets/Chapter 2 - France/Scenes/2-01 Limbo.unity

@@ -7,7 +7,7 @@ public class NextSceneOnCollide : MonoBehaviour {
 
 	// get the camera fade script
 	void Start () {
-		fader = GameObject.Find ("Scripts").GetComponent<CameraFade>();
+		fader = Camera.main.GetComponent<CameraFade>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +27,6 @@ public class NextSceneOnCollide : MonoBehaviour {
 	IEnumerator FadeAndNext() {
 		fader.StartFade(new Color(0, 0, 0, 1), 1);
 		yield return new WaitForSeconds(1);
-		Application.LoadLevel("02-Elevator Entry 2");
+		Application.LoadLevel("02 Elevator Entry 2");
 	}
 }
