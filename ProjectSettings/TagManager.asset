@@ -43,6 +43,22 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: Background
+    userID: 4
+    uniqueID: 2578173999
+    locked: 0
+  - name: Sprite Shadows
+    userID: 5
+    uniqueID: 3671451419
+    locked: 0
+  - name: Game Sprites
+    userID: 3
+    uniqueID: 304927011
+    locked: 0
+  - name: Foreground
+    userID: 2
+    uniqueID: 868508095
+    locked: 0
   - name: ParticleFX
     userID: 1
     uniqueID: 2095333383

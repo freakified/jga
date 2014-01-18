@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Chapter 1 - Dreams/Scenes/03 Elevator Entry 3.unity
   - enabled: 1
     path: Assets/Chapter 2 - France/Scenes/2-01 Limbo.unity
+  - enabled: 1
+    path: Assets/Chapter 2 - France/Scenes/2-02 France 1.unity

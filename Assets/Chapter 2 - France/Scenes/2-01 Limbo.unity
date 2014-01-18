@@ -276,3 +276,4 @@ MonoBehaviour:
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
   autoplayAtStart: 1
   delayBeforeAutoplay: 1
+  textSpeed: 10

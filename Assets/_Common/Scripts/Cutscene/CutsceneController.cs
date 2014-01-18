@@ -45,7 +45,7 @@ public class CutsceneController : MonoBehaviour {
 	/// <summary>
 	/// The text speed, in characters per second
 	/// </summary>
-	private float textSpeed = 50.0f;
+	public float textSpeed = 50.0f;
 	private float currentChar = 0.0f;
 
 	void Start () {
@@ -194,8 +194,10 @@ public class CutsceneController : MonoBehaviour {
 
 		// when the visibility is set to "true", we don't want to show the [spacebar] prompt
 		// right away
-		if(!state)
+		if(!state) {
 			dialogNextText.enabled = state;
+			dialogText.text = "";
+		}
 
 	}
 

@@ -25,13 +25,14 @@ public class SpriteShadow : MonoBehaviour {
 
 	private bool yPositionAsOffset = false;
 	private Transform shadowTransform;
-	private Vector2 shadowPosition;
+	private Vector3 shadowPosition;
 	private float shadowOffsetY;
 
 	// Use this for initialization
 	void Start () {
 		//create the shadow
 		shadowTransform = Instantiate(shadowPrefab) as Transform;
+		shadowTransform.parent = transform;
 
 		GameObject ground = GameObject.Find("Ground");
 
@@ -46,6 +47,7 @@ public class SpriteShadow : MonoBehaviour {
 	void Update () {
 		shadowPosition = transform.position;
 		shadowPosition.x = transform.position.x + shadowOffsetX;
+		shadowPosition.z = transform.position.z;
 
 		if(!yPositionAsOffset) {
 			shadowPosition.y = shadowPositionY;
