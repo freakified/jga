@@ -54,7 +54,7 @@ public class S3Puppeteer : CutscenePuppeteer {
 			}
 		} else if(CurrentScene == 5) {
 			sparks = Instantiate(SparksPrefab) as GameObject;
-			sparks.transform.position = ChefTony.transform.position;
+			sparks.transform.position = ChefTony.transform.position + new Vector3(.4f, 0f, 0f);
 			playSound(explosionNoise);
 			startTimer();
 			nextScene();

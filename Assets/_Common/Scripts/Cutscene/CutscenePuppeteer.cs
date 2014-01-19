@@ -8,16 +8,23 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 	protected bool timerRunning = false;
 	private CameraFade fader;
 
+	private AudioSource soundSource;
+
 
 	public virtual void Update() {
 		if(timerRunning)
 			elapsedTime += Time.deltaTime;
 	}
 
+	public void Awake() {
+		soundSource = gameObject.AddComponent<AudioSource>();
+	}
+		
 	public virtual void OnEnable() {
 		CutsceneController.OnCutsceneChange += UpdateSceneNumber;
 
 		fader = Camera.main.GetComponent<CameraFade>();
+
 	}
 	
 	
@@ -54,7 +61,12 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 	}
 
 	protected void playSound(AudioClip sound) {
-		AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
+		soundSource.clip = sound;
+		soundSource.Play();
+	}
+
+	protected void stopSound() {
+		soundSource.Stop();
 	}
 
 	protected IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {

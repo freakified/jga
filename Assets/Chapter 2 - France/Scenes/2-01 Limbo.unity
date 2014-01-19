@@ -272,7 +272,7 @@ MonoBehaviour:
   screenplay: {fileID: 4900000, guid: 64ea32d6101784f2b95fb09e10763f48, type: 3}
   dialogSpeakerText: {fileID: 13200000, guid: 04f51bd96936743cfbd1cea185c3c7b1, type: 2}
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
-  textBox: {fileID: 400000, guid: 4d17151a3ad024e60aec564ac5a921ff, type: 2}
+  textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
   autoplayAtStart: 1
   delayBeforeAutoplay: 1

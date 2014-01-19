@@ -4,74 +4,69 @@ using System.Collections.Generic;
 
 public class S202Puppeteer : CutscenePuppeteer {
 
-	public AudioClip explosionNoise;
-	public AudioClip knife;
-
-	public GameObject SparksPrefab;
+	public AudioClip phoneRing;
+	public AudioClip phonePickup;
 
 	private GameObject ChefTony;
-	private GameObject sparks;
+
 	private Animator ctanim;
+
+	private float cameraSpeed = -1.5f;
+	private Vector3 cameraPosition;
 		
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
+		ctanim = ChefTony.GetComponent<Animator>();
+		
+
+		ctanim.SetInteger("HP", 0);
+		startTimer();
 	}
 	
 	// Update is called once per frame
 	public void FixedUpdate () {
-
 		if(CurrentScene == 0) {
-			if(ChefTony.transform.position.x > -1.79) {
-				// next: Chef Tony needs disable/enable control methods
-				ChefTony.GetComponent<PlayerFreeze>().Freeze();
-
-				ctanim = ChefTony.GetComponent<Animator>();
-
-				//start the cutscene
-				nextScene();
-			}
-		} else if(CurrentScene == 2) {
-			ctanim.SetFloat("Speed", 1);
-			ChefTony.rigidbody2D.gravityScale = 0;
-			ChefTony.rigidbody2D.velocity = new Vector2(2f, 0.3f);
-			ChefTony.GetComponent<SpriteShadow>().LockShadowY();
-			nextScene();
-		} else if(CurrentScene == 3) {
-			if(ChefTony.transform.position.x > -0.3) {
-				ctanim.SetFloat("Speed", 0);
-				ChefTony.rigidbody2D.velocity = Vector2.zero;
+			// camera pan in effect
+		 	if(Camera.main.transform.position.z > -10) {
+				cameraPosition = Camera.main.transform.position;
+				cameraPosition.z += cameraSpeed * Time.fixedDeltaTime;
+				Camera.main.transform.position = cameraPosition;
+			} else {
 				startTimer();
 				nextScene();
 			}
+		} else if(CurrentScene == 1) {
+			if(timerIsGreaterThan(1)) {
+				stopTimer();
+				ctanim.SetInteger("HP", 100);
+				nextScene();
+			}
 		} else if(CurrentScene == 4) {
-			if(timerIsGreaterThan(0.2f)) {
-				stopTimer();
-				playSound(knife);
-				ctanim.SetBool("IsAttacking", true);
+			if(ChefTony.transform.position.x > -2.2f) {
+				ChefTony.GetComponent<PlayerFreeze>().Freeze();
 				nextScene();
 			}
-		} else if(CurrentScene == 5) {
-			sparks = Instantiate(SparksPrefab) as GameObject;
-			sparks.transform.position = ChefTony.transform.position;
-			playSound(explosionNoise);
-			startTimer();
-			nextScene();
-		} else if(CurrentScene == 6) {
-			if(timerIsGreaterThan(0.3f)) {
-				stopTimer();
-				StartCoroutine(FadeAndNext(Color.white, 5, "2-01 Limbo"));
+		} else if(CurrentScene == 7) {
+			if(ChefTony.transform.position.x > 0.38f) {
+				ChefTony.GetComponent<PlayerFreeze>().Freeze();
+				playSound(phonePickup);
+				StartCoroutine(FadeAndNext(Color.black, 2, "2-03 Inside Payphone"));
 				nextScene();
 			}
-		}
-
-
+		} 
 	}
 
 	public override void HandleSceneChange() {
-		// once the text is ready, start the battle
 
+		if(CurrentScene == 4) {
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+		} else if(CurrentScene == 5) {
+			playSound(phoneRing);
+		} else if(CurrentScene == 7) {
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+		}
 	}
 
 }

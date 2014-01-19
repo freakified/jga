@@ -22,10 +22,10 @@ public class CutsceneController : MonoBehaviour {
 	public static event ChangedEventHandler OnCutsceneChange;
 
 
-	private Vector3 speakerTextPos = new Vector3(0.04f, 0.95f, 3f);
-	private Vector3 dialogTextPos = new Vector3(0.04f, 0.89f, 3f);
-	private Vector3 textBoxPos = new Vector3(-0.71f, 1.31f, 3f);
-	private Vector3 dialogNextTextPos = new Vector3(0.64f, 0.82f, 3f);
+	private Vector3 speakerTextPos = new Vector3(0.04f, 0.95f, 8f);
+	private Vector3 dialogTextPos = new Vector3(0.04f, 0.89f, 8f);
+	private Vector3 textBoxPos = new Vector3(-0.71f, 1.31f, 8f);
+	private Vector3 dialogNextTextPos = new Vector3(0.64f, 0.82f, 8f);
 
 
 	/// <summary>
