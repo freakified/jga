@@ -82,12 +82,12 @@ public class CutsceneController : MonoBehaviour {
 					currentChar + textSpeed * Time.deltaTime,
 					cutsceneElements[cutscenePosition - 1].dialogText.Length);
 
-				//test
 				dialogTextWrapper.SetText(
 					cutsceneElements[cutscenePosition - 1].dialogText.Substring(0, (int)currentChar)
 				);
 			} else {
-				dialogNextText.enabled = true;
+				if(cutsceneElements[cutscenePosition - 1].allowPlayerAdvance)
+					dialogNextText.enabled = true;
 			}
 		}
 
@@ -177,8 +177,16 @@ public class CutsceneController : MonoBehaviour {
 		if (line != "***") {
 			string[] splitLine = line.Split (new char[] {':'}, 2);
 
+			// should the player be allowed to advance manually?
+			if(splitLine[0][0] == '*') {
+				newElement.allowPlayerAdvance = false;
+				newElement.speakerName = splitLine [0].Substring(1).Trim ();
+			} else {
+				newElement.speakerName = splitLine [0].Trim ();
+			}
+
 			newElement.hasDialog = true;
-			newElement.speakerName = splitLine [0].Trim ();
+
 			newElement.dialogText = splitLine [1].Trim ();
 		}
 
@@ -207,6 +215,7 @@ public class CutsceneController : MonoBehaviour {
 
 	private class CutsceneElement {
 		public bool hasDialog = false;
+		public bool allowPlayerAdvance = true;
 		public string speakerName;
 		public string dialogText;
 
