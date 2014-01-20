@@ -35,7 +35,8 @@ public class MusicPlayer : MonoBehaviour {
 		soundSource = gameObject.AddComponent<AudioSource>();
 		soundSource.loop = loop;
 
-		PlayMusic (music, loop);
+		if(playAtStart)
+			PlayMusic (music, loop);
 	}
 
 	public void PlayMusic(AudioClip newMusic, bool shouldLoop) {

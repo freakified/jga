@@ -42,6 +42,12 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 
 	/* Various convenience methods for subclasses */
 
+	protected void flipObject(GameObject g) {
+		Vector3 theScale = g.transform.localScale;
+		theScale.x *= -1;
+		g.transform.localScale = theScale;
+	}
+
 	protected void nextScene() {
 		GetComponent<CutsceneController>().playNext();
 	}

@@ -27,6 +27,7 @@ public class CutsceneController : MonoBehaviour {
 	private Vector3 textBoxPos = new Vector3(-0.71f, 1.31f, 8f);
 	private Vector3 dialogNextTextPos = new Vector3(0.64f, 0.82f, 8f);
 
+	private WordWrapText dialogTextWrapper;
 
 	/// <summary>
 	/// Should the cutscene begin automatically when the scene starts?
@@ -81,8 +82,10 @@ public class CutsceneController : MonoBehaviour {
 					currentChar + textSpeed * Time.deltaTime,
 					cutsceneElements[cutscenePosition - 1].dialogText.Length);
 
-				dialogText.text = 
-					cutsceneElements[cutscenePosition - 1].dialogText.Substring(0, (int)currentChar);
+				//test
+				dialogTextWrapper.SetText(
+					cutsceneElements[cutscenePosition - 1].dialogText.Substring(0, (int)currentChar)
+				);
 			} else {
 				dialogNextText.enabled = true;
 			}
@@ -100,6 +103,7 @@ public class CutsceneController : MonoBehaviour {
 		
 		dialogText = Instantiate(dialogText) as GUIText;
 		dialogText.transform.position = dialogTextPos;
+		dialogTextWrapper = dialogText.GetComponent<WordWrapText>();
 
 		textBox = Instantiate(textBox) as Transform;
 		textBox.transform.parent = GameObject.Find("Main Camera").transform;
