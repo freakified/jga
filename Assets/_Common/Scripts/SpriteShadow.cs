@@ -23,7 +23,7 @@ public class SpriteShadow : MonoBehaviour {
 	public float shadowPositionY;
 
 
-	private bool yPositionAsOffset = false;
+	public bool yPositionAsOffset = false;
 	private Transform shadowTransform;
 	private Vector3 shadowPosition;
 	private float shadowOffsetY;
