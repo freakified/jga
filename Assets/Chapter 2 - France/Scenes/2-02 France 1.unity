@@ -832,7 +832,7 @@ MonoBehaviour:
   jump: 0
   moveForce: 300
   jumpForce: 100
-  maxSpeed: 2
+  maxSpeed: 1
 --- !u!50 &1795993611
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -876,6 +876,7 @@ MonoBehaviour:
   shadowPrefab: {fileID: 400000, guid: 1375b12de5c234a36b2f4182219ee88b, type: 2}
   shadowOffsetX: 0
   shadowPositionY: -2.32999992
+  yPositionAsOffset: 0
 --- !u!114 &1795993614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -994,6 +995,14 @@ Prefab:
     - target: {fileID: 11400006, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: maxSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: FrozenAtStart
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}

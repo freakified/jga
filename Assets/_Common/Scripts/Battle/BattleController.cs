@@ -130,13 +130,13 @@ public class BattleController : MonoBehaviour {
 						}
 					}
 				}
-
+				
 				// target selection box
 				if(TargetSelection && !waitingForAttack) {
 
 					List<BattleCombatant> availableTargets;
 
-					if(SelectedAttack.IsHealingMove)
+					if(SelectedAttack.Type == AttackType.Heal)
 						availableTargets = PlayerCombatants;
 					else
 						availableTargets = EnemyCombatants;

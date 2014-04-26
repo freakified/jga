@@ -45,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.28000021, y: -1.1873306, z: 0}
+  m_LocalPosition: {x: -2.86653852, y: -1.80804181, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -68,7 +68,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
@@ -116,7 +116,7 @@ MonoBehaviour:
   jump: 0
   moveForce: 300
   jumpForce: 100
-  maxSpeed: 2
+  maxSpeed: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +131,7 @@ MonoBehaviour:
   shadowPrefab: {fileID: 400000, guid: 1375b12de5c234a36b2f4182219ee88b, type: 2}
   shadowOffsetX: 0
   shadowPositionY: -2.32999992
+  yPositionAsOffset: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9acf39eaa414d94b72bee6cd5678ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrozenAtStart: 1
+  FrozenAtStart: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

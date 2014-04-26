@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
 	private Animator anim;					// Reference to the player's animator component.
 
 	
-	void Start()
+	void Awake()
 	{
 		anim = GetComponent<Animator>();
 		groundCheck = transform.Find("GroundCheck");
@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetButtonDown("Select") && grounded) {
 			jump = true;
-			anim.SetBool("IsJumping", true);
+
 		}
 	}
 	
@@ -76,7 +76,8 @@ public class PlayerControl : MonoBehaviour
 		// If the player should jump...
 		if(jump)
 		{
-			
+			anim.SetBool("IsJumping", true);
+
 			// Add a vertical force to the player.
 			rigidbody2D.AddForce(new Vector2(0f, jumpForce));
 			

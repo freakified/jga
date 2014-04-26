@@ -151,16 +151,19 @@ public class CutsceneController : MonoBehaviour {
 	/// </summary>
 	private void populateCutsceneElements() {
 		cutsceneElements = new List<CutsceneElement>();
-		
-		// read the Script into the scene list
-		StringReader reader = new StringReader (screenplay.text);
-		
-		string line = reader.ReadLine (); 
-		
-		while (line != null) {
-			cutsceneElements.Add(readSceneElement(line));
+
+
+		if(screenplay != null) {
+			// read the Script into the scene list
+			StringReader reader = new StringReader (screenplay.text);
 			
-			line = reader.ReadLine();
+			string line = reader.ReadLine (); 
+			
+			while (line != null) {
+				cutsceneElements.Add(readSceneElement(line));
+				
+				line = reader.ReadLine();
+			}
 		}
 	}
 

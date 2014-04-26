@@ -10,6 +10,11 @@ public class MusicPlayer : MonoBehaviour {
 
 	private static MusicPlayer instance = null;
 
+	//used for fade out function
+	private bool fadingOut = false;
+	private float fadeDuration;
+	private float fadeElapsed;
+
 	public static MusicPlayer Instance {
 		get { return instance; }
 	}
@@ -41,12 +46,38 @@ public class MusicPlayer : MonoBehaviour {
 
 	public void PlayMusic(AudioClip newMusic, bool shouldLoop) {
 		soundSource.Stop();
+		soundSource.volume = 1.0f;
 		music = newMusic;
 		soundSource.loop = shouldLoop;
 		
 		if(newMusic != null) {
 			soundSource.clip = music;
 			soundSource.Play();
+		}
+	}
+
+	//stops the current music immediately
+	public void StopMusic() {
+		soundSource.Stop();
+	}
+
+	//stops the current music, with a fade out
+	public void StopMusic(float fadeLength) {
+		fadingOut = true;
+		fadeDuration = fadeLength;
+		fadeElapsed = 0;
+	}
+
+	public void Update() {
+		if(fadingOut) {
+			fadeElapsed += Time.deltaTime;
+			soundSource.volume = Mathf.Lerp(1.0f, 0.0f, fadeElapsed / fadeDuration);
+
+			//if the fade is complete stop the audio altogether
+			if(fadeElapsed >= fadeDuration) {
+				fadingOut = false;
+				soundSource.Stop();
+			}
 		}
 	}
 

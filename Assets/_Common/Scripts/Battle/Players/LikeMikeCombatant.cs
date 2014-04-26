@@ -19,13 +19,13 @@ public class LikeMikeCombatant : PlayerCombatant {
 		attack1.Name = "Slam Dunk";
 		attack1.Description = "Scores a totally radical slam dunk, damaging a single target.";
 		attack1.BasePower = 25;
-		attack1.IsHealingMove = false;
+		attack1.Type = AttackType.Damage;
 
 		PlayerAttack attack2 = new PlayerAttack();
 		attack2.Name = "Gatorade™ Thirst Quencher™";
 		attack2.Description = "<i>Real</i> athletes literally sweat this substance.  Restores health.";
 		attack2.BasePower = 25;
-		attack2.IsHealingMove = true;
+		attack2.Type = AttackType.Heal;
 
 		Attacks.Add (attack1);
 		Attacks.Add (attack2);

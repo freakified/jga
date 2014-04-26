@@ -56,6 +56,7 @@ public class SpriteShadow : MonoBehaviour {
 		}
 
 		shadowTransform.position = shadowPosition;
+		shadowTransform.rotation = Quaternion.identity;
 	}
 
 	/// <summary>

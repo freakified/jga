@@ -19,6 +19,8 @@ public class PlayerCartControl : MonoBehaviour {
 	private float minZ = -3.6f;
 	private float maxZ = -0.2f;
 
+	private bool levelIsEnding = false;
+
 	// how much smoke will the cart emit with 1 damage vs max damage
 	public int smokeEmissionMin = 10;
 	public int smokeEmissionMax = 100;
@@ -53,6 +55,17 @@ public class PlayerCartControl : MonoBehaviour {
 		Camera.main.transform.position = new Vector3(transform.position.x + 2.61f, 
 		                                    transform.position.y + 2.33f, 
                                             Camera.main.transform.position.z);
+
+		// chef if we're at the end of the level
+		if(!levelIsEnding && transform.position.x > 208.4) {
+			levelIsEnding = true;
+
+			//todo: use a better smash sound
+			AudioSource.PlayClipAtPoint(smashSound, Camera.main.transform.position);
+
+			StartCoroutine(EndLevel());
+		} 
+
 	}
 
 	void OnTriggerEnter (Collider obstacle) {
@@ -87,6 +100,15 @@ public class PlayerCartControl : MonoBehaviour {
 			forwardSpeed = 0;
 			turnSpeed = 0;
 		}
+	}
+
+	protected IEnumerator EndLevel() {
+		CameraFade fader = Camera.main.GetComponent<CameraFade>();
+
+		fader.SetScreenOverlayColor (new Color(0, 0, 0, 0));
+		fader.StartFade(Color.black, 2);
+		yield return new WaitForSeconds(2);
+		Application.LoadLevel(null);
 	}
 
 }

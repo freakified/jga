@@ -19,3 +19,9 @@ EditorBuildSettings:
     path: Assets/Chapter 2 - France/Scenes/2-03 Inside Payphone.unity
   - enabled: 1
     path: Assets/Chapter 2 - France/Scenes/2-04 France 2.unity
+  - enabled: 1
+    path: Assets/Chapter 2 - France/Scenes/2-05 Cart Race.unity
+  - enabled: 1
+    path: Assets/Chapter 4 - The Shrine of Lost Dreams/Scenes/4-01 Shrine Exterior.unity
+  - enabled: 1
+    path: Assets/Chapter 4 - The Shrine of Lost Dreams/Scenes/4-02 Temple Interior.unity

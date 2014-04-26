@@ -12,7 +12,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 	private PlayerAttack currentAttack;
 	private BattleCombatant currentAttackTarget;
 
-	private enum AnimationSequence { None, JumpForward, JumpBackward }
+	private enum AnimationSequence { None, JumpForward, JumpBackward, WalkForward, WalkBackward }
 
 	private AnimationSequence currentAnimation = AnimationSequence.None;
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
@@ -34,16 +34,24 @@ public class ChefTonyCombatant : PlayerCombatant {
 		attack1.Name = "All-Purpose Slice";
 		attack1.Description = "Stabs a single target with the Miracle Blade™ All-Purpose Slicer™.";
 		attack1.BasePower = 75;
-		attack1.IsHealingMove = false;
+		attack1.Type = AttackType.Damage;
 
 		PlayerAttack attack2 = new PlayerAttack();
-		attack2.Name = "Fried Chicken Smoothie";
-		attack2.Description = "Much healthier than whipping cream.  Restores health.";
-		attack2.BasePower = 25;
-		attack2.IsHealingMove = true;
+		attack2.Name = "Sales Pitch";
+		attack2.Description = "Puts target to sleep with a lecture on the " +
+			"benefits of the Miracle Blade™ III Perfection Series™.";
+		attack2.BasePower = 3;
+		attack2.Type = AttackType.Sleep;
+
+		PlayerAttack attack3 = new PlayerAttack();
+		attack3.Name = "Fried Chicken Smoothie";
+		attack3.Description = "Much healthier than whipping cream.  Restores health.";
+		attack3.BasePower = 25;
+		attack3.Type = AttackType.Heal;
 
 		Attacks.Add (attack1);
 		Attacks.Add (attack2);
+		Attacks.Add (attack3);
 	
 	}
 	
@@ -54,12 +62,13 @@ public class ChefTonyCombatant : PlayerCombatant {
 	}
 
 	void FixedUpdate () {
+
 		if(currentAnimation == AnimationSequence.JumpForward) {
 			switch(attackAnimationState) {
 			case AttackAnimationState.NeedsToStart:
 				Vector2 launchVelocity = new Vector2(7f, 0f);
 
-				//calculated the needed initial vertical speed to reach the target
+				//calculate the needed initial vertical speed to reach the target
 				float dist = currentAttackTarget.transform.position.x - transform.position.x - 0.3f;
 				float time = dist / launchVelocity.x;
 				launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
@@ -89,11 +98,12 @@ public class ChefTonyCombatant : PlayerCombatant {
 			case AttackAnimationState.NeedsToStart:
 				Vector2 launchVelocity = new Vector2(-7f, 0f);
 				
-				//calculated the needed initial vertical speed to reach the target
+				//calculate the needed initial vertical speed to reach the initial position
 				float dist = initialPosition.x - transform.position.x;
 				float time = dist / launchVelocity.x;
 				launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
-				
+
+
 				rigidbody2D.velocity = launchVelocity;
 				
 				attackAnimationState = AttackAnimationState.InProgress;
@@ -101,12 +111,39 @@ public class ChefTonyCombatant : PlayerCombatant {
 				
 				break;
 			case AttackAnimationState.InProgress:
-				if(transform.position.x < initialPosition.x + 0.1f) {
+				if(transform.position.x < initialPosition.x + 0.2f) {
 					rigidbody2D.velocity = Vector2.zero;
 					currentAnimation = AnimationSequence.None;
 					attackAnimationState = AttackAnimationState.Off;
 					AnimationInProgress = false;
 				}
+				break;
+			}
+		} else if(currentAnimation == AnimationSequence.WalkForward) {
+			switch(attackAnimationState) {
+				case AttackAnimationState.NeedsToStart:
+
+				GetComponent<Animator>().SetFloat("Speed", 10);
+
+				GetComponent<ConstantVelocity>().enabled = true;
+				GetComponent<ConstantVelocity>().velocity =  Vector2.right * 3;
+
+				attackAnimationState = AttackAnimationState.InProgress;
+
+				break;
+				case AttackAnimationState.InProgress:
+				if(transform.position.x > currentAttackTarget.transform.position.x - 1f) {
+					GetComponent<ConstantVelocity>().enabled = false;
+					GetComponent<Animator>().SetFloat("Speed", 0);
+
+					attackAnimationState = AttackAnimationState.Complete;
+				}
+				break;
+				case AttackAnimationState.Complete:
+//				if(rigidbody2D.velocity == Vector2.zero) {
+//					currentAnimation = AnimationSequence.JumpBackward;
+//					attackAnimationState = AttackAnimationState.NeedsToStart;
+//				}
 				break;
 			}
 		}
@@ -125,6 +162,12 @@ public class ChefTonyCombatant : PlayerCombatant {
 			AnimationInProgress = true;
 			currentAnimation = AnimationSequence.JumpForward;
 			attackAnimationState = AttackAnimationState.NeedsToStart;
+		} else if(attack.Name == "Sales Pitch") {
+			initialPosition = transform.position;
+			AnimationInProgress = true;
+			currentAnimation = AnimationSequence.WalkForward;
+			attackAnimationState = AttackAnimationState.NeedsToStart;
+			//something
 		}
 
 	}
