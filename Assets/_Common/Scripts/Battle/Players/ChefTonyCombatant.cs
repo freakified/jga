@@ -19,6 +19,8 @@ public class ChefTonyCombatant : PlayerCombatant {
 
 	private Vector2 initialPosition;
 
+	private float initialDrag;
+
 	
 	// Use this for initialization
 	public override void Start () {
@@ -68,10 +70,19 @@ public class ChefTonyCombatant : PlayerCombatant {
 			case AttackAnimationState.NeedsToStart:
 				Vector2 launchVelocity = new Vector2(7f, 0f);
 
+				// save chef tony's initial linear drag stat
+				initialDrag = rigidbody2D.drag;
+
+				// set drag to 0
+				rigidbody2D.drag = 0;
+
 				//calculate the needed initial vertical speed to reach the target
 				float dist = currentAttackTarget.transform.position.x - transform.position.x - 0.3f;
 				float time = dist / launchVelocity.x;
 				launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
+
+				print ("NUCLEAR LAUNCH DETECTED " + rigidbody2D.velocity);
+
 
 				rigidbody2D.velocity = launchVelocity;
 
@@ -105,7 +116,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 
 
 				rigidbody2D.velocity = launchVelocity;
-				
+
 				attackAnimationState = AttackAnimationState.InProgress;
 				GetComponent<Animator>().SetBool("IsAttacking", false);
 				
@@ -116,6 +127,9 @@ public class ChefTonyCombatant : PlayerCombatant {
 					currentAnimation = AnimationSequence.None;
 					attackAnimationState = AttackAnimationState.Off;
 					AnimationInProgress = false;
+
+					// reset drag to initial value
+					rigidbody2D.drag = initialDrag;
 				}
 				break;
 			}
@@ -129,8 +143,8 @@ public class ChefTonyCombatant : PlayerCombatant {
 				GetComponent<ConstantVelocity>().velocity =  Vector2.right * 3;
 
 				attackAnimationState = AttackAnimationState.InProgress;
-
 				break;
+
 				case AttackAnimationState.InProgress:
 				if(transform.position.x > currentAttackTarget.transform.position.x - 1f) {
 					GetComponent<ConstantVelocity>().enabled = false;
@@ -140,10 +154,8 @@ public class ChefTonyCombatant : PlayerCombatant {
 				}
 				break;
 				case AttackAnimationState.Complete:
-//				if(rigidbody2D.velocity == Vector2.zero) {
-//					currentAnimation = AnimationSequence.JumpBackward;
-//					attackAnimationState = AttackAnimationState.NeedsToStart;
-//				}
+
+
 				break;
 			}
 		}

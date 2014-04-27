@@ -167,10 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e887f38f515b9481ebca604cf5107f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMargin: 0
-  yMargin: 0
-  xSmooth: 8
-  ySmooth: 8
   maxXAndY: {x: 0, y: 1.00715196}
   minXAndY: {x: 0, y: -.992848277}
 --- !u!114 &12071423
@@ -519,6 +515,10 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: 304927011
       objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
   m_RootGameObject: {fileID: 554689514}
@@ -839,6 +839,10 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: 304927011
       objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
   m_RootGameObject: {fileID: 2020812671}
@@ -934,7 +938,7 @@ MonoBehaviour:
   jump: 0
   moveForce: 300
   jumpForce: 100
-  maxSpeed: 2
+  maxSpeed: 1
 --- !u!50 &1795993611
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -943,7 +947,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 1945363459}
   m_GameObject: {fileID: 1795993606}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
@@ -1130,6 +1134,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: m_FixedAngle
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
