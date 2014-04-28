@@ -79,7 +79,6 @@ public class BattleController : MonoBehaviour {
 					selectedTarget = getSelectedTarget(selectedAttack);
 
 					if(selectedTarget != null) {
-						print (selectedTarget);
 						currentPlayer.Attack (selectedAttack, selectedTarget);
 
 						turnState = BattleTurnState.WaitingForAnimation;
@@ -87,9 +86,6 @@ public class BattleController : MonoBehaviour {
 					
 					break;
 				case BattleTurnState.WaitingForAnimation:
-
-					//TODO figure out why this is needed
-					//if(Event.current.type == EventType.Repaint &&
 
 					// has the player's animation finished?
 					if(!PlayerCombatants[currentTurn].AnimationInProgress) {

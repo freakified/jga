@@ -81,9 +81,6 @@ public class ChefTonyCombatant : PlayerCombatant {
 				float time = dist / launchVelocity.x;
 				launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
 
-				print ("NUCLEAR LAUNCH DETECTED " + rigidbody2D.velocity);
-
-
 				rigidbody2D.velocity = launchVelocity;
 
 				attackAnimationState = AttackAnimationState.InProgress;

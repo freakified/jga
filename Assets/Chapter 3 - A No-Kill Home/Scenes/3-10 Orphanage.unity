@@ -168,10 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e887f38f515b9481ebca604cf5107f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMargin: 0
-  yMargin: 0
-  xSmooth: 2
-  ySmooth: 2
   maxXAndY: {x: 0, y: 0}
   minXAndY: {x: 0, y: 0}
 --- !u!114 &12071423
@@ -800,7 +796,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1499170083}
   m_Layer: 0
-  m_Name: 03 - Sprite Layer
+  m_Name: 01 - Sprite Layer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,7 +1014,7 @@ MonoBehaviour:
   jump: 0
   moveForce: 300
   jumpForce: 100
-  maxSpeed: 2
+  maxSpeed: 1
 --- !u!50 &1795993611
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1027,7 +1023,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 1751680833}
   m_GameObject: {fileID: 1795993606}
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 1
