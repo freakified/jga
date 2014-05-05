@@ -64,97 +64,110 @@ public class ChefTonyCombatant : PlayerCombatant {
 	}
 
 	void FixedUpdate () {
-
 		if(currentAnimation == AnimationSequence.JumpForward) {
-			switch(attackAnimationState) {
-			case AttackAnimationState.NeedsToStart:
-				Vector2 launchVelocity = new Vector2(7f, 0f);
-
-				// save chef tony's initial linear drag stat
-				initialDrag = rigidbody2D.drag;
-
-				// set drag to 0
-				rigidbody2D.drag = 0;
-
-				//calculate the needed initial vertical speed to reach the target
-				float dist = currentAttackTarget.transform.position.x - transform.position.x - 0.3f;
-				float time = dist / launchVelocity.x;
-				launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
-
-				rigidbody2D.velocity = launchVelocity;
-
-				attackAnimationState = AttackAnimationState.InProgress;
-				GetComponent<Animator>().SetBool("IsAttacking", true);
-
-				break;
-			case AttackAnimationState.InProgress:
-				if(transform.position.x > currentAttackTarget.transform.position.x - 1f) {
-					playSound(knifeSlash);
-					currentAttackTarget.Damage(currentAttack.BasePower);
-					attackAnimationState = AttackAnimationState.Complete;
-				}
-				break;
-			case AttackAnimationState.Complete:
-				if(rigidbody2D.velocity == Vector2.zero) {
-					currentAnimation = AnimationSequence.JumpBackward;
-					attackAnimationState = AttackAnimationState.NeedsToStart;
-				}
-				break;
-			}
+			animJumpForward();
 		} else if(currentAnimation == AnimationSequence.JumpBackward) {
-			switch(attackAnimationState) {
-			case AttackAnimationState.NeedsToStart:
-				Vector2 launchVelocity = new Vector2(-7f, 0f);
-				
-				//calculate the needed initial vertical speed to reach the initial position
-				float dist = initialPosition.x - transform.position.x;
-				float time = dist / launchVelocity.x;
-				launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
-
-
-				rigidbody2D.velocity = launchVelocity;
-
-				attackAnimationState = AttackAnimationState.InProgress;
-				GetComponent<Animator>().SetBool("IsAttacking", false);
-				
-				break;
-			case AttackAnimationState.InProgress:
-				if(transform.position.x < initialPosition.x + 0.2f) {
-					rigidbody2D.velocity = Vector2.zero;
-					currentAnimation = AnimationSequence.None;
-					attackAnimationState = AttackAnimationState.Off;
-					AnimationInProgress = false;
-
-					// reset drag to initial value
-					rigidbody2D.drag = initialDrag;
-				}
-				break;
-			}
+			animJumpBackward();
 		} else if(currentAnimation == AnimationSequence.WalkForward) {
-			switch(attackAnimationState) {
-				case AttackAnimationState.NeedsToStart:
+			animWalkForward();
+		} else if(currentAnimation == AnimationSequence.WalkBackward) {
 
-				GetComponent<Animator>().SetFloat("Speed", 10);
+		}
+	}
 
-				GetComponent<ConstantVelocity>().enabled = true;
-				GetComponent<ConstantVelocity>().velocity =  Vector2.right * 3;
+	private void animJumpForward () {
+		switch (attackAnimationState) {
+		case AttackAnimationState.NeedsToStart:
+			Vector2 launchVelocity = new Vector2 (7f, 0f);
 
-				attackAnimationState = AttackAnimationState.InProgress;
-				break;
+			// save chef tony's initial linear drag stat
+			initialDrag = rigidbody2D.drag;
 
-				case AttackAnimationState.InProgress:
-				if(transform.position.x > currentAttackTarget.transform.position.x - 1f) {
-					GetComponent<ConstantVelocity>().enabled = false;
-					GetComponent<Animator>().SetFloat("Speed", 0);
+			// set drag to 0
+			rigidbody2D.drag = 0;
 
-					attackAnimationState = AttackAnimationState.Complete;
-				}
-				break;
-				case AttackAnimationState.Complete:
-
-
-				break;
+			//calculate the needed initial vertical speed to reach the target
+			float dist = currentAttackTarget.transform.position.x - transform.position.x - 0.3f;
+			float time = dist / launchVelocity.x;
+			launchVelocity.y = Mathf.Abs (Physics2D.gravity.y) / 2 * time;
+			rigidbody2D.velocity = launchVelocity;
+			attackAnimationState = AttackAnimationState.InProgress;
+			GetComponent<Animator> ().SetBool ("IsAttacking", true);
+			break;
+		case AttackAnimationState.InProgress:
+			if (transform.position.x > currentAttackTarget.transform.position.x - 1f) {
+				playSound (knifeSlash);
+				currentAttackTarget.Damage (currentAttack.BasePower);
+				attackAnimationState = AttackAnimationState.Complete;
 			}
+			break;
+		case AttackAnimationState.Complete:
+			if (rigidbody2D.velocity == Vector2.zero) {
+				currentAnimation = AnimationSequence.JumpBackward;
+				attackAnimationState = AttackAnimationState.NeedsToStart;
+			}
+			break;
+		}
+	}
+
+	private void animJumpBackward() {
+		switch(attackAnimationState) {
+		case AttackAnimationState.NeedsToStart:
+			Vector2 launchVelocity = new Vector2(-7f, 0f);
+			
+			//calculate the needed initial vertical speed to reach the initial position
+			float dist = initialPosition.x - transform.position.x;
+			float time = dist / launchVelocity.x;
+			launchVelocity.y = Mathf.Abs(Physics2D.gravity.y) / 2 * time;
+			
+			
+			rigidbody2D.velocity = launchVelocity;
+			
+			attackAnimationState = AttackAnimationState.InProgress;
+			GetComponent<Animator>().SetBool("IsAttacking", false);
+			
+			break;
+		case AttackAnimationState.InProgress:
+			if(transform.position.x < initialPosition.x + 0.2f) {
+				rigidbody2D.velocity = Vector2.zero;
+				currentAnimation = AnimationSequence.None;
+				attackAnimationState = AttackAnimationState.Off;
+				AnimationInProgress = false;
+				
+				// reset drag to initial value
+				rigidbody2D.drag = initialDrag;
+			}
+			break;
+		}
+	}
+
+	private void animWalkForward() {
+		switch(attackAnimationState) {
+		case AttackAnimationState.NeedsToStart:
+			
+			GetComponent<Animator>().SetFloat("Speed", 10);
+			
+			GetComponent<ConstantVelocity>().enabled = true;
+			GetComponent<ConstantVelocity>().velocity =  Vector2.right * 3;
+			
+			attackAnimationState = AttackAnimationState.InProgress;
+			break;
+			
+		case AttackAnimationState.InProgress:
+			if(transform.position.x > currentAttackTarget.transform.position.x - 1f) {
+				GetComponent<ConstantVelocity>().enabled = false;
+				GetComponent<Animator>().SetFloat("Speed", 0);
+				
+				attackAnimationState = AttackAnimationState.Complete;
+			}
+			break;
+		case AttackAnimationState.Complete:
+			if (rigidbody2D.velocity == Vector2.zero) {
+				currentAnimation = AnimationSequence.JumpBackward;
+				attackAnimationState = AttackAnimationState.NeedsToStart;
+			}
+			
+			break;
 		}
 	}
 
