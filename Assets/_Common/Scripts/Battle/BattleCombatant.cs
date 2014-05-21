@@ -16,9 +16,9 @@ abstract public class BattleCombatant : MonoBehaviour {
 	/// The particle sprayer to activate on hits, usually blood.
 	/// Optional.
 	/// </summary>
-	public ParticleSystem damageParticles;
+	public ParticleSystem DamageParticlesPrefab;
 
-	private ParticleSystem particles;
+	private ParticleSystem damageParticles;
 
 	// Use this for initialization
 	public virtual void Start () {
@@ -26,9 +26,11 @@ abstract public class BattleCombatant : MonoBehaviour {
 
 		anim = GetComponent<Animator>();
 
-		if(damageParticles != null) {
-			particles = Instantiate(damageParticles) as ParticleSystem;
-			particles.transform.position = transform.position;
+		//check if it's null, since people don't NEED to spew blood if they don't want to
+		if(DamageParticlesPrefab != null) {
+			damageParticles = Instantiate(DamageParticlesPrefab) as ParticleSystem;
+			damageParticles.transform.parent = transform;
+			damageParticles.transform.localPosition = Vector2.zero;
 		}
 	}
 	
@@ -49,11 +51,9 @@ abstract public class BattleCombatant : MonoBehaviour {
 	public void Damage (int amount) {
 		HitPoints = (int)Mathf.Clamp(HitPoints - amount, 0, MaxHitPoints);
 
-		if(damageParticles != null) {
-
-			particles.transform.position = transform.position;
-			particles.time = 0;
-			particles.Play();
+		if(DamageParticlesPrefab != null) {
+			damageParticles.time = 0;
+			damageParticles.Play();
 		}
 
 		if(anim != null) {

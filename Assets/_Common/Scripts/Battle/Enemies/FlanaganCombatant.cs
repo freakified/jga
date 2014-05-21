@@ -6,9 +6,8 @@ using System.Linq;
 public class FlanaganCombatant : EnemyCombatant {
 
 	public ParticleSystem OrphanRushPrefab;
-
-	private ParticleSystem orphanRush;
-
+	private ParticleSystem orphanRushParticles;
+	
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
 
 	// Use this for initialization
@@ -19,6 +18,10 @@ public class FlanaganCombatant : EnemyCombatant {
 		MaxHitPoints = 100;
 		HitPoints = 100;
 
+		//init orphan particles
+		orphanRushParticles = Instantiate(OrphanRushPrefab) as ParticleSystem;
+		orphanRushParticles.transform.parent = transform;
+		orphanRushParticles.transform.localPosition = new Vector3(2.0f, 0, 0);
 	}
 	
 	// Update is called once per frame
@@ -27,10 +30,11 @@ public class FlanaganCombatant : EnemyCombatant {
 
 		switch(attackAnimationState) {
 		case AttackAnimationState.NeedsToStart:
+			GetComponent<Animator>().SetTrigger("FistPump");
 			if(timerIsGreaterThan(0.5f)) {
 
-				orphanRush = Instantiate(OrphanRushPrefab) as ParticleSystem;
-				orphanRush.transform.parent = transform;
+				orphanRushParticles.time = 0;
+				orphanRushParticles.Play();
 
 				attackAnimationState = AttackAnimationState.InProgress;
 
@@ -40,7 +44,7 @@ public class FlanaganCombatant : EnemyCombatant {
 			}
 			break;
 		case AttackAnimationState.InProgress:
-			if(timerIsGreaterThan(0.5f)) {
+			if(timerIsGreaterThan(1.4f)) {
 				target.Damage(23);
 
 				stopTimer();

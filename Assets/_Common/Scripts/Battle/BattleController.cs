@@ -55,6 +55,7 @@ public class BattleController : MonoBehaviour {
 	void OnGUI () {
 		// if the battle has started...
 		if(battleStarted) {
+			
 
 			//set theme and scale gui to match resolution
 			GUI.skin = guiSkin;

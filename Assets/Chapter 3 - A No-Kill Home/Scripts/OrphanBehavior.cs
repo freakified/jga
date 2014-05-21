@@ -10,7 +10,7 @@ public class OrphanBehavior : MonoBehaviour {
 	private float time = 0;
 
 	void Start () {
-
+		Physics2D.IgnoreLayerCollision(10, 0); // disable collisions with other battlers
 	}
 
 	void FixedUpdate() {
@@ -24,34 +24,5 @@ public class OrphanBehavior : MonoBehaviour {
 			}
 		}
 	}
-
-//	public float OrbitRadius = 0.5f;
-//	public float OrbitSpeed = 10f;
-//
-//	private Vector2 targetPos = Vector2.zero;
-//
-//	private Transform father; 
-//
-//	private float tTemp;
-//
-//	// Use this for initialization
-//	void Start () {
-//		father = transform.parent.transform;
-//		targetPos.x = OrbitRadius;
-//		OrbitSpeed /= 100;
-//	}
-//	
-//	// Update is called once per frame
-//	void FixedUpdate () {
-//		if(tTemp < 0.5 * OrbitSpeed) { // target has not yet been reached
-//			tTemp += Time.fixedDeltaTime * OrbitSpeed;
-//		} else {
-//			tTemp = 0;
-//			targetPos.x = -targetPos.x;
-//		}
-//
-//		print (tTemp);
-//		transform.localPosition = Vector2.Lerp(transform.localPosition, targetPos, tTemp);
-//
-//	}
+	
 }
