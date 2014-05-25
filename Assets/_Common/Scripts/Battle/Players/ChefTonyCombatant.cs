@@ -172,7 +172,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 			break;
 			
 		case AttackAnimationState.InProgress:
-			if(transform.position.x > currentAttackTarget.transform.position.x - 1f) {
+			if(transform.position.x > currentAttackTarget.transform.position.x - 0.5f) {
 				GetComponent<ConstantVelocity>().enabled = false;
 				GetComponent<Animator>().SetFloat("Speed", 0);
 
@@ -185,9 +185,10 @@ public class ChefTonyCombatant : PlayerCombatant {
 			break;
 		case AttackAnimationState.Complete:
 			if (timerIsGreaterThan(1.0f)) {
-
 				currentAnimation = AnimationSequence.JumpBackward;
 				attackAnimationState = AttackAnimationState.NeedsToStart;
+
+				currentAttackTarget.PutToSleep (currentAttack.Power);
 			}
 			
 			break;

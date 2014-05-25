@@ -1,3 +1,3 @@
 public enum BattleEvent {
-	Started, Finished
+	Started, Finished, TurnChange
 }

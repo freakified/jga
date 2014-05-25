@@ -9,20 +9,27 @@ public class OrphanBehavior : MonoBehaviour {
 
 	private float time = 0;
 
+	private OrphanCombatant c;
+
 	void Start () {
 		Physics2D.IgnoreLayerCollision(10, 0); // disable collisions with other battlers
+
+		c = GetComponent<OrphanCombatant>();
 	}
 
 	void FixedUpdate() {
-		time += Time.fixedDeltaTime;
-
-		if(time > StartDelay) {
-			if(time > Interval) {
-				rigidbody2D.AddForce(Vector2.up * JumpForce);
-
-				time = 0;
+		if(!c.isSleeping) {
+			time += Time.fixedDeltaTime;
+			
+			if(time > StartDelay) {
+				if(time > Interval) {
+					rigidbody2D.AddForce(Vector2.up * JumpForce);
+					
+					time = 0;
+				}
 			}
 		}
+
 	}
 	
 }

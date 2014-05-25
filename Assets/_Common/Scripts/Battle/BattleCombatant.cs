@@ -6,23 +6,32 @@ abstract public class BattleCombatant : MonoBehaviour {
 	public int HitPoints {get; protected set; }
 	public int MaxHitPoints {get; protected set; }
 	public bool AnimationInProgress { get; protected set; }
+	public bool isSleeping {get; protected set; }
+	public bool isShielded {get; protected set; }
+	public bool immuneToDamage {get; protected set; }
 
 	protected Animator anim;
 
 	protected float elapsedTime = 0;
 	protected bool timerRunning = false;
+	protected int sleepTurnCounter;
 	
 	/// <summary>
 	/// The particle sprayer to activate on hits, usually blood.
 	/// Optional.
 	/// </summary>
 	public ParticleSystem DamageParticlesPrefab;
-
 	private ParticleSystem damageParticles;
 
+	public ParticleSystem SleepParticlesPrefab;
+	private ParticleSystem sleepParticles;
+	
 	// Use this for initialization
 	public virtual void Start () {
 		AnimationInProgress = false;
+		isSleeping = false;
+		isShielded = false;
+		immuneToDamage = false;
 
 		anim = GetComponent<Animator>();
 
@@ -32,8 +41,14 @@ abstract public class BattleCombatant : MonoBehaviour {
 			damageParticles.transform.parent = transform;
 			damageParticles.transform.localPosition = Vector2.zero;
 		}
+
+		if(SleepParticlesPrefab != null) {
+			sleepParticles = Instantiate(SleepParticlesPrefab) as ParticleSystem;
+			sleepParticles.transform.parent = transform;
+			sleepParticles.transform.localPosition = Vector2.zero;
+		}
 	}
-	
+
 	// Update is called once per frame
 	public virtual void Update () {
 		if(timerRunning)
@@ -61,6 +76,37 @@ abstract public class BattleCombatant : MonoBehaviour {
 		}
 	}
 
+
+	/// <summary>
+	/// Put the combatant to "sleep" for the specified number of turns.
+	/// </summary>
+	/// <param name="numberOfTurns">The number of turns to sleep.</param>
+	public void PutToSleep (int numberOfTurns) {
+		isSleeping = true;
+
+		sleepTurnCounter = numberOfTurns;
+
+		if(SleepParticlesPrefab != null) {
+			sleepParticles.time = 0;
+			sleepParticles.Play();
+		}
+	}
+
+	public void IncrementTurnCounter() {
+		if(isSleeping) {
+			sleepTurnCounter--;
+
+			if(sleepTurnCounter == 0) {
+				isSleeping = false;
+
+				if(SleepParticlesPrefab != null) {
+					sleepParticles.Stop();
+				}
+			}
+
+		}
+	}
+
 	protected void stopTimer() {
 		timerRunning = false;
 		elapsedTime = 0;
@@ -78,5 +124,7 @@ abstract public class BattleCombatant : MonoBehaviour {
 	protected void playSound(AudioClip sound) {
 		AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
 	}
+
+
 
 }

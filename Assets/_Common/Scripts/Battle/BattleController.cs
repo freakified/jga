@@ -81,6 +81,7 @@ public class BattleController : MonoBehaviour {
 
 					if(selectedTarget != null) {
 						currentPlayer.Attack (selectedAttack, selectedTarget);
+						currentPlayer.IncrementTurnCounter();
 
 						turnState = BattleTurnState.WaitingForAnimation;
 					}
@@ -102,7 +103,11 @@ public class BattleController : MonoBehaviour {
 
 				switch(turnState) {
 				case BattleTurnState.Attacking:
-					currentEnemy.AutoAttack(PlayerCombatants);
+					if(!currentEnemy.isSleeping) {
+						currentEnemy.AutoAttack(PlayerCombatants);
+					}
+
+					currentEnemy.IncrementTurnCounter();
 					turnState = BattleTurnState.WaitingForAnimation;
 					
 					break;
@@ -125,6 +130,11 @@ public class BattleController : MonoBehaviour {
 
 				//...and then increment the turn.
 				incrementTurn();
+
+				// notify registered listeners of the turn change
+				// note: this is not inside incrementTurn due to recursion
+				OnBattleEvent(BattleEvent.TurnChange);
+
 
 			}
 		}
@@ -223,7 +233,7 @@ public class BattleController : MonoBehaviour {
 			// if it's a healing move, then we show the list of allies, but
 			availableTargets = PlayerCombatants;
 		else
-			// if it's an attack move, show the list of enemies
+			// if it's an attack/status move, show the list of enemies
 			availableTargets = EnemyCombatants;
 
 		int areaHeight = scalePx (60 + 30 * availableTargets.Count);
@@ -249,8 +259,16 @@ public class BattleController : MonoBehaviour {
 			availableTarget = availableTargets [i];
 			percentHP = (int)Mathf.Round (availableTarget.HitPoints / (float)availableTarget.MaxHitPoints * 100);
 
+			bool isTargetable = true;
+
+			if(availableTarget.HitPoints == 0 ||
+			   availableTarget.isShielded ||
+			   (chosenAttack.Type == AttackType.Damage && availableTarget.immuneToDamage)) {
+				isTargetable = false;
+			}
+
 			// grey out the button if the target is already dead
-			if (availableTarget.HitPoints == 0)
+			if (!isTargetable)
 				GUI.enabled = false;
 
 			if (GUILayout.Button ("<b>" + availableTarget.name + "</b> (" + percentHP + "%)")) {
@@ -267,7 +285,7 @@ public class BattleController : MonoBehaviour {
 			}
 
 			// if the target is dead, undo the greyout state we enabled above
-			if (availableTarget.HitPoints == 0)
+			if (!isTargetable)
 				GUI.enabled = true;
 		}
 
@@ -333,7 +351,6 @@ public class BattleController : MonoBehaviour {
 				incrementTurn();
 			}
 		}
-
 	}
 
 	private void playersDefeated() {

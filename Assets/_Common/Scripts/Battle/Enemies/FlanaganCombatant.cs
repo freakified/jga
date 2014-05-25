@@ -7,6 +7,8 @@ public class FlanaganCombatant : EnemyCombatant {
 
 	public ParticleSystem OrphanRushPrefab;
 	private ParticleSystem orphanRushParticles;
+
+	public OrphanCombatant orphanShield;
 	
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
 
@@ -15,8 +17,8 @@ public class FlanaganCombatant : EnemyCombatant {
 		base.Start ();
 
 		//set up basic stats
-		MaxHitPoints = 100;
-		HitPoints = 100;
+		MaxHitPoints = 500;
+		HitPoints = 500;
 
 		//init orphan particles
 		orphanRushParticles = Instantiate(OrphanRushPrefab) as ParticleSystem;
@@ -27,6 +29,9 @@ public class FlanaganCombatant : EnemyCombatant {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update();
+
+		// FF is shielded so long as the orphan is awake
+		isShielded = !orphanShield.isSleeping;
 
 		switch(attackAnimationState) {
 		case AttackAnimationState.NeedsToStart:

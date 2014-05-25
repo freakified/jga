@@ -100,7 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DamageParticlesPrefab: {fileID: 19800000, guid: 7e814593eb1c14786ad023a205edd9c5,
     type: 2}
+  SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
+    type: 2}
   OrphanRushPrefab: {fileID: 19800000, guid: 950ab43e3a6f44679b7715ff86001052, type: 2}
+  orphanShield: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
