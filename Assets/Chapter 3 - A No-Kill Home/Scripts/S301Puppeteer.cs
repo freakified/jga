@@ -5,9 +5,13 @@ using System.Collections.Generic;
 public class S301Puppeteer : CutscenePuppeteer {
 
 	private GameObject ChefTony;
+	private MusicPlayer mp;
 		
 	// Use this for initialization
 	void Start () {
+		mp = GameObject.Find("BGM").GetComponent<MusicPlayer>();
+
+
 		ChefTony = GameObject.Find ("Chef Tony");
 	}
 

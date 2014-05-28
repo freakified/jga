@@ -16,6 +16,8 @@ public class PlayerCartControl : MonoBehaviour {
 	public int maxHP = 4;
 	private int currentHP;
 
+	private MusicPlayer mp;
+
 	private float minZ = -3.6f;
 	private float maxZ = -0.2f;
 
@@ -32,6 +34,8 @@ public class PlayerCartControl : MonoBehaviour {
 	private int emissionIncrement;
 
 	void Start() {
+		mp = GameObject.Find("BGM").GetComponent<MusicPlayer>();
+
 		emissionIncrement = (smokeEmissionMax - smokeEmissionMin) / maxHP - 1;
 
 		currentHP = maxHP;
@@ -62,6 +66,9 @@ public class PlayerCartControl : MonoBehaviour {
 
 			//todo: use a better smash sound
 			AudioSource.PlayClipAtPoint(smashSound, Camera.main.transform.position);
+
+			//kill the music
+			mp.StopMusic(1.0f);
 
 			StartCoroutine(EndLevel());
 		} 
@@ -108,7 +115,7 @@ public class PlayerCartControl : MonoBehaviour {
 		fader.SetScreenOverlayColor (new Color(0, 0, 0, 0));
 		fader.StartFade(Color.black, 2);
 		yield return new WaitForSeconds(2);
-		Application.LoadLevel(null);
+		Application.LoadLevel("3-10 Orphanage");
 	}
 
 }
