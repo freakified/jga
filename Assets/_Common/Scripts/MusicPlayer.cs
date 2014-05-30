@@ -56,6 +56,10 @@ public class MusicPlayer : MonoBehaviour {
 		}
 	}
 
+	public void PlayMusic() {
+		PlayMusic(this.music, this.loop);
+	}
+
 	//stops the current music immediately
 	public void StopMusic() {
 		soundSource.Stop();

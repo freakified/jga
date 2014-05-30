@@ -39,7 +39,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 		PlayerAttack attack1 = new PlayerAttack();
 		attack1.Name = "All-Purpose Slice";
 		attack1.Description = "Stabs a single target with the Miracle Blade™ All-Purpose Slicer™.";
-		attack1.Power = 75;
+		attack1.Power = 76;
 		attack1.Accuracy = 100;
 		attack1.Type = AttackType.Damage;
 
@@ -47,14 +47,14 @@ public class ChefTonyCombatant : PlayerCombatant {
 		attack2.Name = "Sales Pitch";
 		attack2.Description = "Puts target to sleep with a lecture on the " +
 			"benefits of the Miracle Blade™ III Perfection Series™.";
-		attack2.Power = 3;
+		attack2.Power = 4;
 		attack2.Accuracy = 100;
 		attack2.Type = AttackType.Sleep;
 
 		PlayerAttack attack3 = new PlayerAttack();
 		attack3.Name = "Fried Chicken Smoothie";
 		attack3.Description = "Much healthier than whipping cream.  Restores health.";
-		attack3.Power = 25;
+		attack3.Power = 100;
 		attack3.Accuracy = 100;
 		attack3.Type = AttackType.Heal;
 

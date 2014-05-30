@@ -17,8 +17,8 @@ public class FlanaganCombatant : EnemyCombatant {
 		base.Start ();
 
 		//set up basic stats
-		MaxHitPoints = 500;
-		HitPoints = 500;
+		MaxHitPoints = 300;
+		HitPoints = 300;
 
 		//init orphan particles
 		orphanRushParticles = Instantiate(OrphanRushPrefab) as ParticleSystem;
@@ -50,7 +50,9 @@ public class FlanaganCombatant : EnemyCombatant {
 			break;
 		case AttackAnimationState.InProgress:
 			if(timerIsGreaterThan(1.4f)) {
-				target.Damage(23);
+				if(target != null) {
+					target.Damage(23);
+				}
 
 				stopTimer();
 				attackAnimationState = AttackAnimationState.Off;
@@ -63,7 +65,13 @@ public class FlanaganCombatant : EnemyCombatant {
 
 	public override void AutoAttack (List<BattleCombatant> targetList) {
 		//select the player with the lowest HP as the target
-		target = targetList.OrderByDescending(t => t.HitPoints).First();
+
+		// allows you to call autoattack without a target
+		// this is so we can trigger the orphanrush animation outside of the battle
+		if(targetList != null) {
+			target = targetList.OrderByDescending(t => t.HitPoints).First();
+		}
+
 		AnimationInProgress = true;
 		attackAnimationState = AttackAnimationState.NeedsToStart;
 		startTimer();

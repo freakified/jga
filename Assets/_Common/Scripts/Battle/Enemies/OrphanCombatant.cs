@@ -5,6 +5,8 @@ using System.Linq;
 
 public class OrphanCombatant : EnemyCombatant {
 
+	public bool IsJumping = false;
+
 	// jump parameters
 	private float StartDelay = 0;
 	private int JumpForce = 100;
@@ -37,7 +39,7 @@ public class OrphanCombatant : EnemyCombatant {
 
 	// perform jump behavior
 	void FixedUpdate() {
-		if(!isSleeping) {
+		if(!isSleeping && IsJumping) {
 			jumpTimer += Time.fixedDeltaTime;
 			
 			if(jumpTimer > StartDelay) {
