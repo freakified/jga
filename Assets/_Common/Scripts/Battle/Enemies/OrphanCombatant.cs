@@ -12,6 +12,7 @@ public class OrphanCombatant : EnemyCombatant {
 	private int JumpForce = 100;
 	private float Interval = 0.5f;
 	private float jumpTimer = 0;
+	private bool isLeaving = false;
 	
 	// Use this for initialization
 	public override void Start () {
@@ -49,6 +50,12 @@ public class OrphanCombatant : EnemyCombatant {
 					jumpTimer = 0;
 				}
 			}
+		} else if (isLeaving) {
+			//once off screen, start doing nothing
+			if(transform.position.x < -3.55f) {
+				renderer.enabled = false;
+				rigidbody2D.Sleep();
+			}
 		}
 	}
 
@@ -56,5 +63,12 @@ public class OrphanCombatant : EnemyCombatant {
 		// orphan doesn't attack (note: perhaps he should heal FF?)
 
 	}
-	
+
+	public void leaveBattle() {
+		participatingInBattle = false;
+		IsJumping = false;
+		isLeaving = true;
+		rigidbody2D.isKinematic = true;
+		rigidbody2D.velocity = new Vector2(-6.0f, 0.0f);
+	}
 }

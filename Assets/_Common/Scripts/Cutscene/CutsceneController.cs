@@ -16,6 +16,12 @@ public class CutsceneController : MonoBehaviour {
 	public Transform textBox;
 	public GUIText dialogNextText;
 
+	/// <summary>
+	/// Enables quick skip mode, which allows for text to be skipped through instantly.
+	/// Useful for debugging.
+	/// </summary>
+	public bool enableQuickSkip;
+
 	[HideInInspector]
 	public delegate void ChangedEventHandler(int newCutscenePosition);
 	[HideInInspector]
@@ -73,6 +79,11 @@ public class CutsceneController : MonoBehaviour {
 
 		//if we're currently showing dialog, then start scrolling it
 		if(dialogText.enabled) {
+
+			if(enableQuickSkip == true) {
+				dialogTextWrapper.SetText(cutsceneElements[cutscenePosition - 1].dialogText);
+				currentChar = cutsceneElements[cutscenePosition - 1].dialogText.Length;
+			}
 
 			// if there's still text left to show
 			if(currentChar < cutsceneElements[cutscenePosition - 1].dialogText.Length) {
@@ -176,7 +187,7 @@ public class CutsceneController : MonoBehaviour {
 
 		CutsceneElement newElement = new CutsceneElement();
 
-		// if the line is not denoted as blank...
+		// if the line is not denoted as blank, OR commented out
 		if (line != "***") {
 			string[] splitLine = line.Split (new char[] {':'}, 2);
 

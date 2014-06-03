@@ -9,6 +9,7 @@ abstract public class BattleCombatant : MonoBehaviour {
 	public bool isSleeping {get; protected set; }
 	public bool isShielded {get; protected set; }
 	public bool immuneToDamage {get; protected set; }
+	public bool participatingInBattle {get; set; }
 
 	protected Animator anim;
 
@@ -32,6 +33,7 @@ abstract public class BattleCombatant : MonoBehaviour {
 		isSleeping = false;
 		isShielded = false;
 		immuneToDamage = false;
+		participatingInBattle = true;
 
 		anim = GetComponent<Animator>();
 

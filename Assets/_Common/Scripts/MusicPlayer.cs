@@ -27,6 +27,9 @@ public class MusicPlayer : MonoBehaviour {
 
 			if(playAtStart) {
 				instance.PlayMusic(this.music, this.loop);
+			} else {
+				instance.music = this.music;
+				instance.loop = this.loop;
 			}
 
 			Destroy(this.gameObject);

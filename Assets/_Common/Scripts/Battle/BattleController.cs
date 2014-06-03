@@ -24,7 +24,7 @@ public class BattleController : MonoBehaviour {
 	private int totalCombatants;
 
 	// battle state globals
-	private bool battleStarted = false;
+	private bool battleEnabled = false;
 	private int currentTurn = 0;
 	private BattleTurnState turnState;
 
@@ -45,17 +45,26 @@ public class BattleController : MonoBehaviour {
 		totalCombatants = PlayerCombatants.Count + EnemyCombatants.Count;
 		currentTurn = 0;
 		turnState = BattleTurnState.Attacking;
-		battleStarted = true;
+		battleEnabled = true;
 
 		//notify any listeners that the battle started
-		OnBattleEvent(BattleEvent.Started);
+		if(OnBattleEvent != null) {
+			OnBattleEvent(BattleEvent.Started);
+		}
 
+	}
+
+	public void PauseBattle() {
+		battleEnabled = false;
+	}
+
+	public void ResumeBattle() {
+		battleEnabled = true;
 	}
 
 	void OnGUI () {
 		// if the battle has started...
-		if(battleStarted) {
-			
+		if(battleEnabled) {
 
 			//set theme and scale gui to match resolution
 			GUI.skin = guiSkin;
@@ -122,6 +131,7 @@ public class BattleController : MonoBehaviour {
 			}
 
 			if(turnState == BattleTurnState.TurnComplete) {
+
 				// if the turn has completed, check if anyone won
 				checkForVictory();
 
@@ -133,8 +143,9 @@ public class BattleController : MonoBehaviour {
 
 				// notify registered listeners of the turn change
 				// note: this is not inside incrementTurn due to recursion
-				OnBattleEvent(BattleEvent.TurnChange);
-
+				if(OnBattleEvent != null) {
+					OnBattleEvent(BattleEvent.TurnChange);
+				}
 
 			}
 		}
@@ -231,10 +242,10 @@ public class BattleController : MonoBehaviour {
 		
 		if (chosenAttack.Type == AttackType.Heal)
 			// if it's a healing move, then we show the list of allies, but
-			availableTargets = PlayerCombatants;
+			availableTargets = PlayerCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
 		else
 			// if it's an attack/status move, show the list of enemies
-			availableTargets = EnemyCombatants;
+			availableTargets = EnemyCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
 
 		int areaHeight = scalePx (60 + 30 * availableTargets.Count);
 
@@ -327,11 +338,11 @@ public class BattleController : MonoBehaviour {
 	}
 
 	private void checkForVictory () {
-		if (PlayerCombatants.Find ((BattleCombatant c) => c.HitPoints > 0) == null) {
-			//this means the players are all dead
+		if (PlayerCombatants.Find ((BattleCombatant c) => c.HitPoints > 0 && c.participatingInBattle) == null) {
+			//this means the players are all dead and/or not participating
 			playersDefeated ();
-		} else if (EnemyCombatants.Find ((BattleCombatant c) => c.HitPoints > 0) == null) {
-			// this means the enemies are all dead
+		} else if (EnemyCombatants.Find ((BattleCombatant c) => c.HitPoints > 0 && c.participatingInBattle) == null) {
+			// this means the enemies are all dead and/or not participating
 			enemiesDefeated ();
 		}
 	}
@@ -343,11 +354,13 @@ public class BattleController : MonoBehaviour {
 
 		//if the player at that turn is dead, skip their turn
 		if(currentTurn < PlayerCombatants.Count) {
-			if(PlayerCombatants[currentTurn].HitPoints == 0) {
+			if(PlayerCombatants[currentTurn].HitPoints == 0 || 
+			   !PlayerCombatants[currentTurn].participatingInBattle) {
 				incrementTurn();
 			}
 		} else {
-			if(EnemyCombatants[currentTurn - PlayerCombatants.Count].HitPoints == 0) {
+			if(EnemyCombatants[currentTurn - PlayerCombatants.Count].HitPoints == 0 ||
+			   !EnemyCombatants[currentTurn - PlayerCombatants.Count].participatingInBattle) {
 				incrementTurn();
 			}
 		}
@@ -358,10 +371,12 @@ public class BattleController : MonoBehaviour {
 	}
 
 	private void enemiesDefeated() {
-		battleStarted = false;
+		battleEnabled = false;
 
 		// notify registered listeners
-		OnBattleEvent(BattleEvent.Finished);
+		if(OnBattleEvent != null) {
+			OnBattleEvent(BattleEvent.Finished);
+		}
 	}
 	
 }

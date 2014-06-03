@@ -5,12 +5,15 @@ using System.Collections.Generic;
 public class S301Puppeteer : CutscenePuppeteer {
 
 	private GameObject chefTony;
-	private GameObject ff, os;
+	private GameObject ff, os, shoes;
 	private MusicPlayer mp;
+
+	private BattleController bc;
 		
 	// Use this for initialization
 	void Start () {
 		mp = GameObject.Find("BGM").GetComponent<MusicPlayer>();
+		bc = GameObject.Find ("Scripts").GetComponent<BattleController>();
 
 		chefTony = GameObject.Find ("Chef Tony");
 		ff = GameObject.Find ("Father Flanagan");
@@ -71,12 +74,31 @@ public class S301Puppeteer : CutscenePuppeteer {
 		case 28:
 			GetComponent<BattleController>().StartBattle();
 			break;
+		case 31:
+			bc.ResumeBattle();
+			os.GetComponent<OrphanCombatant>().leaveBattle();
+			break;
 		}
 	}
 	
 	public void HandleBattleEvent(BattleEvent type) {
-		if(type == BattleEvent.Finished) {
-			nextScene();
+		switch(type) {
+		case BattleEvent.TurnChange:
+			if(CurrentScene == 28) {
+				// when FF's HP starts getting low...
+				if(bc.EnemyCombatants[1].HitPoints / (float)bc.EnemyCombatants[1].MaxHitPoints < 0.2f) {
+					bc.PauseBattle();
+					nextScene();
+				}
+			} else if(CurrentScene == 31) {
+				//did FF die?
+				if(bc.EnemyCombatants[1].HitPoints == 0) {
+					bc.PauseBattle();
+					nextScene();
+				}
+			}
+
+			break;
 		}
 	}
 }
