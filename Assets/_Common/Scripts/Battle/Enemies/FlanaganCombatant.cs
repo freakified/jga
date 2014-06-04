@@ -35,6 +35,8 @@ public class FlanaganCombatant : EnemyCombatant {
 		if(!poweredUp) {
 			// FF is shielded so long as the orphan is awake
 			isShielded = !orphanShield.isSleeping;
+		} else {
+			isShielded = false;
 		}
 
 		switch(attackAnimationState) {
@@ -56,7 +58,7 @@ public class FlanaganCombatant : EnemyCombatant {
 			if(timerIsGreaterThan(1.4f)) {
 				if(target != null) {
 					if(poweredUp == true) {
-						target.Damage(40);
+						target.Damage(52);
 					} else {
 						target.Damage(23);
 					}

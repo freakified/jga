@@ -88,6 +88,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 				// when FF's HP starts getting low...
 				if(bc.EnemyCombatants[1].HitPoints / (float)bc.EnemyCombatants[1].MaxHitPoints < 0.2f) {
 					bc.PauseBattle();
+					ff.GetComponent<FlanaganCombatant>().WakeUp();
 					nextScene();
 				}
 			} else if(CurrentScene == 31) {

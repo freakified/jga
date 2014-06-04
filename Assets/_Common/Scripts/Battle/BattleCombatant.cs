@@ -94,16 +94,23 @@ abstract public class BattleCombatant : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Forces the combatant to wake up immediately if they are sleeping
+	/// </summary>
+	public void WakeUp() {
+		isSleeping = false;
+
+		if(SleepParticlesPrefab != null) {
+			sleepParticles.Stop();
+		}
+	}
+
 	public void IncrementTurnCounter() {
 		if(isSleeping) {
 			sleepTurnCounter--;
 
 			if(sleepTurnCounter == 0) {
-				isSleeping = false;
-
-				if(SleepParticlesPrefab != null) {
-					sleepParticles.Stop();
-				}
+				WakeUp ();
 			}
 
 		}
