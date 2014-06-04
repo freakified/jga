@@ -68,6 +68,7 @@ public class OrphanCombatant : EnemyCombatant {
 		participatingInBattle = false;
 		IsJumping = false;
 		isLeaving = true;
+		WakeUp();
 		rigidbody2D.isKinematic = true;
 		rigidbody2D.velocity = new Vector2(-6.0f, 0.0f);
 	}

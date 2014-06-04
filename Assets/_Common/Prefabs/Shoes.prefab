@@ -96,6 +96,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 50: {fileID: 5000000}
+  - 58: {fileID: 5800000}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: ShoesTie
   m_TagString: Untagged
@@ -127,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .192337155, y: .229950488, z: 0}
+  m_LocalPosition: {x: -.0631866455, y: .108272552, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -138,9 +140,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 0, z: .554844201, w: -.8319543}
-  m_LocalPosition: {x: 2.48688293, y: .75664556, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .591881156, w: .806025326}
+  m_LocalPosition: {x: 2.31713676, y: .621564806, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
   m_RootOrder: 2
@@ -151,7 +153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: .423092574, w: -.906086504}
-  m_LocalPosition: {x: 2.72209787, y: .747159302, z: 0}
+  m_LocalPosition: {x: 2.46657419, y: .625481308, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -163,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .184259176, y: .239374936, z: 0}
+  m_LocalPosition: {x: -.0712645054, y: .117697001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -175,7 +177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.66047621, y: .907626629, z: 0}
+  m_LocalPosition: {x: 2.40495253, y: .785948932, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -202,7 +204,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Mass: 1
-  m_LinearDrag: .100000001
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 0
@@ -217,7 +219,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Mass: 1
-  m_LinearDrag: .100000001
+  m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
   m_FixedAngle: 0
@@ -225,6 +227,17 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!58 &5800000
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .00999999978
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -271,6 +284,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttachedShoe: {fileID: 100006}
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8560f27217e4469a0655211aa4745c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoe1: {fileID: 5000002}
+  shoe2: {fileID: 5000004}
+  WindForce: {x: 2, y: 0}
+  WindPeriod: 2
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

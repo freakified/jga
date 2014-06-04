@@ -9,7 +9,10 @@ public class S301Puppeteer : CutscenePuppeteer {
 	private MusicPlayer mp;
 
 	private BattleController bc;
-		
+
+	public AudioClip BattleMusic;
+	public AudioClip VictoryMusic;
+
 	// Use this for initialization
 	void Start () {
 		mp = GameObject.Find("BGM").GetComponent<MusicPlayer>();
@@ -18,6 +21,14 @@ public class S301Puppeteer : CutscenePuppeteer {
 		chefTony = GameObject.Find ("Chef Tony");
 		ff = GameObject.Find ("Father Flanagan");
 		os = GameObject.Find ("Orphan Shield");
+		shoes = GameObject.Find ("ShoesTie");
+
+		// TEMP SHOE CUTSCENE TESTER
+		//oh and look the shoes fell down what a coincidence
+		shoes.rigidbody2D.isKinematic = false;
+		shoes.rigidbody2D.AddForce(-100 * Vector2.right);
+		shoes.GetComponent<ShoeWind>().enabled = false;
+		
 	}
 
 	public override void OnEnable() {
@@ -56,6 +67,25 @@ public class S301Puppeteer : CutscenePuppeteer {
 				nextScene();
 			}
 			break;
+		case 32:
+			if(bc.EnemyCombatants[1].HitPoints == 0 && timerIsGreaterThan(2.0f)) {
+				nextScene();
+			}
+			break;
+		case 38:
+			if(timerIsGreaterThan(1.0f)) {
+				nextScene();
+			}
+			break;
+		case 40:
+			// has CT reached the shoes?
+			if(chefTony.transform.position.x > shoes.transform.position.x - 0.6f) {
+				chefTony.GetComponent<ConstantVelocity>().enabled = false;
+				chefTony.GetComponent<Animator>().SetFloat("Speed", 0);
+
+				nextScene();
+			}
+			break;
 		}
 
 	}
@@ -63,6 +93,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 	public override void HandleSceneChange() {
 		switch(CurrentScene) {
 		case 20:
+			//flanagan throws down the gauntlet
 			mp.PlayMusic();
 			os.rigidbody2D.AddForce(new Vector2(-220.0f, 100.0f));
 			ff.GetComponent<FlanaganCombatant>().AutoAttack(null);
@@ -77,6 +108,28 @@ public class S301Puppeteer : CutscenePuppeteer {
 		case 31:
 			bc.ResumeBattle();
 			os.GetComponent<OrphanCombatant>().leaveBattle();
+			break;
+		case 38:
+			//flanagan's illustrious exit
+			ff.rigidbody2D.AddForce(new Vector2(320.0f, 200.0f));
+
+			//oh and look the shoes fell down what a coincidence
+			shoes.rigidbody2D.isKinematic = false;
+			shoes.rigidbody2D.AddForce(-100 * Vector2.right);
+			shoes.GetComponent<ShoeWind>().enabled = false;
+
+			startTimer();
+
+			break;
+		case 40:
+			//chef tony's shoe investigation
+			chefTony.GetComponent<Animator>().SetFloat("Speed", 10);
+			chefTony.GetComponent<ConstantVelocity>().enabled = true;
+			chefTony.GetComponent<ConstantVelocity>().velocity =  Vector2.right * 3;
+			break;
+		case 44:
+			// TODO: crazy shoesplosion
+			shoes.rigidbody2D.AddForce(100 * Vector2.up);
 			break;
 		}
 	}
@@ -95,6 +148,8 @@ public class S301Puppeteer : CutscenePuppeteer {
 				//did FF die?
 				if(bc.EnemyCombatants[1].HitPoints == 0) {
 					bc.PauseBattle();
+					mp.PlayMusic(VictoryMusic, false);
+					startTimer();
 					nextScene();
 				}
 			}
