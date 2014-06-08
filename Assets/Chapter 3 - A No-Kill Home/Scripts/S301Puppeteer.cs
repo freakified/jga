@@ -10,8 +10,14 @@ public class S301Puppeteer : CutscenePuppeteer {
 
 	private BattleController bc;
 
+	public GameObject BGBlackout;
+
+	public AudioClip FlanagansTheme;
 	public AudioClip BattleMusic;
 	public AudioClip VictoryMusic;
+	public AudioClip ShoesTheme;
+
+	private bool fadingHasStarted = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,12 +29,6 @@ public class S301Puppeteer : CutscenePuppeteer {
 		os = GameObject.Find ("Orphan Shield");
 		shoes = GameObject.Find ("ShoesTie");
 
-		// TEMP SHOE CUTSCENE TESTER
-		//oh and look the shoes fell down what a coincidence
-		shoes.rigidbody2D.isKinematic = false;
-		shoes.rigidbody2D.AddForce(-100 * Vector2.right);
-		shoes.GetComponent<ShoeWind>().enabled = false;
-		
 	}
 
 	public override void OnEnable() {
@@ -52,6 +52,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 				chefTony.GetComponent<PlayerFreeze>().Freeze();
 				ff.GetComponent<Animator>().SetTrigger("FistPump");
 				ff.rigidbody2D.AddForce(new Vector2(-400.0f, 0));
+				mp.PlayMusic(FlanagansTheme, true);
 				nextScene();
 			}
 			break;
@@ -86,15 +87,66 @@ public class S301Puppeteer : CutscenePuppeteer {
 				nextScene();
 			}
 			break;
-		}
+		case 44:
+			// are the shoes well into their explosion?
+			if(timerIsGreaterThan(7.0f)) {
+				//pull in poor chef tony
+				chefTony.rigidbody2D.fixedAngle = false;
+				chefTony.GetComponent<Animator>().SetFloat("Speed", 1);
+				chefTony.GetComponent<SpriteShadow>().HideShadow = true;
+				chefTony.rigidbody2D.gravityScale = 0;
+				chefTony.rigidbody2D.drag = 2.0f;
+				startTimer();
+				nextScene();
+			}
+			break;
+		case 45:
+			// chef tony gets pulled in
+			chefTony.rigidbody2D.AddForce(5.0f * (shoes.transform.position - chefTony.transform.position));
+			chefTony.rigidbody2D.AddTorque(1.0f);
+			BGBlackout.renderer.material.color = 
+				new Color(0, 0, 0, Mathf.Lerp(0.0f, 1.0f, elapsedTime / 3));
 
+			if(elapsedTime / 3 > 1.0f) {
+				startTimer();
+				nextScene();
+			}
+
+			break;
+		case 46:
+			if(timerIsGreaterThan(1.5f)) {
+				startTimer();
+				nextScene();
+			}
+			break;
+		case 47: 
+			//clear the NOOOOOOOOOOO dialog after 2 seconds
+			if(timerIsGreaterThan(2.0f)) {
+				startTimer();
+				nextScene();
+			}
+			break;
+		case 48:
+			Vector3 newCameraPos = Camera.main.transform.position;
+			newCameraPos.x = Mathf.Lerp(0.0f, 1.87f, elapsedTime / 10);
+			Camera.main.transform.position = newCameraPos;
+			
+			Camera.main.orthographicSize = Mathf.Lerp(1.8f, 0.5f, elapsedTime / 10);
+			
+			if(elapsedTime / 10 > 0.5f && !fadingHasStarted) {
+				StartCoroutine(FadeAndNext(Color.white, 5, "4-01 Shrine Exterior"));
+				fadingHasStarted = true;
+			}
+
+			break;
+		}
 	}
 
 	public override void HandleSceneChange() {
 		switch(CurrentScene) {
 		case 20:
 			//flanagan throws down the gauntlet
-			mp.PlayMusic();
+			mp.PlayMusic(BattleMusic, true);
 			os.rigidbody2D.AddForce(new Vector2(-220.0f, 100.0f));
 			ff.GetComponent<FlanaganCombatant>().AutoAttack(null);
 			startTimer();
@@ -128,8 +180,9 @@ public class S301Puppeteer : CutscenePuppeteer {
 			chefTony.GetComponent<ConstantVelocity>().velocity =  Vector2.right * 3;
 			break;
 		case 44:
-			// TODO: crazy shoesplosion
-			shoes.rigidbody2D.AddForce(100 * Vector2.up);
+			shoes.GetComponent<Shoesplosion>().enabled = true;
+			mp.PlayMusic(ShoesTheme, false);
+			startTimer();
 			break;
 		}
 	}
@@ -139,6 +192,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 		case BattleEvent.TurnChange:
 			if(CurrentScene == 28) {
 				// when FF's HP starts getting low...
+
 				if(bc.EnemyCombatants[1].HitPoints / (float)bc.EnemyCombatants[1].MaxHitPoints < 0.2f) {
 					bc.PauseBattle();
 					ff.GetComponent<FlanaganCombatant>().WakeUp();

@@ -24,6 +24,9 @@ public class SpriteShadow : MonoBehaviour {
 
 
 	public bool yPositionAsOffset = false;
+
+	public bool HideShadow = false;
+
 	private Transform shadowTransform;
 	private Vector3 shadowPosition;
 	private float shadowOffsetY;
@@ -45,18 +48,26 @@ public class SpriteShadow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		shadowPosition = transform.position;
-		shadowPosition.x = transform.position.x + shadowOffsetX;
-		shadowPosition.z = transform.position.z;
-
-		if(!yPositionAsOffset) {
-			shadowPosition.y = shadowPositionY;
+		if(HideShadow) {
+			shadowTransform.renderer.enabled = false;
 		} else {
-			shadowPosition.y = transform.position.y + shadowOffsetY;
+			shadowTransform.renderer.enabled = true;
+
+			shadowPosition = transform.position;
+			shadowPosition.x = transform.position.x + shadowOffsetX;
+			shadowPosition.z = transform.position.z;
+
+			if(!yPositionAsOffset) {
+				shadowPosition.y = shadowPositionY;
+			} else {
+				shadowPosition.y = transform.position.y + shadowOffsetY;
+			}
+
+			shadowTransform.position = shadowPosition;
+			shadowTransform.rotation = Quaternion.identity;
+			
 		}
 
-		shadowTransform.position = shadowPosition;
-		shadowTransform.rotation = Quaternion.identity;
 	}
 
 	/// <summary>

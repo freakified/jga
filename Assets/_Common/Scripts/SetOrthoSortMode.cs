@@ -5,7 +5,7 @@ public class SetOrthoSortMode : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		camera.transparencySortMode = TransparencySortMode.Orthographic;
+		Camera.main.transparencySortMode = TransparencySortMode.Orthographic;
 	}
 
 }

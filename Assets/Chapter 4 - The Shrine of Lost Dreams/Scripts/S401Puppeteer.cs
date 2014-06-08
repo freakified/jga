@@ -7,14 +7,14 @@ public class S401Puppeteer : CutscenePuppeteer {
 	private GameObject ChefTony;
 	private MusicPlayer mus;
 
-	private Animator ctanim;
+	//private Animator ctanim;
 
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
-		ctanim = ChefTony.GetComponent<Animator>();
+		//ctanim = ChefTony.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame

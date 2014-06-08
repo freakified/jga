@@ -40,7 +40,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 		attack1.Name = "All-Purpose Slice";
 		attack1.Description = "Stabs a single target with the Miracle Blade™ All-Purpose Slicer™.";
 		//attack1.Power = 76;
-		attack1.Power = 300;
+		attack1.Power = 500;
 		attack1.Accuracy = 100;
 		attack1.Type = AttackType.Damage;
 

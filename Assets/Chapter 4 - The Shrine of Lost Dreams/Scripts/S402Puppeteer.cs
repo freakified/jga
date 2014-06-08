@@ -7,9 +7,9 @@ public class S402Puppeteer : CutscenePuppeteer {
 	private GameObject ChefTony;
 	private GameObject ExamineInfo;
 	private GUIText ExamineNextText;
-	private MusicPlayer mus;
+	//private MusicPlayer mus;
 
-	private Animator ctanim;
+	//private Animator ctanim;
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +19,8 @@ public class S402Puppeteer : CutscenePuppeteer {
 		ExamineNextText = GameObject.Find ("ExamineNextText").GetComponent<GUIText>();
 		ExamineNextText.enabled = false;
 
-		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
-		ctanim = ChefTony.GetComponent<Animator>();
+		//mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
+		//ctanim = ChefTony.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
