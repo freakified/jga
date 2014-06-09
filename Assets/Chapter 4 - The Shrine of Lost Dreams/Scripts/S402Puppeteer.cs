@@ -13,6 +13,7 @@ public class S402Puppeteer : CutscenePuppeteer {
 
 	// Use this for initialization
 	void Start () {
+
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
 		ExamineInfo = GameObject.Find ("ExamineInfo");

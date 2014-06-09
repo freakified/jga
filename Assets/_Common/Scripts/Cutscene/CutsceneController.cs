@@ -80,10 +80,7 @@ public class CutsceneController : MonoBehaviour {
 		//if we're currently showing dialog, then start scrolling it
 		if(dialogText.enabled) {
 
-			if(enableQuickSkip == true) {
-				dialogTextWrapper.SetText(cutsceneElements[cutscenePosition - 1].dialogText);
-				currentChar = cutsceneElements[cutscenePosition - 1].dialogText.Length;
-			}
+
 
 			// if there's still text left to show
 			if(currentChar < cutsceneElements[cutscenePosition - 1].dialogText.Length) {
@@ -99,6 +96,11 @@ public class CutsceneController : MonoBehaviour {
 			} else {
 				if(cutsceneElements[cutscenePosition - 1].allowPlayerAdvance)
 					dialogNextText.enabled = true;
+			}
+
+			if(enableQuickSkip == true && Input.GetButtonDown("Select") && currentChar > 3) {
+				dialogTextWrapper.SetText(cutsceneElements[cutscenePosition - 1].dialogText);
+				currentChar = cutsceneElements[cutscenePosition - 1].dialogText.Length;
 			}
 		}
 

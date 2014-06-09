@@ -11,7 +11,8 @@ public class MusicPlayer : MonoBehaviour {
 	private static MusicPlayer instance = null;
 
 	//used for fade out function
-	private bool fadingOut = false;
+	[HideInInspector]
+	public bool fadingOut = false;
 	private float fadeDuration;
 	private float fadeElapsed;
 

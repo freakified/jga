@@ -121,7 +121,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 			break;
 		case 47: 
 			//clear the NOOOOOOOOOOO dialog after 2 seconds
-			if(timerIsGreaterThan(2.0f)) {
+			if(timerIsGreaterThan(1.0f)) {
 				startTimer();
 				nextScene();
 			}
@@ -136,6 +136,9 @@ public class S301Puppeteer : CutscenePuppeteer {
 			if(elapsedTime / 10 > 0.5f && !fadingHasStarted) {
 				StartCoroutine(FadeAndNext(Color.white, 5, "4-01 Shrine Exterior"));
 				fadingHasStarted = true;
+			} else if(elapsedTime / 10 > 0.9f && fadingHasStarted && !mp.fadingOut) {
+
+				mp.StopMusic(1.0f);
 			}
 
 			break;

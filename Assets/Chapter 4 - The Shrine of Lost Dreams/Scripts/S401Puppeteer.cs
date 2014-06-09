@@ -19,12 +19,12 @@ public class S401Puppeteer : CutscenePuppeteer {
 	
 	// Update is called once per frame
 	public void FixedUpdate () {
-		if(CurrentScene == 3) {
+		if(CurrentScene == 4) {
 			if(ChefTony.transform.position.x > 10.0f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
 				nextScene();
 			}
-		} else if(CurrentScene == 6) {
+		} else if(CurrentScene == 7) {
 			if(ChefTony.transform.position.x > 13.85f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
 				StartCoroutine(FadeAndNext(Color.black, 2, "4-02 Temple Interior"));
@@ -36,7 +36,7 @@ public class S401Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
-		if(CurrentScene == 3 || CurrentScene == 6) {
+		if(CurrentScene == 4 || CurrentScene == 7) {
 			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
 		}
 	}

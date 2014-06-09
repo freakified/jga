@@ -8,6 +8,8 @@ public class FlanaganCombatant : EnemyCombatant {
 	public ParticleSystem OrphanRushPrefab;
 	private ParticleSystem orphanRushParticles;
 
+	public AudioClip OrphanRushSound;
+
 	public OrphanCombatant orphanShield;
 	
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
@@ -44,12 +46,17 @@ public class FlanaganCombatant : EnemyCombatant {
 			GetComponent<Animator>().SetTrigger("FistPump");
 			if(timerIsGreaterThan(0.5f)) {
 
+
 				orphanRushParticles.time = 0;
 				orphanRushParticles.Play();
 
 				attackAnimationState = AttackAnimationState.InProgress;
 
-				//playSound(gunshotSound);
+				playSound(OrphanRushSound);
+
+				orphanRushParticles = Instantiate(OrphanRushPrefab) as ParticleSystem;
+				orphanRushParticles.transform.parent = transform;
+				orphanRushParticles.transform.localPosition = new Vector3(2.0f, 0, 0);
 
 				startTimer();
 			}
