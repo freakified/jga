@@ -43,6 +43,7 @@ public class S402Puppeteer : CutscenePuppeteer {
 		if(CurrentScene == 3) {
 			if(ChefTony.transform.position.x > 0.537f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
+
 				nextScene();
 			}
 		} else if(CurrentScene == 5) {
@@ -87,33 +88,37 @@ public class S402Puppeteer : CutscenePuppeteer {
 			}
 		} else if(CurrentScene == 19) {
 			//just wait a bit and then kill the textbox
-
-			if(knifeInstance.transform.position.x > shoesInstance.transform.position.x) {
+			if(timerIsGreaterThan(2.0f)) {
 				startTimer();
 				nextScene();
 			}
 		} else if(CurrentScene == 20) {
+
+
+			//around the middle of the music, jump to the next scene "limbo"
+			if(timerIsGreaterThan (3.5f)) {
+				StartCoroutine(FadeAndNext(Color.white, 4.0f, "4-03 Limbo"));
+				ChefTony.rigidbody2D.AddForce(new Vector2(-300, 100));
+				nextScene();
+			}
+		}
+
+		if(CurrentScene == 19 || CurrentScene == 20) {
 			//home in on the shoes
 			Vector3 temp = GameObject.Find("Shoe").transform.position;
 			
 			knifeInstance.rigidbody2D.AddForce((shoesInstance.transform.position -
 			                                    knifeInstance.transform.position) *
-			                                   20 * Time.fixedDeltaTime);
-
-			//basically, when the music's about to end
-			if(timerIsGreaterThan (6.0f)) {
-				StartCoroutine(FadeAndNext(Color.white, 4.0f, null));
-				nextScene();
-			}
+			                                   200 * Time.fixedDeltaTime);
 		}
 	}
 
 	public override void HandleSceneChange() {
 
-		//temp code to accelerate cutscene
-		if(CurrentScene < 14) {
-			nextScene();
-		}
+//		//temp code to accelerate cutscene
+//		if(CurrentScene < 14) {
+//			nextScene();
+//		}
 
 		if(CurrentScene == 3) {
 			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
