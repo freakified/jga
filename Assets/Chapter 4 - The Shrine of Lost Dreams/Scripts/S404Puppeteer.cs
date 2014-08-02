@@ -7,12 +7,16 @@ public class S404Puppeteer : CutscenePuppeteer {
 	public ParticleSystem WarpParticles;
 
 	public List<SpriteRenderer> BackgroundLayers;
+	public AudioClip LikeMikeMusic;
+	public AudioClip EvilMusic;
 
 	private GameObject flyingBasketball;
+	private MusicPlayer mus;
 		
 	// Use this for initialization
 	void Start () {
 		flyingBasketball = GameObject.Find ("FlyingBasketball");
+		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 	}
 	
 	// Update is called once per frame
@@ -35,7 +39,7 @@ public class S404Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 27) {
 
 			if(!timerIsGreaterThan(1.0f)) {
-				flyingBasketball.rigidbody2D.AddTorque(1.0f);
+				flyingBasketball.rigidbody2D.AddTorque(2.0f);
 			} else {
 				StartCoroutine(FadeAndNext(new Color(1.0f, 0.47f, 0.2f), 2.0f, null));
 				nextScene();
@@ -46,14 +50,14 @@ public class S404Puppeteer : CutscenePuppeteer {
 	public override void HandleSceneChange() {
 		if (CurrentScene == 6) {
 			//basketball interjection
+			mus.PlayMusic(LikeMikeMusic, false);
 
 			flyingBasketball.rigidbody2D.AddForce(new Vector2(-150, -10));
-			//flyingBasketball.rigidbody2D.AddTorque(10.0f);
-
-		} else if (CurrentScene == 7) {
-
+		} else if (CurrentScene == 19) {
+			mus.PlayMusic(EvilMusic, false);
 		} else if (CurrentScene == 25) {
 			startTimer();
+			mus.StopMusic(2.0f);
 			// next: fade the background to black like we did before
 		} else if (CurrentScene == 26) {
 			flyingBasketball.GetComponent<FBHoverBehavior> ().enabled = false;

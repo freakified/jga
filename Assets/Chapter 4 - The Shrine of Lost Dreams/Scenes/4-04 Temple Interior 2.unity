@@ -1608,6 +1608,8 @@ MonoBehaviour:
   BackgroundLayers:
   - {fileID: 540407390}
   - {fileID: 1266386321}
+  LikeMikeMusic: {fileID: 8300000, guid: 9dd19f4f2e12f4bf6a24dc3252281c04, type: 3}
+  EvilMusic: {fileID: 8300000, guid: 111ed88eaec1c4701b735ab2dbf342be, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
