@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 3d893c1c0071e4c6b9908843dd5bb9c7
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: temple-interior-coffinglow
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -24,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50

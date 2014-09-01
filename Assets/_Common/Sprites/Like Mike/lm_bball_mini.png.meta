@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 016e67f48ed1c49a480c5c2571aafd5e
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: lm_bball_mini
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

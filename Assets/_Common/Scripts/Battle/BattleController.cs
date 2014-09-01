@@ -11,17 +11,23 @@ public class BattleController : MonoBehaviour {
 	/// </summary>
 	public int TargetScreenWidth = 640;
 
+	public AudioClip CursorMoveSound;
+
 	public List<BattleCombatant> PlayerCombatants;
 	public List<BattleCombatant> EnemyCombatants;
 
 	public bool EnabledAtStart = true;
+	
 
 	[HideInInspector]
 	public delegate void BattleEventHandler(BattleEvent eventType);
 	[HideInInspector]
 	public static event BattleEventHandler OnBattleEvent;
+
 	
 	private int totalCombatants;
+
+
 
 	// battle state globals
 	private bool battleEnabled = false;
@@ -32,6 +38,10 @@ public class BattleController : MonoBehaviour {
 	private PlayerAttack selectedAttack;
 	private BattleCombatant selectedTarget;
 
+	// keyboard control globals
+	private int numberOfButtonsVisible = 0;
+	private int currentButtonSelection = 0;
+	private bool dirKeyDown = false;
 
 	// Use this for initialization
 	void Start () {
@@ -83,6 +93,8 @@ public class BattleController : MonoBehaviour {
 					if(selectedAttack != null) {
 						turnState = BattleTurnState.Targeting;
 					}
+
+					checkKeyControlFocus();
 					
 					break;
 				case BattleTurnState.Targeting:
@@ -94,6 +106,8 @@ public class BattleController : MonoBehaviour {
 
 						turnState = BattleTurnState.WaitingForAnimation;
 					}
+
+					checkKeyControlFocus();
 					
 					break;
 				case BattleTurnState.WaitingForAnimation:
@@ -206,15 +220,21 @@ public class BattleController : MonoBehaviour {
 		// display the attacks for the selected player
 		for (int i = 0; i < numAttacks - 1; i++) {
 			attack = ((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [i];
+			GUI.SetNextControlName (i.ToString());
 			if (GUILayout.Button (attack.Name)) {
 				chosenAttack = attack;
 			}
 			attackButtons [i] = GUILayoutUtility.GetLastRect ();
 		}
-
+		
 		// for now, assume that the last move is the healing move
 		// (this can be generalized later, if necessary)
 		GUILayout.Label ("HEAL", guiSkin.customStyles [3]);
+
+		GUI.SetNextControlName ((numAttacks - 1).ToString());
+
+		numberOfButtonsVisible = numAttacks;
+
 		attack = ((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [numAttacks - 1];
 
 		if (GUILayout.Button (attack.Name)) {
@@ -226,9 +246,26 @@ public class BattleController : MonoBehaviour {
 
 		// now draw the attack description tooltip
 		for (int i = 0; i < numAttacks; i++) {
-			if (Event.current.type == EventType.Repaint && attackButtons [i].Contains (Event.current.mousePosition)) {
-				GUI.Label (new Rect (scalePx (220), Event.current.mousePosition.y - scalePx (30), scalePx (315), scalePx (55)), ((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [i].Description, guiSkin.customStyles [2]);
+			if (Event.current.type == EventType.Repaint && (attackButtons [i].Contains (Event.current.mousePosition) ||
+			                                                currentButtonSelection == i)) {
+
+
+				//GUI.Label (new Rect (scalePx (220), Event.current.mousePosition.y - scalePx (30), scalePx (315), scalePx (55)), ((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [i].Description, guiSkin.customStyles [2]);
+				GUI.Label (new Rect (scalePx (220), 
+				                     attackButtons[i].y - scalePx(15), 
+				                     scalePx (315), 
+				                     scalePx (55)), 
+				           ((PlayerCombatant)PlayerCombatants[currentTurn]).Attacks[i].Description, 
+				           guiSkin.customStyles [2]);
+
 			}
+		}
+
+		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
+		// TODO: check if this works with actual gamepads
+		if(Event.current.type == EventType.KeyDown && Input.GetButtonDown("Select")) {
+			chosenAttack =
+				((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [currentButtonSelection];
 		}
 
 		return chosenAttack;
@@ -259,6 +296,8 @@ public class BattleController : MonoBehaviour {
 			//set the turn state back to attacking, which will take effect on the next loop
 			turnState = BattleTurnState.Attacking;
 		}
+
+		GUI.SetNextControlName ("0");
 
 		GUILayout.EndHorizontal();
 
@@ -335,6 +374,38 @@ public class BattleController : MonoBehaviour {
 		}
 
 		GUILayout.EndArea ();
+	}
+
+	/// <summary>
+	/// Checks for the keys controlling the focus (input up/down)
+	/// </summary>
+	private void checkKeyControlFocus() {
+		float v = Input.GetAxis("Vertical");
+
+		if(!dirKeyDown) { 
+			if(v != 0) {
+				if(v < 0) {
+					currentButtonSelection++;
+				} else {
+					currentButtonSelection--;
+				}
+
+				if(currentButtonSelection < numberOfButtonsVisible && currentButtonSelection >= 0) {
+					AudioSource.PlayClipAtPoint(CursorMoveSound, Camera.main.transform.position);
+				} else {
+					currentButtonSelection = Mathf.Clamp(currentButtonSelection, 0, numberOfButtonsVisible - 1);
+				}
+
+				dirKeyDown = true;
+			}
+		} else {
+			if(v == 0) {
+				dirKeyDown = false;
+			}
+		}
+
+		GUI.FocusControl(currentButtonSelection.ToString());
+
 	}
 
 	private void checkForVictory () {

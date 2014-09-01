@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: b311d3a83a06f4a5193288ef01435b3f
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: CT_lostknife
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

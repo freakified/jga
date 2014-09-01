@@ -83,7 +83,7 @@ MonoBehaviour:
       m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Focused:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 10908, guid: 0000000000000000f000000000000000, type: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
       m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}

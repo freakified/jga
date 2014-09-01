@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: f4f4c1dbd1c974712bd21f9285aa29ef
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: temple-interior-coffinopen
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
