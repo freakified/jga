@@ -244,13 +244,18 @@ public class BattleController : MonoBehaviour {
 		attackButtons [numAttacks - 1] = GUILayoutUtility.GetLastRect ();
 		GUILayout.EndArea();
 
+		// if the mouse is over a button, select it:
+		for (int i = 0; i < numAttacks; i++) {
+			if (Event.current.type == EventType.Repaint && 
+			    (attackButtons [i].Contains (Event.current.mousePosition))) {
+				currentButtonSelection = i;
+			}
+		}
+
+
 		// now draw the attack description tooltip
 		for (int i = 0; i < numAttacks; i++) {
-			if (Event.current.type == EventType.Repaint && (attackButtons [i].Contains (Event.current.mousePosition) ||
-			                                                currentButtonSelection == i)) {
-
-
-				//GUI.Label (new Rect (scalePx (220), Event.current.mousePosition.y - scalePx (30), scalePx (315), scalePx (55)), ((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [i].Description, guiSkin.customStyles [2]);
+			if (Event.current.type == EventType.Repaint && (currentButtonSelection == i)) {
 				GUI.Label (new Rect (scalePx (220), 
 				                     attackButtons[i].y - scalePx(15), 
 				                     scalePx (315), 
@@ -278,7 +283,7 @@ public class BattleController : MonoBehaviour {
 		List<BattleCombatant> availableTargets;
 		
 		if (chosenAttack.Type == AttackType.Heal)
-			// if it's a healing move, then we show the list of allies, but
+			// if it's a healing move, then we show the list of allies
 			availableTargets = PlayerCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
 		else
 			// if it's an attack/status move, show the list of enemies
@@ -290,6 +295,9 @@ public class BattleController : MonoBehaviour {
 		GUILayout.BeginHorizontal ();
 		GUILayout.Label ("<b>" + chosenAttack.Name + "</b>");
 
+		GUI.SetNextControlName ("0");
+		numberOfButtonsVisible = availableTargets.Count + 1;
+
 		if (GUILayout.Button ("Cancel", GUILayout.ExpandWidth (false))) {
 			targetingCancelled = true;
 
@@ -297,7 +305,7 @@ public class BattleController : MonoBehaviour {
 			turnState = BattleTurnState.Attacking;
 		}
 
-		GUI.SetNextControlName ("0");
+
 
 		GUILayout.EndHorizontal();
 
@@ -306,6 +314,7 @@ public class BattleController : MonoBehaviour {
 		int percentHP;
 
 		for (int i = 0; i < availableTargets.Count; i++) {
+			GUI.SetNextControlName ((i+1).ToString());
 			availableTarget = availableTargets [i];
 			percentHP = (int)Mathf.Round (availableTarget.HitPoints / (float)availableTarget.MaxHitPoints * 100);
 
