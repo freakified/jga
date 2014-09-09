@@ -7,15 +7,14 @@ public class PaceBehavior : MonoBehaviour {
 	public float PaceSpeed = 2.0f;
 
 	private float elapsedTime = 0;
-	private Vector2 currentVelocity;
+	private Vector3 currentVelocity;
 	private Vector3 currentScale;
 
 	// Use this for initialization
 	void OnEnable () {
-		currentVelocity = new Vector2(-PaceSpeed, 0);
+		currentVelocity = new Vector3(-PaceSpeed, 0.0f, 0.0f);
 		currentScale = transform.localScale;
 		GetComponent<Animator> ().SetFloat ("Speed", 5.0f);
-
 	}
 
 	void OnDisable () {

@@ -8,6 +8,7 @@ public class GuardCombatant : EnemyCombatant {
 	public AudioClip gunshotSound;
 
 	public int InitialHealth = 100;
+	public int AttackPower = 12;
 
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
 
@@ -34,7 +35,7 @@ public class GuardCombatant : EnemyCombatant {
 				attackAnimationState = AttackAnimationState.InProgress;
 
 				playSound(gunshotSound);
-				target.Damage(12);
+				target.Damage(AttackPower);
 
 				startTimer();
 			}
@@ -54,7 +55,7 @@ public class GuardCombatant : EnemyCombatant {
 
 	public override void AutoAttack (List<BattleCombatant> targetList) {
 		//select the player with the lowest HP as the target
-		target = targetList.OrderByDescending(t => t.HitPoints).First();
+		target = targetList.OrderBy(t => t.HitPoints).First();
 		AnimationInProgress = true;
 		attackAnimationState = AttackAnimationState.NeedsToStart;
 		startTimer();

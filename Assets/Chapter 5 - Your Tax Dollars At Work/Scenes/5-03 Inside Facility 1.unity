@@ -374,7 +374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5000000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
       propertyPath: m_LinearDrag
@@ -390,7 +390,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
       propertyPath: InitialHealth
-      value: 200
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: AttackPower
+      value: 43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
@@ -438,7 +446,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
       propertyPath: InitialHealth
-      value: 200
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
@@ -461,7 +485,7 @@ GameObject:
   - 114: {fileID: 631345919}
   - 114: {fileID: 631345926}
   - 114: {fileID: 631345927}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +509,8 @@ MonoBehaviour:
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
   gunshotSound: {fileID: 8300000, guid: 798d91640af89410c9eda55622692f3f, type: 3}
-  InitialHealth: 200
+  InitialHealth: 300
+  AttackPower: 12
 --- !u!114 &631345920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +551,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 502398518}
   m_GameObject: {fileID: 631345918}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: .170000002, y: .649999976}
@@ -545,7 +570,7 @@ Rigidbody2D:
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_SleepingMode: 2
+  m_SleepingMode: 1
   m_CollisionDetection: 0
 --- !u!212 &631345924
 SpriteRenderer:
@@ -602,7 +627,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 502398518}
   m_GameObject: {fileID: 631345918}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7174fd2edd5b84830bf2c5de4f7e64f3, type: 3}
   m_Name: 
@@ -695,7 +720,7 @@ MonoBehaviour:
   EnemyCombatants:
   - {fileID: 631345919}
   - {fileID: 1939803671}
-  EnabledAtStart: 1
+  EnabledAtStart: 0
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -714,7 +739,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682367758}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7779a4944b234d979120f1cf495d8ca, type: 3}
   m_Name: 
@@ -750,7 +775,7 @@ GameObject:
   - 4: {fileID: 999856121}
   - 212: {fileID: 999856123}
   - 114: {fileID: 999856122}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LM's BBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +874,7 @@ GameObject:
   - 61: {fileID: 1371749858}
   - 114: {fileID: 1371749863}
   - 95: {fileID: 1371749864}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Like Mike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1041,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: FrozenAtStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: m_RootOrder
@@ -1178,6 +1203,14 @@ Prefab:
       propertyPath: hitSound
       value: 
       objectReference: {fileID: 8300000, guid: d74abebfd3fde4751b067e5bf040e57f, type: 3}
+    - target: {fileID: 100000, guid: ed152a798a79446e080b2d55ea5d68e3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ed152a798a79446e080b2d55ea5d68e3, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed152a798a79446e080b2d55ea5d68e3, type: 2}
   m_RootGameObject: {fileID: 1371749857}
@@ -1333,7 +1366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9acf39eaa414d94b72bee6cd5678ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrozenAtStart: 1
+  FrozenAtStart: 0
 --- !u!114 &1795993615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,7 +1418,7 @@ GameObject:
   - 114: {fileID: 1939803679}
   - 114: {fileID: 1939803678}
   - 114: {fileID: 1939803670}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1421,7 +1454,8 @@ MonoBehaviour:
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
   gunshotSound: {fileID: 8300000, guid: 798d91640af89410c9eda55622692f3f, type: 3}
-  InitialHealth: 200
+  InitialHealth: 300
+  AttackPower: 43
 --- !u!114 &1939803672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,7 +1496,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 459061638}
   m_GameObject: {fileID: 1939803669}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Size: {x: .170000002, y: .649999976}

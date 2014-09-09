@@ -57,6 +57,9 @@ public class BattleController : MonoBehaviour {
 		turnState = BattleTurnState.Attacking;
 		battleEnabled = true;
 
+		// ignore collision with other battlers
+		Physics2D.IgnoreLayerCollision(10, 10, true); 
+
 		//notify any listeners that the battle started
 		if(OnBattleEvent != null) {
 			OnBattleEvent(BattleEvent.Started);
@@ -66,10 +69,13 @@ public class BattleController : MonoBehaviour {
 
 	public void PauseBattle() {
 		battleEnabled = false;
+
+		Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}
 
 	public void ResumeBattle() {
 		battleEnabled = true;
+		Physics2D.IgnoreLayerCollision(10, 10, true); 
 	}
 
 	void OnGUI () {
@@ -457,6 +463,8 @@ public class BattleController : MonoBehaviour {
 		if(OnBattleEvent != null) {
 			OnBattleEvent(BattleEvent.Finished);
 		}
+
+		Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}
 	
 }

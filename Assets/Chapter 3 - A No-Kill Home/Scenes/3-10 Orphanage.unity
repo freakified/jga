@@ -321,6 +321,10 @@ Prefab:
       propertyPath: RiftExpansionDelay
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 1ca4d5074a76b4ef2aa5cdd1182bdec5, type: 2}
+      propertyPath: WindPeriod
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ca4d5074a76b4ef2aa5cdd1182bdec5, type: 2}
   m_RootGameObject: {fileID: 2051762912}
@@ -536,6 +540,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!61 &483799908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -829,6 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
   TargetScreenWidth: 640
+  CursorMoveSound: {fileID: 0}
   PlayerCombatants:
   - {fileID: 1795993615}
   EnemyCombatants:
@@ -1378,7 +1384,7 @@ MonoBehaviour:
   shoe1: {fileID: 488063731}
   shoe2: {fileID: 1116289641}
   WindForce: {x: 2, y: 0}
-  WindPeriod: 2
+  WindPeriod: 4
 --- !u!114 &1260968999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,6 +1689,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1795993610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,6 +1781,7 @@ MonoBehaviour:
     type: 2}
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
+  EnableSleepAttack: 1
   knifeSlash: {fileID: 8300000, guid: e7da17a40e8f743efbfe45424ad3a286, type: 3}
   healSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
   SalesPitchParticlePrefab: {fileID: 19800000, guid: 413342ccfc68948d48603121038b50a2,

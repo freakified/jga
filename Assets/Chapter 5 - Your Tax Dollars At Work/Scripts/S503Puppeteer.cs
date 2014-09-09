@@ -7,14 +7,24 @@ public class S503Puppeteer : CutscenePuppeteer {
 	public GameObject PacingGuard;
 	private GameObject ChefTony;
 
-	//private Animator ctanim;
-
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
 
-		//ctanim = ChefTony.GetComponent<Animator>();
+	}
+
+	public override void OnEnable() {
+		base.OnEnable();
+		
+		BattleController.OnBattleEvent += HandleBattleEvent;
+	}
+	
+	
+	public override void OnDisable() {
+		base.OnDisable();
+		
+		BattleController.OnBattleEvent -= HandleBattleEvent;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +49,15 @@ public class S503Puppeteer : CutscenePuppeteer {
 			ChefTony.rigidbody2D.AddForce(new Vector2(-500.0f, 100.0f));
 			startTimer();
 
+		}
+	}
+
+	public void HandleBattleEvent(BattleEvent type) {
+		switch(type) {
+		case BattleEvent.Finished:
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+
+			break;
 		}
 	}
 
