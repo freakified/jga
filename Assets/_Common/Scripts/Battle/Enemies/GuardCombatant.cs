@@ -7,6 +7,8 @@ public class GuardCombatant : EnemyCombatant {
 
 	public AudioClip gunshotSound;
 
+	public int InitialHealth = 100;
+
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
 
 	// Use this for initialization
@@ -14,8 +16,8 @@ public class GuardCombatant : EnemyCombatant {
 		base.Start ();
 
 		//set up basic stats
-		MaxHitPoints = 100;
-		HitPoints = 100;
+		MaxHitPoints = InitialHealth;
+		HitPoints = InitialHealth;
 		anim.SetInteger("HP", HitPoints);
 
 	}

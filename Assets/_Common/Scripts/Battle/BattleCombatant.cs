@@ -76,6 +76,11 @@ abstract public class BattleCombatant : MonoBehaviour {
 		if(anim != null) {
 			anim.SetInteger("HP", HitPoints);
 		}
+
+		//ensure that the sleep particles don't continue to play after people die
+		if(HitPoints == 0) {
+			WakeUp();
+		}
 	}
 
 

@@ -3,14 +3,12 @@ using System.Collections;
 
 public class ChefTonyCombatant : PlayerCombatant {
 
-//	public bool EnableBasicAttack = true;
-//	public bool EnableHealAttack = true;
+	public bool EnableSleepAttack = true;
 
 	public AudioClip knifeSlash;
 	public AudioClip healSound;
 
 	public ParticleSystem SalesPitchParticlePrefab;
-
 	private ParticleSystem salesPitchParticles;
 
 	private PlayerAttack currentAttack;
@@ -42,14 +40,18 @@ public class ChefTonyCombatant : PlayerCombatant {
 		attack1.Power = 76;
 		attack1.Accuracy = 100;
 		attack1.Type = AttackType.Damage;
+		Attacks.Add (attack1);
 
-		PlayerAttack attack2 = new PlayerAttack();
-		attack2.Name = "Sales Pitch";
-		attack2.Description = "Puts target to sleep with a lecture on the " +
-			"benefits of the Miracle Blade™ III Perfection Series™.";
-		attack2.Power = 4;
-		attack2.Accuracy = 100;
-		attack2.Type = AttackType.Sleep;
+		if (EnableSleepAttack) {
+			PlayerAttack attack2 = new PlayerAttack ();
+			attack2.Name = "Sales Pitch";
+			attack2.Description = "Puts target to sleep with a lecture on the " +
+					"benefits of the Miracle Blade™ III Perfection Series™.";
+			attack2.Power = 4;
+			attack2.Accuracy = 100;
+			attack2.Type = AttackType.Sleep;
+			Attacks.Add (attack2);
+		}
 
 		PlayerAttack attack3 = new PlayerAttack();
 		attack3.Name = "Fried Chicken Smoothie";
@@ -58,8 +60,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 		attack3.Accuracy = 100;
 		attack3.Type = AttackType.Heal;
 
-		Attacks.Add (attack1);
-		Attacks.Add (attack2);
+
 		Attacks.Add (attack3);
 
 		salesPitchParticles = Instantiate(SalesPitchParticlePrefab) as ParticleSystem;
