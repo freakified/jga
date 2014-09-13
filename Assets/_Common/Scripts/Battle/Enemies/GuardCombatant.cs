@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public class GuardCombatant : EnemyCombatant {
 
@@ -48,6 +47,7 @@ public class GuardCombatant : EnemyCombatant {
 				attackAnimationState = AttackAnimationState.Off;
 				AnimationInProgress = false;
 			}
+
 			break;
 		}
 		
@@ -55,7 +55,7 @@ public class GuardCombatant : EnemyCombatant {
 
 	public override void AutoAttack (List<BattleCombatant> targetList) {
 		//select the player with the lowest HP as the target
-		target = targetList.OrderBy(t => t.HitPoints).First();
+		target = getWeakestTarget (targetList);
 		AnimationInProgress = true;
 		attackAnimationState = AttackAnimationState.NeedsToStart;
 		startTimer();

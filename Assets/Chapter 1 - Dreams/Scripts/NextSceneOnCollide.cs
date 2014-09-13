@@ -3,6 +3,11 @@ using System.Collections;
 
 public class NextSceneOnCollide : MonoBehaviour {
 
+
+	public string NextSceneName = null;
+	public Color FadeToColor = new Color(0, 0, 0, 1);
+	public float FadeDuration = 1.0f;
+
 	private CameraFade fader;
 
 	// get the camera fade script
@@ -25,8 +30,8 @@ public class NextSceneOnCollide : MonoBehaviour {
 	}
 
 	IEnumerator FadeAndNext() {
-		fader.StartFade(new Color(0, 0, 0, 1), 1);
-		yield return new WaitForSeconds(1);
-		Application.LoadLevel("02 Elevator Entry 2");
+		fader.StartFade(FadeToColor, FadeDuration);
+		yield return new WaitForSeconds(FadeDuration);
+		Application.LoadLevel(NextSceneName);
 	}
 }

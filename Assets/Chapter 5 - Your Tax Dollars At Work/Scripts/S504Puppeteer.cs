@@ -2,9 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class S503Puppeteer : CutscenePuppeteer {
+public class S504Puppeteer : CutscenePuppeteer {
 
-	public GameObject PacingGuard;
 	private GameObject ChefTony;
 
 	// Use this for initialization
@@ -32,8 +31,6 @@ public class S503Puppeteer : CutscenePuppeteer {
 		if (CurrentScene == 0) {
 			if(ChefTony.transform.position.x > 1.2f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
-				PacingGuard.transform.localScale = new Vector3(-1, 1, 1);
-				PacingGuard.GetComponent<PaceBehavior>().enabled = false;
 				nextScene();
 			}
 		} else if (CurrentScene == 2) {
@@ -48,14 +45,15 @@ public class S503Puppeteer : CutscenePuppeteer {
 		if (CurrentScene == 2) {
 			ChefTony.rigidbody2D.AddForce(new Vector2(-500.0f, 100.0f));
 			startTimer();
-
+		} else if (CurrentScene == 5) {
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
 		}
 	}
 
 	public void HandleBattleEvent(BattleEvent type) {
 		switch(type) {
 		case BattleEvent.Finished:
-			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+			nextScene();
 
 			break;
 		}

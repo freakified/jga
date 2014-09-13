@@ -464,7 +464,12 @@ public class BattleController : MonoBehaviour {
 			OnBattleEvent(BattleEvent.Finished);
 		}
 
-		Physics2D.IgnoreLayerCollision(10, 10, false); 
+		// if the enemies are defeated, bring everyone back to life:
+		PlayerCombatants.ForEach (c => c.Heal(c.MaxHitPoints));
+
+		// for now, don't disable battler collision to see if this
+		// fixes our issue with colliding with corpses
+		//Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}
 	
 }

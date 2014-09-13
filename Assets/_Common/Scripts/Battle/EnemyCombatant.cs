@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 abstract public class EnemyCombatant : BattleCombatant {
 	
@@ -18,4 +19,8 @@ abstract public class EnemyCombatant : BattleCombatant {
 	/// Automatically selects a target and attacks it
 	/// </summary>
 	abstract public void AutoAttack (List<BattleCombatant> targetList);
+
+	protected BattleCombatant getWeakestTarget(List<BattleCombatant> targetList) {
+		return targetList.Where(t => t.HitPoints > 0).OrderBy(t => t.HitPoints).First();
+	}
 }
