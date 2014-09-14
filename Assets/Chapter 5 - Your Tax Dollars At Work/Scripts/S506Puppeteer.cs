@@ -35,7 +35,6 @@ public class S506Puppeteer : CutscenePuppeteer {
 
 		if(CurrentScene == 0) {
 			if(ChefTony.transform.position.x > -1.79) {
-				// next: Chef Tony needs disable/enable control methods
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
 
 				//start the cutscene
@@ -67,9 +66,9 @@ public class S506Puppeteer : CutscenePuppeteer {
 
 	public override void HandleSceneChange() {
 		// once the text is ready, start the battle
-		if(CurrentScene == 4)
+		if(CurrentScene == 3)
 			GetComponent<BattleController>().StartBattle();
-		else if(CurrentScene == 7)  
+		else if(CurrentScene == 9)  
 			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
 	}
 
