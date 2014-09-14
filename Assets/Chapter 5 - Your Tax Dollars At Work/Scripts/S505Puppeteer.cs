@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class S505Puppeteer : CutscenePuppeteer {
 
-	private GameObject ChefTony;
+	private GameObject ChefTony, LikeMike;
 
 	public AudioClip knifeSlash;
 
@@ -12,6 +12,7 @@ public class S505Puppeteer : CutscenePuppeteer {
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
+		LikeMike = GameObject.Find ("Like Mike");
 	}
 	
 	// Update is called once per frame
@@ -26,16 +27,16 @@ public class S505Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
-		if(CurrentScene <= 5) {
-			ChefTony.GetComponent<PlayerControl>().enabled = false;
-		} else {
-			ChefTony.GetComponent<PlayerControl>().enabled = true;
-		}
 
 		if(CurrentScene == 3) {
-			ChefTony.rigidbody2D.AddForce(Vector2.right * 600f);
+			ChefTony.rigidbody2D.AddForce(Vector2.right * 1000f);
 			playSound(knifeSlash);
 			startTimer();
+		} else if (CurrentScene == 5) {
+			LikeMike.rigidbody2D.AddForce(Vector2.one * 150f);
+		} else if (CurrentScene == 7) {
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+			LikeMike.rigidbody2D.isKinematic = true;
 		}
 	}
 }

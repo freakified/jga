@@ -1,1 +1,4 @@
+Announcement: WARNING!
+Announcement: INTRUDERS DETECTED!
+***
 Guard: You must DIE!

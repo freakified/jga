@@ -29,15 +29,15 @@ public class S503Puppeteer : CutscenePuppeteer {
 	
 	// Update is called once per frame
 	public void FixedUpdate () {
-		if (CurrentScene == 0) {
+		if (CurrentScene == 3) {
 			if(ChefTony.transform.position.x > 1.2f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
 				PacingGuard.transform.localScale = new Vector3(-1, 1, 1);
 				PacingGuard.GetComponent<PaceBehavior>().enabled = false;
 				nextScene();
 			}
-		} else if (CurrentScene == 2) {
-			if(timerIsGreaterThan(1.0f)) {
+		} else if (CurrentScene == 5) {
+			if(timerIsGreaterThan(0.5f)) {
 				GetComponent<BattleController> ().StartBattle ();
 				nextScene();
 			}
@@ -45,10 +45,11 @@ public class S503Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
-		if (CurrentScene == 2) {
+		if (CurrentScene == 5) {
 			ChefTony.rigidbody2D.AddForce(new Vector2(-500.0f, 100.0f));
 			startTimer();
-
+		} else if(CurrentScene == 3) {
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
 		}
 	}
 
