@@ -8,11 +8,16 @@ Chef Tony: Wait...I remember what to do!
 Chef Tony: ..............
 Like Mike: ........................
 Chef Tony: Well, it worked in the dream!
-Like Mike: Here’s the control console!
-Like Mike: I'll have to hack it!
 ***
-Announcement: AS PART OF SAFETY PROTOCOL GAMMA
-Announcement: ALL PERSONNEL MUST WEAR GAS MASKS
+Like Mike: Hey, "Emergency Containment System Override"!
+Like Mike: Just push that!
+Chef Tony: ..............
+***
+***
+Announcement: WARNING!
+Announcement: EMERGENCY CONTAINMENT SYSTEM OVERRIDE SEQUENCE ACTIVATED!
+Announcement: AS PART OF SAFETY PROTOCOL GAMMA...
+Announcement: ...ALL PERSONNEL MUST WEAR GAS MASKS!
 ***
 Like Mike: Three gas masks!  Perfect, that's one more than we need!
 ***

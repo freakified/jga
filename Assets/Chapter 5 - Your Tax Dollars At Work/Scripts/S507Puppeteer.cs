@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public class S507Puppeteer : CutscenePuppeteer {
 
-	public AudioClip explosionNoise;
+	public AudioClip ButtonPressSound, AlarmSound;
 	public AudioClip knife;
 
 	public GameObject SparksPrefab;
 
-	private GameObject ChefTony;
+	private GameObject ChefTony, LikeMike, BG;
 	private GameObject sparks;
 	private Animator ctanim;
 		
@@ -17,6 +17,8 @@ public class S507Puppeteer : CutscenePuppeteer {
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
+		LikeMike = GameObject.Find ("Like Mike");
+		BG = GameObject.Find ("02 - BG");
 	}
 	
 	// Update is called once per frame
@@ -57,12 +59,26 @@ public class S507Puppeteer : CutscenePuppeteer {
 			if(timerIsGreaterThan(0.5f)) {
 				nextScene();
 			}
-		} else if(CurrentScene == 6) {
-//			if(timerIsGreaterThan(0.3f)) {
-//				stopTimer();
-//				StartCoroutine(FadeAndNext(Color.white, 5, "2-01 Limbo"));
-//				nextScene();
-//			}
+		} else if(CurrentScene == 11) {
+			if(timerIsGreaterThan(1.0f)) {
+				nextScene();
+			}
+		} else if (CurrentScene == 15) {
+			if(timerIsGreaterThan(0.2f)) {
+				ctanim.SetBool("IsAttacking", false);
+				nextScene();
+			}
+		} else if (CurrentScene == 16) {
+			if(timerIsGreaterThan(2f)) {
+				playSound(AlarmSound);
+				BG.GetComponent<SpriteRenderer>().color = new Color(.70f, .21f, .21f);
+				nextScene();
+			}
+		} else if (CurrentScene == 21) {
+			if(timerIsGreaterThan(1.0f)) {
+				LikeMike.transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+				nextScene();
+			}
 		}
 
 
@@ -70,7 +86,24 @@ public class S507Puppeteer : CutscenePuppeteer {
 
 	public override void HandleSceneChange() {
 		// once the text is ready, start the battle
-
+		if(CurrentScene == 11) {
+			LikeMike.rigidbody2D.AddForce(new Vector2(200.0f, 200.0f));
+			startTimer();
+		} else if (CurrentScene == 10) {
+			ctanim.SetBool("IsAttacking", false);
+		} else if (CurrentScene == 15) {
+			playSound(ButtonPressSound);
+			ctanim.SetBool("IsAttacking", true);
+			startTimer();
+		} else if (CurrentScene == 16) {
+			startTimer();
+		} else if (CurrentScene == 21) {
+			GameObject[] gasMasks = GameObject.FindGameObjectsWithTag("Droppable");
+			foreach(GameObject gasMask in gasMasks) {
+				gasMask.rigidbody2D.isKinematic = false;
+			}
+			startTimer();
+		}
 	}
 
 }
