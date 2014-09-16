@@ -19,8 +19,6 @@ public class OrphanCombatant : EnemyCombatant {
 
 		base.Start ();
 
-		Physics2D.IgnoreLayerCollision(10, 0); // disable collisions with other battlers
-
 		// you can't kill an orphan! who would buy your knives then?
 		immuneToDamage = true;
 

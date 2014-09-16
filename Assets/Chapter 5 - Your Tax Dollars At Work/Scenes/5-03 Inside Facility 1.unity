@@ -877,6 +877,7 @@ GameObject:
   - 50: {fileID: 1371749859}
   - 61: {fileID: 1371749858}
   - 114: {fileID: 1371749863}
+  - 95: {fileID: 1371749865}
   - 95: {fileID: 1371749864}
   m_Layer: 10
   m_Name: Like Mike
@@ -991,6 +992,22 @@ Animator:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1371749857}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32d9b7e59643f4350b491ec730bf453c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &1371749865
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: ed152a798a79446e080b2d55ea5d68e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1740614049}
   m_GameObject: {fileID: 1371749857}
   m_Enabled: 1
   m_Avatar: {fileID: 0}

@@ -341,6 +341,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &318122755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1706,7 +1707,7 @@ GameObject:
   - 4: {fileID: 1054465087}
   - 212: {fileID: 1054465088}
   - 114: {fileID: 1054465089}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LM's BBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1853,7 +1854,9 @@ GameObject:
   - 114: {fileID: 1339836642}
   - 50: {fileID: 1339836646}
   - 61: {fileID: 1339836645}
-  m_Layer: 0
+  - 114: {fileID: 1339836648}
+  - 95: {fileID: 1339836647}
+  m_Layer: 10
   m_Name: Like Mike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1941,6 +1944,41 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!95 &1339836647
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: ed152a798a79446e080b2d55ea5d68e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1718664359}
+  m_GameObject: {fileID: 1339836641}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32d9b7e59643f4350b491ec730bf453c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1339836648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: ed152a798a79446e080b2d55ea5d68e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1718664359}
+  m_GameObject: {fileID: 1339836641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd41d95bc8ca04c4dbc4b5db3f95ff6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageParticlesPrefab: {fileID: 19800000, guid: 7e814593eb1c14786ad023a205edd9c5,
+    type: 2}
+  SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
+    type: 2}
+  healSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
+  throwSound: {fileID: 8300000, guid: 58ca1eb5c8618488b92e3a64b2d1177a, type: 3}
+  hitSound: {fileID: 8300000, guid: d74abebfd3fde4751b067e5bf040e57f, type: 3}
 --- !u!1001 &1376202008
 Prefab:
   m_ObjectHideFlags: 0
@@ -2171,6 +2209,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ed152a798a79446e080b2d55ea5d68e3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed152a798a79446e080b2d55ea5d68e3, type: 2}
   m_RootGameObject: {fileID: 1339836641}
@@ -2251,6 +2293,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1795993610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2342,6 +2385,7 @@ MonoBehaviour:
     type: 2}
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
+  EnableSleepAttack: 1
   knifeSlash: {fileID: 8300000, guid: e7da17a40e8f743efbfe45424ad3a286, type: 3}
   healSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
   SalesPitchParticlePrefab: {fileID: 19800000, guid: 413342ccfc68948d48603121038b50a2,

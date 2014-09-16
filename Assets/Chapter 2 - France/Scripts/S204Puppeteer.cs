@@ -24,6 +24,8 @@ public class S204Puppeteer : CutscenePuppeteer {
 		salesman = GameObject.Find ("Salesman");
 		foodCart = GameObject.Find ("Food Cart");
 
+		police.rigidbody2D.isKinematic = true;
+
 	}
 	
 	// Update is called once per frame

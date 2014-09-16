@@ -343,6 +343,8 @@ GameObject:
   - 95: {fileID: 631345921}
   - 114: {fileID: 631345920}
   - 114: {fileID: 631345919}
+  - 114: {fileID: 631345928}
+  - 114: {fileID: 631345927}
   - 114: {fileID: 631345926}
   m_Layer: 0
   m_Name: Guard
@@ -368,6 +370,8 @@ MonoBehaviour:
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
   gunshotSound: {fileID: 8300000, guid: 798d91640af89410c9eda55622692f3f, type: 3}
+  InitialHealth: 100
+  AttackPower: 12
 --- !u!114 &631345920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +431,7 @@ Rigidbody2D:
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 2
   m_CollisionDetection: 0
 --- !u!212 &631345924
 SpriteRenderer:
@@ -448,7 +452,7 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayerID: 304927011
+  m_SortingLayerID: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 28a1902756caa4ed7bc5ccdb3233240b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -471,6 +475,33 @@ MonoBehaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 631345918}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbc9a64b947e4bdfb89b49507bf04b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0}
+--- !u!114 &631345927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: 371f307fbc99e4a59aa2749d30a73785,
+    type: 2}
+  m_PrefabInternal: {fileID: 1052119961}
+  m_GameObject: {fileID: 631345918}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7174fd2edd5b84830bf2c5de4f7e64f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PacePeriod: .5
+  PaceSpeed: 2
+--- !u!114 &631345928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 371f307fbc99e4a59aa2749d30a73785,
+    type: 2}
+  m_PrefabInternal: {fileID: 1052119961}
+  m_GameObject: {fileID: 631345918}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bbc9a64b947e4bdfb89b49507bf04b3, type: 3}
   m_Name: 
@@ -597,7 +628,7 @@ GameObject:
   - 4: {fileID: 999856121}
   - 212: {fileID: 999856123}
   - 114: {fileID: 999856122}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LM's BBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,6 +730,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
   m_RootGameObject: {fileID: 631345918}
@@ -798,7 +833,9 @@ GameObject:
   - 114: {fileID: 1371749860}
   - 50: {fileID: 1371749859}
   - 61: {fileID: 1371749858}
-  m_Layer: 0
+  - 114: {fileID: 1371749864}
+  - 95: {fileID: 1371749863}
+  m_Layer: 10
   m_Name: Like Mike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,6 +923,41 @@ Transform:
   - {fileID: 999856121}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!95 &1371749863
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9500000, guid: ed152a798a79446e080b2d55ea5d68e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1110936494}
+  m_GameObject: {fileID: 1371749857}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32d9b7e59643f4350b491ec730bf453c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1371749864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: ed152a798a79446e080b2d55ea5d68e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1110936494}
+  m_GameObject: {fileID: 1371749857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd41d95bc8ca04c4dbc4b5db3f95ff6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageParticlesPrefab: {fileID: 19800000, guid: 7e814593eb1c14786ad023a205edd9c5,
+    type: 2}
+  SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
+    type: 2}
+  healSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
+  throwSound: {fileID: 8300000, guid: 58ca1eb5c8618488b92e3a64b2d1177a, type: 3}
+  hitSound: {fileID: 8300000, guid: d74abebfd3fde4751b067e5bf040e57f, type: 3}
 --- !u!1001 &1376202008
 Prefab:
   m_ObjectHideFlags: 0
@@ -1233,6 +1305,7 @@ MonoBehaviour:
     type: 2}
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
+  EnableSleepAttack: 1
   knifeSlash: {fileID: 8300000, guid: e7da17a40e8f743efbfe45424ad3a286, type: 3}
   healSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
   SalesPitchParticlePrefab: {fileID: 19800000, guid: 413342ccfc68948d48603121038b50a2,
@@ -1303,6 +1376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df15eef45e76f4dd39ad086f61547661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextSceneName: 
+  FadeToColor: {r: 0, g: 0, b: 0, a: 1}
+  FadeDuration: 1
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0

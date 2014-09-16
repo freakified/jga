@@ -34,12 +34,14 @@ public class S502Puppeteer : CutscenePuppeteer {
 			if(Guard.transform.position.x > 2.40f) {
 				playSound(DoorSound);
 				Guard.renderer.enabled = false;
+				Guard.GetComponent<SpriteShadow>().HideShadow = true;
 				nextScene();
 			}
 		} else if(CurrentScene == 10) {
 			if(ChefTony.transform.position.x > 2.40f) {
 				playSound(SmashSound);
 				ChefTony.renderer.enabled = false;
+				ChefTony.GetComponent<SpriteShadow>().HideShadow = true;
 				nextScene();
 			}
 		}
@@ -58,6 +60,7 @@ public class S502Puppeteer : CutscenePuppeteer {
 		} else if (CurrentScene == 4) {
 			Guard.transform.localScale = Vector3.one;
 			Guard.GetComponent<Animator>().SetFloat("Speed", 5.0f);
+			Guard.GetComponent<ConstantVelocity>().enabled = true;
 			Guard.GetComponent<ConstantVelocity>().velocity = new Vector2(5.0f, 0.0f);
 		} else if (CurrentScene == 10) {
 			ChefTony.GetComponent<Animator>().SetFloat("Speed", 5.0f);

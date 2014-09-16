@@ -6,10 +6,16 @@ public class S507Puppeteer : CutscenePuppeteer {
 
 	public AudioClip ButtonPressSound, AlarmSound, DoorOpenSound, DoorCloseSound, SawingSound;
 	public AudioClip knife;
-	
+
+
 	private GameObject ChefTony, LikeMike, Scientist, DisclaimerText, BG;
+	private GameObject Clouds, JamesDisplay;
 	private GameObject[] gasMasks;
 	private Animator ctanim;
+
+	private ParticleSystem Gas;
+
+	private GameObject JamesFly;
 		
 	// Use this for initialization
 	void Start () {
@@ -19,6 +25,13 @@ public class S507Puppeteer : CutscenePuppeteer {
 		Scientist = GameObject.Find ("Scientist");
 		DisclaimerText = GameObject.Find ("DisclaimerText");
 		BG = GameObject.Find ("02 - BG");
+
+		Gas = GameObject.Find ("Gasplosion").particleSystem;
+
+		JamesFly = GameObject.Find ("james_fly");
+
+		Clouds = GameObject.Find ("Clouds");
+		JamesDisplay = GameObject.Find ("James-Display");
 
 		gasMasks = GameObject.FindGameObjectsWithTag("Droppable");
 	}
@@ -117,9 +130,27 @@ public class S507Puppeteer : CutscenePuppeteer {
 				stopSound();
 				nextScene();
 			}
+		} else if (CurrentScene == 49) {
+			if(timerIsGreaterThan(2.0f)) {
+				startTimer();
+				nextScene();
+			}
+		} else if (CurrentScene == 50) {
+			if(timerIsGreaterThan(2.0f)) {
+				nextScene();
+			}
+		} else if (CurrentScene == 51) {
+			if(timerIsGreaterThan(2.0f)) {
+				StartCoroutine(FadeAndNext(Color.green, 5.0f, null));
+				nextScene();
+			}
 		}
 
-
+		if(CurrentScene >= 51) {
+			JamesFly.renderer.enabled = true;
+			JamesFly.transform.Rotate(0, 0, 5.0f);
+			JamesFly.transform.localScale = JamesFly.transform.localScale * 1.03f;
+		}
 	}
 
 	public override void HandleSceneChange() {
@@ -165,7 +196,6 @@ public class S507Puppeteer : CutscenePuppeteer {
 			DisclaimerText.guiText.enabled = false;
 		} else if (CurrentScene == 40) {
 			ctanim.SetBool("IsSawing", true);
-			
 			playSound(SawingSound, true);
 			startTimer();
 		} else if (CurrentScene == 44) {
@@ -173,6 +203,14 @@ public class S507Puppeteer : CutscenePuppeteer {
 			startTimer();
 		} else if (CurrentScene == 46) {
 			gasMasks[2].rigidbody2D.AddForce(Vector2.one * 200.0f);
+		} else if (CurrentScene == 47) {
+
+		} else if (CurrentScene == 49) {
+			Camera.main.GetComponent<CameraShake>().enabled = true;
+			Clouds.renderer.enabled = false;
+			JamesDisplay.renderer.enabled = false;
+			Gas.Play();
+			startTimer();
 		}
 	}
 
