@@ -71,7 +71,14 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 		soundSource.Play();
 	}
 
+	protected void playSound(AudioClip sound, bool shouldLoop) {
+		soundSource.loop = shouldLoop;
+
+		playSound(sound);
+	}
+
 	protected void stopSound() {
+		soundSource.loop = false;
 		soundSource.Stop();
 	}
 
