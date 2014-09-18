@@ -1,48 +1,721 @@
-Like Mike: It’s James!
-Chef Tony: We have to free him!
-Chef Tony: Wait...I remember what to do!
-***
-***
-***
-***
-Chef Tony: ..............
-Like Mike: ........................
-Chef Tony: Well, it worked in the dream!
-***
-Like Mike: Hey, "Emergency Containment System Override"!
-Like Mike: Just push that!
-Chef Tony: ..............
-***
-***
-Announcement: WARNING!
-Announcement: EMERGENCY CONTAINMENT SYSTEM OVERRIDE SEQUENCE ACTIVATED!
-Announcement: AS PART OF SAFETY PROTOCOL GAMMA...
-Announcement: ...ALL PERSONNEL MUST WEAR GAS MASKS!
-***
-Like Mike: Three gas masks!  Perfect, that's one more than we need!
-***
-Chief Scientist: You fools!  You’ve doomed us all!
-Chief Scientist: This machine was designed to contain James by locking him in a separate dimension!
-Chief Scientist: In the years since his imprisonment, the world has finally been free from his tyranny!
-Chief Scientist: By deactivating it, the reaction with his gas will surely cause a chain reaction that will not only destroy this facility...
-Chief Scientist: ...but will also disrupt the flow of time itself!
-Chief Scientist: Anyway, I’m going to need this gas mask!
-Chief Scientist: Plus another for my beloved guinea pig!
-***
-Like Mike: He took the gas masks and locked us in!
-Like Mike: Now we have just one!
-Chef Tony: No problem!
-***
-Chef Tony: I can use my Miracle Blade™ to slice and dice these pipes into a new gas mask!
-Like Mike: But those pipes are attached to the concrete!  You'll never remove them in time!
-Chef Tony: Don’t worry!  With its genuine German* stainless steel...
-Chef Tony: ...my Miracle Blade™ All-Purpose Slicer™ can cut through concrete like a hot knife through butter!
-***
-Like Mike: That doesn’t look like it’s cutting at all...
-Chef Tony: Of course it’s cutting!
-Chef Tony: It has to be!
-Chef Tony: This can’t be happening!!!!!
-Like Mike: Take this gas mask!  It's the only way you'll survive!
-Chef Tony: No...
-Chef Tony: NOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!11111
-Chef Tony: LIKEEEEEEE MIKEEEEEEEEEEEEEEEEEE!!!!!!!!!!!!
+# JGA: Detailed Outline
+
+**JGA: Crossroads of Destiny**
+ 
+## Chapter 1: Opening titles
+- Music Inspiration: “The Landing” from Final Fantasy VIII
+
+We see a room of some kind...two security guards fall to the ground in slow motion
+We see a elevator door opening, with a shadowed figure entering.
+ 
+Elevator door opens, a fat Chef is now clearly visible, and throws two knives at two security guards, killing both.
+ 
+Chef Tony (offscreen): “Gwaaaaaaa!”
+[guards turn to look]
+CT: "Only two easy payments are necessary........."
+[chef tony rushes in, stabbing both guards]
+CT: “.............of death!!!!!”
+CT: “The control room can’t be far!  I have to get there before it's too late!"
+
+Guards: “You there!  Halt!”
+CT: "No way to surprise these guards!  I guess I'll have to best them in combat!"
+
+*Chef Tony runs at the guards, starting a battle.
+
+Tutorial: Use the arrow keys to move the cursor, and the spacebar to select an attack.
+Tutorial: Now, use the arrow keys to select a target.
+
+*Enemies take their turns
+
+Tutorial: Attack the same guard again to finish the job!
+
+*Enemy takes their turns
+
+Tutorial: Oh no!  Chef Tony's health is low!  Use his healing move.
+
+*Enemy takes turn
+
+Now, finish him off with another pair of stabs!
+
+*Two turns later, guard is dead
+
+Chef Tony: Sliced up those guards like a hot knife through butter!
+Chef Tony: Now, back to business!  To the control room!
+
+
+*Chef Tony presses button*
+*Elevator ascends to control room*
+ 
+In the control room, there is a set of screens on which a figure is clearly visible.
+ 
+CT: “Soon, James, you shall be free once again!”
+
+> As Chef Tony jams his knife into the control panel, sparks fly everywhere, engulfing the room...
+
+[Fade to white]
+
+## Chapter 2: If the French like it, you know it’s good
+*black text on a white background*
+Chef Tony: What a strange dream...
+Chef Tony: ...it didn't even involve selling knives!
+*fade back in*
+
+Time of day: Morning
+Music: Latias in Disguise, from Pokemon 5
+
+CT: Good morning, potential customers!
+CT: Taking my business to this city of fine taste will surely pay off any day now!
+
+Ahead, there is a phone booth.  It is ringing.
+CT: That payphone!  It's ringing!
+CT: They must be calling about buying my Miracle Blade™ Perfection Series™ Knives!
+
+When CT reaches the booth, he goes inside, and a cutscene begins:
+
+*phone starts ringing*
+
+CT: “Hoy!”
+P: "Hello there…*Chef Tony*...
+CT: "Exactly how many Miracle Blades™ would you like to buy??”
+CT: “(Finally, a sale!)"
+P: “Zero."
+P: "However--"
+CT: “Now listen here, just think of the money you could save!"
+CT: "You could be cutting drywall with these fine pieces of cutlery!"
+P: "How would that save money, exactly?"
+CT: "How could it *not* save money?"
+P: "…"
+P: "In any case, I know of someone who may be more interested in your so-called knives.”
+P: “Might you be familiar with someone named…”
+*Music change to something ominous*
+P: "…James?"
+CT: “James!?!?”
+CT: "The greatest gasmaster that ever lived?”
+CT: "The single best customer of Miracle Blades™??”
+CT: "But James died ten years ago!”
+CT: "Everyone knows that!”
+P: “Perhaps so."
+P: “However, if you wish to learn the *true* fate of the one called James…"
+P: "I would advise you to **seek the shoes**.”
+CT: “So...are you saying that you *don't* want to buy Miracle Blades™?"
+CT: "They come with a lifetime guarantee, and if you select expedited shipping--"
+P: “Remember…seek the shoes!”
+CT: “I don’t need to take orders from you!”
+*hang up sound*
+CT: "Unless those orders are for Miracle Blades™!”
+
+CT: "Darn, I almost had that sale!  I was in the zone!"
+
+> Enter: Food Cart Salesman
+
+Salesman: "Bonjour, mon gros chef!  Voulez-vous acheter des oranges?"
+CT: "Did you know that with the magic of the Miracle Blade™ knives, you could be cutting those oranges into tiny pieces?"
+
+> Enter: Police officer
+
+Officer: “Attendez!"
+Officer: "You are zhat faux “Chef" who was supposed to be deported for selling kitchen products of poor qualité!”
+Officer: “You are to be arrested at once!"
+
+> CT runs into a conveniently-placed vegetable cart, which rolls off the screen
+
+Salesman: Sacré bleu!  Mes oranges!!!!!!!!!!!!
+
+## Chapter 3: The Chase
+- Time of day: midday
+- Music: Search for the Girl, from Pokemon 5
+
+Chef Tony rolls downhill, and must avoid the obstacles in order to get to the end of the level!  There should also be a lot of jumps.
+
+*the cart crashes into a wall*
+*fade to black*
+*crashing sounds*
+
+## Chapter 4: Charitable Deduction
+Time of day: afternoon
+
+CT: Ugggghhhhhhhhhhhhh...........................
+CT: “My head hasn’t hurt this bad since that time I ate too much whipping cream...”
+*fade in*
+
+* Chef Tony finds himself in front of a massive concrete and barbed wire structure, looking something like a cross between a prison and a bunker.  Belying its appearance is a massive neon sign saying "Father Flanagan's *Euro* Boys and Girls Town"
+
+???: Well hello there, young man!
+Chef Tony: Who are you?  And where am I?
+???: My name is Father Flanagan, owner and founder of boys and girls town, the greatest orphanage on earth!
+Father Flanagan: Now, since my boys and girls home is so popular (and is a no-kill home), we need your contributions to help us out!
+Father Flanagan: Now, friend, we both know money doesn't grow on trees, not these days.
+Father Flanagan: Therefore, our home needs your support to keep running and become larger and larger.
+Chef Tony: But wait, I…
+Father Flanagan: You're probably wondering, "Will my contributions really help?" 
+Father Flanagan: Not to worry, because believe it or not, $0.35 out of every dollar you donate goes right to helping my boys and girls home!
+Father Flanagan: My children would be overjoyed if you just donated a minuscule $1000, $2000, or $3000!
+Chef Tony: But...
+Father Flanagan: That’s right, even that *small* amount of money will help my boys home grow larger and larger!
+Father Flanagan: I have owned and run this girls and boys home for a long time, and never have I seen another home as well run as this one.
+Chef Tony: You wouldn't happen to be interested in buying some KNIVES, would you?
+Father Flanagan: BUYING knives? Surely you jest! Now, if you're talking about DONATING them, then perhaps...
+Chef Tony: Nope.
+Father Flanagan: You would DARE try to SELL me something!?? The NERVE!
+Father Flanagan: Very well, then. Prepare to donate...YOUR LIFE!
+
+The camera moves to an "arena", which is actually a basketball court.  In the corner, there's a power line with shoes hanging on it.
+
+FF: Orphans!  Assemble!
+
+* A couple orphans run up to FF and start bouncing in front of FF
+
+Father Flanagan: Do you REALLY think you'll be able to attack me through my Orphan Shield™?
+Father Flanagan: No one could possibly attack such an adorable orphan as this!
+Chef Tony: (Oh no!  He's right!)
+Chef Tony: (If word gets out that the Miracle Blades were used to murder orphans, I'll never sell anything again!)
+Chef Tony: (Wait a minute...I'll just give that orphan shielding him the old knife sales pitch!)
+Chef Tony: That never fails to put people to sleep................*sigh*
+
+
+* boss battle: Father Flanagan.  He has a variety of child-themed or donation-themed attacks
+	* "Charitable Deduction" deals damage
+	* "Starvation"
+	* "Steel Pennies" throws a bunch of coins
+	* "Orphan Rush" has a bunch of kids run over CT
+
+After the battle:
+FF: How could you??
+
+*FF fades away
+
+* camera pans up to the pair of shoes, hanging on the power line
+CT: *(Shoes? Could those be what that guy on the phone was talking about?)*
+*when CT walks over to the shoes…
+
+CT: “MJ?”
+CT: “I wonder who—“
+ 
+Suddenly, power arcs from the line to the shoes.
+CT: “What?  NOOOOOO” as Chef Tony is engulfed by sparks and is teleported away.
+ 
+## Chapter 5: The Shrine of Lost Dreams
+Time of day: evil sunset
+Music: silence, with slight wind sound effect
+*Chef Tony finds himself in a grassy field, with a massive cathedral in the distance*
+Chef Tony: Where is THIS place??
+CT: "Sure doesn't look like that crazy orphange, that's for sure."
+
+CT:  A temple!  The perfect venue for buying and selling! 
+CT: Knife sales, here I come!
+*upon walking across the screen to the path, he enters*
+ 
+Music: Mozart - Lacrimosa
+ 
+Chef Tony: No one’s here!
+Chef Tony: Also, looks like I just missed a funeral...
+* Chef Tony walks forward, until he reaches a single coffin, bathed in light.
+Chef Tony: Hmm...something's written here...
+
+<b>HERE LIES LIKE MIKE</b>
+<i>Greatest Basketball Player of All Time</i>
+~
+UNTIL THE BLADE OF MIRACLES,
+BROUGHT BY THE CHOSEN CHEF,
+
+IS JOINED AT LAST WITH SOLES OF AIR:
+HE SHALL REMAIN IN DEATH.
+
+Chef Tony: Blade of Miracles?
+Chef Tony: Chosen Chef?
+Chef Tony: That can only mean....
+Chef Tony: .................................................
+Chef Tony: This is tough.
+Chef Tony: Wait!
+Chef Tony: What if.......
+Chef Tony: This is referring to the Miracle Blade™ All-Purpose Slicer™??
+Chef Tony: That leaves the soles of air.......hmmmmmmmmmmm.......
+
+> Suddenly, the shoes appear
+
+Chef Tony: What the...
+
+Music: Something dramatic? 
+
+*Chef Tony: What are you doing, knife??? Don't leave me now!
+
+*the knife and the shoes start floating upward, and lightning strikes between them
+*quick white flash
+* The coffin is now blasted open…the knife and shoes continue to hover, now joined by Like Mike
+*the music crescendos, and fade to white!
+Text, slow: “I LIVE ONCE MORE!"
+*slow fade back in
+*….the Flying Basketball has now appeared behind the coffin.
+
+Chef Tony: Like...Mike?!
+Chef Tony: Is that really you?
+Chef Tony: If so, would you be interested in endorsing the finest set of knives in the world?
+Flying Basketball: SILENCE!  He has no interest in your knives!
+Chef Tony:  A talking basketball?  That floats?
+Like Mike: That's right!
+Like Mike: Without the help of my flying basketball and magical shoes, I never could have become the greatest basketball player in the world!
+Like Mike: We flew everywhere together!
+Like Mike: In fact, the last thing I remember, we were flying over to visit my bestest buddy James at his fortress!
+Chef Tony: James!??  My best customer?
+Like Mike: You know him?  Well, any friend of James is a friend of mine!
+Like Mike: Hey, let's go visit him at his fortress!
+Like Mike: My flying basketball can take us there!
+Chef Tony: But...we can't!
+Like Mike: Why not?
+Chef Tony: Because......ummm......
+Chef Tony: James died!  Ten years ago!
+Like Mike: James?? Dead?????
+Like Mike: NOOOOOOOOOOOOOOOOOO!!!!!!
+Flying Basketball: You fools!
+Flying Basketball: You believe that the greatest gasmaster the world had ever known could simply...die?
+Flying Basketball: Come...let us travel.
+Chef Tony: Now wait a minute...
+
+* The screen goes all psychedelic, and the basketball teleports everyone to XIRTAM’s main entrance. *
+ 
+## Chapter 6: Your tax dollars at work
+Music inspiration: Galbadia Garden from Final Fantasy VIII
+
+*scene: far outside XIRTAM*
+
+Chef Tony: Where are we now????
+Flying Basketball: A top-secret government facility.
+Flying Basketball: If you wish to learn James’s true fate, you must go inside…
+
+*the team walks toward the main entrance area*
+
+Guard: “Gee, it sure is boring around here!”
+*suddenly, everyone walks in.*
+Guard: “You’ve got to be kidding!” *runs inside*
+LM: “Hey!  That guard locked the door!"
+CT:  "No lock is a match for Miracle Blades™!”
+LM: "Wait!  If we break in, there's no way they'll be cool with that!”
+LM: "We should find another way in!"
+LM: "Right, Chef Tony?"
+*chef tony runs toward, and smashes through door*
+CT: "GWAAAAAAAAAAA!!!!!!!!"
+LM: “…”
+
+Music: Metal Gear Solid 3: Battle in the Base
+ 
+*location: XIRTAM main entrance; alarms are going off*
+*guards are everywhere!*
+*CT and LM enter elevator*
+
+Announcement: Warning! Intruders detected!
+ 
+***Just like the opening scene!
+ 
+Guards: “Halt!”
+
+*CT and LM get to the control room elevator
+CT: "This place seems familiar…"
+CT: "Wait!  This must be the elevator to the control room!"
+CT: "We have to go up and free James!"
+LM: "What makes you so sure?"
+CT: "It's just like in my dream!"
+
+CT and LM get to the main control room, where they see James on the screen.
+LM: “It’s James!”
+CT: "We have to free him!"
+CT: “Wait…I remember what to do!”
+*chef tony jams his knife into the console*
+*nothing happens*
+CT: “Well, it worked in the dream…”
+LM: "Here’s the control console!"
+LM: "I'll have to hack it!"
+
+*fake hacking minigame, where a large red button is prominently visible that says “emergency system shutdown”*
+*button is pressed*
+*alarms go off* 
+
+music: end theme from return to gamelon
+
+Computer: “WARNING: EMERGENCY SYSTEM SHUTDOWN ACTIVATED.”
+
+*screen starts shaking*
+
+Computer: “AS PART OF SAFETY PROTOCOL GAMMA”
+Computer: "ALL PERSONNEL MUST WEAR GAS MASKS”
+
+*gas masks deploy
+
+LM: “Three gas masks!  Perfect, that's one more than we need!”
+
+*like mike is pushed aside by a scientist, who runs in*
+
+SCI: "You fools!  You’ve doomed us all!”
+SCI: “This machine was designed to contain James by locking him in a separate dimension!”
+SCI: "In the years since his imprisonment, the world has finally been free from his tyrannical rule!"
+SCI: “By deactivating it, the reaction with his gas will surely cause a chain reaction that will not only destroy this facility…"
+SCI: "…but will also disrupt the flow of time itself!"
+SCI: “Anyway, I’m going to need this gas mask!”
+SCI: “Plus another for my beloved guinea pig!”
+
+*scientist runs off screen*
+*lock clicking noise*
+
+LM: “He took the gas masks and locked us in!”
+LM: "Now we have just one!"
+CT: “No problem!"
+CT: “I can use my Ultimate Chopper™ to slice and dice these pipes into a new gas mask!”
+LM: But those pipes are attached to the concrete!  You'll never remove them in time!
+CT: “Don’t worry!  With its genuine German* stainless steel, my Miracle Blade™ All-Purpose Slicer™ can cut through concrete like a hot knife through butter!”
+
+*"Country of origin may vary” flashes at bottom of screen
+
+*CT starts cutting*
+
+LM: “That doesn’t look like it’s cutting at all…”
+CT: “Of course it’s cutting!”
+CT: “It has to be!”
+CT: “This can’t be happening!!!!!"
+LM: "Take this gas mask!  It's the only way you'll survive!"
+CT: “No…"
+*music crescendo*
+*LM forces gas mask onto CT
+CT: “NOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!!!11111”
+
+*the room starts shaking, and fills with a crazy space-time rift explosion.*
+
+CT: “LIKEEEEEEE MIKEEEEEEEEEEEEEEEEEE!!!!!!!!!!!!"
+
+*even more lightning effects. when the area clears, james is standing there.  Like Mike is nowhere to be seen*
+
+Music: James’s Theme (triumphant crescendo version)
+
+James: “At last!  Freedom!”
+James: “I…"
+James: “I FEEL A BIG ONE COMIN ON!”
+*screen starts shaking*
+*green gas fills the screen*
+*fade to green*
+
+## Chapter 7: World In Ruin
+Weather: cloudy, heavy rain falling.
+SFX: Rain
+Music: Sad piano arpeggios (Chef's Lament)
+
+James: "Ahhhhhhhhhh that felt gooooooooood...”
+*fade back in*
+*James and CT awake in the ruins of Xirtam*
+*the ruins look like they have aged for hundreds of years*
+*player now controls James*
+CT: "I can't believe it!
+CT: "...my Miracle Blades™ failed me…"
+CT: "How can this be?"
+CT: "I…always believed in their power to cut everything!"
+CT: "But…what if that isn't the case?"
+CT: "What if…"
+James: "Miracle Blades™!?  I love those!"
+James: "Let's get back to my fortress, I'll be able to access my stash and place another bulk order!'
+CT: "Your…fortress?"
+James: “Yes, and it's not far from here!"
+James: "Since it seems that we're currently standing in the ruins of that machine those fools tried to imprison me in, I know just how to get back!”
+James: “Let’s go!"
+
+*james flys off to the right*
+*ct slowly follows, fade to black*
+
+Music inspiration: Dragon spiral tower top floor from pokemon black/white
+*the scene shows James’s fortress in ruins"
+James: "My…fortress?"
+James: “NO WAY, I CAN’T BELIEVE THIS!”
+
+*David Stern enters*
+
+> Note: I'm thinking we can change this to "Daria Stern", the great grandaughter of David Stern, the eternal leader of this land. Also, I want the bad future to take place 100 years in the future instead of 10.
+
+DS: "Halt!”
+DS: “Your presence here is in violation of NBA regulations!”
+James: "Who are you!?"
+James: "Were you responsible for this??"
+DS: "How DARE you question ME, Daria Stern, the Grand High Commissioner of the NBA!"
+DS: "The royal blood of the great David Stern, the ETERNAL COMMISIONER, flows through my veins!"
+DS: "…and I demand that you vacate this property at once!"
+James: "But this is MY fortress!"
+DS: "Nonsense!  It is property of the NBA!"
+DS: "It must be demolished to host a new inner city youth program!"
+James: "That's ridiculous; we're not even near a city!  Get out of here!"
+DS: "I don't think so!"
+DS: "Guards!"
+DS: "These individuals have committed a flagrant foul, for unsportsmanlike behavior!"
+*a group of flying basketballs enters, surrounding James and CT
+DS: "Assign them the appropriate...*penalty*!"
+CT: "More flying basketballs!?"
+DS: "NBA regulations state that all those who disobey the will of the NBA, the unopposed rulers of the Earth, shall be turned into flying basketballs as punishment!"
+James: "That's ridiculous!
+James: "As my old friend Like Mike used to say..."
+James: "The NBA is only a basketball league, not a quasi-governmental entity with arbitrarily-defined powers!"
+CT: "Did he actually say that?"
+James: "Of course he did!"
+DS: Silence, both of you!
+DS: Basketballs -- take them away!
+
+*the flying basketballs electrocute James and CT, and they collapse
+*the flying basketballs drag James and CT off screen
+*fade to black
+
+## Chapter 8: New World Order
+*fade in
+*James and CT are now being dragged across a desert area
+
+James: "Ugghhhhhhhhhhhhh…"
+James: "This is ridiculous!"
+James: "Wait…"
+James: "Chef Tony, quick!  Put your gas mask back on!"
+CT: "Right away!"
+*james activates his gas powers, causing all of the basketballs to fall to the ground
+CT: "Great work!"
+CT: "Wait…what is that building over there??”
+*camera pans over to a towering LM*
+James: "LM…"
+James: "That could only be…"
+James: “Like Mike?”
+James: “But that's impossible!"
+James: "He died the day I was captured, when he fell off his flying basketball!”
+James: “I...found the basketball…
+James: "...but it was too late!”
+CT: "………"
+CT: "We have to find out what's going on here!"
+
+*James and CT start walking
+
+*one of the flying basketballs starts twitching
+BB: "Wait!"
+*james and CT turn around
+BB: "You…plan to challenge the Great One?"
+BB: "Take this…it's the key to the fortress."
+
+> the flying basketball gives James a door key
+
+James: Why are you helping us?
+BB: The power of your gas has momentarily freed my mind...
+BB: Only through your success shall the world be free once again…
+BB: One hundred years ago, the Great One suddenly appeared.
+BB: At that time, the NBA had been a simple basketball league...
+BB: However, armed with immense basketball power, the Great One transformed the NBA into a ruthless conqueror!
+BB: They took over the entire world with ease;
+BB: all who opposed their rule were transformed into flying basketballs!
+BB: I cannot…remain much longer…go!
+BB: …while there's…still…timee-------
+*the flying basketball deactivates
+
+James: A hundred years! 
+James: It's no wonder my fortress was in such bad shape!
+Chef Tony: I can't believe it!
+Chef Tony: What if...people no longer use knives, but instead use some kind of advanced laser-based cutting instrument??
+Chef Tony: WHAT THEN????
+James: That...question doesn't seem particularly relevant?
+James: Let's go. It's time to set right what once went wrong!
+Chef Tony: You're right! Knives will never become obsolete!
+James: ...
+
+*they walk toward, and enter the fortress
+
+## Chapter 9: We’re Playin’ Basketball
+Music: a more evil version of LM’s Requiem, mixed with Seek the Shoes
+ 
+*they find themselves in a darkened room
+??: WHO DARES DISTURB MY LAIR
+James: “How dare you disgrace the initials of LM with your basketball-themed totalitarian regime!"
+James: "Like Mike was a great basketball player!"
+James: "He would never allow something like this!"
+
+*LM appears with the flying basketball merged with his head, now glowing bright orange* (LMFB)
+
+LMFB: "LIKE…MIKE…"
+LMFB: "IT HAS BEEN A LONG TIME SINCE I HAVE HEARD THAT NAME"
+
+CT: "Is that…?"
+James: “...Like Mike??  What happened to you?”
+
+LMFB: “THAT NAME NO LONGER HAS MEANING TO ME”
+LMFB: Grand High Commissioner!
+
+> Daria teleports in
+
+DS: What is thy bidding, my master?
+
+LMFB: Destroy these imbeciles! Succeed and you shall get a 2% bonus on your yearly compensation!
+
+DS: With pleasure!
+DS: I shall slice them to pieces! 
+*fires laser into air*
+
+Chef Tony: (A laser slicer?? My worst fears are confirmed!)
+
+> Daria's attacks involve shooting lasers from her basketball staff
+
+*the team defeat daria*
+
+DS: Y--you fools! How dare you........
+DS: My master, I have failed!
+LMFB: IT SEEMS OUR ENEMIES ARE JUST AS STRONG AS I ANTICIPATED. 
+LMFB: RETURN TO THE BENCH, GRAND HIGH COMMISIONER!
+LMFB: THERE IS ONLY ONE WAY TO SETTLE THIS...
+LMFB: INTRUDERS!
+LMFB: I CHALLENGE YOU TO…
+LMFB: THE ULTIMATE GAME OF BASKETBALL!
+
+*the lights come on, revealing the ULTIMATE BASKETBALL AREA OF DOOM*
+Music: “Lil Bow Wow - We’re playin' basketball” (particularly the terrible rap section)
+
+> battle: LMFB
+> LMFB cannot take any damage, and instead simply uses the "Slam Dunk" attack, which simply scores points on a scoreboard behind him.
+
+LMFB: “YOU FOOLS!”
+LMFB: “YOU HAVE LOST THIS GAME!”
+LMFB: “NOW, PREPARE TO MEET YOUR END!”
+
+*LMFB charges toward James
+
+James: "LIKE MIKE!!"
+James: “Don’t you remember all the adventures we had together?"
+*James uses a high powered gas attack, which destroys most of the arena*
+
+LMFB: THAT…SMELL…ITS TERRIBLE NATURE REKINDLES…MY…MEMORIES
+LMFB: I…I remember now!  You…you were my bestest buddy--”
+LMFB: NO…YOU ARE AN ENEMY…YOU MUST DIE!
+LMFB: I….will……..break…..FREEEEEEEEEE”
+
+*lightning zaps everywhere, and LMFB separates*
+
+LM: "I remember now!"
+LM: “But…flying basketball!  How could you do this??”
+LM: "I thought you were my friend!"
+FB: “Those two both betrayed you, each by leaving you to die!”
+LM: “No!  I sacrificed myself!”
+LM: "It is the basketball player’s sworn oath!”
+LM: "You, of all people, should know that, having ruled over the NBA with an iron fist!"
+FB: "Do you not understand?"
+
+
+> So, here's the idea: shortly after LM's death and James's imprisonment, the flying basketball conducted an ancient ritual to attempt to learn how to bring back his only friend. In doing so, he saw a vision: The BLADE OF MIRACLES and the SOLES OF AIR, two mythical artifacts, united by THE CHEF OF THE AGES.
+> 
+> Over the intervening years, he attempted to realize this prophesy. He quickly realized that the Soles of Air were, in fact, Like Mike's personal magical shoes and retrived the items, but he was at a loss to determine the identities of the blade of miracles and the chef of the ages.  He used his vast cash reserves to pay off many famous chefs, but none of them were able to break the seal (Paula Dean, Gordon Ramsey, Emeril, etc).  Finally, despondent, he reads a news report saying that notorius fugitive "Chef Tony's" has been trying to sell unlicensed counterfeit "miracle blades" in the city, and that he should be turned in to the police.  Realizing that this must be the Chef with Miracle knives he's sought for so long, he sets up the entire encounter.
+
+FB: After your death, Like Mike, I...could not bear it!
+FB: I conducted an ancient ritual....and in doing so, I revealed a Prophecy.
+
+> Flashback shot of ritual. Instead of a pentagram on the floor, there are the lines of a basketball.
+
+FB: You, Chef Tony, know it well: how only the CHOSEN CHEF, wielding the BLADE OF MIRACLES and SOLES OF AIR, could ressurect Like Mike.
+FB: The SOLES OF AIR were, naturally, those magical shoes of yours, Like Mike.
+FB: However, the CHOSEN CHEF and BLADE OF MIRACLES eluded me for years...
+
+> Faded BW screen of Temple interior
+
+Paula Dean: Just add a stick of butta and it'll make everything better!
+Flying Basketball: The butter just melted...
+Paula Deen: I thought you just wanted to make him taste good, not ressurect him!
+
+Emeril Lagasse: Let's kick this up a notch...BAM!
+Flying Basketball: He's still dead.
+Emeril Lagasse: That'll be $500,000.
+
+> Fade back in
+
+Flying Basketball: All those efforts...wasted!
+Flying Basketball: But then...there it was in the news!
+Flying Basketball: "Knife Salesman Illegally Peddling Low Quality "Miracle Blades...Report Sightings to Police"
+Chef Tony: Low quality! Now wait just a minute!
+Flying Basketball: I knew this was the moment for which I had waited!
+Flying Basketball: Being a fugitive, I had no way to contact you. Until I discovered that you slept near the ONLY PAYPHONE LEFT IN THE ENTIRE WORLD.
+Flying Basketball: I had to act!
+Flying Basketball: I called you and told you to fetch the Shoes that I had carefully positioned in your path!
+CT: "That…was you who called that payphone!??"
+James: "You took orders from a random person on a payphone?"
+CT: "I thought it would lead to increased sales of Miracle Blades™!"
+FB: Once you made contact with the shoes, they teleported you to the temple, and Like Mike was, at last, ressurected!
+James: But then, why did you bother to free me? How did I factor into this plan?
+FB: The device in which you were imprisioned...only *it* posessed the necessary energy to tear the very fabric of spacetime!
+FB: By destroying it, I was able to use the resulting rift in spacetime to transport both of us backward in time to the exact moment of the machine's activation, ten years ago!
+FB: In addition, the rift's power allowed me to at last unify us into the ultimate basketball entity!
+FB: With our combined basketball powers, we were able to achieve immortality and remake the entire world in the perfect image of basketball!
+FB: “In this dimension, WE are the rulers!”
+FB: “No one can stand in our way!”
+FB: "Rejoin me, Like Mike, and together we shall rule this world!"
+
+LM: "I thought we were partners!"
+LM: "But I never saw you for what you truly were!"
+LM: "I'll never join you!"
+
+LM: "Guys? It's time to end this!"
+James: "I always knew that flying basketball was up to no good!  Let's go!"
+James: "Chef Tony, are you ready?"
+CT: "I…I can't!  My Miracle Blades™ failed once before!  I can't risk letting that happen again!"
+LM: But Chef Tony!  No knife can be used to cut through concrete!  You just made that up for your infomercial!
+LM: But you'll surely be able to cut through a betraying basketball!
+CT: Perhaps…you're right!  Let's go!
+
+FB: You fools! You'll never defeat me!
+
+## Chapter 10: Grand Finale
+Music inspiration: Battle! Ghetsis from Pokemon Black/White
+
+*the background goes all psychedelic, as the basketball starts lifting various parts of the environment through telekinesis.  all the basketball's attacks are have basketball themed names
+
+*the team is able to defeat the basketball
+*after defeat...
+
+> The basketball, defeated, lies sparking on the floor...
+> Like Mike walks up...
+
+## Chapter 11: Atonement
+
+LM: This is it, Flying Basketball.
+LM: Your reign of terror has ended.
+FB: ...
+FB: You have made me realize that I have become everything I fought to destroy.
+FB: I only wanted…peace.
+FB: Before I...deactivate...there is something…I must tell you.
+FB: I am the departed spirit of the one known to you as MJ.
+FB: I returned to the world in this form to train a successor!
+FB: That successor…was you, Like Mike!
+FB: That is why I bestowed my magical shoes upon you!
+FB: Only then could you become a basketball player as great as I was!
+
+James: But wait, that doesn't make sense!
+James: Michael Jordan's not dead!
+
+FB: Not yet!  But when my death finally came, many years in your future, I refused it!
+FB: It was difficult, but the scientists at the NBA's top-secret research facility allowed me to continue my existence in this form.
+FB: However, at that time, basketball was a dying sport.
+FB: In order to train a true successor, I would have to go back.
+FB: I travelled through the ages, searching for the one who I could train as my apprentice.
+FB: Then, I finally found you, Like Mike!
+FB: Like Mike!  A name I bestowed upon you to overtly symbolize the source of your greatness!
+FB: With my training, you were able to become the greatest basketball player that ever lived!
+FB: My work…was finished.
+FB: But your death was too much to bear!
+FB: Now…I am finally at peace.
+
+LM: No!  Don't go!
+
+FB: I must…atone for my sins.
+FB: With the last of my power, I shall send you back…to when this all began. 
+FB: It…is over for me.
+FB: Goodbye…my friend…
+
+> LM kneels down and stands sadly at the basketball
+
+> The flying basketball slowly explodes, and slow fade to white.
+
+(silence)
+
+## Chapter 12: Redemption and Epilogue
+Music inspiration: "Homestuck"
+
+> We now see inspiring images from the characters' futures.
+
+James's fortress is rebuilt to even greater than before
+
+Like Mike re-opens Father Flanagan's orphanage as basketball themed orphan paradise (with Daria as a kind and loving caretaker), and becomes the greatest basketball player of all time.
+
+Chef Tony creates a knife selling empire, and is shown making deals with various organizations, such as "Chef Tony enters knife exclusivity agreement with French Government" subheadline "hundreds dead in protest of knife agreement"
+
+Fade to black.
+
+Credits roll. (Music inspiration: "To each future"?)
+
