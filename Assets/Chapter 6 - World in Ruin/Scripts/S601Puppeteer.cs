@@ -40,9 +40,9 @@ public class S601Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
-//		if (CurrentScene == 4) {
-//			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
-//		}
+		if (CurrentScene == 8) {
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+		}
 	}
 
 }
