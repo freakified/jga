@@ -6,8 +6,9 @@ public class S507Puppeteer : CutscenePuppeteer {
 
 	public AudioClip ButtonPressSound, AlarmSound, DoorOpenSound, DoorCloseSound, SawingSound;
 	public AudioClip knife;
+	public AudioClip DramaticMusic;
 
-
+	private MusicPlayer mp;
 	private GameObject ChefTony, LikeMike, Scientist, DisclaimerText, BG;
 	private GameObject Clouds, JamesDisplay;
 	private GameObject[] gasMasks;
@@ -19,6 +20,7 @@ public class S507Puppeteer : CutscenePuppeteer {
 		
 	// Use this for initialization
 	void Start () {
+		mp = GameObject.Find("BGM").GetComponent<MusicPlayer>();
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
 		LikeMike = GameObject.Find ("Like Mike");
@@ -186,6 +188,8 @@ public class S507Puppeteer : CutscenePuppeteer {
 			Scientist.GetComponent<ConstantVelocity>().velocity.x = 2.0f;
 			Scientist.GetComponent<Animator>().SetBool("IsWalking", true);
 			startTimer();
+		} else if (CurrentScene == 32) {
+			mp.PlayMusic(DramaticMusic, true);
 		} else if (CurrentScene == 35) {
 			ChefTony.GetComponent<ConstantVelocity>().enabled = true;
 			ChefTony.GetComponent<ConstantVelocity>().velocity.x = 2.0f;

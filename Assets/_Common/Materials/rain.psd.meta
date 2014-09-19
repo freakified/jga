@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 0d545f5f9dc0141c893f7765edd4d884
+guid: ac98d1e9a2420cb49adf1451c04abd45
 TextureImporter:
   fileIDToRecycleName:
-    21300000: james_fly
+    21300000: rain
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -11,7 +11,7 @@ TextureImporter:
     correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceStart: 2
     mipMapFadeDistanceEnd: 3
   bumpmap:
     convertToNormalMap: 0
@@ -22,10 +22,10 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -2
-  maxTextureSize: 1024
+  textureFormat: -1
+  maxTextureSize: 256
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 1
     mipBias: -1
     wrapMode: 1
