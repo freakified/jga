@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbc9a64b947e4bdfb89b49507bf04b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 4, y: 0}
+  velocity: {x: 0, y: 0}
 --- !u!61 &635275733
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1523,7 +1523,7 @@ Rigidbody2D:
   m_LinearDrag: 1
   m_AngularDrag: .0500000007
   m_GravityScale: 0
-  m_FixedAngle: 1
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -1557,7 +1557,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 635275730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.79620004, y: .950919986, z: 2.01460004}
+  m_LocalPosition: {x: -3.57279992, y: 1.09689999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1197388271}
@@ -1574,8 +1574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac351dfa7e7c4678871b685ee1054e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableGas: 0
-  EmitGasWhenMoving: 1
+  FlyingAtStart: 1
 --- !u!1001 &642951586
 Prefab:
   m_ObjectHideFlags: 0
@@ -1650,6 +1649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RainSound: {fileID: 8300000, guid: 6ad86359ba93243aa998ccbd8ce1ae63, type: 3}
+  JamesIntro: {fileID: 8300000, guid: 18bd6aa0d628946bd833e5166839df5f, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
-  enableQuickSkip: 0
+  enableQuickSkip: 1
   autoplayAtStart: 0
   delayBeforeAutoplay: 1.5
   textSpeed: 50
@@ -1721,7 +1721,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1197388270}
   m_LocalRotation: {x: .00496590137, y: -.710155308, z: .000700261677, w: .704027236}
-  m_LocalPosition: {x: -.036084, y: -.0773179978, z: -2.00189996}
+  m_LocalPosition: {x: -.036084, y: -.0773179978, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 635275736}
@@ -3285,14 +3285,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1942083326}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df15eef45e76f4dd39ad086f61547661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NextSceneName: 
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
-  FadeDuration: 1
+  FadeDuration: 4
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0

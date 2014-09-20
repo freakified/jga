@@ -32,6 +32,9 @@ public class NextSceneOnCollide : MonoBehaviour {
 	IEnumerator FadeAndNext() {
 		fader.StartFade(FadeToColor, FadeDuration);
 		yield return new WaitForSeconds(FadeDuration);
-		Application.LoadLevel(NextSceneName);
+
+		if(NextSceneName != "") {
+			Application.LoadLevel(NextSceneName);
+		}
 	}
 }
