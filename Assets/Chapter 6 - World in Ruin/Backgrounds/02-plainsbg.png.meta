@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: a8496817c7fa64c9d93e16bc877de143
+guid: 36692027c181647098ae0f5cdcf7605f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CT_run 2
+    21300000: 02-plainsbg
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,7 +22,7 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -2
+  textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
@@ -35,8 +35,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: .200000003, y: .5}
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1

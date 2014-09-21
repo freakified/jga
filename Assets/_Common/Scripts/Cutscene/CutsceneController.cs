@@ -80,8 +80,6 @@ public class CutsceneController : MonoBehaviour {
 		//if we're currently showing dialog, then start scrolling it
 		if(dialogText.enabled) {
 
-
-
 			// if there's still text left to show
 			if(currentChar < cutsceneElements[cutscenePosition - 1].dialogText.Length) {
 

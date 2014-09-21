@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: a8496817c7fa64c9d93e16bc877de143
+guid: 7a7827215e9b7466f9ed9392adb7cc8b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CT_run 2
+    21300000: james_dead
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,17 +26,17 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: .200000003, y: .5}
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
