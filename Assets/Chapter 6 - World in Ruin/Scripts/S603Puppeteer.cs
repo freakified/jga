@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class S603Puppeteer : CutscenePuppeteer {
 
-	public AudioClip RainSound;
+	public AudioClip DariasTheme, ElecZap;
 	public ParticleSystem ZapParticlePrefab;
 	private ParticleSystem zapParticles;
 
@@ -27,7 +27,6 @@ public class S603Puppeteer : CutscenePuppeteer {
 
 		balls = Basketballs.GetComponentsInChildren<Rigidbody2D>();
 
-		playSound(RainSound);
 		stopTimer();
 	}
 	
@@ -56,6 +55,7 @@ public class S603Puppeteer : CutscenePuppeteer {
 			}
 		} else if(CurrentScene == 30) {
 			if(timerIsGreaterThan(1.0f)) {
+				playSound(ElecZap);
 				zapParticles = Instantiate(ZapParticlePrefab, new Vector3(-2.1f, -0.3f, 0), Quaternion.identity) as ParticleSystem;
 				zapParticles.Play();
 
@@ -65,7 +65,7 @@ public class S603Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 31) {
 			ctanim.SetInteger("HP", 0);
 			James.GetComponent<Animator>().SetInteger("HP", 0);
-			StartCoroutine(FadeAndNext(Color.black, 4, null));
+			StartCoroutine(FadeAndNext(Color.black, 4, "6-04 Another Fortress"));
 			nextScene();
 		}
 	}
@@ -73,6 +73,7 @@ public class S603Puppeteer : CutscenePuppeteer {
 	public override void HandleSceneChange() {
 		if(CurrentScene == 4) {
 			Daria.rigidbody2D.AddForce(Vector2.right * -600);
+			mus.PlayMusic(DariasTheme, true);
 		} else if (CurrentScene == 18) {
 			foreach(Rigidbody2D ball in balls) {
 				ball.AddForce(Vector2.right * -200);

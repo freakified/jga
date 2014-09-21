@@ -7,17 +7,12 @@ public class S602Puppeteer : CutscenePuppeteer {
 	public AudioClip RainSound;
 
 	private GameObject ChefTony, James;
-	private MusicPlayer mus;
-
-	private Animator ctanim;
-
+	
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
 		James = GameObject.Find ("James");
-		ctanim = ChefTony.GetComponent<Animator>();
-		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 
 		playSound(RainSound);
 		startTimer();
