@@ -5121,7 +5121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df15eef45e76f4dd39ad086f61547661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSceneName: 
+  NextSceneName: 6-05 Entrance to EVIL
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
   FadeDuration: 4
 --- !u!1 &1993481070

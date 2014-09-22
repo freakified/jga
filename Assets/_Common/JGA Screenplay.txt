@@ -525,6 +525,7 @@ James: “How dare you disgrace the initials of LM with your basketball-themed t
 James: "Like Mike was a great basketball player!"
 James: "He would never allow something like this!"
 
+*the lights come on, revealing the ULTIMATE BASKETBALL AREA OF DOOM*
 *LM appears with the flying basketball merged with his head, now glowing bright orange* (LMFB)
 
 LMFB: "LIKE…MIKE…"
@@ -538,7 +539,7 @@ LMFB: Grand High Commissioner!
 
 > Daria teleports in
 
-DS: What is thy bidding, my master?
+DS: What?
 
 LMFB: Destroy these imbeciles! Succeed and you shall get a 2% bonus on your yearly compensation!
 
@@ -554,14 +555,13 @@ Chef Tony: (A laser slicer?? My worst fears are confirmed!)
 
 DS: Y--you fools! How dare you........
 DS: My master, I have failed!
-LMFB: IT SEEMS OUR ENEMIES ARE JUST AS STRONG AS I ANTICIPATED. 
+LMFB: IT SEEMS THIS ENEMY IS STRONGER THAN I ANTICIPATED. 
 LMFB: RETURN TO THE BENCH, GRAND HIGH COMMISIONER!
 LMFB: THERE IS ONLY ONE WAY TO SETTLE THIS...
 LMFB: INTRUDERS!
 LMFB: I CHALLENGE YOU TO…
 LMFB: THE ULTIMATE GAME OF BASKETBALL!
 
-*the lights come on, revealing the ULTIMATE BASKETBALL AREA OF DOOM*
 Music: “Lil Bow Wow - We’re playin' basketball” (particularly the terrible rap section)
 
 > battle: LMFB

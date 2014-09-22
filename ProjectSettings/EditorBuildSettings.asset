@@ -59,3 +59,5 @@ EditorBuildSettings:
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-03 The Fortress.unity
   - enabled: 1
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-04 Another Fortress.unity
+  - enabled: 1
+    path: Assets/Chapter 6 - World in Ruin/Scenes/6-05 Entrance to EVIL.unity
