@@ -24,27 +24,33 @@ public class WordWrapText : MonoBehaviour {
 	/// </summary>
 	public void SetText (string newText) { 
 
-		string[] words = newText.Split(' '); //Split the string into seperate words 
-		string result = ""; 
+		if(newText.Length > 0) {
+			string[] words = newText.Split(' '); //Split the string into seperate words 
+			string result = ""; 
 
-		Rect textArea = new Rect();
+			Rect textArea = new Rect();
 
-		for(int i = 0; i < words.Length; i++) {
+			for(int i = 0; i < words.Length; i++) {
 
-			// set the gui text to the current string including new word
-			textObject.text = (result + words[i] + " ");
-			
-			// measure it
-			textArea = textObject.GetScreenRect();
-			
-			// if it didn't fit, put word onto next line, otherwise keep it
-			if(textArea.width > wrapAtWidth) {
-				result += ("\n" + words[i] + " ");
-			} else {
-				result = textObject.text;
-			}
-		} 
+				// set the gui text to the current string including new word
+				textObject.text = (result + words[i] + " ");
+				
+				// measure it
+				textArea = textObject.GetScreenRect();
+				
+				// if it didn't fit, put word onto next line, otherwise keep it
+				if(textArea.width > wrapAtWidth) {
+					result += ("\n" + words[i] + " ");
+				} else {
+					result = textObject.text;
+				}
+			} 
 
-		textObject.text = result;
+			textObject.text = result;
+		} else {
+			textObject.text = "";
+		}
+
+
 	}
 }

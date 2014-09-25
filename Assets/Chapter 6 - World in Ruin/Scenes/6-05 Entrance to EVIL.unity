@@ -314,8 +314,8 @@ Transform:
   m_PrefabInternal: {fileID: 642951586}
   m_GameObject: {fileID: 115193896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.35829997, y: -1.42270005, z: 0}
-  m_LocalScale: {x: 12.0839987, y: 1, z: 1}
+  m_LocalPosition: {x: 12.8719997, y: -1.42270005, z: 0}
+  m_LocalScale: {x: 30.9652462, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312162136}
   m_RootOrder: 2
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music: {fileID: 8300000, guid: 793262db707af44c0a28c853fc4530c1, type: 3}
   loop: 1
-  playAtStart: 1
+  playAtStart: 0
   fadingOut: 0
 --- !u!4 &244383240
 Transform:
@@ -372,11 +372,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 4c9a796862323437a86f06060d7f34e4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.54150009
+      value: 25.1159992
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c9a796862323437a86f06060d7f34e4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .0139800003
+      value: .0139819998
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c9a796862323437a86f06060d7f34e4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -561,7 +561,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b639b194f2258428c8ccb0a6eabddd4e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.35829997
+      value: 12.8719997
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b639b194f2258428c8ccb0a6eabddd4e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -593,7 +593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b639b194f2258428c8ccb0a6eabddd4e, type: 2}
       propertyPath: m_LocalScale.x
-      value: 12.0839987
+      value: 30.9652462
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b639b194f2258428c8ccb0a6eabddd4e, type: 2}
@@ -629,6 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a65f61e6f3674564a244d0100683401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EvilEmergesTheme: {fileID: 8300000, guid: ca5538078525d4c3bb0b09c2cc9d9e41, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -672,7 +673,7 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
-  enableQuickSkip: 1
+  enableQuickSkip: 0
   autoplayAtStart: 1
   delayBeforeAutoplay: 4
   textSpeed: 50
@@ -1848,8 +1849,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1345231064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.13000011, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.04260015, y: 0, z: 0}
+  m_LocalScale: {x: 1.625, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1966,7 +1967,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 793262db707af44c0a28c853fc4530c1, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: loop
@@ -2304,7 +2305,7 @@ Transform:
   m_PrefabInternal: {fileID: 328303201}
   m_GameObject: {fileID: 1942083326}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: 8.54150009, y: .0139800003, z: 0}
+  m_LocalPosition: {x: 25.1159992, y: .0139819998, z: 0}
   m_LocalScale: {x: 3.60000014, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312162136}

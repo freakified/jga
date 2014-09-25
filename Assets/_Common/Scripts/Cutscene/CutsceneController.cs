@@ -73,13 +73,11 @@ public class CutsceneController : MonoBehaviour {
 		// then go to the next dialog
 		if(Input.GetButtonDown("Select") && dialogNextText.enabled) {
 			dialogNextText.enabled = false;
-			currentChar = 0;
 			playNext();
 		}
 
 		//if we're currently showing dialog, then start scrolling it
 		if(dialogText.enabled) {
-
 			// if there's still text left to show
 			if(currentChar < cutsceneElements[cutscenePosition - 1].dialogText.Length) {
 
@@ -94,13 +92,16 @@ public class CutsceneController : MonoBehaviour {
 			} else {
 				if(cutsceneElements[cutscenePosition - 1].allowPlayerAdvance)
 					dialogNextText.enabled = true;
+
 			}
 
 			if(enableQuickSkip == true && Input.GetButtonDown("Select") && currentChar > 3) {
 				dialogTextWrapper.SetText(cutsceneElements[cutscenePosition - 1].dialogText);
 				currentChar = cutsceneElements[cutscenePosition - 1].dialogText.Length;
 			}
+
 		}
+
 
 	}
 
@@ -133,6 +134,7 @@ public class CutsceneController : MonoBehaviour {
 	public void playNext() {
 		// increment the cutscene counter
 		cutscenePosition++;
+		currentChar = 0;
 
 		if(cutscenePosition <= cutsceneElements.Count) {
 
@@ -140,9 +142,7 @@ public class CutsceneController : MonoBehaviour {
 
 			if(currentCutsceneElement.hasDialog) {
 				setDialogVisibility(true);
-
 				dialogSpeakerText.text = currentCutsceneElement.speakerName;
-				dialogText.text = currentCutsceneElement.dialogText;
 
 			} else {
 				setDialogVisibility(false);
