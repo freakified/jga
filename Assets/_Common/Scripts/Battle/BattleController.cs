@@ -17,6 +17,7 @@ public class BattleController : MonoBehaviour {
 	public List<BattleCombatant> EnemyCombatants;
 
 	public bool EnabledAtStart = true;
+	public bool EnemiesGoFirst = false;
 	
 
 	[HideInInspector]
@@ -53,12 +54,22 @@ public class BattleController : MonoBehaviour {
 
 	public void StartBattle() {
 		totalCombatants = PlayerCombatants.Count + EnemyCombatants.Count;
-		currentTurn = 0;
+
 		turnState = BattleTurnState.Attacking;
 		battleEnabled = true;
 
 		// ignore collision with other battlers
 		Physics2D.IgnoreLayerCollision(10, 10, true); 
+
+		// let the enemies go first, if necessary
+
+		if(!EnemiesGoFirst) {
+			currentTurn = 0;
+		} else {
+			currentTurn = PlayerCombatants.Count;
+		}
+
+
 
 		//notify any listeners that the battle started
 		if(OnBattleEvent != null) {

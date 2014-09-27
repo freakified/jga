@@ -7,7 +7,7 @@ public class S605Puppeteer : CutscenePuppeteer {
 	private GameObject ChefTony, James;
 	private MusicPlayer mus;
 
-	public AudioClip EvilEmergesTheme;
+	public AudioClip EvilEmergesTheme, LightsActivateSound;
 
 	// Use this for initialization
 	void Start () {
@@ -38,7 +38,8 @@ public class S605Puppeteer : CutscenePuppeteer {
 			}
 		} else if(CurrentScene == 10) {
 			if(timerIsGreaterThan(11.0f)) {
-				StartCoroutine(FadeAndNext(Color.white, 2, "6-06 Courting death"));
+				playSound(LightsActivateSound);
+				StartCoroutine(FadeAndNext(Color.white, 1f, "6-06 Courting death"));
 				nextScene();
 			}
 		}
