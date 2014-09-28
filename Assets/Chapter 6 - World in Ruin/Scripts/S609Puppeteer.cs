@@ -42,13 +42,19 @@ public class S609Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
-
+		if(CurrentScene == 2) {
+			bc.ResumeBattle();
+		}
 	}
 
 	public void HandleBattleEvent(BattleEvent type) {
 		switch(type) {
 		case BattleEvent.TurnChange:
-			
+			if(CurrentScene == 0) {
+				bc.PauseBattle();
+				nextScene();
+			}
+
 			break;
 		case BattleEvent.Finished:
 			mus.StopMusic(1.0f);

@@ -103,22 +103,22 @@ MonoBehaviour:
       m_Top: 5
       m_Bottom: 4
     m_Margin:
-      m_Left: 21
+      m_Left: 36
       m_Right: 4
-      m_Top: 4
+      m_Top: 7
       m_Bottom: 0
     m_Padding:
-      m_Left: 10
+      m_Left: 18
       m_Right: 6
-      m_Top: 3
-      m_Bottom: 3
+      m_Top: 5
+      m_Bottom: 5
     m_Overflow:
       m_Left: 0
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 17
+    m_FontSize: 29
     m_FontStyle: 0
     m_Alignment: 3
     m_WordWrap: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
     m_Padding:
       m_Left: 0
       m_Right: 0
-      m_Top: 5
+      m_Top: 9
       m_Bottom: 0
     m_Overflow:
       m_Left: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 17
+    m_FontSize: 29
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -1229,10 +1229,10 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Padding:
-      m_Left: 10
-      m_Right: 10
-      m_Top: 5
-      m_Bottom: 0
+      m_Left: 18
+      m_Right: 18
+      m_Top: 9
+      m_Bottom: 18
     m_Overflow:
       m_Left: 0
       m_Right: 0
@@ -1289,7 +1289,7 @@ MonoBehaviour:
     m_Padding:
       m_Left: 0
       m_Right: 0
-      m_Top: 5
+      m_Top: 9
       m_Bottom: 0
     m_Overflow:
       m_Left: 0
@@ -1297,7 +1297,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 17
+    m_FontSize: 29
     m_FontStyle: 0
     m_Alignment: 2
     m_WordWrap: 0
@@ -1311,7 +1311,7 @@ MonoBehaviour:
     m_StretchHeight: 0
   - m_Name: Tooltip
     m_Normal:
-      m_Background: {fileID: 2800000, guid: b53572f5cdfd94cc0a4ab75cba3ecb4e, type: 3}
+      m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
@@ -1345,17 +1345,17 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Padding:
-      m_Left: 10
-      m_Right: 10
-      m_Top: 10
-      m_Bottom: 10
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
     m_Overflow:
       m_Left: 0
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 15
+    m_FontSize: 25
     m_FontStyle: 0
     m_Alignment: 0
     m_WordWrap: 1
@@ -1413,7 +1413,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 13
+    m_FontSize: 22
     m_FontStyle: 1
     m_Alignment: 0
     m_WordWrap: 1

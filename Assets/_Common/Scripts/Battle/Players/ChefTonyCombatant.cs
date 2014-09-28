@@ -55,7 +55,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 
 		PlayerAttack attack3 = new PlayerAttack();
 		attack3.Name = "Fried Chicken Smoothie";
-		attack3.Description = "Much healthier than whipping cream.  Restores health.";
+		attack3.Description = "90% chicken and 10% lettuce, blended to perfection using the Ultimate Chopper™. Restores health.";
 		attack3.Power = 100;
 		attack3.Accuracy = 100;
 		attack3.Type = AttackType.Heal;

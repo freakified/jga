@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682367758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 561bb1ff3f5104a36870501732446bfc, type: 3}
   m_Name: 
@@ -2835,7 +2835,7 @@ MonoBehaviour:
   - {fileID: 1781690978}
   EnabledAtStart: 1
   DelayBeforeAutoStart: 2
-  EnemiesGoFirst: 1
+  EnemiesGoFirst: 0
 --- !u!1 &703759620
 GameObject:
   m_ObjectHideFlags: 0

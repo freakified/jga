@@ -198,12 +198,10 @@ public class BattleController : MonoBehaviour {
 		guiSkin.label.padding.top = scalePx (5);
 		guiSkin.customStyles[1].padding.top = scalePx (5);
 		guiSkin.customStyles[0].padding.top = scalePx (5);
+		guiSkin.customStyles[0].padding.bottom = scalePx (10);
 		guiSkin.customStyles[0].padding.left = scalePx (10);
 		guiSkin.customStyles[0].padding.right = scalePx (10);
 
-		guiSkin.customStyles[2].padding.left = scalePx (10);
-		guiSkin.customStyles[2].padding.top = scalePx (10);
-		
 		//padding for buttons
 		guiSkin.button.margin.left = scalePx (20);
 		guiSkin.button.margin.top = scalePx (4);
@@ -269,20 +267,6 @@ public class BattleController : MonoBehaviour {
 			}
 		}
 
-
-		// now draw the attack description tooltip
-		for (int i = 0; i < numAttacks; i++) {
-			if (Event.current.type == EventType.Repaint && (currentButtonSelection == i)) {
-				GUI.Label (new Rect (scalePx (220), 
-				                     attackButtons[i].y - scalePx(15), 
-				                     scalePx (315), 
-				                     scalePx (55)), 
-				           ((PlayerCombatant)PlayerCombatants[currentTurn]).Attacks[i].Description, 
-				           guiSkin.customStyles [2]);
-
-			}
-		}
-
 		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
 		// TODO: check if this works with actual gamepads
 		if(Event.current.type == EventType.KeyDown && Input.GetButtonDown("Select")) {
@@ -299,32 +283,24 @@ public class BattleController : MonoBehaviour {
 
 		List<BattleCombatant> availableTargets;
 		
-		if (chosenAttack.Type == AttackType.Heal)
-			// if it's a healing move, then we show the list of allies
-			availableTargets = PlayerCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
-		else
+		if (chosenAttack.Type == AttackType.Heal) {
+			// if it's a healing move, then just target the current combatant
+			availableTargets = new List<BattleCombatant>();
+			availableTargets.Add((BattleCombatant)PlayerCombatants[currentTurn]);
+		} else {
 			// if it's an attack/status move, show the list of enemies
 			availableTargets = EnemyCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
+		}
 
-		int areaHeight = scalePx (60 + 30 * availableTargets.Count);
+		int areaHeight = scalePx (120 + 30 * availableTargets.Count);
 
-		GUILayout.BeginArea (new Rect (0, 0, scalePx (270), areaHeight), guiSkin.customStyles [0]);
-		GUILayout.BeginHorizontal ();
+		GUILayout.BeginArea (new Rect (0, 0, scalePx (330), areaHeight), guiSkin.customStyles [0]);
 		GUILayout.Label ("<b>" + chosenAttack.Name + "</b>");
 
 		GUI.SetNextControlName ("0");
 		numberOfButtonsVisible = availableTargets.Count + 1;
 
-		if (GUILayout.Button ("Cancel", GUILayout.ExpandWidth (false))) {
-			targetingCancelled = true;
-
-			//set the turn state back to attacking, which will take effect on the next loop
-			turnState = BattleTurnState.Attacking;
-		}
-
-
-
-		GUILayout.EndHorizontal();
+		GUILayout.Label (chosenAttack.Description, guiSkin.customStyles[2]);
 
 		GUILayout.Label ("SELECT TARGET", guiSkin.customStyles [3]);
 		BattleCombatant availableTarget;
@@ -363,6 +339,13 @@ public class BattleController : MonoBehaviour {
 			// if the target is dead, undo the greyout state we enabled above
 			if (!isTargetable)
 				GUI.enabled = true;
+		}
+
+		if (GUILayout.Button ("Cancel", GUILayout.ExpandWidth (false))) {
+			targetingCancelled = true;
+			
+			//set the turn state back to attacking, which will take effect on the next loop
+			turnState = BattleTurnState.Attacking;
 		}
 
 		GUILayout.EndArea();

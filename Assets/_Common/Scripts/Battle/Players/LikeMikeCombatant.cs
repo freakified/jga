@@ -36,7 +36,7 @@ public class LikeMikeCombatant : PlayerCombatant {
 
 		PlayerAttack attack2 = new PlayerAttack();
 		attack2.Name = "Gatorade\u2122 Sports Drink";
-		attack2.Description = "<i>Real</i> athletes literally sweat this substance.  Restores health.";
+		attack2.Description = "Real athletes literally sweat this substance.  Restores health.";
 		attack2.Power = MaxHitPoints;
 		attack2.Accuracy = 100;
 		attack2.Type = AttackType.Heal;

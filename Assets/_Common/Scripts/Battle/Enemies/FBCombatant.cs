@@ -85,7 +85,6 @@ public class FBCombatant : EnemyCombatant {
 			break;
 		case AttackAnimationState.InProgress:
 
-			print (LaserFire.time);
 			if(timerIsGreaterThan(2.5f)) {
 
 				LaserFire.enableEmission = false;
@@ -93,13 +92,17 @@ public class FBCombatant : EnemyCombatant {
 				attackAnimationState = AttackAnimationState.Off;
 
 				//EVERYONE DIES HAHAHAHAHAHAH
-				targets.ForEach(t => t.Damage(t.MaxHitPoints ));
+				targets.ForEach(t => t.Damage(t.MaxHitPoints - 1));
 
 				AnimationInProgress = false;
 			}
 
 			break;
 		}
+	}
+
+	public override string getName() {
+		return "Flying Basketball";
 	}
 
 	public override void AutoAttack (List<BattleCombatant> targetList) {

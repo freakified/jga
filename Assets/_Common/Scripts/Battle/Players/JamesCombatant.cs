@@ -26,7 +26,7 @@ public class JamesCombatant : PlayerCombatant {
 		//set up the list of attacks
 		PlayerAttack attack1 = new PlayerAttack();
 		attack1.Name = "Gas Blast";
-		attack1.Description = "Damages a single target with a blast of foul-smelling gas.";
+		attack1.Description = "Unleashes a blast of foul-smelling gas upon the target, dealing damage.";
 		attack1.Power = 240;
 		attack1.Accuracy = 100;
 		attack1.Type = AttackType.Damage;
