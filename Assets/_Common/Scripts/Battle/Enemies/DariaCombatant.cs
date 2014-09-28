@@ -6,7 +6,7 @@ public class DariaCombatant : EnemyCombatant {
 
 	public AudioClip LaserChargeSound, LaserFireSound;
 
-	private int InitialHealth = 500;
+	private int InitialHealth = 100;
 	private int AttackPower = 99;
 
 	private ParticleSystem LaserCharge, LaserFire, StaffGlow;

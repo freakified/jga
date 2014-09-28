@@ -51,6 +51,13 @@ public class S606Puppeteer : CutscenePuppeteer {
 			mus.PlayMusic(DariasTheme, true);
 		} else if(CurrentScene == 15) {
 			bc.ResumeBattle();
+		} else if(CurrentScene == 17) {
+			LMFB.rigidbody2D.AddForce(new Vector2(1.0f, 0.5f) * -150);
+			nextScene();
+		} else if(CurrentScene == 20) {
+			Daria.rigidbody2D.AddForce(Vector2.right * 500);
+		} else if(CurrentScene == 25) {
+			StartCoroutine(FadeAndNext(Color.white, 1.0f, null));
 		}
 	}
 
@@ -63,6 +70,10 @@ public class S606Puppeteer : CutscenePuppeteer {
 				nextScene();
 			} 
 			
+			break;
+		case BattleEvent.Finished:
+			mus.StopMusic(1.0f);
+			nextScene();
 			break;
 		}
 	}

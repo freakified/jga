@@ -65,7 +65,7 @@ abstract public class BattleCombatant : MonoBehaviour {
 		}
 	}
 
-	public void Damage (int amount) {
+	public virtual void Damage (int amount) {
 		HitPoints = (int)Mathf.Clamp(HitPoints - amount, 0, MaxHitPoints);
 
 		if(DamageParticlesPrefab != null) {
@@ -88,7 +88,7 @@ abstract public class BattleCombatant : MonoBehaviour {
 	/// Put the combatant to "sleep" for the specified number of turns.
 	/// </summary>
 	/// <param name="numberOfTurns">The number of turns to sleep.</param>
-	public void PutToSleep (int numberOfTurns) {
+	public virtual void PutToSleep (int numberOfTurns) {
 		isSleeping = true;
 
 		sleepTurnCounter = numberOfTurns;

@@ -32,7 +32,7 @@ public class BattleController : MonoBehaviour {
 
 	// battle state globals
 	private bool battleEnabled = false;
-	private int currentTurn = 0;
+	public int currentTurn { get; private set; }
 	private BattleTurnState turnState;
 
 	// target selection globals
