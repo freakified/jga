@@ -17,6 +17,7 @@ public class BattleController : MonoBehaviour {
 	public List<BattleCombatant> EnemyCombatants;
 
 	public bool EnabledAtStart = true;
+	public float DelayBeforeAutoStart = 0.5f;
 	public bool EnemiesGoFirst = false;
 	
 
@@ -46,9 +47,8 @@ public class BattleController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		if(EnabledAtStart)
-			StartBattle();
+			Invoke("StartBattle", DelayBeforeAutoStart);
 
 	}
 

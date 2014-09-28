@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 9214e5696e3584a6895f86dc28586185
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - DamageParticlesPrefab: {instanceID: 0}
+  - SleepParticlesPrefab: {instanceID: 0}
+  - LaserChargeSound: {fileID: 8300000, guid: cf7d709fefbe642b48221d83631c92d7, type: 3}
+  - LaserFireSound: {fileID: 8300000, guid: 4e31f51636d21404397a543b46943f18, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

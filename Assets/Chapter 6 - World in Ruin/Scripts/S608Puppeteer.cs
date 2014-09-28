@@ -76,7 +76,7 @@ public class S608Puppeteer : CutscenePuppeteer {
 
 		if(CurrentScene == 69) {
 			mus.PlayMusic(FinalBossMusic, true);
-			StartCoroutine(FadeAndNext(Color.white, 4, null));
+			StartCoroutine(FadeAndNext(Color.white, 2, "6-09 The Final Battle"));
 		}
 	}
 

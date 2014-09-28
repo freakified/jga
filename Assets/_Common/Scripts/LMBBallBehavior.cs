@@ -3,6 +3,7 @@ using System.Collections;
 
 public class LMBBallBehavior : MonoBehaviour {
 
+
 	public float RotationSpeed = 1f;
 
 	private Vector3 rotation;
@@ -15,7 +16,7 @@ public class LMBBallBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		rotation.z += RotationSpeed * Time.deltaTime;
-
 		transform.eulerAngles = rotation;
 	}
+
 }

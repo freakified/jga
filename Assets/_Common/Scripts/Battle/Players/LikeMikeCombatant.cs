@@ -56,7 +56,12 @@ public class LikeMikeCombatant : PlayerCombatant {
 	// Update is called once per frame
 	public override void Update () {
 		base.Update();
-		
+
+		if(HitPoints == 0) {
+			originalBasketball.renderer.enabled = false;
+		} else {
+			originalBasketball.renderer.enabled = true;
+		}
 	}
 
 	void FixedUpdate () {

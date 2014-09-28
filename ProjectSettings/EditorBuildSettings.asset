@@ -63,3 +63,9 @@ EditorBuildSettings:
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-05 Entrance to EVIL.unity
   - enabled: 1
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-06 Courting death.unity
+  - enabled: 1
+    path: Assets/Chapter 6 - World in Ruin/Scenes/6-07 Fiddling contest.unity
+  - enabled: 1
+    path: Assets/Chapter 6 - World in Ruin/Scenes/6-08 Revelation.unity
+  - enabled: 1
+    path: Assets/Chapter 6 - World in Ruin/Scenes/6-09 The Final Battle.unity
