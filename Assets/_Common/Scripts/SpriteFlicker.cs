@@ -15,6 +15,9 @@ public class SpriteFlicker : MonoBehaviour {
 	/// </summary>
 	public float flickerProbability = 0.2f;
 
+	public float normalAlpha = 1.0f;
+	public float flickerAlpha = 0.5f;
+
 
 	private float timeSinceLastFlicker = 0;
 	private bool isCurrentlyFlickering = false;
@@ -22,12 +25,15 @@ public class SpriteFlicker : MonoBehaviour {
 
 	// Initialization
 	void Start () {
-		normalColor = new Color (1f, 1f, 1f, 1f);
-		flickerColor = new Color (1f, 1f, 1f, 0.5f);
+		normalColor = new Color (1f, 1f, 1f, normalAlpha);
+		flickerColor = new Color (1f, 1f, 1f, flickerAlpha);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		normalColor = new Color (1f, 1f, 1f, normalAlpha);
+		flickerColor = new Color (1f, 1f, 1f, flickerAlpha);
+
 		timeSinceLastFlicker += Time.deltaTime;
 
 		if (timeSinceLastFlicker > flickerDelay) {

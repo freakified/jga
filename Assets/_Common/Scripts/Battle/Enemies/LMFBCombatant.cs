@@ -25,6 +25,10 @@ public class LMFBCombatant : EnemyCombatant {
 		// you can't damage an evil basketball entity, that's just crazy you're crazy
 	}
 
+	public override string getName() {
+		return "Sphaera Imperandi";
+	}
+
 	public override void AutoAttack (List<BattleCombatant> targetList) {
 		// attack? why would we do that?
 	}

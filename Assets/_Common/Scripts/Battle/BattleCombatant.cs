@@ -139,6 +139,10 @@ abstract public class BattleCombatant : MonoBehaviour {
 		AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
 	}
 
+	public virtual string getName() {
+		return name;
+	}
+
 
 
 }

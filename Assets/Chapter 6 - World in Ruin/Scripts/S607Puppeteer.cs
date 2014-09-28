@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class S607Puppeteer : CutscenePuppeteer {
 
 	public AudioClip GasBlastSound1, GasBlastSound2;
+	public GameObject SparksPrefab;
 
 	private GameObject ChefTony, James, LMFB, Gasplosion, HatGlow, ScreenFlash;
 	private MusicPlayer mus;
@@ -61,6 +62,9 @@ public class S607Puppeteer : CutscenePuppeteer {
 			
 		} else if(CurrentScene == 37) {
 			if(timerIsGreaterThan(2.0f)) {
+				GameObject sparks = Instantiate(SparksPrefab) as GameObject;
+				sparks.transform.position = LMFB.transform.position;
+				playSound(GasBlastSound2);
 				StartCoroutine(FadeAndNext(Color.green, 4, null));
 				nextScene();
 			}

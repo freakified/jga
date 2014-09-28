@@ -347,7 +347,7 @@ public class BattleController : MonoBehaviour {
 			if (!isTargetable)
 				GUI.enabled = false;
 
-			if (GUILayout.Button ("<b>" + availableTarget.name + "</b> (" + percentHP + "%)")) {
+			if (GUILayout.Button ("<b>" + availableTarget.getName() + "</b> (" + percentHP + "%)")) {
 
 				chosenTarget = availableTarget;
 			}
@@ -394,7 +394,7 @@ public class BattleController : MonoBehaviour {
 				endTag = "</b></color>";
 			}
 
-			GUILayout.Label (startTag + PlayerCombatants [i].name + endTag);
+			GUILayout.Label (startTag + PlayerCombatants [i].getName() + endTag);
 			GUILayout.Label (PlayerCombatants [i].HitPoints + "/" + PlayerCombatants [i].MaxHitPoints, guiSkin.customStyles [1], GUILayout.Width (scalePx (75)));
 			GUILayout.EndHorizontal ();
 		}
