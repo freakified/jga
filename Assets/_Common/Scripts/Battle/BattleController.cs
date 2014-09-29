@@ -269,9 +269,10 @@ public class BattleController : MonoBehaviour {
 
 		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
 		// TODO: check if this works with actual gamepads
-		if(Event.current.type == EventType.KeyDown && Input.GetButtonDown("Select")) {
+		if(Event.current.type == EventType.KeyUp && Input.GetButtonUp("Select")) {
 			chosenAttack =
 				((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [currentButtonSelection];
+			currentButtonSelection = 0;
 		}
 
 		return chosenAttack;
@@ -341,6 +342,8 @@ public class BattleController : MonoBehaviour {
 				GUI.enabled = true;
 		}
 
+		GUI.SetNextControlName ((availableTargets.Count).ToString());
+
 		if (GUILayout.Button ("Cancel", GUILayout.ExpandWidth (false))) {
 			targetingCancelled = true;
 			
@@ -349,6 +352,26 @@ public class BattleController : MonoBehaviour {
 		}
 
 		GUILayout.EndArea();
+
+		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
+		// TODO: check if this works with actual gamepads
+		if(Event.current.type == EventType.KeyUp && Input.GetButtonUp("Select")) {
+			if(currentButtonSelection == availableTargets.Count) {
+				// if the cancel button is selected
+				targetingCancelled = true;
+				turnState = BattleTurnState.Attacking;
+			} else {
+				chosenTarget = availableTargets[currentButtonSelection];
+			}
+			currentButtonSelection = 0;
+		}
+
+		//now check for the escape key
+		if(Event.current.type == EventType.KeyUp && Input.GetButtonUp("Cancel")) {
+			targetingCancelled = true;
+			turnState = BattleTurnState.Attacking;
+			currentButtonSelection = 0;
+		}
 
 		if(chosenTarget != null || targetingCancelled) {
 			// if a target was selected or the cancel button was pressed, restore opacity of targets
