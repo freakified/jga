@@ -16,7 +16,7 @@ public class LikeMikeCombatant : PlayerCombatant {
 	private Transform originalBasketball, attacksketball;
 	private Vector3 basketballVelocity;
 
-	private Vector2 initialPosition, originalBasketballLocalPos;
+	private Vector2 originalBasketballLocalPos;
 
 	// Use this for initializationl
 	public override void Start () {
@@ -60,7 +60,9 @@ public class LikeMikeCombatant : PlayerCombatant {
 		if(HitPoints == 0) {
 			originalBasketball.renderer.enabled = false;
 		} else {
-			originalBasketball.renderer.enabled = true;
+			if(!AnimationInProgress) {
+				originalBasketball.renderer.enabled = true;
+			}
 		}
 	}
 
@@ -150,8 +152,6 @@ public class LikeMikeCombatant : PlayerCombatant {
 		currentAttackTarget = target;
 		
 		if(attack.Name == "Slam Dunk") {
-			initialPosition = transform.position;
-
 			AnimationInProgress = true;
 			currentAnimation = AnimationSequence.PreparingToSlam;
 			attackAnimationState = AttackAnimationState.NeedsToStart;

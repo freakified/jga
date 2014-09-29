@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class S507Puppeteer : CutscenePuppeteer {
 
-	public AudioClip ButtonPressSound, AlarmSound, DoorOpenSound, DoorCloseSound, SawingSound;
+	public AudioClip ButtonPressSound, AlarmSound, DoorOpenSound, DoorCloseSound, SawingSound, ExplosionSound1, ExplosionSound2;
 	public AudioClip knife;
 	public AudioClip DramaticMusic;
 
@@ -143,6 +143,7 @@ public class S507Puppeteer : CutscenePuppeteer {
 			}
 		} else if (CurrentScene == 51) {
 			if(timerIsGreaterThan(2.0f)) {
+				mp.StopMusic(2.0f);
 				StartCoroutine(FadeAndNext(Color.green, 5.0f, "5-08 Limbo"));
 				nextScene();
 			}
@@ -211,10 +212,13 @@ public class S507Puppeteer : CutscenePuppeteer {
 
 		} else if (CurrentScene == 49) {
 			Camera.main.GetComponent<CameraShake>().enabled = true;
+			playSound(ExplosionSound1);
 			Clouds.renderer.enabled = false;
 			JamesDisplay.renderer.enabled = false;
 			Gas.Play();
 			startTimer();
+		} else if(CurrentScene == 50 || CurrentScene == 51) {
+			playSound(ExplosionSound2);
 		}
 	}
 

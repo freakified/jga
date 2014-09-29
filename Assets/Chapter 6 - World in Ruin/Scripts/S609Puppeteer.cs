@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class S609Puppeteer : CutscenePuppeteer {
 
-	private GameObject ChefTony, James, LikeMike, FlyingBBall;
+	private GameObject FlyingBBall;
 	private MusicPlayer mus;
 	private BattleController bc;
 
@@ -12,9 +12,6 @@ public class S609Puppeteer : CutscenePuppeteer {
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
-		ChefTony = GameObject.Find ("Chef Tony");
-		James = GameObject.Find ("James");
-		LikeMike = GameObject.Find ("Like Mike");
 		FlyingBBall = GameObject.Find ("Flying Basketball");
 
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();

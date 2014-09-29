@@ -556,6 +556,7 @@ MonoBehaviour:
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
   GasBlastSound: {fileID: 8300000, guid: 9e39fb7391e4a4305960467a89291774, type: 3}
+  HealSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
 --- !u!1001 &642951586
 Prefab:
   m_ObjectHideFlags: 0
@@ -694,6 +695,7 @@ MonoBehaviour:
   EnemyCombatants:
   - {fileID: 0}
   EnabledAtStart: 0
+  DelayBeforeAutoStart: .5
   EnemiesGoFirst: 1
 --- !u!1 &703759620
 GameObject:

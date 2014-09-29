@@ -3,7 +3,7 @@ using System.Collections;
 
 public class JamesCombatant : PlayerCombatant {
 
-	public AudioClip GasBlastSound;
+	public AudioClip GasBlastSound, HealSound;
 
 	private PlayerAttack currentAttack;
 	private BattleCombatant currentAttackTarget;
@@ -85,7 +85,7 @@ public class JamesCombatant : PlayerCombatant {
 			rigidbody2D.AddForce(currentAttackTarget.transform.position - transform.position
 			                     * 250 * Time.fixedDeltaTime);
 
-			if(transform.rotation.eulerAngles.z < 165 && transform.rotation.eulerAngles.z > 163) {
+			if(transform.rotation.eulerAngles.z < 170 && transform.rotation.eulerAngles.z > 163) {
 				currentAttackTarget.Damage(currentAttack.Power);
 
 
@@ -104,7 +104,7 @@ public class JamesCombatant : PlayerCombatant {
 
 			rigidbody2D.AddForce(new Vector2(-400, 100) * Time.deltaTime);
 
-			if(transform.position.x < initialPosition.x) {
+			if(transform.position.x < initialPosition.x + 0.1f) {
 				attackAnimationState = AttackAnimationState.InProgress;
 			}
 			
@@ -143,7 +143,7 @@ public class JamesCombatant : PlayerCombatant {
 			attackAnimationState = AttackAnimationState.NeedsToStart;
 
 		} else if(attack.Name == "Can of Beans") {
-			//playSound(healSound);
+			playSound(HealSound);
 			currentAttackTarget.Heal(attack.Power);
 			
 		}

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class S604Puppeteer : CutscenePuppeteer {
 
 	public ParticleSystem GasplosionParticles;
-	public AudioClip EvilMusic;
+	public AudioClip EvilMusic, GasBlastSound;
 
 	private GameObject ChefTony, James, Basketballs;
 	private MusicPlayer mus;
@@ -89,6 +89,7 @@ public class S604Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 6) {
 			James.GetComponent<Animator>().SetInteger("HP", 100);
 			GasplosionParticles.Play();
+			playSound(GasBlastSound);
 			startTimer();
 		} else if(CurrentScene == 10) {
 			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();

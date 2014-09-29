@@ -22,6 +22,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Chapter 2 - France/Scenes/2-05 Cart Race.unity
   - enabled: 1
+    path: Assets/Chapter 3 - A No-Kill Home/Scenes/3-01 Limbo.unity
+  - enabled: 1
     path: Assets/Chapter 3 - A No-Kill Home/Scenes/3-10 Orphanage.unity
   - enabled: 1
     path: Assets/Chapter 4 - The Shrine of Lost Dreams/Scenes/4-01 Shrine Exterior.unity

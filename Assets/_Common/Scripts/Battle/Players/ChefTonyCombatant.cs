@@ -18,7 +18,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 
 	private AnimationSequence currentAnimation = AnimationSequence.None;
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
-
+	
 	private Vector2 initialPosition;
 
 	private float initialDrag;
@@ -94,6 +94,12 @@ public class ChefTonyCombatant : PlayerCombatant {
 			float dist = currentAttackTarget.transform.position.x - transform.position.x - 0.3f;
 			float time = dist / launchVelocity.x;
 			launchVelocity.y = Mathf.Abs (Physics2D.gravity.y) / 2 * time;
+
+			// cheap hack to hit floating bosses
+			if(currentAttackTarget.transform.position.y > transform.position.y) {
+				launchVelocity.y += 4f;
+			}
+
 			rigidbody2D.velocity = launchVelocity;
 			attackAnimationState = AttackAnimationState.InProgress;
 			GetComponent<Animator> ().SetBool ("IsAttacking", true);

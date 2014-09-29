@@ -1783,6 +1783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GasplosionParticles: {fileID: 1890038827}
   EvilMusic: {fileID: 8300000, guid: 111ed88eaec1c4701b735ab2dbf342be, type: 3}
+  GasBlastSound: {fileID: 8300000, guid: 9e39fb7391e4a4305960467a89291774, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0

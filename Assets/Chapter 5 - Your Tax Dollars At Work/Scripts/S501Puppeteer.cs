@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class S501Puppeteer : CutscenePuppeteer {
 
 	private GameObject ChefTony;
-	private MusicPlayer mus;
 
 	//private Animator ctanim;
 
@@ -13,8 +12,6 @@ public class S501Puppeteer : CutscenePuppeteer {
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
-		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
-		//ctanim = ChefTony.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame

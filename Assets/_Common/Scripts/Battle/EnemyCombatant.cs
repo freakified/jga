@@ -23,4 +23,15 @@ abstract public class EnemyCombatant : BattleCombatant {
 	protected BattleCombatant getWeakestTarget(List<BattleCombatant> targetList) {
 		return targetList.Where(t => t.HitPoints > 0).OrderBy(t => t.HitPoints).First();
 	}
+
+	protected BattleCombatant getRandomTarget(List<BattleCombatant> targetList) {
+		List<BattleCombatant> aliveTargets = targetList.Where(t => t.HitPoints > 0).ToList();
+
+		if(aliveTargets.Count != 0) { 
+			return aliveTargets[Random.Range(0, aliveTargets.Count)];
+		} else {
+			return targetList[0]; // just return the first person if everyone is dead
+		}
+
+	}
 }

@@ -45,9 +45,9 @@ public class Shoesplosion : MonoBehaviour {
 
 			//hold the shoes in midair
 			if(rigidbody2D.velocity.y > 0) {
-				rigidbody2D.AddForce(-1 * Vector2.up);
+				rigidbody2D.AddForce(-50 * Vector2.up * Time.fixedDeltaTime);
 			} else {
-				rigidbody2D.AddForce(1 * Vector2.up);
+				rigidbody2D.AddForce(50 * Vector2.up * Time.fixedDeltaTime);
 			}
 
 			if(elapsedTime > RiftExpansionDelay) {

@@ -55,7 +55,7 @@ public class GuardCombatant : EnemyCombatant {
 
 	public override void AutoAttack (List<BattleCombatant> targetList) {
 		//select the player with the lowest HP as the target
-		target = getWeakestTarget (targetList);
+		target = getRandomTarget (targetList);
 		AnimationInProgress = true;
 		attackAnimationState = AttackAnimationState.NeedsToStart;
 		startTimer();

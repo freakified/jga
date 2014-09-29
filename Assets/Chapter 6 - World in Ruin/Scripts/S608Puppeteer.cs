@@ -9,24 +9,18 @@ public class S608Puppeteer : CutscenePuppeteer {
 	public List<Sprite> FlashbackBGList;
 	private Queue<Sprite> flashbackBGs;
 
-	private GameObject ChefTony, James, LikeMike, FlyingBBall, Flashback;
+	private GameObject Flashback;
 	private ScreenFlasher ScreenFlash;
 	private MusicPlayer mus;
-	private BattleController bc;
 
 
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
-		ChefTony = GameObject.Find ("Chef Tony");
-		James = GameObject.Find ("James");
-		LikeMike = GameObject.Find ("Like Mike");
-		FlyingBBall = GameObject.Find ("Flying Basketball");
 		Flashback = GameObject.Find ("Flashback");
 		ScreenFlash = GameObject.Find ("ScreenFlash").GetComponent<ScreenFlasher>();
 
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
-		bc = GetComponent<BattleController>();
 
 		flashbackBGs = new Queue<Sprite>(FlashbackBGList);
 

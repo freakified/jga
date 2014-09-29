@@ -725,6 +725,8 @@ MonoBehaviour:
   - {fileID: 631345919}
   - {fileID: 1939803671}
   EnabledAtStart: 0
+  DelayBeforeAutoStart: .5
+  EnemiesGoFirst: 1
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0

@@ -896,10 +896,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonPressSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
-  AlarmSound: {fileID: 8300000, guid: 0f4ce450e2214409080b7ed5a4857be7, type: 3}
+  AlarmSound: {fileID: 8300000, guid: 142bb8a72ad7644fbacd48108ff371ae, type: 3}
   DoorOpenSound: {fileID: 8300000, guid: 99501b38fb6d34983a0d197a21cea259, type: 3}
   DoorCloseSound: {fileID: 8300000, guid: e1a8a8e8b96e8483688d22e3c6745639, type: 3}
   SawingSound: {fileID: 8300000, guid: 8f451964ba00d410b945b90b218192ae, type: 3}
+  ExplosionSound1: {fileID: 8300000, guid: 9e39fb7391e4a4305960467a89291774, type: 3}
+  ExplosionSound2: {fileID: 8300000, guid: f045bf8331ccc4344802f6d12cfa0c6f, type: 3}
   knife: {fileID: 8300000, guid: e7da17a40e8f743efbfe45424ad3a286, type: 3}
   DramaticMusic: {fileID: 8300000, guid: ce167a49848054ae487542dde483c6ed, type: 3}
 --- !u!4 &682367760

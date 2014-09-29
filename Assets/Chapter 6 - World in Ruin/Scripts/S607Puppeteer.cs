@@ -7,7 +7,7 @@ public class S607Puppeteer : CutscenePuppeteer {
 	public AudioClip GasBlastSound1, GasBlastSound2;
 	public GameObject SparksPrefab;
 
-	private GameObject ChefTony, James, LMFB, Gasplosion, HatGlow, ScreenFlash;
+	private GameObject James, LMFB, Gasplosion, HatGlow, ScreenFlash;
 	private MusicPlayer mus;
 	private BattleController bc;
 
@@ -15,7 +15,6 @@ public class S607Puppeteer : CutscenePuppeteer {
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
-		ChefTony = GameObject.Find ("Chef Tony");
 		LMFB = GameObject.Find ("LMFB");
 		James = GameObject.Find ("James");
 		Gasplosion = GameObject.Find ("Gasplosion");
@@ -65,7 +64,7 @@ public class S607Puppeteer : CutscenePuppeteer {
 				GameObject sparks = Instantiate(SparksPrefab) as GameObject;
 				sparks.transform.position = LMFB.transform.position;
 				playSound(GasBlastSound2);
-				StartCoroutine(FadeAndNext(Color.green, 4, null));
+				StartCoroutine(FadeAndNext(Color.green, 4, "6-08 Revelation"));
 				nextScene();
 			}
 		}

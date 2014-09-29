@@ -22,8 +22,8 @@ public class ShoeWind : MonoBehaviour {
 
 		float windMultiplier = Mathf.Abs(Mathf.Sin((elapsedTime / WindPeriod * Mathf.PI) / 2));
 
-		shoe1.AddForce(WindForce * windMultiplier);
-		shoe2.AddForce(WindForce * windMultiplier);
+		shoe1.AddForce(WindForce * windMultiplier * Time.fixedDeltaTime);
+		shoe2.AddForce(WindForce * windMultiplier * Time.fixedDeltaTime);
 
 	}
 }

@@ -104,8 +104,6 @@ public class S402Puppeteer : CutscenePuppeteer {
 		}
 
 		if(CurrentScene == 19 || CurrentScene == 20) {
-			//home in on the shoes
-			Vector3 temp = GameObject.Find("Shoe").transform.position;
 			
 			knifeInstance.rigidbody2D.AddForce((shoesInstance.transform.position -
 			                                    knifeInstance.transform.position) *

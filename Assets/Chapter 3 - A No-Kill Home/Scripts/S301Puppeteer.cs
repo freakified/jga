@@ -28,7 +28,6 @@ public class S301Puppeteer : CutscenePuppeteer {
 		ff = GameObject.Find ("Father Flanagan");
 		os = GameObject.Find ("Orphan Shield");
 		shoes = GameObject.Find ("ShoesTie");
-
 	}
 
 	public override void OnEnable() {
@@ -102,8 +101,8 @@ public class S301Puppeteer : CutscenePuppeteer {
 			break;
 		case 45:
 			// chef tony gets pulled in
-			chefTony.rigidbody2D.AddForce(5.0f * (shoes.transform.position - chefTony.transform.position));
-			chefTony.rigidbody2D.AddTorque(1.0f);
+			chefTony.rigidbody2D.AddForce(50.0f * (shoes.transform.position - chefTony.transform.position) * Time.fixedDeltaTime);
+			chefTony.rigidbody2D.AddTorque(3.0f * Time.fixedDeltaTime);
 			BGBlackout.renderer.material.color = 
 				new Color(0, 0, 0, Mathf.Lerp(0.0f, 1.0f, elapsedTime / 3));
 
@@ -146,6 +145,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
+
 		switch(CurrentScene) {
 		case 20:
 			//flanagan throws down the gauntlet
@@ -170,7 +170,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 
 			//oh and look the shoes fell down what a coincidence
 			shoes.rigidbody2D.isKinematic = false;
-			shoes.rigidbody2D.AddForce(-100 * Vector2.right);
+			shoes.rigidbody2D.AddForce(-10 * Vector2.right);
 			shoes.GetComponent<ShoeWind>().enabled = false;
 
 			startTimer();

@@ -4,22 +4,23 @@ using System.Collections.Generic;
 
 public class FBCombatant : EnemyCombatant {
 
-	public AudioClip LaserChargeSound, LaserFireSound;
+	public AudioClip LaserChargeSound, LaserFireSound, throwSound, hitSound;
+	public GameObject ImmunityNotificationPrefab;
+	private GameObject immunityNotification;
 
 	private int InitialHealth = 1000;
-	private int AttackPower = 99;
 
 	private ParticleSystem LaserCharge, LaserFire;
 
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
-	private enum AnimationSequence { None, LaserCharge, LaserFire }
+	private enum AnimationSequence { None, LaserCharge, LaserFire, LameBounce }
 
 	private AnimationSequence currentAnimation = AnimationSequence.None;
 
 	private List<BattleCombatant> targets;
 
-	private int chargesRequred = 1;
-	private int currentChargeCount = 1;
+	private int chargesRequred = 2;
+	private int currentChargeCount = 2;
 
 	// Use this for initialization
 	public override void Start () {
@@ -30,7 +31,7 @@ public class FBCombatant : EnemyCombatant {
 		HitPoints = InitialHealth;
 
 		LaserCharge = transform.GetComponentsInChildren<ParticleSystem>()[0];
-		LaserFire = transform.GetComponentsInChildren<ParticleSystem>()[1];
+		LaserFire = GameObject.Find ("Laser_Fire").particleSystem;
 
 	}
 	
@@ -45,6 +46,10 @@ public class FBCombatant : EnemyCombatant {
 			break;
 		case AnimationSequence.LaserFire:
 			animLaserFire();
+
+			break;
+		case AnimationSequence.LameBounce:
+			animLameBounce();
 
 			break;
 		}
@@ -101,6 +106,56 @@ public class FBCombatant : EnemyCombatant {
 		}
 	}
 
+	private Vector3 lameBounceVelocity;
+	private Vector3 initialPosition;
+
+	private void animLameBounce() {
+		switch(attackAnimationState) {
+		case AttackAnimationState.NeedsToStart:
+
+			initialPosition = transform.position;
+
+			lameBounceVelocity = (transform.position - Vector3.right/2) - transform.position;
+			lameBounceVelocity *= 3;
+
+			playSound(hitSound);
+			target.Damage(1);
+
+			startTimer();
+			attackAnimationState = AttackAnimationState.InProgress;
+
+			break;
+		case AttackAnimationState.InProgress:
+			transform.position = transform.position + lameBounceVelocity * Time.fixedDeltaTime;
+			
+			if(timerIsGreaterThan(0.1f)) {
+				attackAnimationState = AttackAnimationState.Complete;
+			}
+			
+			break;
+		case AttackAnimationState.Complete:
+			transform.position = initialPosition;
+			currentAnimation = AnimationSequence.None;
+			attackAnimationState = AttackAnimationState.Off;
+			AnimationInProgress = false;
+
+			break;
+		}
+	}
+
+	public override void PutToSleep (int numberOfTurns) {
+		// evil basketball entities are not sold by your sales pitches
+		if(immunityNotification == null) {
+			immunityNotification = Instantiate(ImmunityNotificationPrefab, 
+			                           new Vector3(0.76f,
+				            					   0.7f,
+				            					   0),
+			                           Quaternion.identity) as GameObject;
+		}
+
+		immunityNotification.GetComponent<TextFadeOutScript>().ShowText();
+	}
+
 	public override string getName() {
 		return "Flying Basketball";
 	}
@@ -108,6 +163,8 @@ public class FBCombatant : EnemyCombatant {
 	public override void AutoAttack (List<BattleCombatant> targetList) {
 
 		if(currentChargeCount == chargesRequred) {
+			// do crazy attack
+
 			targets = targetList;
 			AnimationInProgress = true;
 			currentAnimation = AnimationSequence.LaserCharge;
@@ -116,6 +173,15 @@ public class FBCombatant : EnemyCombatant {
 			currentChargeCount = 0;
 		} else {
 			currentChargeCount++;
+
+			// do a simple attack
+			target = getRandomTarget(targetList);
+
+			AnimationInProgress = true;
+			currentAnimation = AnimationSequence.LameBounce;
+			attackAnimationState = AttackAnimationState.NeedsToStart;
+
+
 		}
 
 

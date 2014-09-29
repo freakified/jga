@@ -6,7 +6,7 @@ public class S606Puppeteer : CutscenePuppeteer {
 
 	public AudioClip DariasTheme;
 
-	private GameObject ChefTony, James, Daria, LMFB;
+	private GameObject Daria, LMFB;
 	private MusicPlayer mus;
 	private BattleController bc;
 
@@ -14,9 +14,7 @@ public class S606Puppeteer : CutscenePuppeteer {
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
-		ChefTony = GameObject.Find ("Chef Tony");
 		LMFB = GameObject.Find ("LMFB");
-		James = GameObject.Find ("James");
 		Daria = GameObject.Find ("Daria");
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 		bc = GetComponent<BattleController>();
@@ -57,7 +55,7 @@ public class S606Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 20) {
 			Daria.rigidbody2D.AddForce(Vector2.right * 500);
 		} else if(CurrentScene == 25) {
-			StartCoroutine(FadeAndNext(Color.white, 1.0f, null));
+			StartCoroutine(FadeAndNext(Color.white, 1.0f, "6-07 Fiddling contest"));
 		}
 	}
 

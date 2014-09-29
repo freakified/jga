@@ -329,6 +329,10 @@ Prefab:
       propertyPath: WindForce.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: 1ca4d5074a76b4ef2aa5cdd1182bdec5, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ca4d5074a76b4ef2aa5cdd1182bdec5, type: 2}
   m_RootGameObject: {fileID: 2051762912}
@@ -801,6 +805,8 @@ MonoBehaviour:
   - {fileID: 1229920737}
   - {fileID: 483799911}
   EnabledAtStart: 0
+  DelayBeforeAutoStart: .5
+  EnemiesGoFirst: 0
 --- !u!1001 &825548044
 Prefab:
   m_ObjectHideFlags: 0
@@ -1324,7 +1330,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
-  m_FixedAngle: 0
+  m_FixedAngle: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2078,6 +2084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flickerDelay: .00100000005
   flickerProbability: .00999999978
+  normalAlpha: 1
+  flickerAlpha: .5
 --- !u!212 &2087536491
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class LMFBCombatant : EnemyCombatant {
-	
 
 	// Use this for initialization
 	public override void Start () {
@@ -19,6 +18,7 @@ public class LMFBCombatant : EnemyCombatant {
 
 	public override void PutToSleep (int numberOfTurns) {
 		// evil basketball entities are not sold by your sales pitches
+		//GameObject.Instantiate(
 	}
 
 	public override void Damage (int amount) {

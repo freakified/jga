@@ -6,6 +6,9 @@ public class DariaCombatant : EnemyCombatant {
 
 	public AudioClip LaserChargeSound, LaserFireSound;
 
+	public GameObject ImmunityNotificationPrefab;
+	private GameObject immunityNotification;
+
 	private int InitialHealth = 100;
 	private int AttackPower = 99;
 
@@ -19,7 +22,6 @@ public class DariaCombatant : EnemyCombatant {
 
 	private List<BattleCombatant> targets;
 
-	private float initialGlowGrav;
 	private int chargesRequred = 1;
 	private int currentChargeCount = 1;
 
@@ -36,7 +38,6 @@ public class DariaCombatant : EnemyCombatant {
 		LaserFire = transform.GetComponentsInChildren<ParticleSystem>()[2];
 
 		initialLaserRot = LaserFire.transform.localRotation;
-		initialGlowGrav = StaffGlow.gravityModifier;
 
 	}
 	
@@ -107,6 +108,19 @@ public class DariaCombatant : EnemyCombatant {
 
 			break;
 		}
+	}
+
+	public override void PutToSleep (int numberOfTurns) {
+		// evil basketball entities are not sold by your sales pitches
+		if(immunityNotification == null) {
+			immunityNotification = Instantiate(ImmunityNotificationPrefab, 
+			                                   new Vector3(0.79f,
+												            0.42f,
+												            0),
+			                                   Quaternion.identity) as GameObject;
+		}
+		
+		immunityNotification.GetComponent<TextFadeOutScript>().ShowText();
 	}
 
 	public override void AutoAttack (List<BattleCombatant> targetList) {
