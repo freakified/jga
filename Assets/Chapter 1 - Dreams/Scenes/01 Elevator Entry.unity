@@ -453,6 +453,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flickerDelay: .699999988
   flickerProbability: .100000001
+  normalAlpha: 1
+  flickerAlpha: .5
 --- !u!1 &406123055
 GameObject:
   m_ObjectHideFlags: 0

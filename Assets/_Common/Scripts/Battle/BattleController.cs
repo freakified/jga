@@ -40,7 +40,13 @@ public class BattleController : MonoBehaviour {
 	private int numberOfButtonsVisible = 0;
 	private int currentButtonSelection = 0;
 	private bool dirKeyDown = false;
-	private bool buttonKeyDown = false;
+
+	private bool input1IsDown = false;
+	private bool input2IsDown = false;
+
+	private bool buttonKeyDown = true;
+
+	private float elapsedTime = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -66,7 +72,8 @@ public class BattleController : MonoBehaviour {
 			currentTurn = PlayerCombatants.Count;
 		}
 
-
+		// reset input delay counter
+		elapsedTime = 0;
 
 		//notify any listeners that the battle started
 		if(OnBattleEvent != null) {
@@ -213,6 +220,22 @@ public class BattleController : MonoBehaviour {
 		return (int)((targetSize * Screen.width) / TargetScreenWidth);
 	}
 
+	void Update() {
+		//in our update method, we'll check for inputs
+
+		if(battleEnabled) {
+			elapsedTime += Time.deltaTime;
+		} else {
+			elapsedTime = 0;
+		}
+
+		//delay before accepting input, to prevent collisions with cutscene prompts
+		if(elapsedTime > 0.5f) {
+			input1IsDown = Input.GetButtonDown("Select");
+			input2IsDown = Input.GetButtonDown("Cancel");
+		}
+	}
+	
 /// <summary>
 /// Draws the attack selection window. Should only be called within the OnGUI function
 /// </summary>
@@ -258,20 +281,16 @@ public class BattleController : MonoBehaviour {
 		attackButtons [numAttacks - 1] = GUILayoutUtility.GetLastRect ();
 		GUILayout.EndArea();
 
-		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
-		// TODO: check if this works with actual gamepads
-		//if(Event.current.type == EventType.KeyDown) {
-			if(Event.current.keyCode == KeyCode.Space) {
-				buttonKeyDown = true;
-			} else if(Input.GetButtonDown("Select") && buttonKeyDown == false) {
-				chosenAttack =
-					((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [currentButtonSelection];
-				currentButtonSelection = 0;
-				buttonKeyDown = true;
-			} else {
-				buttonKeyDown = false;
-			}
-		//}
+		if(Event.current.keyCode == KeyCode.Space) {
+			buttonKeyDown = true;
+		} else if(input1IsDown && buttonKeyDown == false) {
+			chosenAttack =
+				((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [currentButtonSelection];
+			currentButtonSelection = 0;
+			buttonKeyDown = true;
+		} else {
+			buttonKeyDown = false;
+		}
 
 		return chosenAttack;
 	}
@@ -364,7 +383,7 @@ public class BattleController : MonoBehaviour {
 		//if(Event.current.type == EventType.KeyDown) {
 			if(Event.current.keyCode == KeyCode.Space) {
 				buttonKeyDown = true;
-			} else if(Input.GetButtonDown("Select") && buttonKeyDown == false ) {
+			} else if(input1IsDown && buttonKeyDown == false ) {
 				if(currentButtonSelection == availableTargets.Count) {
 					// if the cancel button is selected
 					targetingCancelled = true;
@@ -382,7 +401,7 @@ public class BattleController : MonoBehaviour {
 		//}
 
 		//now check for the escape key
-		if(Event.current.type == EventType.KeyDown && Input.GetButtonDown("Cancel")) {
+		if(input2IsDown) {
 			targetingCancelled = true;
 			turnState = BattleTurnState.Attacking;
 			currentButtonSelection = 0;
