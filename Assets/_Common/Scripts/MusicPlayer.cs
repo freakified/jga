@@ -51,6 +51,7 @@ public class MusicPlayer : MonoBehaviour {
 	public void PlayMusic(AudioClip newMusic, bool shouldLoop) {
 		soundSource.Stop();
 		soundSource.volume = 1.0f;
+		fadingOut = false;
 		music = newMusic;
 		soundSource.loop = shouldLoop;
 		

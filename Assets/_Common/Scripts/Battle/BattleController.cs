@@ -355,12 +355,11 @@ public class BattleController : MonoBehaviour {
 				chosenTarget = availableTarget;
 			}
 
-			if (Event.current.type == EventType.Repaint &&
-			    GUILayoutUtility.GetLastRect ().Contains (Event.current.mousePosition)) {
-				((SpriteRenderer)availableTarget.renderer).color = new Color (1, 1, 1, 1);
-			}
-			else {
-				((SpriteRenderer)availableTarget.renderer).color = new Color (1, 1, 1, 0.5f);
+			// now highlight the selected target
+			availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 0.5f));
+
+			if (currentButtonSelection < attackableTargets.Count) {
+				((SpriteRenderer)attackableTargets[currentButtonSelection].renderer).color = new Color (1, 1, 1, 1f);
 			}
 
 			// if the target is dead, undo the greyout state we enabled above
@@ -383,28 +382,23 @@ public class BattleController : MonoBehaviour {
 		GUILayout.EndArea();
 
 		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
-		// TODO: check if this works with actual gamepads
-
-
-		//if(Event.current.type == EventType.KeyDown) {
-			if(Event.current.keyCode == KeyCode.Space) {
-				buttonKeyDown = true;
-			} else if(input1IsDown && buttonKeyDown == false ) {
-				if(currentButtonSelection == availableTargets.Count) {
-					// if the cancel button is selected
-					targetingCancelled = true;
-					turnState = BattleTurnState.Attacking;
-					
-				} else {
-					chosenTarget = attackableTargets[currentButtonSelection];
-				}
+		if(Event.current.keyCode == KeyCode.Space) {
+			buttonKeyDown = true;
+		} else if(input1IsDown && buttonKeyDown == false ) {
+			if(currentButtonSelection == attackableTargets.Count) {
+				// if the cancel button is selected
+				targetingCancelled = true;
+				turnState = BattleTurnState.Attacking;
 				
-				buttonKeyDown = true;
-				currentButtonSelection = 0;
 			} else {
-				buttonKeyDown = false;
+				chosenTarget = attackableTargets[currentButtonSelection];
 			}
-		//}
+			
+			buttonKeyDown = true;
+			currentButtonSelection = 0;
+		} else {
+			buttonKeyDown = false;
+		}
 
 		//now check for the escape key
 		if(input2IsDown) {
@@ -415,9 +409,8 @@ public class BattleController : MonoBehaviour {
 
 		if(chosenTarget != null || targetingCancelled) {
 			// if a target was selected or the cancel button was pressed, restore opacity of targets
-			foreach (BattleCombatant c in availableTargets) {
-				((SpriteRenderer)c.renderer).color = new Color (1, 1, 1, 1);
-			}
+			availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 1));
+
 		}
 
 		return chosenTarget;
@@ -453,8 +446,6 @@ public class BattleController : MonoBehaviour {
 	/// </summary>
 	private void checkKeyControlFocus() {
 		float v = Input.GetAxis("Vertical");
-
-		print (currentButtonSelection);
 
 		if(!dirKeyDown) { 
 			if(v != 0) {
