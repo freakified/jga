@@ -19,17 +19,13 @@ public class BattleController : MonoBehaviour {
 	public bool EnabledAtStart = true;
 	public float DelayBeforeAutoStart = 0.5f;
 	public bool EnemiesGoFirst = false;
-	
 
 	[HideInInspector]
 	public delegate void BattleEventHandler(BattleEvent eventType);
 	[HideInInspector]
 	public static event BattleEventHandler OnBattleEvent;
-
 	
 	private int totalCombatants;
-
-
 
 	// battle state globals
 	private bool battleEnabled = false;
@@ -44,6 +40,7 @@ public class BattleController : MonoBehaviour {
 	private int numberOfButtonsVisible = 0;
 	private int currentButtonSelection = 0;
 	private bool dirKeyDown = false;
+	private bool buttonKeyDown = false;
 
 	// Use this for initialization
 	void Start () {
@@ -108,6 +105,7 @@ public class BattleController : MonoBehaviour {
 					selectedAttack = getSelectedAttack();
 
 					if(selectedAttack != null) {
+						currentButtonSelection = 0;
 						turnState = BattleTurnState.Targeting;
 					}
 
@@ -118,6 +116,7 @@ public class BattleController : MonoBehaviour {
 					selectedTarget = getSelectedTarget(selectedAttack);
 
 					if(selectedTarget != null) {
+						currentButtonSelection = 0;
 						currentPlayer.Attack (selectedAttack, selectedTarget);
 						currentPlayer.IncrementTurnCounter();
 
@@ -259,21 +258,20 @@ public class BattleController : MonoBehaviour {
 		attackButtons [numAttacks - 1] = GUILayoutUtility.GetLastRect ();
 		GUILayout.EndArea();
 
-		// if the mouse is over a button, select it:
-		for (int i = 0; i < numAttacks; i++) {
-			if (Event.current.type == EventType.Repaint && 
-			    (attackButtons [i].Contains (Event.current.mousePosition))) {
-				currentButtonSelection = i;
-			}
-		}
-
 		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
 		// TODO: check if this works with actual gamepads
-		if(Event.current.type == EventType.KeyUp && Input.GetButtonUp("Select")) {
-			chosenAttack =
-				((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [currentButtonSelection];
-			currentButtonSelection = 0;
-		}
+		//if(Event.current.type == EventType.KeyDown) {
+			if(Event.current.keyCode == KeyCode.Space) {
+				buttonKeyDown = true;
+			} else if(Input.GetButtonDown("Select") && buttonKeyDown == false) {
+				chosenAttack =
+					((PlayerCombatant)PlayerCombatants [currentTurn]).Attacks [currentButtonSelection];
+				currentButtonSelection = 0;
+				buttonKeyDown = true;
+			} else {
+				buttonKeyDown = false;
+			}
+		//}
 
 		return chosenAttack;
 	}
@@ -298,17 +296,16 @@ public class BattleController : MonoBehaviour {
 		GUILayout.BeginArea (new Rect (0, 0, scalePx (330), areaHeight), guiSkin.customStyles [0]);
 		GUILayout.Label ("<b>" + chosenAttack.Name + "</b>");
 
-		GUI.SetNextControlName ("0");
-		numberOfButtonsVisible = availableTargets.Count + 1;
-
 		GUILayout.Label (chosenAttack.Description, guiSkin.customStyles[2]);
 
 		GUILayout.Label ("SELECT TARGET", guiSkin.customStyles [3]);
 		BattleCombatant availableTarget;
 		int percentHP;
 
+		int currentButtonNum = 0;
+
 		for (int i = 0; i < availableTargets.Count; i++) {
-			GUI.SetNextControlName ((i+1).ToString());
+
 			availableTarget = availableTargets [i];
 			percentHP = (int)Mathf.Round (availableTarget.HitPoints / (float)availableTarget.MaxHitPoints * 100);
 
@@ -321,8 +318,12 @@ public class BattleController : MonoBehaviour {
 			}
 
 			// grey out the button if the target is already dead
-			if (!isTargetable)
+			if (!isTargetable) {
 				GUI.enabled = false;
+			} else {
+				GUI.SetNextControlName (currentButtonNum.ToString());
+				currentButtonNum++;
+			}
 
 			if (GUILayout.Button ("<b>" + availableTarget.getName() + "</b> (" + percentHP + "%)")) {
 
@@ -342,32 +343,46 @@ public class BattleController : MonoBehaviour {
 				GUI.enabled = true;
 		}
 
-		GUI.SetNextControlName ((availableTargets.Count).ToString());
+		GUI.SetNextControlName (currentButtonNum.ToString());
 
 		if (GUILayout.Button ("Cancel", GUILayout.ExpandWidth (false))) {
 			targetingCancelled = true;
 			
 			//set the turn state back to attacking, which will take effect on the next loop
 			turnState = BattleTurnState.Attacking;
+			currentButtonSelection = 0;
 		}
+
+		numberOfButtonsVisible = currentButtonNum + 1;
 
 		GUILayout.EndArea();
 
 		// unity doesn't count gamepad presses as "clicks", so we need to fake it:
 		// TODO: check if this works with actual gamepads
-		if(Event.current.type == EventType.KeyUp && Input.GetButtonUp("Select")) {
-			if(currentButtonSelection == availableTargets.Count) {
-				// if the cancel button is selected
-				targetingCancelled = true;
-				turnState = BattleTurnState.Attacking;
+
+
+		//if(Event.current.type == EventType.KeyDown) {
+			if(Event.current.keyCode == KeyCode.Space) {
+				buttonKeyDown = true;
+			} else if(Input.GetButtonDown("Select") && buttonKeyDown == false ) {
+				if(currentButtonSelection == availableTargets.Count) {
+					// if the cancel button is selected
+					targetingCancelled = true;
+					turnState = BattleTurnState.Attacking;
+					
+				} else {
+					chosenTarget = availableTargets[currentButtonSelection];
+				}
+				
+				buttonKeyDown = true;
+				currentButtonSelection = 0;
 			} else {
-				chosenTarget = availableTargets[currentButtonSelection];
+				buttonKeyDown = false;
 			}
-			currentButtonSelection = 0;
-		}
+		//}
 
 		//now check for the escape key
-		if(Event.current.type == EventType.KeyUp && Input.GetButtonUp("Cancel")) {
+		if(Event.current.type == EventType.KeyDown && Input.GetButtonDown("Cancel")) {
 			targetingCancelled = true;
 			turnState = BattleTurnState.Attacking;
 			currentButtonSelection = 0;
