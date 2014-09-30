@@ -1216,17 +1216,9 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5000000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
-      propertyPath: m_FixedAngle
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
-      propertyPath: FrozenAtStart
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: EnableSleepAttack

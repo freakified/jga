@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class BattleController : MonoBehaviour {
 	public GUISkin guiSkin;
@@ -300,6 +301,9 @@ public class BattleController : MonoBehaviour {
 		bool targetingCancelled = false;
 
 		List<BattleCombatant> availableTargets;
+
+		//used for the keyboard controls
+		List<BattleCombatant> attackableTargets = new List<BattleCombatant>();
 		
 		if (chosenAttack.Type == AttackType.Heal) {
 			// if it's a healing move, then just target the current combatant
@@ -334,6 +338,8 @@ public class BattleController : MonoBehaviour {
 			   availableTarget.isShielded ||
 			   (chosenAttack.Type == AttackType.Damage && availableTarget.immuneToDamage)) {
 				isTargetable = false;
+			} else {
+				attackableTargets.Add(availableTarget);
 			}
 
 			// grey out the button if the target is already dead
@@ -390,7 +396,7 @@ public class BattleController : MonoBehaviour {
 					turnState = BattleTurnState.Attacking;
 					
 				} else {
-					chosenTarget = availableTargets[currentButtonSelection];
+					chosenTarget = attackableTargets[currentButtonSelection];
 				}
 				
 				buttonKeyDown = true;
@@ -447,6 +453,8 @@ public class BattleController : MonoBehaviour {
 	/// </summary>
 	private void checkKeyControlFocus() {
 		float v = Input.GetAxis("Vertical");
+
+		print (currentButtonSelection);
 
 		if(!dirKeyDown) { 
 			if(v != 0) {

@@ -77,7 +77,7 @@ MonoBehaviour:
       m_Background: {fileID: 2800000, guid: 54832fbf6547b42bcbfbc443c1e102fd, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
-      m_Background: {fileID: 2800000, guid: 434cc431129b24103bba7b63694a964b, type: 3}
+      m_Background: {fileID: 2800000, guid: 54832fbf6547b42bcbfbc443c1e102fd, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: aced0f31655ee4995ae96f4426f7d288, type: 3}
@@ -89,7 +89,7 @@ MonoBehaviour:
       m_Background: {fileID: 2800000, guid: 54832fbf6547b42bcbfbc443c1e102fd, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnHover:
-      m_Background: {fileID: 2800000, guid: 434cc431129b24103bba7b63694a964b, type: 3}
+      m_Background: {fileID: 2800000, guid: 54832fbf6547b42bcbfbc443c1e102fd, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
       m_Background: {fileID: 2800000, guid: aced0f31655ee4995ae96f4426f7d288, type: 3}
