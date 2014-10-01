@@ -97,7 +97,7 @@ public class FBCombatant : EnemyCombatant {
 				attackAnimationState = AttackAnimationState.Off;
 
 				//EVERYONE DIES HAHAHAHAHAHAH
-				targets.ForEach(t => t.Damage(t.MaxHitPoints - 1));
+				targets.ForEach(t => t.Damage(t.HitPoints - 1));
 
 				AnimationInProgress = false;
 			}
@@ -175,7 +175,7 @@ public class FBCombatant : EnemyCombatant {
 			currentChargeCount++;
 
 			// do a simple attack
-			target = getRandomTarget(targetList);
+			target = getWeakestTarget(targetList);
 
 			AnimationInProgress = true;
 			currentAnimation = AnimationSequence.LameBounce;

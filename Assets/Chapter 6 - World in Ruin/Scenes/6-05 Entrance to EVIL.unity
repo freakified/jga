@@ -422,7 +422,8 @@ GameObject:
   - 95: {fileID: 635275731}
   - 114: {fileID: 635275737}
   - 114: {fileID: 635275738}
-  m_Layer: 0
+  - 114: {fileID: 635275739}
+  m_Layer: 10
   m_Name: James
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,6 +553,24 @@ MonoBehaviour:
   shadowPositionY: 0
   yPositionAsOffset: 0
   HideShadow: 0
+--- !u!114 &635275739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: 3a0ed28a1601b4734b083cdb30b14e90,
+    type: 2}
+  m_PrefabInternal: {fileID: 38907496}
+  m_GameObject: {fileID: 635275730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2599a67eb4e0f489186a0246ee8f81d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageParticlesPrefab: {fileID: 19800000, guid: 7e814593eb1c14786ad023a205edd9c5,
+    type: 2}
+  SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
+    type: 2}
+  GasBlastSound: {fileID: 8300000, guid: 9e39fb7391e4a4305960467a89291774, type: 3}
+  HealSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
 --- !u!1001 &642951586
 Prefab:
   m_ObjectHideFlags: 0
@@ -689,7 +708,7 @@ GameObject:
   - 199: {fileID: 1197388273}
   - 198: {fileID: 1197388272}
   - 114: {fileID: 1197388274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JamesGas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
