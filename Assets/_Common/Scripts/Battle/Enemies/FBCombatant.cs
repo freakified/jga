@@ -7,11 +7,11 @@ public class FBCombatant : EnemyCombatant {
 	public AudioClip LaserChargeSound, LaserFireSound, throwSound, hitSound;
 	public GameObject ImmunityNotificationPrefab;
 
-	public BBallShieldCombatant BBallShield;
+	private BBallShieldCombatant BBallShield;
 
 	private GameObject immunityNotification;
 
-	private int InitialHealth = 5000;
+	public int InitialHealth = 5000;
 
 	private ParticleSystem LaserCharge, LaserFire;
 

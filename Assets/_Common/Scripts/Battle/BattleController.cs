@@ -308,9 +308,9 @@ public class BattleController : MonoBehaviour {
 		
 		if (chosenAttack.Type == AttackType.Heal) {
 			// if it's a healing move, then just target the current combatant
-			//availableTargets = new List<BattleCombatant>();
-			//availableTargets.Add((BattleCombatant)PlayerCombatants[currentTurn]);
-			availableTargets = PlayerCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
+			availableTargets = new List<BattleCombatant>();
+			availableTargets.Add((BattleCombatant)PlayerCombatants[currentTurn]);
+			//availableTargets = PlayerCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
 		} else {
 			// if it's an attack/status move, show the list of enemies
 			availableTargets = EnemyCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
@@ -325,14 +325,14 @@ public class BattleController : MonoBehaviour {
 
 		GUILayout.Label ("SELECT TARGET", guiSkin.customStyles [3]);
 		BattleCombatant availableTarget;
-		int percentHP;
+		string status;
 
 		int currentButtonNum = 0;
 
 		for (int i = 0; i < availableTargets.Count; i++) {
 
 			availableTarget = availableTargets [i];
-			percentHP = (int)Mathf.Round (availableTarget.HitPoints / (float)availableTarget.MaxHitPoints * 100);
+			status = ((int)Mathf.Round (availableTarget.HitPoints / (float)availableTarget.MaxHitPoints * 100)) + "%";
 
 			bool isTargetable = true;
 
@@ -340,6 +340,10 @@ public class BattleController : MonoBehaviour {
 			   availableTarget.isShielded ||
 			   (chosenAttack.Type == AttackType.Damage && availableTarget.immuneToDamage)) {
 				isTargetable = false;
+
+				if(availableTarget.isShielded) {
+					status = "Shielded";
+				}
 			} else {
 				attackableTargets.Add(availableTarget);
 			}
@@ -352,7 +356,9 @@ public class BattleController : MonoBehaviour {
 				currentButtonNum++;
 			}
 
-			if (GUILayout.Button ("<b>" + availableTarget.getName() + "</b> (" + percentHP + "%)")) {
+
+
+			if (GUILayout.Button ("<b>" + availableTarget.getName() + "</b> (" + status + ")")) {
 
 				chosenTarget = availableTarget;
 			}

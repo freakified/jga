@@ -1691,7 +1691,8 @@ GameObject:
   - 4: {fileID: 359795219}
   - 198: {fileID: 359795221}
   - 199: {fileID: 359795220}
-  m_Layer: 0
+  - 114: {fileID: 359795222}
+  m_Layer: 10
   m_Name: Laser_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1705,7 +1706,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359795218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.210000038, y: -3.42999983, z: -2}
+  m_LocalPosition: {x: -.210000038, y: -3.42999983, z: -4.46999979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2255,7 +2256,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
     y:
-      scalar: 8
+      scalar: 14
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2746,6 +2747,17 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!114 &359795222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 359795218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294abce9ff83f4b06a7fc86dce823f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &494264203
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,7 +6371,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: d74abebfd3fde4751b067e5bf040e57f, type: 3}
   ImmunityNotificationPrefab: {fileID: 100000, guid: bb5b85d3bab064ac4a420cc6d9b33513,
     type: 2}
-  BBallShield: {fileID: 0}
+  InitialHealth: 20
 --- !u!1 &1795993606
 GameObject:
   m_ObjectHideFlags: 0
@@ -6763,17 +6775,12 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: .800000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .364864856
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - time: .830357075
-          value: .378378302
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -6794,9 +6801,9 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 1
+      minMaxState: 0
     startSpeed:
-      scalar: -4.32432365
+      scalar: -6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6918,7 +6925,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .5
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
