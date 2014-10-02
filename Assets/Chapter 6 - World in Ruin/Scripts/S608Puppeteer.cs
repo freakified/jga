@@ -9,9 +9,11 @@ public class S608Puppeteer : CutscenePuppeteer {
 	public List<Sprite> FlashbackBGList;
 	private Queue<Sprite> flashbackBGs;
 
-	private GameObject Flashback;
+	private GameObject Flashback, FlyingBBall, Background, Background2;
 	private ScreenFlasher ScreenFlash;
 	private MusicPlayer mus;
+
+	private bool fadingStarted = false;
 
 
 	// Use this for initialization
@@ -19,6 +21,9 @@ public class S608Puppeteer : CutscenePuppeteer {
 		// get all the objects we'll need for the cutscene 
 		Flashback = GameObject.Find ("Flashback");
 		ScreenFlash = GameObject.Find ("ScreenFlash").GetComponent<ScreenFlasher>();
+		FlyingBBall = GameObject.Find ("FlyingBasketball");
+		Background = GameObject.Find ("Background-Flicker");
+		Background2 = GameObject.Find ("Background");
 
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 
@@ -49,10 +54,25 @@ public class S608Puppeteer : CutscenePuppeteer {
 			if(timerIsGreaterThan(1f)) {
 				nextScene();
 			}
+		} else if(CurrentScene == 69) {
+			FlyingBBall.transform.localScale += Vector3.one * Time.fixedDeltaTime * 0.3f;
+			Color temp = ((SpriteRenderer)Background.renderer).color;
+			temp.a -= 0.3f * Time.fixedDeltaTime;
+			((SpriteRenderer)Background.renderer).color = temp;
+
+			if(FlyingBBall.transform.localScale.x > 2f && !fadingStarted) {
+				StartCoroutine(FadeAndNext(Color.white, 1, "6-09 The Final Battle"));
+				fadingStarted = true;
+			}
+
 		}
 	}
 
 	public override void HandleSceneChange() {
+		while(CurrentScene < 67) {
+			nextScene();
+		}
+
 		if(CurrentScene == 9 ||
 		   CurrentScene == 18 ||
 		   CurrentScene == 22 ||
@@ -70,8 +90,11 @@ public class S608Puppeteer : CutscenePuppeteer {
 
 		if(CurrentScene == 69) {
 			mus.PlayMusic(FinalBossMusic, true);
-			StartCoroutine(FadeAndNext(Color.white, 2, "6-09 The Final Battle"));
-		}
+			Background.GetComponent<SpriteFlicker>().enabled = false;
+			((SpriteRenderer)Background.renderer).color = Color.white;
+			Background2.renderer.enabled = false;
+			startTimer();
+		} 
 	}
 
 	public void HandleBattleEvent(BattleEvent type) {

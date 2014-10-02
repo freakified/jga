@@ -66,7 +66,8 @@ abstract public class BattleCombatant : MonoBehaviour {
 	}
 
 	public virtual void Damage (int amount) {
-		HitPoints = (int)Mathf.Clamp(HitPoints - amount, 0, MaxHitPoints);
+
+		HitPoints = (int)Mathf.Clamp(HitPoints - Mathf.Max(amount, 0), 0, MaxHitPoints);
 
 		if(DamageParticlesPrefab != null) {
 			damageParticles.time = 0;

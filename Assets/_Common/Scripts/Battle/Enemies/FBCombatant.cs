@@ -8,7 +8,7 @@ public class FBCombatant : EnemyCombatant {
 	public GameObject ImmunityNotificationPrefab;
 	private GameObject immunityNotification;
 
-	private int InitialHealth = 1000;
+	private int InitialHealth = 5000;
 
 	private ParticleSystem LaserCharge, LaserFire;
 
@@ -113,16 +113,19 @@ public class FBCombatant : EnemyCombatant {
 		switch(attackAnimationState) {
 		case AttackAnimationState.NeedsToStart:
 
-			initialPosition = transform.position;
+			if(timerIsGreaterThan(1.0f)) {
 
-			lameBounceVelocity = (transform.position - Vector3.right/2) - transform.position;
-			lameBounceVelocity *= 3;
+				initialPosition = transform.position;
 
-			playSound(hitSound);
-			target.Damage(1);
+				lameBounceVelocity = (transform.position - Vector3.right/2) - transform.position;
+				lameBounceVelocity *= 3;
 
-			startTimer();
-			attackAnimationState = AttackAnimationState.InProgress;
+				playSound(hitSound);
+				target.Damage(1);
+
+				startTimer();
+				attackAnimationState = AttackAnimationState.InProgress;
+			}
 
 			break;
 		case AttackAnimationState.InProgress:
@@ -130,14 +133,20 @@ public class FBCombatant : EnemyCombatant {
 			
 			if(timerIsGreaterThan(0.1f)) {
 				attackAnimationState = AttackAnimationState.Complete;
+				startTimer();
 			}
+
+
 			
 			break;
 		case AttackAnimationState.Complete:
 			transform.position = initialPosition;
-			currentAnimation = AnimationSequence.None;
-			attackAnimationState = AttackAnimationState.Off;
-			AnimationInProgress = false;
+
+			if(timerIsGreaterThan(0.5f)) {
+				currentAnimation = AnimationSequence.None;
+				attackAnimationState = AttackAnimationState.Off;
+				AnimationInProgress = false;
+			}
 
 			break;
 		}
@@ -180,6 +189,7 @@ public class FBCombatant : EnemyCombatant {
 			AnimationInProgress = true;
 			currentAnimation = AnimationSequence.LameBounce;
 			attackAnimationState = AttackAnimationState.NeedsToStart;
+			startTimer();
 
 
 		}
