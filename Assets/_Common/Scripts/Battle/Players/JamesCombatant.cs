@@ -144,7 +144,7 @@ public class JamesCombatant : PlayerCombatant {
 
 		} else if(attack.Name == "Can of Beans") {
 			playSound(HealSound);
-			currentAttackTarget.Heal(attack.Power);
+			currentAttackTarget.Heal();
 			
 		}
 

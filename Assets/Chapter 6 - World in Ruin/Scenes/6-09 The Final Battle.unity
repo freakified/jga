@@ -6371,7 +6371,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: d74abebfd3fde4751b067e5bf040e57f, type: 3}
   ImmunityNotificationPrefab: {fileID: 100000, guid: bb5b85d3bab064ac4a420cc6d9b33513,
     type: 2}
-  InitialHealth: 20
+  InitialHealth: 2000
 --- !u!1 &1795993606
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,7 +47,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 			attack2.Name = "Sales Pitch";
 			attack2.Description = "Puts target to sleep with a lecture on the " +
 					"benefits of the Miracle Blade™ III Perfection Series™.";
-			attack2.Power = 1;
+			attack2.Power = 4;
 			attack2.Accuracy = 100;
 			attack2.Type = AttackType.Sleep;
 			Attacks.Add (attack2);
@@ -209,7 +209,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 		if(attack.Name == "Fried Chicken Smoothie") {
 			anim.Play("Jumping");
 			playSound(healSound);
-			currentAttackTarget.Heal(attack.Power);
+			currentAttackTarget.Heal();
 		} else if(attack.Name == "All-Purpose Slice") {
 			initialPosition = transform.position;
 			AnimationInProgress = true;

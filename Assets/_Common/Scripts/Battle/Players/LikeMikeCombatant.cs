@@ -158,7 +158,7 @@ public class LikeMikeCombatant : PlayerCombatant {
 
 		} else if(attack.Name == "Gatorade\u2122 Sports Drink") {
 			playSound(healSound);
-			currentAttackTarget.Heal(attack.Power);
+			currentAttackTarget.Heal();
 		}
 
 		

@@ -310,7 +310,7 @@ public class BattleController : MonoBehaviour {
 			// if it's a healing move, then just target the current combatant
 			availableTargets = new List<BattleCombatant>();
 			availableTargets.Add((BattleCombatant)PlayerCombatants[currentTurn]);
-			//availableTargets = PlayerCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
+			availableTargets.AddRange(PlayerCombatants.FindAll((BattleCombatant c) => c.HitPoints == 0));
 		} else {
 			// if it's an attack/status move, show the list of enemies
 			availableTargets = EnemyCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
@@ -343,6 +343,9 @@ public class BattleController : MonoBehaviour {
 
 				if(availableTarget.isShielded) {
 					status = "Shielded";
+				} else if(availableTarget.HitPoints == 0 && chosenAttack.Type == AttackType.Heal) {
+					status = "Revive";
+					isTargetable = true;
 				}
 			} else {
 				attackableTargets.Add(availableTarget);
@@ -444,14 +447,21 @@ public class BattleController : MonoBehaviour {
 			GUILayout.BeginHorizontal ();
 			string startTag = "<b>";
 			string endTag = "</b>";
+			string hpStartTag = "";
+			string hpEndTag = "";
 
 			if (i != currentTurn) {
 				startTag = "<color=#ffffff55><b>";
 				endTag = "</b></color>";
 			}
 
+			if(PlayerCombatants[i].HitPoints / (float)PlayerCombatants[i].MaxHitPoints < 0.25f) {
+				hpStartTag = "<color=#ff0000>";
+				hpEndTag = "</color>";
+			}
+
 			GUILayout.Label (startTag + PlayerCombatants [i].getName() + endTag);
-			GUILayout.Label (PlayerCombatants [i].HitPoints + "/" + PlayerCombatants [i].MaxHitPoints, guiSkin.customStyles [1], GUILayout.Width (scalePx (75)));
+			GUILayout.Label (hpStartTag + PlayerCombatants [i].HitPoints + "/" + PlayerCombatants [i].MaxHitPoints + hpEndTag, guiSkin.customStyles [1], GUILayout.Width (scalePx (75)));
 			GUILayout.EndHorizontal ();
 		}
 

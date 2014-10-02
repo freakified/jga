@@ -57,6 +57,17 @@ abstract public class BattleCombatant : MonoBehaviour {
 			elapsedTime += Time.deltaTime;
 	}
 
+	/// <summary>
+	/// Heal to 100% HP, or revive to 50% HP
+	/// </summary>
+	public void Heal () {
+		HitPoints = HitPoints != 0 ? MaxHitPoints : MaxHitPoints / 2;
+
+		if(anim != null) {
+			anim.SetInteger("HP", HitPoints);
+		}
+	}
+
 	public void Heal (int amount) {
 		HitPoints = (int)Mathf.Clamp(HitPoints + amount, 0, MaxHitPoints);
 
