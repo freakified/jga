@@ -10,13 +10,11 @@ public class LMBBallBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rotation = Vector3.zero;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		rotation.z += RotationSpeed * Time.deltaTime;
-		transform.eulerAngles = rotation;
+		transform.Rotate(new Vector3(0, 0, 1) * RotationSpeed * Time.deltaTime);
 	}
 
 }

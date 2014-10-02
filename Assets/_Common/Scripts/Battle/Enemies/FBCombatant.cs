@@ -6,6 +6,9 @@ public class FBCombatant : EnemyCombatant {
 
 	public AudioClip LaserChargeSound, LaserFireSound, throwSound, hitSound;
 	public GameObject ImmunityNotificationPrefab;
+
+	public BBallShieldCombatant BBallShield;
+
 	private GameObject immunityNotification;
 
 	private int InitialHealth = 5000;
@@ -32,12 +35,15 @@ public class FBCombatant : EnemyCombatant {
 
 		LaserCharge = transform.GetComponentsInChildren<ParticleSystem>()[0];
 		LaserFire = GameObject.Find ("Laser_Fire").particleSystem;
+		BBallShield = GameObject.Find ("BBall_Shield").GetComponent<BBallShieldCombatant>();
 
 	}
 	
 	// Update is called once per frame
 	public override void Update () {
 		base.Update();
+
+		isShielded = !BBallShield.isSleeping && BBallShield.HitPoints > 0;
 
 		switch(currentAnimation) {
 		case AnimationSequence.LaserCharge:
@@ -55,6 +61,8 @@ public class FBCombatant : EnemyCombatant {
 		}
 		
 	}
+
+
 
 	private void animLaserCharge() {
 		switch(attackAnimationState) {
@@ -96,7 +104,6 @@ public class FBCombatant : EnemyCombatant {
 				currentAnimation = AnimationSequence.None;
 				attackAnimationState = AttackAnimationState.Off;
 
-				//EVERYONE DIES HAHAHAHAHAHAH
 				targets.ForEach(t => t.Damage(t.HitPoints - 1));
 
 				AnimationInProgress = false;

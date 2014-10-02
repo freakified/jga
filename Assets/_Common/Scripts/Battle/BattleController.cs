@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -307,8 +308,9 @@ public class BattleController : MonoBehaviour {
 		
 		if (chosenAttack.Type == AttackType.Heal) {
 			// if it's a healing move, then just target the current combatant
-			availableTargets = new List<BattleCombatant>();
-			availableTargets.Add((BattleCombatant)PlayerCombatants[currentTurn]);
+			//availableTargets = new List<BattleCombatant>();
+			//availableTargets.Add((BattleCombatant)PlayerCombatants[currentTurn]);
+			availableTargets = PlayerCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
 		} else {
 			// if it's an attack/status move, show the list of enemies
 			availableTargets = EnemyCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
@@ -356,10 +358,14 @@ public class BattleController : MonoBehaviour {
 			}
 
 			// now highlight the selected target
-			availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 0.5f));
+			try {
+				availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 0.5f));
 
-			if (currentButtonSelection < attackableTargets.Count) {
-				((SpriteRenderer)attackableTargets[currentButtonSelection].renderer).color = new Color (1, 1, 1, 1f);
+				if (currentButtonSelection < attackableTargets.Count) {
+					((SpriteRenderer)attackableTargets[currentButtonSelection].renderer).color = new Color (1, 1, 1, 1f);
+				}
+			} catch(InvalidCastException ex) {
+				// cheap hack to avoid errors when the BBAll shield (a parent gameobject) is targetted
 			}
 
 			// if the target is dead, undo the greyout state we enabled above
@@ -408,8 +414,13 @@ public class BattleController : MonoBehaviour {
 		}
 
 		if(chosenTarget != null || targetingCancelled) {
-			// if a target was selected or the cancel button was pressed, restore opacity of targets
-			availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 1));
+
+			try {
+				// if a target was selected or the cancel button was pressed, restore opacity of targets
+				availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 1));
+			} catch (InvalidCastException ex) {
+				// again, cheap hack to avoid problems with the BBall shield
+			}
 
 		}
 
