@@ -307,10 +307,12 @@ public class BattleController : MonoBehaviour {
 		List<BattleCombatant> attackableTargets = new List<BattleCombatant>();
 		
 		if (chosenAttack.Type == AttackType.Heal) {
-			// if it's a healing move, then just target the current combatant
+			// if it's a healing move, then target the current combatant
+			// but also offer revivals to dead combatants
 			availableTargets = new List<BattleCombatant>();
 			availableTargets.Add((BattleCombatant)PlayerCombatants[currentTurn]);
 			availableTargets.AddRange(PlayerCombatants.FindAll((BattleCombatant c) => c.HitPoints == 0));
+			
 		} else {
 			// if it's an attack/status move, show the list of enemies
 			availableTargets = EnemyCombatants.FindAll((BattleCombatant c) => c.participatingInBattle);
@@ -338,7 +340,8 @@ public class BattleController : MonoBehaviour {
 
 			if(availableTarget.HitPoints == 0 ||
 			   availableTarget.isShielded ||
-			   (chosenAttack.Type == AttackType.Damage && availableTarget.immuneToDamage)) {
+			   (chosenAttack.Type == AttackType.Damage && availableTarget.immuneToDamage) ||
+			   (chosenAttack.Type == AttackType.Heal && availableTarget.HitPoints == availableTarget.MaxHitPoints)) {
 				isTargetable = false;
 
 				if(availableTarget.isShielded) {

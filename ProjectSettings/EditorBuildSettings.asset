@@ -71,3 +71,7 @@ EditorBuildSettings:
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-08 Revelation.unity
   - enabled: 1
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-09 The Final Battle.unity
+  - enabled: 1
+    path: Assets/Chapter 6 - World in Ruin/Scenes/6-09a Limbo.unity
+  - enabled: 1
+    path: Assets/Chapter 6 - World in Ruin/Scenes/6-10 Atonement.unity

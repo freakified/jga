@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f0992714b6a435e8e3510e4284d13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInDuration: 10
+  fadeInDuration: 20
   fadeInFrom: {r: 1, g: 1, b: 1, a: 1}
   isFading: 1
 --- !u!114 &12071423
@@ -668,7 +668,7 @@ MonoBehaviour:
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
   enableQuickSkip: 1
   autoplayAtStart: 1
-  delayBeforeAutoplay: 2
+  delayBeforeAutoplay: 8
   textSpeed: 50
 --- !u!114 &682367763
 MonoBehaviour:
@@ -2038,6 +2038,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1357380317}
   - 212: {fileID: 1357380316}
+  - 114: {fileID: 1357380319}
   - 114: {fileID: 1357380318}
   m_Layer: 0
   m_Name: ScreenFlash
@@ -2086,6 +2087,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1357380315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a2ec0f8b1214578b65809ac55b7a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreenFlashDuration: .200000003
+--- !u!114 &1357380319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 65cb31e85ed3844e59ca20b0aa982c76,
+    type: 2}
+  m_PrefabInternal: {fileID: 244749688}
   m_GameObject: {fileID: 1357380315}
   m_Enabled: 1
   m_EditorHideFlags: 0
