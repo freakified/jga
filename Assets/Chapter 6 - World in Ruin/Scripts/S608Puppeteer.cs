@@ -69,9 +69,9 @@ public class S608Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
-		while(CurrentScene < 67) {
-			nextScene();
-		}
+//		while(CurrentScene < 67) {
+//			nextScene();
+//		}
 
 		if(CurrentScene == 9 ||
 		   CurrentScene == 18 ||

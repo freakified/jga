@@ -666,7 +666,7 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
-  enableQuickSkip: 1
+  enableQuickSkip: 0
   autoplayAtStart: 1
   delayBeforeAutoplay: 8
   textSpeed: 50

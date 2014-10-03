@@ -96,7 +96,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 			launchVelocity.y = Mathf.Abs (Physics2D.gravity.y) / 2 * time;
 
 			// cheap hack to hit floating bosses
-			if(currentAttackTarget.transform.position.y > transform.position.y) {
+			if(currentAttackTarget.transform.position.y > transform.position.y + 0.2) {
 				launchVelocity.y += 4f;
 			}
 

@@ -1502,7 +1502,7 @@ GameObject:
   - 4: {fileID: 497267631}
   - 198: {fileID: 497267633}
   - 199: {fileID: 497267632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Staff_Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2617,7 +2617,7 @@ GameObject:
   - 4: {fileID: 525827822}
   - 198: {fileID: 525827824}
   - 199: {fileID: 525827823}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Laser_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5537,6 +5537,26 @@ Prefab:
       propertyPath: ImmunityNotificationPrefab
       value: 
       objectReference: {fileID: 100000, guid: bb5b85d3bab064ac4a420cc6d9b33513, type: 2}
+    - target: {fileID: 11400002, guid: 6e0e986e051aa42ec9e4cec022547976, type: 2}
+      propertyPath: InitialHealth
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6e0e986e051aa42ec9e4cec022547976, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 6e0e986e051aa42ec9e4cec022547976, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 6e0e986e051aa42ec9e4cec022547976, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 6e0e986e051aa42ec9e4cec022547976, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e0e986e051aa42ec9e4cec022547976, type: 2}
   m_RootGameObject: {fileID: 1640562233}
@@ -5607,7 +5627,7 @@ GameObject:
   - 95: {fileID: 1640562241}
   - 114: {fileID: 1640562240}
   - 95: {fileID: 1640562239}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Daria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5732,6 +5752,7 @@ MonoBehaviour:
   LaserFireSound: {fileID: 8300000, guid: 4e31f51636d21404397a543b46943f18, type: 3}
   ImmunityNotificationPrefab: {fileID: 100000, guid: bb5b85d3bab064ac4a420cc6d9b33513,
     type: 2}
+  InitialHealth: 1500
 --- !u!95 &1640562241
 Animator:
   serializedVersion: 3
@@ -5758,7 +5779,7 @@ GameObject:
   - 4: {fileID: 1696296068}
   - 198: {fileID: 1696296067}
   - 199: {fileID: 1696296066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Laser_Charge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7057,7 +7078,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1942083328}
   - 68: {fileID: 1942083327}
-  - 114: {fileID: 1942083329}
   m_Layer: 0
   m_Name: VerticalBoundary
   m_TagString: Untagged
@@ -7090,20 +7110,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1312162136}
   m_RootOrder: 0
---- !u!114 &1942083329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1942083326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df15eef45e76f4dd39ad086f61547661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextSceneName: 6-02 Plains of eternity
-  FadeToColor: {r: 0, g: 0, b: 0, a: 1}
-  FadeDuration: 4
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0

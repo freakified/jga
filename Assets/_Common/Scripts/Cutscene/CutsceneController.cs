@@ -20,7 +20,7 @@ public class CutsceneController : MonoBehaviour {
 	/// Enables quick skip mode, which allows for text to be skipped through instantly.
 	/// Useful for debugging.
 	/// </summary>
-	public bool enableQuickSkip;
+	private bool enableQuickSkip = false;
 
 	[HideInInspector]
 	public delegate void ChangedEventHandler(int newCutscenePosition);

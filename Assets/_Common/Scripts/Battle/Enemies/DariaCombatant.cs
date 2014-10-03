@@ -9,7 +9,7 @@ public class DariaCombatant : EnemyCombatant {
 	public GameObject ImmunityNotificationPrefab;
 	private GameObject immunityNotification;
 
-	private int InitialHealth = 100;
+	public int InitialHealth = 100;
 	private int AttackPower = 99;
 
 	private ParticleSystem LaserCharge, LaserFire, StaffGlow;
@@ -22,8 +22,8 @@ public class DariaCombatant : EnemyCombatant {
 
 	private List<BattleCombatant> targets;
 
-	private int chargesRequred = 1;
-	private int currentChargeCount = 1;
+	private int chargesRequred = 2;
+	private int currentChargeCount = 2;
 
 	// Use this for initialization
 	public override void Start () {
