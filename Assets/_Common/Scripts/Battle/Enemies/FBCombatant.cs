@@ -104,7 +104,7 @@ public class FBCombatant : EnemyCombatant {
 				currentAnimation = AnimationSequence.None;
 				attackAnimationState = AttackAnimationState.Off;
 
-				targets.ForEach(t => t.Damage(t.HitPoints - 1));
+				targets.ForEach(t => t.Damage(t.MaxHitPoints - 1));
 
 				AnimationInProgress = false;
 			}

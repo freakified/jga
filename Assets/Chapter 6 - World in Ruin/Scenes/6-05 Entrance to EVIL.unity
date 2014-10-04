@@ -693,7 +693,6 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
-  enableQuickSkip: 0
   autoplayAtStart: 1
   delayBeforeAutoplay: 4
   textSpeed: 50
@@ -2015,11 +2014,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 4c9a796862323437a86f06060d7f34e4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.42919993
+      value: -.691699982
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c9a796862323437a86f06060d7f34e4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .00866879988
+      value: .0208349992
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c9a796862323437a86f06060d7f34e4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2353,7 +2352,7 @@ Transform:
   m_PrefabInternal: {fileID: 1430316401}
   m_GameObject: {fileID: 1993481070}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -3.42919993, y: .00866879988, z: 0}
+  m_LocalPosition: {x: -.691699982, y: .0208349992, z: 0}
   m_LocalScale: {x: 3.60000014, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312162136}

@@ -21,7 +21,7 @@ public class FlanaganCombatant : EnemyCombatant {
 
 		//set up basic stats
 		MaxHitPoints = 350;
-		HitPoints = 77;
+		HitPoints = 350;
 
 		//init orphan particles
 		orphanRushParticles = Instantiate(OrphanRushPrefab) as ParticleSystem;
