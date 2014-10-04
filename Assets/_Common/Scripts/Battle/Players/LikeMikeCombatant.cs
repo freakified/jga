@@ -24,7 +24,7 @@ public class LikeMikeCombatant : PlayerCombatant {
 
 		//set up basic stats
 		MaxHitPoints = 120;
-		HitPoints = 120;
+		HitPoints = 0;
 
 		//set up the list of attacks
 		PlayerAttack attack1 = new PlayerAttack();

@@ -350,7 +350,9 @@ public class BattleController : MonoBehaviour {
 					status = "Revive";
 					isTargetable = true;
 				}
-			} else {
+			}
+
+			if(isTargetable) {
 				attackableTargets.Add(availableTarget);
 			}
 

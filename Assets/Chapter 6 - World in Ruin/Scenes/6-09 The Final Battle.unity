@@ -3124,7 +3124,6 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
-  enableQuickSkip: 1
   autoplayAtStart: 0
   delayBeforeAutoplay: 0
   textSpeed: 50
@@ -7505,7 +7504,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: d74abebfd3fde4751b067e5bf040e57f, type: 3}
   ImmunityNotificationPrefab: {fileID: 100000, guid: bb5b85d3bab064ac4a420cc6d9b33513,
     type: 2}
-  InitialHealth: 5000
+  InitialHealth: 3000
 --- !u!1 &1795993606
 GameObject:
   m_ObjectHideFlags: 0

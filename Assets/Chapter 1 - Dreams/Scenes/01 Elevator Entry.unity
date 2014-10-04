@@ -958,7 +958,6 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
-  enableQuickSkip: 0
   autoplayAtStart: 1
   delayBeforeAutoplay: 1.5
   textSpeed: 50
@@ -1087,6 +1086,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
       propertyPath: FrozenAtStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 77c1a8fbbf8e94fd09e2075b1b78626b, type: 2}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1236,6 +1239,10 @@ Prefab:
     - target: {fileID: 21200000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
       propertyPath: m_SortingLayerID
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 371f307fbc99e4a59aa2749d30a73785, type: 2}
