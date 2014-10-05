@@ -1,10 +1,99 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ChapterSelectGUI : MonoBehaviour {
 
 	public GUISkin guiSkin;
 	public AudioClip MenuSelectSound;
+
+	private List<ChapterInfo> chapters;
+
+	private struct ChapterInfo {
+		public int Number;
+		public string DisplayName;
+		public string SceneName;
+	}
+
+	void Start() {
+		//populate chapters list
+		chapters = new List<ChapterInfo>();
+		int currentNum = 1;
+
+		ChapterInfo c;
+
+		c.Number = currentNum;
+		c.DisplayName = "Opening";
+		c.SceneName = "01 Elevator Entry";
+		chapters.Add (c);
+		currentNum++;
+
+		c.Number = currentNum;
+		c.DisplayName = "Seek the Shoes";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+
+		c.Number = currentNum;
+		c.DisplayName = "Downhill from Here";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+
+		c.Number = currentNum;
+		c.DisplayName = "A No-Kill Home";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+		
+		c.Number = currentNum;
+		c.DisplayName = "The Prophesy";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+		
+		c.Number = currentNum;
+		c.DisplayName = "Containment Facility";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+
+		c.Number = currentNum;
+		c.DisplayName = "World In Ruin";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+		
+		c.Number = currentNum;
+		c.DisplayName = "The Darkness Within";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+		
+		c.Number = currentNum;
+		c.DisplayName = "Courting Death";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+
+		c.Number = currentNum;
+		c.DisplayName = "The Ultimate Game";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+		
+		c.Number = currentNum;
+		c.DisplayName = "Revelation";
+		c.SceneName = "";
+		chapters.Add (c);
+		currentNum++;
+		
+		c.Number = currentNum;
+		c.DisplayName = "Behold, my true power!";
+		c.SceneName = "";
+		chapters.Add (c);
+
+	}
 
 	bool buttonPressed = false;
 
@@ -13,41 +102,28 @@ public class ChapterSelectGUI : MonoBehaviour {
 		scaleGUI(guiSkin);
 
 		GUILayout.BeginArea(new Rect(scalePx(15), scalePx(50), Screen.width - scalePx(20), Screen.height - scalePx(40)));
-		GUILayout.BeginHorizontal(GUILayout.Width(Screen.width));
 
-		if(GUILayout.Button("Chapter 1\n<b>Opening</b>")) {
-			startGame();
+		for(int j = 0; j < 4; j++) {
+			GUILayout.BeginHorizontal(GUILayout.Width(Screen.width));
+
+			for(int i = j * 3; i < j * 3 + 3; i++) {
+				ChapterInfo c = chapters[i];
+
+				GUI.SetNextControlName (i.ToString());
+
+				if(GUILayout.Button("Chapter " + c.Number + "\n<b>" + c.DisplayName + "</b>")) {
+					//dostuff
+				}
+			}
+
+			GUILayout.EndHorizontal();
 		}
 
-		if(GUILayout.Button("Chapter 2\n<b>Seek the Shoes</b>")) {
-			startGame();
-		}
-
-		if(GUILayout.Button("Chapter 3\n<b>All downhill from here</b>")) {
-			startGame();
-		}
-
-		GUILayout.EndHorizontal();
-
-		GUILayout.BeginHorizontal(GUILayout.Width(Screen.width));
-		
-		if(GUILayout.Button("Chapter 1\n<b>Opening</b>")) {
-			startGame();
-		}
-		
-		if(GUILayout.Button("Chapter 2\n<b>Seek the Shoes</b>")) {
-			startGame();
-		}
-		
-		if(GUILayout.Button("Chapter 3\n<b>All downhill from here</b>")) {
-			startGame();
-		}
-		
-		GUILayout.EndHorizontal();
-
-
+		numberOfButtonsVisible = chapters.Count;
 
 		GUILayout.EndArea();
+
+		checkKeyControlFocus();
 
 	}
 
@@ -95,5 +171,73 @@ public class ChapterSelectGUI : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		if(nextScene != null)
 			Application.LoadLevel(nextScene);
+	}
+
+	// keyboard control globals
+	private int numberOfButtonsVisible = 0;
+	private int currentButtonSelection = 0;
+	private bool dirKeyDownV = false;
+	private bool dirKeyDownH = false;
+
+	private void checkKeyControlFocus() {
+		float v = Input.GetAxis("Vertical");
+		
+		if(!dirKeyDownV) { 
+			if(v != 0) {
+				int origSel = currentButtonSelection;
+
+				if(v < 0f) {
+					currentButtonSelection += 3;
+				} else if (v > 0f) {
+					currentButtonSelection -= 3;
+				}
+				
+				if(currentButtonSelection < numberOfButtonsVisible && currentButtonSelection >= 0) {
+					AudioSource.PlayClipAtPoint(MenuSelectSound, Camera.main.transform.position);
+				} else {
+					currentButtonSelection = origSel;
+				}
+				
+				dirKeyDownV = true;
+			}
+		} else {
+			if(v == 0) {
+				dirKeyDownV = false;
+			}
+		}
+
+		float h = Input.GetAxis("Horizontal");
+		
+		if(!dirKeyDownH) { 
+
+			if(h != 0) {
+				int origSel = currentButtonSelection;
+
+				if(h < 0f) {
+					if(currentButtonSelection % 3 != 0) {
+						currentButtonSelection -= 1;
+					}	
+				} else if (h > 0f) {
+					if((currentButtonSelection + 1) % 3 != 0) {
+						currentButtonSelection += 1;
+					}
+				}
+				
+				currentButtonSelection = Mathf.Clamp(currentButtonSelection, 0, numberOfButtonsVisible - 1);
+				
+				if(origSel != currentButtonSelection) {
+					AudioSource.PlayClipAtPoint(MenuSelectSound, Camera.main.transform.position);
+				}
+
+				dirKeyDownH = true;
+			}
+		} else {
+			if(h == 0) {
+				dirKeyDownH = false;
+			}
+		}
+		
+		GUI.FocusControl(currentButtonSelection.ToString());
+		
 	}
 }
