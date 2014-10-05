@@ -6,7 +6,7 @@ public class S609Puppeteer : CutscenePuppeteer {
 
 	public AudioClip FlashSound, RumbleSound, ExplosionSound;
 
-	private GameObject FlyingBBall;
+	//private GameObject FlyingBBall;
 	private ParticleSystem SparkParticles;
 	private LensFlare ExplosionFlare;
 	private MusicPlayer mus;
@@ -17,7 +17,7 @@ public class S609Puppeteer : CutscenePuppeteer {
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
-		FlyingBBall = GameObject.Find ("Flying Basketball");
+		//FlyingBBall = GameObject.Find ("Flying Basketball");
 		ScreenFlash = GameObject.Find ("ScreenFlash").GetComponent<ScreenFlasher>();
 		ExplosionFlare = GameObject.Find ("Explosion_Flare").GetComponent<LensFlare>();
 		SparkParticles = GameObject.Find ("SparkParticles").GetComponent<ParticleSystem>();

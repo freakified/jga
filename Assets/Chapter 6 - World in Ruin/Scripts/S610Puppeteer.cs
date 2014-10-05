@@ -4,36 +4,60 @@ using System.Collections.Generic;
 
 public class S610Puppeteer : CutscenePuppeteer {
 
-	public AudioClip FlashbackSound, EvilMusic, FinalBossMusic;
+	public AudioClip EpilogMusic, Rain, Explosion;
 
-	public List<Sprite> FlashbackBGList;
-	private Queue<Sprite> flashbackBGs;
-
-	private GameObject Flashback;
-	private ScreenFlasher ScreenFlash;
 	private MusicPlayer mus;
+
+	private ParticleSystem riftParticles;
+	private float InitRiftIntensity = 0.05f;
+	private float FinalRiftIntensity = 50.0f;
+	private float RiftExpansionDuration = 5.0f;
+	private float RiftExpansionDelay = 0.1f;
 
 
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
-		Flashback = GameObject.Find ("Flashback");
-		ScreenFlash = GameObject.Find ("ScreenFlash").GetComponent<ScreenFlasher>();
+		riftParticles = GameObject.Find ("RiftParticles").GetComponent<ParticleSystem>();
 
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 
-		flashbackBGs = new Queue<Sprite>(FlashbackBGList);
-
+		playSound(Rain);
 	}
 
 	
 	// Update is called once per frame
 	public void FixedUpdate () {
+		if(CurrentScene == 32) {
+			if(elapsedTime > RiftExpansionDelay) {
+				float animTime = elapsedTime - RiftExpansionDelay;
+				
+				if(animTime < RiftExpansionDuration) {
+					riftParticles.startLifetime = 
+						Mathf.Lerp(InitRiftIntensity, FinalRiftIntensity, animTime / RiftExpansionDuration);
+				}
+			}
+
+			if(timerIsGreaterThan(5.0f)) {
+				StartCoroutine(FadeAndNext(Color.white, 20, "7-01 Fate of James"));
+				mus.PlayMusic(EpilogMusic, false);
+				nextScene();
+			}
+		}
+
 
 	}
 
 	public override void HandleSceneChange() {
+		if(CurrentScene == 1) {
+			mus.PlayMusic();
+		} else if(CurrentScene == 32) {
+			playSound(Explosion);
 
+			riftParticles.Play();
+
+			startTimer();
+		}
 	}
 
 

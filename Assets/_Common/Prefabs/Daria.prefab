@@ -197,6 +197,8 @@ MonoBehaviour:
     type: 2}
   LaserChargeSound: {fileID: 8300000, guid: cf7d709fefbe642b48221d83631c92d7, type: 3}
   LaserFireSound: {fileID: 8300000, guid: 4e31f51636d21404397a543b46943f18, type: 3}
+  ImmunityNotificationPrefab: {fileID: 0}
+  InitialHealth: 100
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

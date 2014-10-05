@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9acf39eaa414d94b72bee6cd5678ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrozenAtStart: 0
+  FrozenAtStart: 1
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

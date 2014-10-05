@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 3f78f29c1a0ff40bea40b0605ae1d5b8
+guid: 125c134d595c94c76bddb028e513db41
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Orphan_Brown
+    21300000: 02-orphanage
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -22,13 +22,13 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -2
+  textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
     filterMode: 0
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -41,11 +41,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: iPhone
-    maxTextureSize: 1024
-    textureFormat: -2
-    compressionQuality: 50
+  buildTargetSettings: []
   spriteSheet:
     sprites: []
   spritePackingTag: 
