@@ -7,21 +7,21 @@ public class S704Puppeteer : CutscenePuppeteer {
 	public float CameraVelocity = 5.0f;
 	public GUIText SubtitleText;
 
-	private Transform cameraTransform;
+	private Rigidbody cameraForce;
 	private Vector3 cameraPos;
 		
 	// Use this for initialization
 	void Start () {
-		cameraTransform = Camera.main.transform;
-		cameraPos = cameraTransform.position;
+		cameraForce = Camera.main.GetComponent<Rigidbody>();
+		//cameraPos = cameraTransform.position;
+		cameraForce.AddForce(Vector3.back * 2000);
 	}
 	
 	// Update is called once per frame
-	public void Update () {
+	public void FixedUpdate () {
 		if(CurrentScene == 0) {
-			//Camera.main.transform.position += Vector3.back * CameraVelocity * Time.deltaTime;
-
-			if(Camera.main.transform.position.z < 0) {
+			if(Camera.main.transform.position.z < 100) {
+				cameraForce.drag = 0.5f;
 				nextScene();
 			}
 
@@ -29,12 +29,17 @@ public class S704Puppeteer : CutscenePuppeteer {
 			SubtitleText.color = new Color(1, 1, 1, SubtitleText.color.a + Time.deltaTime);
 
 			if(SubtitleText.color.a >= 0.98f) {
+				startTimer();
+				nextScene();
+			}
+		} else if(CurrentScene == 2) {
+			if(timerIsGreaterThan(1.0f)) {
 				StartCoroutine(FadeAndNext(Color.black, 10.0f, null));
 				nextScene();
 			}
 		}
 
-		Camera.main.transform.position += Vector3.back * CameraVelocity * Time.deltaTime;
+		//Camera.main.transform.position += Vector3.back * CameraVelocity * Time.deltaTime;
 
 
 	}

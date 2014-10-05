@@ -422,7 +422,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 5
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -649,7 +649,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -677,7 +677,7 @@ ParticleSystem:
           outSlope: 0
           tangentMode: 0
         - time: .0491071418
-          value: .986486375
+          value: .364864826
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -815,7 +815,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 11798
+        atime1: 48573
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -3269,7 +3269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: EmissionModule.rate.scalar
@@ -3305,11 +3305,11 @@ Prefab:
       objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: EmissionModule.rate.scalar
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: InitialModule.startSpeed.scalar
@@ -3425,7 +3425,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[1].value
-      value: .986486375
+      value: .364864826
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: EmissionModule.rate.maxCurve.m_Curve.Array.data[0].value
@@ -3485,7 +3485,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: InitialModule.maxNumParticles
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: startDelay
@@ -3498,6 +3498,26 @@ Prefab:
     - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
       propertyPath: ColorModule.gradient.maxGradient.key3.rgba
       value: 2902458623
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 48573
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key5.rgba
+      value: 16711757
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime4
+      value: 59174
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9af399ba40a9e034a83ccf7beac26969, type: 2}
@@ -9365,7 +9385,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 3
+      scalar: 2.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9582,7 +9602,7 @@ ParticleSystem:
       minMaxState: 3
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 500
+    maxNumParticles: 100
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -9600,7 +9620,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 100
+      scalar: 50
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9752,7 +9772,7 @@ ParticleSystem:
           rgba: 2684375295
         key5:
           serializedVersion: 2
-          rgba: 2516516941
+          rgba: 16711757
         key6:
           serializedVersion: 2
           rgba: 4281663232
@@ -9771,7 +9791,7 @@ ParticleSystem:
         atime1: 14480
         atime2: 21130
         atime3: 28209
-        atime4: 38828
+        atime4: 59174
         atime5: 65535
         atime6: 64999
         atime7: 0

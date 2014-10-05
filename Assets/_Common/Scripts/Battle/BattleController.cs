@@ -372,14 +372,20 @@ public class BattleController : MonoBehaviour {
 			}
 
 			// now highlight the selected target
-			try {
-				availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 0.5f));
+			foreach(BattleCombatant t in availableTargets) {
+				SpriteRenderer r = t.GetComponent<SpriteRenderer>();
 
-				if (currentButtonSelection < attackableTargets.Count) {
-					((SpriteRenderer)attackableTargets[currentButtonSelection].renderer).color = new Color (1, 1, 1, 1f);
+				if(r != null) {
+					r.color = new Color (1, 1, 1, 0.5f);
 				}
-			} catch(InvalidCastException ex) {
-				// cheap hack to avoid errors when the BBAll shield (a parent gameobject) is targetted
+			}
+
+			if (currentButtonSelection < attackableTargets.Count) {
+				SpriteRenderer r = attackableTargets[currentButtonSelection].GetComponent<SpriteRenderer>();
+
+				if(r != null) {
+					r.color = new Color (1, 1, 1, 1f);
+				}
 			}
 
 			// if the target is dead, undo the greyout state we enabled above
@@ -428,14 +434,13 @@ public class BattleController : MonoBehaviour {
 		}
 
 		if(chosenTarget != null || targetingCancelled) {
-
-			try {
-				// if a target was selected or the cancel button was pressed, restore opacity of targets
-				availableTargets.ForEach(t => ((SpriteRenderer)t.renderer).color = new Color (1, 1, 1, 1));
-			} catch (InvalidCastException ex) {
-				// again, cheap hack to avoid problems with the BBall shield
+			foreach(BattleCombatant t in availableTargets) {
+				SpriteRenderer r = t.GetComponent<SpriteRenderer>();
+				
+				if(r != null) {
+					r.color = new Color (1, 1, 1, 1f);
+				}
 			}
-
 		}
 
 		return chosenTarget;

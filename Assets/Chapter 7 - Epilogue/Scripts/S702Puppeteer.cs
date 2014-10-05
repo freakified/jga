@@ -12,8 +12,6 @@ public class S702Puppeteer : CutscenePuppeteer {
 
 		startTimer();
 	}
-
-	private bool jamesHasStarted = false;
 	
 	// Update is called once per frame
 	public void FixedUpdate () {
