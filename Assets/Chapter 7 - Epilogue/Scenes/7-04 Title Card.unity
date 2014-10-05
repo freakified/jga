@@ -88,6 +88,7 @@ GameObject:
   - 81: {fileID: 12071417}
   - 114: {fileID: 12071422}
   - 114: {fileID: 12071423}
+  - 114: {fileID: 12071424}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -186,6 +187,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
+--- !u!114 &12071424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12071416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20af8560fa4184b1ea93152be0851948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wantedAspectRatio: 1.77777779
 --- !u!1 &682367758
 GameObject:
   m_ObjectHideFlags: 0

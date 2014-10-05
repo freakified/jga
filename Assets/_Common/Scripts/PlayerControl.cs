@@ -49,6 +49,16 @@ public class PlayerControl : MonoBehaviour
 	{
 		// Cache the horizontal input.
 		float h = Input.GetAxis("Horizontal");
+
+		// check for touch input
+		if(Input.touchCount > 0) {
+			Touch t = Input.GetTouch(0);
+			if(t.position.x > Screen.width / 2) {
+				h = 1;
+			} else  {
+				h = -1;
+			}
+		}
 		
 		// The Speed animator parameter is set to the absolute value of the horizontal input.
 		anim.SetFloat("Speed", Mathf.Abs(h));

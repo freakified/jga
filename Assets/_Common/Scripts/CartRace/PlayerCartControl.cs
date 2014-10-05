@@ -48,6 +48,17 @@ public class PlayerCartControl : MonoBehaviour {
 			// Cache the vertical input.
 			float v = Input.GetAxis("Vertical");
 
+			// check for touch input
+			if(Input.touchCount > 0) {
+				Touch t = Input.GetTouch(0);
+
+				if(t.position.y > Camera.main.WorldToScreenPoint(transform.position).y + 2) {
+					v = 1;
+				} else if(t.position.y < Camera.main.WorldToScreenPoint(transform.position).y - 2) {
+					v = -1;
+				}
+			}
+
 			// roll chef tony on down the hill
 			transform.Translate(new Vector3(forwardSpeed * Time.fixedDeltaTime, 0, 0));
 

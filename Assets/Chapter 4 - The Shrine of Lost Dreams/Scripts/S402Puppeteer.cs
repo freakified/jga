@@ -47,10 +47,10 @@ public class S402Puppeteer : CutscenePuppeteer {
 				nextScene();
 			}
 		} else if(CurrentScene == 5) {
-			if(!ExamineNextText.enabled && timerIsGreaterThan(1)) {
+			if(!ExamineNextText.enabled && timerIsGreaterThan(5)) {
 				ExamineNextText.enabled = true;
 				stopTimer();
-			} else if(Input.GetButtonDown("Select")) {
+			} else if(Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) {
 				GameObject.Destroy(ExamineInfo);
 				nextScene();
 			}

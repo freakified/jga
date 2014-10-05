@@ -88,6 +88,7 @@ GameObject:
   - 81: {fileID: 12071417}
   - 114: {fileID: 12071422}
   - 114: {fileID: 12071423}
+  - 114: {fileID: 12071424}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -187,6 +188,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxXAndY: {x: 11.5200005, y: 0}
   minXAndY: {x: -3.43000007, y: 0}
+--- !u!114 &12071424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12071416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20af8560fa4184b1ea93152be0851948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wantedAspectRatio: 1.77777779
 --- !u!1 &29332793
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +463,6 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
-  enableQuickSkip: 0
   autoplayAtStart: 1
   delayBeforeAutoplay: 3
   textSpeed: 50
@@ -485,6 +497,7 @@ MonoBehaviour:
   music: {fileID: 8300000, guid: 1ebeec5f3a70f4c48adb8499980b2e01, type: 3}
   loop: 1
   playAtStart: 1
+  fadingOut: 0
 --- !u!4 &850936268
 Transform:
   m_ObjectHideFlags: 0
@@ -725,6 +738,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1795993610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,6 +830,7 @@ MonoBehaviour:
     type: 2}
   SleepParticlesPrefab: {fileID: 19800000, guid: ec036e1484a954c769e820780f41fcaa,
     type: 2}
+  EnableSleepAttack: 1
   knifeSlash: {fileID: 8300000, guid: e7da17a40e8f743efbfe45424ad3a286, type: 3}
   healSound: {fileID: 8300000, guid: 0767b7f760a8b480aa69d74a51092c99, type: 3}
   SalesPitchParticlePrefab: {fileID: 19800000, guid: 413342ccfc68948d48603121038b50a2,

@@ -71,7 +71,7 @@ public class CutsceneController : MonoBehaviour {
 
 		//if the [spacebar] indicator is displayed, and the person presses Fire1, 
 		// then go to the next dialog
-		if(Input.GetButtonDown("Select") && dialogNextText.enabled) {
+		if((Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) && dialogNextText.enabled) {
 			dialogNextText.enabled = false;
 			playNext();
 		}
@@ -95,7 +95,7 @@ public class CutsceneController : MonoBehaviour {
 
 			}
 
-			if(enableQuickSkip == true && Input.GetButtonDown("Select") && currentChar > 3) {
+			if(enableQuickSkip == true && (Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) && currentChar > 3) {
 				dialogTextWrapper.SetText(cutsceneElements[cutscenePosition - 1].dialogText);
 				currentChar = cutsceneElements[cutscenePosition - 1].dialogText.Length;
 			}
