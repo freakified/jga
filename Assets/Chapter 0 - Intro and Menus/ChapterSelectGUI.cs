@@ -89,13 +89,12 @@ public class ChapterSelectGUI : MonoBehaviour {
 		currentNum++;
 		
 		c.Number = currentNum;
-		c.DisplayName = "Behold, my true power!";
+		c.DisplayName = "True Power";
 		c.SceneName = "";
 		chapters.Add (c);
 
 	}
 
-	bool buttonPressed = false;
 
 	void OnGUI() {
 		GUI.skin = guiSkin;
@@ -112,7 +111,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 				GUI.SetNextControlName (i.ToString());
 
 				if(GUILayout.Button("Chapter " + c.Number + "\n<b>" + c.DisplayName + "</b>")) {
-					//dostuff
+					jumpToLevel(c.SceneName);
 				}
 			}
 
@@ -127,17 +126,17 @@ public class ChapterSelectGUI : MonoBehaviour {
 
 	}
 
-	void Update() {
-		if(Input.GetButtonDown("Select")) {
-			startGame();
-		}
-	}
 
-	private void startGame() {
-		if(!buttonPressed) {
+	bool levelSelected = false;
+
+
+	private void jumpToLevel(string scene) {
+		if(!levelSelected) {
 			AudioSource.PlayClipAtPoint(MenuSelectSound, Vector3.zero);
 			//TODO: this should automatically skip the chapter scene if only one chapter has been unlocked
-			StartCoroutine(FadeAndNext(Color.black, 2.0f, "0-04 Chapter Selection"));
+			StartCoroutine(FadeAndNext(Color.black, 2.0f, scene));
+
+			levelSelected = true;
 		}	
 	}
 

@@ -213,9 +213,14 @@ public class BattleController : MonoBehaviour {
 		//padding for buttons
 		guiSkin.button.margin.left = scalePx (20);
 		guiSkin.button.margin.top = scalePx (4);
+		guiSkin.button.margin.bottom = scalePx (4);
 		guiSkin.button.padding.left = scalePx (10);
 		guiSkin.button.padding.top = scalePx (3);
 		guiSkin.button.padding.bottom = scalePx (3);
+
+		// reset things
+		guiSkin.button.alignment = TextAnchor.MiddleLeft;
+		guiSkin.button.fixedWidth = 0;
 	}
 
 	private int scalePx(int targetSize) {

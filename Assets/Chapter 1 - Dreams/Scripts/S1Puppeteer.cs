@@ -33,7 +33,7 @@ public class S1Puppeteer : CutscenePuppeteer {
 		}
 
 		if(CurrentScene == 3) {
-			ChefTony.rigidbody2D.AddForce(Vector2.right * 600f);
+			ChefTony.rigidbody2D.AddForce(Vector2.right * 1000f);
 			playSound(knifeSlash);
 			startTimer();
 		}
