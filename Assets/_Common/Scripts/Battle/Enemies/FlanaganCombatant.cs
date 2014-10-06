@@ -15,6 +15,8 @@ public class FlanaganCombatant : EnemyCombatant {
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
 	private bool poweredUp = false;
 
+	//private bool isFirstPoweredUpAttack = true;
+
 	// Use this for initialization
 	public override void Start () {
 		base.Start ();
@@ -65,7 +67,14 @@ public class FlanaganCombatant : EnemyCombatant {
 			if(timerIsGreaterThan(1.4f)) {
 				if(target != null) {
 					if(poweredUp == true) {
+						// don't kill him on the first attack
+//						if(isFirstPoweredUpAttack) {
+//							if(target.HitPoints - 52 < 1) {
+//								target.Damage(target.HitPoints - 1);
+//							}
+//						} else {
 						target.Damage(52);
+//						}
 					} else {
 						target.Damage(23);
 					}

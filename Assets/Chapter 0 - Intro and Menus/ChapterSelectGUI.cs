@@ -43,7 +43,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 
 		// 2
 		c.Number = currentNum;
-		c.DisplayName = "Downhill from Here";
+		c.DisplayName = "Going Downhill";
 		c.SceneName = "2-05 Cart Race";
 		chapters.Add (c);
 		currentNum++;
@@ -64,28 +64,28 @@ public class ChapterSelectGUI : MonoBehaviour {
 
 		// 5
 		c.Number = currentNum;
-		c.DisplayName = "Containment Facility";
+		c.DisplayName = "Infiltration";
 		c.SceneName = "5-01 Outside Facility";
 		chapters.Add (c);
 		currentNum++;
 
 		// 6
 		c.Number = currentNum;
-		c.DisplayName = "Déjà vu";
+		c.DisplayName = "Déjà Vu";
 		c.SceneName = "5-05 Elevator Entry";
 		chapters.Add (c);
 		currentNum++;
 
 		// 7
 		c.Number = currentNum;
-		c.DisplayName = "Control Room";
+		c.DisplayName = "Sacrifice";
 		c.SceneName = "5-07 Control Room";
 		chapters.Add (c);
 		currentNum++;
 
 		// 8
 		c.Number = currentNum;
-		c.DisplayName = "World In Ruin";
+		c.DisplayName = "World in Ruin";
 		c.SceneName = "6-01 World in ruin";
 		chapters.Add (c);
 		currentNum++;

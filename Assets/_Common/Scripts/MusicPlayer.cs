@@ -6,6 +6,7 @@ public class MusicPlayer : MonoBehaviour {
 	public AudioClip music;
 	public bool loop = false;
 	public bool playAtStart = true;
+	public bool OnlyPlayIfNoMusicPlaying = false;
 	private AudioSource soundSource;
 
 	private static MusicPlayer instance = null;
@@ -27,7 +28,15 @@ public class MusicPlayer : MonoBehaviour {
 			//just tell *it* to play our song, and then self-destruct
 
 			if(playAtStart) {
-				instance.PlayMusic(this.music, this.loop);
+				if(OnlyPlayIfNoMusicPlaying) {
+					if(!this.soundSource.isPlaying) {
+						instance.PlayMusic(this.music, this.loop);
+					}
+				} else {
+					instance.PlayMusic(this.music, this.loop);
+				}
+
+
 			} else {
 				instance.music = this.music;
 				instance.loop = this.loop;
