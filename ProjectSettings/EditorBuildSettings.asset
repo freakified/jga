@@ -8,8 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Chapter 0 - Intro and Menus/0-01 Title Card 1.unity
   - enabled: 1
-    path: Assets/Chapter 0 - Intro and Menus/0-02 Title Card 2.unity
-  - enabled: 1
     path: Assets/Chapter 0 - Intro and Menus/0-03 Main Menu.unity
   - enabled: 1
     path: Assets/Chapter 0 - Intro and Menus/0-04 Chapter Selection.unity

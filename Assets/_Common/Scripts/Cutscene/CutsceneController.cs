@@ -31,7 +31,7 @@ public class CutsceneController : MonoBehaviour {
 	private Vector3 speakerTextPos = new Vector3(0.04f, 0.95f, 8f);
 	private Vector3 dialogTextPos = new Vector3(0.04f, 0.89f, 8f);
 	private Vector3 textBoxPos = new Vector3(-0.71f, 1.31f, 8f);
-	private Vector3 dialogNextTextPos = new Vector3(0.64f, 0.82f, 8f);
+	private Vector3 dialogNextTextPos = new Vector3(0.73f, 0.83f, 8f);
 
 	private WordWrapText dialogTextWrapper;
 

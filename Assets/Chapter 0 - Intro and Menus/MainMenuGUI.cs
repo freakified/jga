@@ -20,7 +20,7 @@ public class MainMenuGUI : MonoBehaviour {
 
 		GUILayout.BeginArea(AspectUtility.screenRect);
 
-		GUILayout.BeginArea(new Rect(scalePx(20), (Screen.height - scalePx(110)) , scalePx(200), scalePx(200)));
+		GUILayout.BeginArea(new Rect(scalePx(20), (AspectUtility.screenHeight - scalePx(150)) , scalePx(200), scalePx(200)));
 
 		numberOfButtonsVisible = 0;
 
@@ -32,6 +32,7 @@ public class MainMenuGUI : MonoBehaviour {
 		numberOfButtonsVisible++;
 
 		// do they have a save?
+
 		if(currentSave >= 0) {
 			GUI.enabled = true;
 			GUI.SetNextControlName("1");
@@ -43,6 +44,14 @@ public class MainMenuGUI : MonoBehaviour {
 		if(GUILayout.Button("Chapter Selection")) {
 			goToChapterSelect();
 		}
+
+		GUI.enabled = true;
+		GUI.SetNextControlName(numberOfButtonsVisible.ToString());
+		if(GUILayout.Button("Quit JGA")) {
+			Application.Quit();
+		}
+		
+		numberOfButtonsVisible++;
 
 
 
@@ -141,8 +150,12 @@ public class MainMenuGUI : MonoBehaviour {
 			if(currentButtonSelection == 0) {
 				beginGame();
 			} else if(currentButtonSelection == 1) {
-				goToChapterSelect();
-			}
+				if(currentSave >= 0) {
+					goToChapterSelect();
+				} else {
+					Application.Quit();
+				}
+			} 
 		}
 		
 	}

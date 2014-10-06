@@ -483,6 +483,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: playAtStart
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
   m_RootGameObject: {fileID: 1108509251}
@@ -517,7 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 0}
-  loop: 0
+  loop: 1
   playAtStart: 0
   OnlyPlayIfNoMusicPlaying: 0
   fadingOut: 0
