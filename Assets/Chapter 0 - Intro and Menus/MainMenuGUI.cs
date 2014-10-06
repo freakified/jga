@@ -6,7 +6,13 @@ public class MainMenuGUI : MonoBehaviour {
 	public GUISkin guiSkin;
 	public AudioClip MenuSelectSound;
 
+	private int currentSave;
+
 	bool buttonPressed = false;
+
+	void Start() {
+		currentSave = PlayerPrefs.GetInt("HighestCompletedChapter", -1);
+	}
 
 	void OnGUI() {
 		GUI.skin = guiSkin;
@@ -14,17 +20,29 @@ public class MainMenuGUI : MonoBehaviour {
 
 		GUILayout.BeginArea(new Rect(scalePx(20), (Screen.height - scalePx(110)) , scalePx(200), scalePx(200)));
 
+		numberOfButtonsVisible = 0;
+
 		GUI.SetNextControlName("0");
 		if(GUILayout.Button("Start New Game")) {
 			beginGame();
 		}
 
-		GUI.SetNextControlName("1");
+		numberOfButtonsVisible++;
+
+		// do they have a save?
+		if(currentSave >= 0) {
+			GUI.enabled = true;
+			GUI.SetNextControlName("1");
+			numberOfButtonsVisible++;
+		} else {
+			GUI.enabled = false;
+		}
+
 		if(GUILayout.Button("Chapter Selection")) {
 			goToChapterSelect();
 		}
 
-		numberOfButtonsVisible = 2;
+
 
 		GUILayout.EndArea();
 

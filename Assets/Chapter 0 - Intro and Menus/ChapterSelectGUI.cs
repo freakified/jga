@@ -8,6 +8,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 	public AudioClip MenuSelectSound;
 
 	private List<ChapterInfo> chapters;
+	private int currentSave;
 
 	private struct ChapterInfo {
 		public int Number;
@@ -16,81 +17,97 @@ public class ChapterSelectGUI : MonoBehaviour {
 	}
 
 	void Start() {
+		// get saved chapter
+		currentSave = PlayerPrefs.GetInt("HighestCompletedChapter", -1);
+
 		//populate chapters list
 		chapters = new List<ChapterInfo>();
 		int currentNum = 1;
 
 		ChapterInfo c;
 
+
+		// 0
 		c.Number = currentNum;
 		c.DisplayName = "Opening";
 		c.SceneName = "01 Elevator Entry";
 		chapters.Add (c);
 		currentNum++;
 
+		// 1
 		c.Number = currentNum;
 		c.DisplayName = "Seek the Shoes";
-		c.SceneName = "";
+		c.SceneName = "2-04 France 1";
 		chapters.Add (c);
 		currentNum++;
 
+		// 2
 		c.Number = currentNum;
 		c.DisplayName = "Downhill from Here";
-		c.SceneName = "";
+		c.SceneName = "2-05 Cart Race";
 		chapters.Add (c);
 		currentNum++;
 
+		// 3
 		c.Number = currentNum;
 		c.DisplayName = "A No-Kill Home";
-		c.SceneName = "";
+		c.SceneName = "3-10 Orphanage";
 		chapters.Add (c);
 		currentNum++;
-		
+
+		// 4
 		c.Number = currentNum;
 		c.DisplayName = "The Prophesy";
-		c.SceneName = "";
+		c.SceneName = "4-01 Shrine Exterior";
 		chapters.Add (c);
 		currentNum++;
-		
+
+		// 5
 		c.Number = currentNum;
 		c.DisplayName = "Containment Facility";
-		c.SceneName = "";
+		c.SceneName = "5-01 Outside Facility";
 		chapters.Add (c);
 		currentNum++;
 
+		// 6
+		c.Number = currentNum;
+		c.DisplayName = "Déjà vu";
+		c.SceneName = "5-05 Elevator Entry";
+		chapters.Add (c);
+		currentNum++;
+
+		// 7
+		c.Number = currentNum;
+		c.DisplayName = "Control Room";
+		c.SceneName = "5-07 Control Room";
+		chapters.Add (c);
+		currentNum++;
+
+		// 8
 		c.Number = currentNum;
 		c.DisplayName = "World In Ruin";
-		c.SceneName = "";
-		chapters.Add (c);
-		currentNum++;
-		
-		c.Number = currentNum;
-		c.DisplayName = "The Darkness Within";
-		c.SceneName = "";
-		chapters.Add (c);
-		currentNum++;
-		
-		c.Number = currentNum;
-		c.DisplayName = "Courting Death";
-		c.SceneName = "";
+		c.SceneName = "6-01 World in ruin";
 		chapters.Add (c);
 		currentNum++;
 
+		// 9
+		c.Number = currentNum;
+		c.DisplayName = "The Darkness Within";
+		c.SceneName = "6-05 Entrance to EVIL";
+		chapters.Add (c);
+		currentNum++;
+
+		// 10
 		c.Number = currentNum;
 		c.DisplayName = "The Ultimate Game";
-		c.SceneName = "";
+		c.SceneName = "6-07 Fidding contest";
 		chapters.Add (c);
 		currentNum++;
-		
+
+		// 11
 		c.Number = currentNum;
-		c.DisplayName = "Revelation";
-		c.SceneName = "";
-		chapters.Add (c);
-		currentNum++;
-		
-		c.Number = currentNum;
-		c.DisplayName = "True Power";
-		c.SceneName = "";
+		c.DisplayName = "Final Battle";
+		c.SceneName = "6-09 Final Battle";
 		chapters.Add (c);
 
 	}
@@ -102,23 +119,31 @@ public class ChapterSelectGUI : MonoBehaviour {
 
 		GUILayout.BeginArea(new Rect(scalePx(15), scalePx(50), Screen.width - scalePx(20), Screen.height - scalePx(40)));
 
+		numberOfButtonsVisible = 0;
+
 		for(int j = 0; j < 4; j++) {
 			GUILayout.BeginHorizontal(GUILayout.Width(Screen.width));
 
 			for(int i = j * 3; i < j * 3 + 3; i++) {
 				ChapterInfo c = chapters[i];
 
-				GUI.SetNextControlName (i.ToString());
+				if(currentSave < i) { 
+					GUI.enabled = false;
+					GUILayout.Button("Chapter " + c.Number + "\n<b>???</b>");
+					GUI.enabled = true;
 
-				if(GUILayout.Button("Chapter " + c.Number + "\n<b>" + c.DisplayName + "</b>")) {
-					jumpToLevel(c.SceneName);
+				} else {
+					GUI.SetNextControlName (i.ToString());
+
+					if(GUILayout.Button("Chapter " + c.Number + "\n<b>" + c.DisplayName + "</b>")) {
+						jumpToLevel(c.SceneName);
+					}
+					numberOfButtonsVisible++;
 				}
 			}
 
 			GUILayout.EndHorizontal();
 		}
-
-		numberOfButtonsVisible = chapters.Count;
 
 		GUILayout.EndArea();
 
@@ -133,7 +158,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 	private void jumpToLevel(string scene) {
 		if(!levelSelected) {
 			AudioSource.PlayClipAtPoint(MenuSelectSound, Vector3.zero);
-			//TODO: this should automatically skip the chapter scene if only one chapter has been unlocked
+
 			StartCoroutine(FadeAndNext(Color.black, 2.0f, scene));
 
 			levelSelected = true;
@@ -170,6 +195,12 @@ public class ChapterSelectGUI : MonoBehaviour {
 		yield return new WaitForSeconds(seconds);
 		if(nextScene != null)
 			Application.LoadLevel(nextScene);
+	}
+
+	private bool input1IsDown = false;
+
+	void Update() {
+		input1IsDown = Input.GetButtonDown("Select");
 	}
 
 	// keyboard control globals
@@ -222,8 +253,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 					}
 				}
 				
-				currentButtonSelection = Mathf.Clamp(currentButtonSelection, 0, numberOfButtonsVisible - 1);
-				
+
 				if(origSel != currentButtonSelection) {
 					AudioSource.PlayClipAtPoint(MenuSelectSound, Camera.main.transform.position);
 				}
@@ -235,8 +265,14 @@ public class ChapterSelectGUI : MonoBehaviour {
 				dirKeyDownH = false;
 			}
 		}
+
+		currentButtonSelection = Mathf.Clamp(currentButtonSelection, 0, numberOfButtonsVisible - 1);
 		
 		GUI.FocusControl(currentButtonSelection.ToString());
+
+		if(input1IsDown) {
+			jumpToLevel(chapters[currentButtonSelection].SceneName);
+		}
 		
 	}
 }
