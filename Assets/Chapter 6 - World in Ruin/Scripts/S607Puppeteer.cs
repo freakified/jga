@@ -64,7 +64,7 @@ public class S607Puppeteer : CutscenePuppeteer {
 				GameObject sparks = Instantiate(SparksPrefab) as GameObject;
 				sparks.transform.position = LMFB.transform.position;
 				playSound(GasBlastSound2);
-				StartCoroutine(FadeAndNext(Color.green, 4, "6-08 Revelation"));
+				FadeAndNext(Color.green, 4, "6-08 Revelation", false);
 				nextScene();
 			}
 		}

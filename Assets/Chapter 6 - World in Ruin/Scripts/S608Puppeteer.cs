@@ -61,7 +61,7 @@ public class S608Puppeteer : CutscenePuppeteer {
 			((SpriteRenderer)Background.renderer).color = temp;
 
 			if(FlyingBBall.transform.localScale.x > 2f && !fadingStarted) {
-				StartCoroutine(FadeAndNext(Color.white, 1, "6-09 The Final Battle"));
+				FadeAndNext(Color.white, 1, "6-09 The Final Battle", false);
 				fadingStarted = true;
 			}
 

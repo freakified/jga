@@ -30,7 +30,7 @@ public class S701Puppeteer : CutscenePuppeteer {
 			}
 
 			if(Camera.main.transform.position.y < -3.2f) {
-				StartCoroutine(FadeAndNext(Color.white, 5, "7-02 Fate of Like Mike"));
+				FadeAndNext(Color.white, 5, "7-02 Fate of Like Mike", false);
 				nextScene();
 			}
 		} else if(CurrentScene == 1) {

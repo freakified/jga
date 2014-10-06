@@ -41,7 +41,7 @@ public class S404Puppeteer : CutscenePuppeteer {
 			if(!timerIsGreaterThan(1.0f)) {
 				flyingBasketball.rigidbody2D.AddTorque(2.0f);
 			} else {
-				StartCoroutine(FadeAndNext(new Color(1.0f, 0.47f, 0.2f), 2.0f, "5-01 Outside Facility"));
+				FadeAndNext(new Color(1.0f, 0.47f, 0.2f), 2.0f, "5-01 Outside Facility", true);
 				nextScene();
 			}
 		}

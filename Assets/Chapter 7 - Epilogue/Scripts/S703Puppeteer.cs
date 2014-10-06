@@ -14,7 +14,7 @@ public class S703Puppeteer : CutscenePuppeteer {
 	public void FixedUpdate () {
 		if(CurrentScene == 0) {
 			if(Camera.main.transform.position.y < -0.3f) {
-				StartCoroutine(FadeAndNext(Color.white, 5, "7-04 Title Card"));
+				FadeAndNext(Color.white, 5, "7-04 Title Card", false);
 				nextScene();
 			}
 		} else if(CurrentScene == 1) {

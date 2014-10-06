@@ -39,7 +39,7 @@ public class S610Puppeteer : CutscenePuppeteer {
 			}
 
 			if(timerIsGreaterThan(5.0f)) {
-				StartCoroutine(FadeAndNext(Color.white, 20, "7-01 Fate of James"));
+				FadeAndNext(Color.white, 20, "7-01 Fate of James", false);
 				mus.PlayMusic(EpilogMusic, false);
 				nextScene();
 			}
@@ -51,6 +51,9 @@ public class S610Puppeteer : CutscenePuppeteer {
 	public override void HandleSceneChange() {
 		if(CurrentScene == 1) {
 			mus.PlayMusic();
+
+		} else if(CurrentScene == 31) {
+			mus.StopMusic(1);
 		} else if(CurrentScene == 32) {
 			playSound(Explosion);
 

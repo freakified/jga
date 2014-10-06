@@ -14,7 +14,7 @@ public class S300Puppeteer : CutscenePuppeteer {
 	public void FixedUpdate () {
 
 		if(CurrentScene == 3) {
-			StartCoroutine(FadeAndNext(Color.black, 0, "3-10 Orphanage"));
+			FadeAndNext(Color.black, 0, "3-10 Orphanage", false);
 			nextScene();
 		}
 		

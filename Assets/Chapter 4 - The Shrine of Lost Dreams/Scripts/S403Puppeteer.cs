@@ -14,7 +14,7 @@ public class S403Puppeteer : CutscenePuppeteer {
 	public void FixedUpdate () {
 		if (timerIsGreaterThan (3.5f)) {
 			nextScene();
-			StartCoroutine(FadeAndNext(Color.white, 0.1f, "4-04 Temple Interior 2"));
+			FadeAndNext(Color.white, 0.1f, "4-04 Temple Interior 2", false);
 		}
 	}
 

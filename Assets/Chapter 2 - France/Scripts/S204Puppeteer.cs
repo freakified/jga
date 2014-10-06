@@ -85,7 +85,7 @@ public class S204Puppeteer : CutscenePuppeteer {
 			chefTony.rigidbody2D.velocity = new Vector2(3f, 0f);
 			ctanim.SetFloat("Speed", 3f);
 		} else if(CurrentScene == 12) {
-			StartCoroutine(FadeAndNext(Color.black, 2, "2-05 Cart Race"));
+			FadeAndNext(Color.black, 2, "2-05 Cart Race", true);
 		}
 	}
 

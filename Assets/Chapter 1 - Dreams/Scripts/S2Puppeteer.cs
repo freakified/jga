@@ -53,7 +53,7 @@ public class S2Puppeteer : CutscenePuppeteer {
 			//fade out
 			ChefTony.transform.position = new Vector2(ChefTony.transform.position.x, -1.2f);
 			
-			StartCoroutine(FadeAndNext(Color.black, 2.5f, "03 Elevator Entry 3"));
+			FadeAndNext(Color.black, 2.5f, "03 Elevator Entry 3", false);
 
 			elevTriggered = true;
 		}

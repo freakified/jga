@@ -15,7 +15,7 @@ public class S508Puppeteer : CutscenePuppeteer {
 	public void FixedUpdate () {
 		if (timerIsGreaterThan (3.5f)) {
 			if(!fadeStarted) {
-				StartCoroutine(FadeAndNext(Color.black, 10.0f, "6-01 World in ruin"));
+				FadeAndNext(Color.black, 10.0f, "6-01 World in ruin", false);
 				fadeStarted = true;
 			}
 		}

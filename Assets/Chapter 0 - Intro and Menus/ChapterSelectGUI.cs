@@ -162,6 +162,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 		if(!levelSelected) {
 			AudioSource.PlayClipAtPoint(MenuSelectSound, Vector3.zero);
 
+			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(1.0f);
 			StartCoroutine(FadeAndNext(Color.black, 2.0f, scene));
 
 			levelSelected = true;

@@ -65,7 +65,7 @@ public class S603Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 31) {
 			ctanim.SetInteger("HP", 0);
 			James.GetComponent<Animator>().SetInteger("HP", 0);
-			StartCoroutine(FadeAndNext(Color.black, 4, "6-04 Another Fortress"));
+			FadeAndNext(Color.black, 4, "6-04 Another Fortress", true);
 			nextScene();
 		}
 	}

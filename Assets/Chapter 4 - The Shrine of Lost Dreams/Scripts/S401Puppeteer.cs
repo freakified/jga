@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class S401Puppeteer : CutscenePuppeteer {
 
 	private GameObject ChefTony;
-	private MusicPlayer mus;
 
 	//private Animator ctanim;
 
@@ -13,7 +12,6 @@ public class S401Puppeteer : CutscenePuppeteer {
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
-		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 		//ctanim = ChefTony.GetComponent<Animator>();
 	}
 	
@@ -27,8 +25,7 @@ public class S401Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 7) {
 			if(ChefTony.transform.position.x > 13.85f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
-				StartCoroutine(FadeAndNext(Color.black, 2, "4-02 Temple Interior"));
-				mus.StopMusic(2.0f);
+				FadeAndNext(Color.black, 2, "4-02 Temple Interior", true);
 				
 				nextScene();
 			}

@@ -34,7 +34,7 @@ public class S704Puppeteer : CutscenePuppeteer {
 			}
 		} else if(CurrentScene == 2) {
 			if(timerIsGreaterThan(1.0f)) {
-				StartCoroutine(FadeAndNext(Color.black, 10.0f, null));
+				FadeAndNext(Color.black, 10.0f, null, false);
 				nextScene();
 			}
 		}

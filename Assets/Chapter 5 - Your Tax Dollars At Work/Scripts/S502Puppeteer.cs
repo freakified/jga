@@ -67,7 +67,7 @@ public class S502Puppeteer : CutscenePuppeteer {
 			ChefTony.GetComponent<ConstantVelocity>().enabled = true;
 			ChefTony.GetComponent<ConstantVelocity>().velocity = new Vector2(5.0f, 0.0f);
 		} else if (CurrentScene == 12) {
-			StartCoroutine(FadeAndNext(Color.black, 3.0f, "5-03 Inside Facility 1"));
+			FadeAndNext(Color.black, 3.0f, "5-03 Inside Facility 1", true);
 		}
 	}
 

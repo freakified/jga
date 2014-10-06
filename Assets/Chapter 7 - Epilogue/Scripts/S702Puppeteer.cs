@@ -25,7 +25,7 @@ public class S702Puppeteer : CutscenePuppeteer {
 			}
 		} else if(CurrentScene == 1) {
 			if(Camera.main.transform.position.x > 0.40f) {
-				StartCoroutine(FadeAndNext(Color.white, 5, "7-03 Fate of Chef Tony"));
+				FadeAndNext(Color.white, 5, "7-03 Fate of Chef Tony", false);
 				nextScene();
 			}
 		} else if(CurrentScene == 2) {

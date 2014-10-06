@@ -133,7 +133,7 @@ public class S301Puppeteer : CutscenePuppeteer {
 			Camera.main.orthographicSize = Mathf.Lerp(1.8f, 0.5f, elapsedTime / 10);
 			
 			if(elapsedTime / 10 > 0.5f && !fadingHasStarted) {
-				StartCoroutine(FadeAndNext(Color.white, 5, "4-01 Shrine Exterior"));
+				FadeAndNext(Color.white, 5, "4-01 Shrine Exterior", false);
 				fadingHasStarted = true;
 			} else if(elapsedTime / 10 > 0.9f && fadingHasStarted && !mp.fadingOut) {
 

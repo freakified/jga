@@ -13,7 +13,7 @@ public class S609aPuppeteer : CutscenePuppeteer {
 	// Update is called once per frame
 	public void FixedUpdate () {
 		if (timerIsGreaterThan (5f)) {
-			StartCoroutine(FadeAndNext(Color.white, 1.0f, "6-10 Atonement"));
+			FadeAndNext(Color.white, 1.0f, "6-10 Atonement", false);
 		}
 	}
 

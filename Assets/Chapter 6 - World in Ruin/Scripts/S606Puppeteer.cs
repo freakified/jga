@@ -55,7 +55,7 @@ public class S606Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 20) {
 			Daria.rigidbody2D.AddForce(Vector2.right * 500);
 		} else if(CurrentScene == 25) {
-			StartCoroutine(FadeAndNext(Color.white, 1.0f, "6-07 Fiddling contest"));
+			FadeAndNext(Color.white, 1.0f, "6-07 Fiddling contest", false);
 		}
 	}
 

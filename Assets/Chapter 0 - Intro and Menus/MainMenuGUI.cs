@@ -54,6 +54,7 @@ public class MainMenuGUI : MonoBehaviour {
 
 	private void beginGame() {
 		if(!buttonPressed) {
+			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(1.0f);
 			StartCoroutine(FadeAndNext(Color.black, 2.0f, "01 Elevator Entry"));
 
 			buttonPressed = true;
@@ -108,7 +109,6 @@ public class MainMenuGUI : MonoBehaviour {
 	private bool dirKeyDown = false;
 	
 	private bool input1IsDown = false;
-	private bool buttonKeyDown = true;
 
 	private void checkKeyControlFocus() {
 		float v = Input.GetAxis("Vertical");

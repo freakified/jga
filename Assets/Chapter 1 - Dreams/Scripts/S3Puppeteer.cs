@@ -61,7 +61,7 @@ public class S3Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 6) {
 			if(timerIsGreaterThan(0.3f)) {
 				stopTimer();
-				StartCoroutine(FadeAndNext(Color.white, 5, "2-01 Limbo"));
+				FadeAndNext(Color.white, 5, "2-01 Limbo", true);
 				nextScene();
 			}
 		}

@@ -52,7 +52,7 @@ public class S202Puppeteer : CutscenePuppeteer {
 			if(ChefTony.transform.position.x > 0.38f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
 				playSound(phonePickup);
-				StartCoroutine(FadeAndNext(Color.black, 2, "2-03 Inside Payphone"));
+				FadeAndNext(Color.black, 2, "2-03 Inside Payphone", false);
 				nextScene();
 			}
 		} 

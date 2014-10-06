@@ -19,7 +19,7 @@ public class S501Puppeteer : CutscenePuppeteer {
 		if (CurrentScene == 4) {
 			if (ChefTony.transform.position.x > 1.2f) {
 				ChefTony.GetComponent<PlayerFreeze>().Freeze();
-				StartCoroutine(FadeAndNext(Color.black, 2.0f, "5-02 Outside Facility 2"));
+				FadeAndNext(Color.black, 2.0f, "5-02 Outside Facility 2", false);
 				nextScene();
 			}
 		}

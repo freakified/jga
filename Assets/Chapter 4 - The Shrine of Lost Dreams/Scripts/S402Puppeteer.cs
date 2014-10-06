@@ -97,7 +97,7 @@ public class S402Puppeteer : CutscenePuppeteer {
 
 			//around the middle of the music, jump to the next scene "limbo"
 			if(timerIsGreaterThan (3.5f)) {
-				StartCoroutine(FadeAndNext(Color.white, 4.0f, "4-03 Limbo"));
+				FadeAndNext(Color.white, 4.0f, "4-03 Limbo", false);
 				ChefTony.rigidbody2D.AddForce(new Vector2(-300, 100));
 				nextScene();
 			}

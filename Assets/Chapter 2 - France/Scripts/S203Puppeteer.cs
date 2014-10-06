@@ -29,7 +29,7 @@ public class S203Puppeteer : CutscenePuppeteer {
 			mp.PlayMusic(evilMusic, false);
 		} else if (CurrentScene == 28) {
 			playSound(hangupSound);
-			StartCoroutine(FadeAndNext(Color.black, 2, "2-04 France 2"));
+			FadeAndNext(Color.black, 2, "2-04 France 2", true);
 		}
 	}
 

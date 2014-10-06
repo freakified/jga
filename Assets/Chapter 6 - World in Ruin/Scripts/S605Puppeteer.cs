@@ -39,7 +39,7 @@ public class S605Puppeteer : CutscenePuppeteer {
 		} else if(CurrentScene == 10) {
 			if(timerIsGreaterThan(11.0f)) {
 				playSound(LightsActivateSound);
-				StartCoroutine(FadeAndNext(Color.white, 1f, "6-06 Courting death"));
+				FadeAndNext(Color.white, 1f, "6-06 Courting death", false);
 				nextScene();
 			}
 		}

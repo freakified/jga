@@ -14,7 +14,7 @@ public class S201Puppeteer : CutscenePuppeteer {
 	public void FixedUpdate () {
 
 		if(CurrentScene == 3) {
-			StartCoroutine(FadeAndNext(Color.white, 0, "2-02 France 1"));
+			FadeAndNext(Color.white, 0, "2-02 France 1", false);
 			nextScene();
 		}
 		

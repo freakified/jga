@@ -73,7 +73,7 @@ public class S609Puppeteer : CutscenePuppeteer {
 			ExplosionFlare.brightness += 1.0f * Time.fixedDeltaTime;
 			
 			if(ExplosionFlare.brightness > 5f) {
-				StartCoroutine(FadeAndNext(Color.white, 1f, "6-09a Limbo"));
+				FadeAndNext(Color.white, 1f, "6-09a Limbo", false);
 				nextScene();
 
 			}
