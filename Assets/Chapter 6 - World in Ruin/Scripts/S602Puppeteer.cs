@@ -7,12 +7,18 @@ public class S602Puppeteer : CutscenePuppeteer {
 	public AudioClip RainSound;
 
 	private GameObject ChefTony, James;
+
+	private List<Rigidbody2D> junk;
+
+	private bool junkHasBeenDumped = false;
 	
 	// Use this for initialization
 	void Start () {
 		// get all the objects we'll need for the cutscene 
 		ChefTony = GameObject.Find ("Chef Tony");
 		James = GameObject.Find ("James");
+
+		junk = new List<Rigidbody2D>(GameObject.Find ("RandomJunk").GetComponentsInChildren<Rigidbody2D>());
 
 		playSound(RainSound);
 		startTimer();
@@ -86,6 +92,14 @@ public class S602Puppeteer : CutscenePuppeteer {
 				James.rigidbody2D.Sleep();
 			}
      	}
+
+		if(!junkHasBeenDumped && CurrentScene >=16 && ChefTony.transform.position.x < -23.12f) {
+			dumpJunkEasterEgg();
+		}
+	}
+
+	private void dumpJunkEasterEgg() {
+		junk.ForEach(thing => thing.isKinematic = false);
 	}
 
 	public override void HandleSceneChange() {
