@@ -8,6 +8,7 @@ public class S001Puppeteer : CutscenePuppeteer {
 		
 	// Use this for initialization
 	void Start () {
+		Screen.showCursor = false;
 		startTimer();
 	}
 	

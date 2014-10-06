@@ -18,6 +18,8 @@ public class MainMenuGUI : MonoBehaviour {
 		GUI.skin = guiSkin;
 		scaleGUI(guiSkin);
 
+		GUILayout.BeginArea(AspectUtility.screenRect);
+
 		GUILayout.BeginArea(new Rect(scalePx(20), (Screen.height - scalePx(110)) , scalePx(200), scalePx(200)));
 
 		numberOfButtonsVisible = 0;
@@ -44,6 +46,7 @@ public class MainMenuGUI : MonoBehaviour {
 
 
 
+		GUILayout.EndArea();
 		GUILayout.EndArea();
 
 		checkKeyControlFocus();

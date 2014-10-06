@@ -14,8 +14,8 @@ PlayerSettings:
   productName: JGA
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  defaultScreenWidth: 1024
-  defaultScreenHeight: 768
+  defaultScreenWidth: 32000
+  defaultScreenHeight: 32000
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_RenderingPath: 1
@@ -36,9 +36,9 @@ PlayerSettings:
   use32BitDisplayBuffer: 1
   use24BitDepthBuffer: 1
   defaultIsFullScreen: 1
-  defaultIsNativeResolution: 1
+  defaultIsNativeResolution: 0
   runInBackground: 0
-  captureSingleScreen: 0
+  captureSingleScreen: 1
   Override IPod Music: 0
   Prepare IOS For Recording: 0
   enableHWStatistics: 1
@@ -53,18 +53,18 @@ PlayerSettings:
   xboxEnableKinect: 0
   xboxEnableKinectAutoTracking: 0
   xboxEnableFitness: 0
-  macFullscreenMode: 2
-  d3d9FullscreenMode: 1
+  macFullscreenMode: 0
+  d3d9FullscreenMode: 0
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
   videoMemoryForVertexBuffers: 0
   m_SupportedAspectRatios:
-    4:3: 0
-    5:4: 0
-    16:10: 0
+    4:3: 1
+    5:4: 1
+    16:10: 1
     16:9: 1
-    Others: 0
+    Others: 1
   iPhoneBundleIdentifier: com.freakified.jga
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0

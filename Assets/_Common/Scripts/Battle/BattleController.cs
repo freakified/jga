@@ -102,6 +102,9 @@ public class BattleController : MonoBehaviour {
 			//set theme and scale gui to match resolution
 			GUI.skin = guiSkin;
 			scaleGUI(guiSkin);
+
+			// enforce 16:9 aspect ratio
+			GUILayout.BeginArea(AspectUtility.screenRect);
 			
 			// draw the player combatants' data
 			drawPlayerInfo();
@@ -187,6 +190,8 @@ public class BattleController : MonoBehaviour {
 				}
 
 			}
+
+			GUILayout.EndArea();
 		}
 	}
 
@@ -238,7 +243,9 @@ public class BattleController : MonoBehaviour {
 
 		//delay before accepting input, to prevent collisions with cutscene prompts
 		if(elapsedTime > 0.5f) {
-			input1IsDown = Input.GetButtonDown("Select");
+			if(!Input.GetKeyDown(KeyCode.Space)) {
+				input1IsDown = Input.GetButtonDown("Select");
+			}
 			input2IsDown = Input.GetButtonDown("Cancel");
 		}
 	}
@@ -456,7 +463,7 @@ public class BattleController : MonoBehaviour {
 	/// </summary>
 	private void drawPlayerInfo () {
 		int areaHeight = scalePx (30 * PlayerCombatants.Count + 10);
-		GUILayout.BeginArea (new Rect (0, Screen.height - areaHeight, scalePx (180), areaHeight), guiSkin.customStyles [0]);
+		GUILayout.BeginArea (new Rect (0, AspectUtility.screenRect.height - areaHeight, scalePx (180), areaHeight), guiSkin.customStyles [0]);
 
 		for (int i = 0; i < PlayerCombatants.Count; i++) {
 			GUILayout.BeginHorizontal ();
@@ -559,7 +566,7 @@ public class BattleController : MonoBehaviour {
 		// if the enemies are defeated, bring everyone back to life:
 		PlayerCombatants.ForEach (c => c.Heal(c.MaxHitPoints));
 
-		// for now, don't disable battler collision to see if this
+		// for now, don't re-enable battler collision to see if this
 		// fixes our issue with colliding with corpses
 		//Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}

@@ -100,7 +100,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 		// 10
 		c.Number = currentNum;
 		c.DisplayName = "The Ultimate Game";
-		c.SceneName = "6-07 Fidding contest";
+		c.SceneName = "6-07 Fiddling contest";
 		chapters.Add (c);
 		currentNum++;
 
@@ -117,7 +117,9 @@ public class ChapterSelectGUI : MonoBehaviour {
 		GUI.skin = guiSkin;
 		scaleGUI(guiSkin);
 
-		GUILayout.BeginArea(new Rect(scalePx(15), scalePx(50), Screen.width - scalePx(20), Screen.height - scalePx(40)));
+		GUILayout.BeginArea(AspectUtility.screenRect);
+		
+		GUILayout.BeginArea(new Rect(scalePx(15), scalePx(60), Screen.width - scalePx(20), Screen.height - scalePx(40)));
 
 		numberOfButtonsVisible = 0;
 
@@ -145,6 +147,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 			GUILayout.EndHorizontal();
 		}
 
+		GUILayout.EndArea();
 		GUILayout.EndArea();
 
 		checkKeyControlFocus();

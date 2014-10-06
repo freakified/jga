@@ -3,9 +3,11 @@ using System.Collections;
 
 public class ImmersiveModeEnabler : MonoBehaviour {
 
+	#if UNITY_ANDROID
 	AndroidJavaObject unityActivity;
 	AndroidJavaObject javaObj;
 	AndroidJavaClass javaClass;
+	#endif
 
 	void Awake()
 	{

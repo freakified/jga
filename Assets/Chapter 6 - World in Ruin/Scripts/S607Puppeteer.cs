@@ -71,7 +71,7 @@ public class S607Puppeteer : CutscenePuppeteer {
 	}
 
 	public override void HandleSceneChange() {
-		if(CurrentScene == 5 || 
+		if(CurrentScene == 4 || 
 		   CurrentScene == 7 || 
 		   CurrentScene == 10 || 
 		   CurrentScene == 12 ||
@@ -108,7 +108,7 @@ public class S607Puppeteer : CutscenePuppeteer {
 			// don't count the FB's turn
 			if(bc.currentTurn != 2) {
 				if(CurrentScene == 1 ||
-				   CurrentScene == 5 || 
+				   CurrentScene == 4 || 
 				   CurrentScene == 7 || 
 				   CurrentScene == 10 || 
 				   CurrentScene == 12 ||
