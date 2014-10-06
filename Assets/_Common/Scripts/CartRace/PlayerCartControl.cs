@@ -11,7 +11,7 @@ public class PlayerCartControl : MonoBehaviour {
 	public float forwardSpeed = 5f;				// The fastest the player can travel in the x axis.
 	public float turnSpeed = 4f;
 
-	public AudioClip smashSound;
+	public AudioClip smashSound, bigSmash;
 
 	public int maxHP = 4;
 	private int currentHP;
@@ -77,13 +77,9 @@ public class PlayerCartControl : MonoBehaviour {
 			if(!levelIsEnding && transform.position.x > 208.4) {
 				levelIsEnding = true;
 
-				//todo: use a better smash sound
-				AudioSource.PlayClipAtPoint(smashSound, Camera.main.transform.position);
+				AudioSource.PlayClipAtPoint(bigSmash, Camera.main.transform.position);
 
-				//kill the music
-				mp.StopMusic(1.0f);
-
-				StartCoroutine(EndLevel());
+				FadeAndNext(Color.black, 2, "3-01 Limbo");
 			} 
 		
 		}
@@ -118,27 +114,53 @@ public class PlayerCartControl : MonoBehaviour {
 			}
 		} else {
 			//create and play the explosion animation
-			explosion = Instantiate(explosionPrefab) as ParticleSystem;
-			explosion.transform.position = transform.position;
-			explosion.transform.parent = transform;
-			explosion.Play();
-			Destroy(explosion, explosion.duration);
+			if(!gameOverInProgress) {
+				explosion = Instantiate(explosionPrefab) as ParticleSystem;
+				explosion.transform.position = transform.position;
+				explosion.transform.parent = transform;
+				explosion.Play();
+				//Destroy(explosion, explosion.duration);
 
-			//because chef tony shall burn
-			particleSystem.emissionRate *= 2; 
+				//because chef tony shall burn
+				particleSystem.emissionRate *= 2; 
 
-			forwardSpeed = 0;
-			turnSpeed = 0;
+				forwardSpeed = 0;
+				turnSpeed = 0;
+			}
+
+			//trigger the end
+			gameOver();
+
 		}
 	}
 
-	protected IEnumerator EndLevel() {
-		CameraFade fader = Camera.main.GetComponent<CameraFade>();
+	private bool gameOverInProgress = false;
+	
+	private void gameOver() {
+		if(!gameOverInProgress) {
+			FadeAndNext(Color.black, 5, "x-01 Game Over", true);
+			gameOverInProgress = true;
+		}
+	}
 
-		fader.SetScreenOverlayColor (new Color(0, 0, 0, 0));
-		fader.StartFade(Color.black, 2);
-		yield return new WaitForSeconds(2);
-		Application.LoadLevel("3-01 Limbo");
+	// TODO make this code not repeat everywhere
+	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
+		
+		if(fadeMusic && GameObject.Find("BGM")) {
+			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
+		}
+		
+		StartCoroutine(FadeAndNext(fadeTo, seconds, nextScene));
+	}
+	
+	private IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
+		CameraFade fader = Camera.main.GetComponent<CameraFade>();
+		
+		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
+		fader.StartFade(fadeTo, seconds);
+		yield return new WaitForSeconds(seconds);
+		if(nextScene != null)
+			Application.LoadLevel(nextScene);
 	}
 
 }

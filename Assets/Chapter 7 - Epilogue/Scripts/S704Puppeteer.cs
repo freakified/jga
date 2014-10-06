@@ -21,7 +21,7 @@ public class S704Puppeteer : CutscenePuppeteer {
 	public void FixedUpdate () {
 		if(CurrentScene == 0) {
 			if(Camera.main.transform.position.z < 100) {
-				cameraForce.drag = 0.5f;
+				cameraForce.drag = 0.75f;
 				nextScene();
 			}
 
@@ -33,7 +33,7 @@ public class S704Puppeteer : CutscenePuppeteer {
 				nextScene();
 			}
 		} else if(CurrentScene == 2) {
-			if(timerIsGreaterThan(1.0f)) {
+			if(timerIsGreaterThan(5.0f)) {
 				FadeAndNext(Color.black, 10.0f, null, false);
 				nextScene();
 			}

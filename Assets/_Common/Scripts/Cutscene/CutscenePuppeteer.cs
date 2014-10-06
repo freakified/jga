@@ -82,7 +82,7 @@ abstract public class CutscenePuppeteer : MonoBehaviour {
 		soundSource.Stop();
 	}
 
-	protected void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
+	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
 		if(fadeMusic) {
 			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
 		}

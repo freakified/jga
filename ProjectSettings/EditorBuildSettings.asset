@@ -89,3 +89,5 @@ EditorBuildSettings:
     path: Assets/Chapter 7 - Epilogue/Scenes/7-03 Fate of Chef Tony.unity
   - enabled: 1
     path: Assets/Chapter 7 - Epilogue/Scenes/7-04 Title Card.unity
+  - enabled: 1
+    path: Assets/Chapter 0 - Intro and Menus/x-01 Game Over.unity

@@ -551,8 +551,13 @@ public class BattleController : MonoBehaviour {
 		}
 	}
 
+	private bool gameOverInProgress = false;
+
 	private void playersDefeated() {
-		// TODO go to game over screen or lose lives or something
+		if(!gameOverInProgress) {
+			FadeAndNext(Color.black, 5, "x-01 Game Over", true);
+			gameOverInProgress = true;
+		}
 	}
 
 	private void enemiesDefeated() {
@@ -569,6 +574,26 @@ public class BattleController : MonoBehaviour {
 		// for now, don't re-enable battler collision to see if this
 		// fixes our issue with colliding with corpses
 		//Physics2D.IgnoreLayerCollision(10, 10, false); 
+	}
+
+	// TODO make this code not repeat everywhere
+	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
+
+		if(fadeMusic && GameObject.Find("BGM")) {
+			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
+		}
+		
+		StartCoroutine(FadeAndNext(fadeTo, seconds, nextScene));
+	}
+	
+	private IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
+		CameraFade fader = Camera.main.GetComponent<CameraFade>();
+
+		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
+		fader.StartFade(fadeTo, seconds);
+		yield return new WaitForSeconds(seconds);
+		if(nextScene != null)
+			Application.LoadLevel(nextScene);
 	}
 	
 }
