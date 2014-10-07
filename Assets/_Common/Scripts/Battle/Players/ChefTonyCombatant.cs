@@ -30,7 +30,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 
 		//set up basic stats
 		MaxHitPoints = 100;
-		HitPoints = 10;
+		HitPoints = 100;
 		anim.SetInteger("HP", HitPoints);
 
 		//set up the list of attacks

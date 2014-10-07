@@ -120,7 +120,7 @@ public class MainMenuGUI : MonoBehaviour {
 	private bool input1IsDown = false;
 
 	private void checkKeyControlFocus() {
-		float v = Input.GetAxis("Vertical");
+		float v = Input.GetAxisRaw("Vertical");
 		
 		if(!dirKeyDown) { 
 			if(v != 0) {

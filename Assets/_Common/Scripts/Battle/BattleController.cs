@@ -30,7 +30,7 @@ public class BattleController : MonoBehaviour {
 	private int totalCombatants;
 
 	// battle state globals
-	private bool battleEnabled = false;
+	public bool battleEnabled = false;
 	public int currentTurn { get; private set; }
 	private BattleTurnState turnState;
 
@@ -494,7 +494,7 @@ public class BattleController : MonoBehaviour {
 	/// Checks for the keys controlling the focus (input up/down)
 	/// </summary>
 	private void checkKeyControlFocus() {
-		float v = Input.GetAxis("Vertical");
+		float v = Input.GetAxisRaw("Vertical");
 
 		if(!dirKeyDown) { 
 			if(v != 0) {
@@ -591,7 +591,7 @@ public class BattleController : MonoBehaviour {
 
 		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
 		fader.StartFade(fadeTo, seconds);
-		yield return new WaitForSeconds(seconds);
+		yield return new WaitForSeconds(seconds/2);
 		if(nextScene != null)
 			Application.LoadLevel(nextScene);
 	}

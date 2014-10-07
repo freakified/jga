@@ -52,10 +52,9 @@ public class S610Puppeteer : CutscenePuppeteer {
 		if(CurrentScene == 1) {
 			mus.PlayMusic();
 
-		} else if(CurrentScene == 31) {
-			mus.StopMusic(1);
 		} else if(CurrentScene == 32) {
 			playSound(Explosion);
+			mus.StopMusic(3);
 
 			riftParticles.Play();
 

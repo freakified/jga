@@ -214,7 +214,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 	private bool dirKeyDownH = false;
 
 	private void checkKeyControlFocus() {
-		float v = Input.GetAxis("Vertical");
+		float v = Input.GetAxisRaw("Vertical");
 		
 		if(!dirKeyDownV) { 
 			if(v != 0) {
@@ -240,7 +240,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 			}
 		}
 
-		float h = Input.GetAxis("Horizontal");
+		float h = Input.GetAxisRaw("Horizontal");
 		
 		if(!dirKeyDownH) { 
 

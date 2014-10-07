@@ -15,6 +15,8 @@ public class CutsceneController : MonoBehaviour {
 	public GUIText dialogText;
 	public Transform textBox;
 	public GUIText dialogNextText;
+	
+	public bool pauseDialog;
 
 	/// <summary>
 	/// Enables quick skip mode, which allows for text to be skipped through instantly.
@@ -69,40 +71,42 @@ public class CutsceneController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//if the [spacebar] indicator is displayed, and the person presses Fire1, 
-		// then go to the next dialog
-		if((Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) && dialogNextText.enabled) {
-			dialogNextText.enabled = false;
-			playNext();
-		}
+		if(!pauseDialog) {
 
-		//if we're currently showing dialog, then start scrolling it
-		if(dialogText.enabled) {
-			// if there's still text left to show
-			if(currentChar < cutsceneElements[cutscenePosition - 1].dialogText.Length) {
+			//if the [spacebar] indicator is displayed, and the person presses Fire1, 
+			// then go to the next dialog
+			if((Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) && dialogNextText.enabled) {
+				dialogNextText.enabled = false;
+				playNext();
+			}
 
-				//ensure that we don't accidentally blow past the end of the string
-				currentChar = Mathf.Min(
-					currentChar + textSpeed * Time.deltaTime,
-					cutsceneElements[cutscenePosition - 1].dialogText.Length);
+			//if we're currently showing dialog, then start scrolling it
+			if(dialogText.enabled) {
+				// if there's still text left to show
+				if(currentChar < cutsceneElements[cutscenePosition - 1].dialogText.Length) {
 
-				dialogTextWrapper.SetText(
-					cutsceneElements[cutscenePosition - 1].dialogText.Substring(0, (int)currentChar)
-				);
-			} else {
-				if(cutsceneElements[cutscenePosition - 1].allowPlayerAdvance)
-					dialogNextText.enabled = true;
+					//ensure that we don't accidentally blow past the end of the string
+					currentChar = Mathf.Min(
+						currentChar + textSpeed * Time.deltaTime,
+						cutsceneElements[cutscenePosition - 1].dialogText.Length);
+
+					dialogTextWrapper.SetText(
+						cutsceneElements[cutscenePosition - 1].dialogText.Substring(0, (int)currentChar)
+					);
+				} else {
+					if(cutsceneElements[cutscenePosition - 1].allowPlayerAdvance)
+						dialogNextText.enabled = true;
+
+				}
+
+				if(enableQuickSkip == true && (Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) && currentChar > 3) {
+					dialogTextWrapper.SetText(cutsceneElements[cutscenePosition - 1].dialogText);
+					currentChar = cutsceneElements[cutscenePosition - 1].dialogText.Length;
+				}
 
 			}
 
-			if(enableQuickSkip == true && (Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) && currentChar > 3) {
-				dialogTextWrapper.SetText(cutsceneElements[cutscenePosition - 1].dialogText);
-				currentChar = cutsceneElements[cutscenePosition - 1].dialogText.Length;
-			}
-
 		}
-
-
 	}
 
 	/// <summary>
