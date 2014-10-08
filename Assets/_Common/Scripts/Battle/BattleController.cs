@@ -4,16 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class BattleController : MonoBehaviour {
-	public GUISkin guiSkin;
-
-	/// <summary>
-	/// The width of the screen at the desired resolution.
-	/// Used to scale the GUI
-	/// </summary>
-	public int TargetScreenWidth = 640;
-
-	public AudioClip CursorMoveSound;
+public class BattleController : BasicGUI {
 
 	public List<BattleCombatant> PlayerCombatants;
 	public List<BattleCombatant> EnemyCombatants;
@@ -38,20 +29,12 @@ public class BattleController : MonoBehaviour {
 	private PlayerAttack selectedAttack;
 	private BattleCombatant selectedTarget;
 
-	// keyboard control globals
-	private int numberOfButtonsVisible = 0;
-	private int currentButtonSelection = 0;
-	private bool dirKeyDown = false;
-
-	private bool input1IsDown = false;
-	private bool input2IsDown = false;
-
-	private bool buttonKeyDown = true;
-
-	private float elapsedTime = 0;
+	protected bool buttonKeyDown = false;
 
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
+		base.Start();
+
 		if(EnabledAtStart)
 			Invoke("StartBattle", DelayBeforeAutoStart);
 
@@ -62,6 +45,7 @@ public class BattleController : MonoBehaviour {
 
 		turnState = BattleTurnState.Attacking;
 		battleEnabled = true;
+		keyboardControlEnabled = true;
 
 		// ignore collision with other battlers
 		Physics2D.IgnoreLayerCollision(10, 10, true); 
@@ -86,22 +70,24 @@ public class BattleController : MonoBehaviour {
 
 	public void PauseBattle() {
 		battleEnabled = false;
+		keyboardControlEnabled = false;
 
 		Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}
 
 	public void ResumeBattle() {
 		battleEnabled = true;
+		keyboardControlEnabled = true;
+
 		Physics2D.IgnoreLayerCollision(10, 10, true); 
 	}
 
-	void OnGUI () {
+	public override void OnGUI () {
+		base.OnGUI();
+
 		// if the battle has started...
 		if(battleEnabled) {
 
-			//set theme and scale gui to match resolution
-			GUI.skin = guiSkin;
-			scaleGUI(guiSkin);
 
 			// enforce 16:9 aspect ratio
 			GUILayout.BeginArea(AspectUtility.screenRect);
@@ -199,57 +185,6 @@ public class BattleController : MonoBehaviour {
 		return currentTurn < PlayerCombatants.Count;
 	}
 
-	private void scaleGUI(GUISkin guiSkin) {
-		//fonts
-		guiSkin.label.fontSize = scalePx (16);
-		guiSkin.customStyles[1].fontSize = scalePx (16);
-		guiSkin.customStyles[2].fontSize = scalePx (14);
-		guiSkin.customStyles[3].fontSize = scalePx (12);
-		guiSkin.button.fontSize = scalePx (16);
-		
-		//padding for label styles
-		guiSkin.label.padding.top = scalePx (5);
-		guiSkin.customStyles[1].padding.top = scalePx (5);
-		guiSkin.customStyles[0].padding.top = scalePx (5);
-		guiSkin.customStyles[0].padding.bottom = scalePx (10);
-		guiSkin.customStyles[0].padding.left = scalePx (10);
-		guiSkin.customStyles[0].padding.right = scalePx (10);
-
-		//padding for buttons
-		guiSkin.button.margin.left = scalePx (20);
-		guiSkin.button.margin.top = scalePx (4);
-		guiSkin.button.margin.bottom = scalePx (4);
-		guiSkin.button.padding.left = scalePx (10);
-		guiSkin.button.padding.top = scalePx (3);
-		guiSkin.button.padding.bottom = scalePx (3);
-
-		// reset things
-		guiSkin.button.alignment = TextAnchor.MiddleLeft;
-		guiSkin.button.fixedWidth = 0;
-	}
-
-	private int scalePx(int targetSize) {
-		return (int)((targetSize * Screen.width) / TargetScreenWidth);
-	}
-
-	void Update() {
-		//in our update method, we'll check for inputs
-
-		if(battleEnabled) {
-			elapsedTime += Time.deltaTime;
-		} else {
-			elapsedTime = 0;
-		}
-
-		//delay before accepting input, to prevent collisions with cutscene prompts
-		if(elapsedTime > 0.5f) {
-			if(!Input.GetKeyDown(KeyCode.Space)) {
-				input1IsDown = Input.GetButtonDown("Select");
-			}
-			input2IsDown = Input.GetButtonDown("Cancel");
-		}
-	}
-	
 /// <summary>
 /// Draws the attack selection window. Should only be called within the OnGUI function
 /// </summary>
@@ -489,39 +424,7 @@ public class BattleController : MonoBehaviour {
 
 		GUILayout.EndArea ();
 	}
-
-	/// <summary>
-	/// Checks for the keys controlling the focus (input up/down)
-	/// </summary>
-	private void checkKeyControlFocus() {
-		float v = Input.GetAxisRaw("Vertical");
-
-		if(!dirKeyDown) { 
-			if(v != 0) {
-				if(v < 0) {
-					currentButtonSelection++;
-				} else {
-					currentButtonSelection--;
-				}
-
-				if(currentButtonSelection < numberOfButtonsVisible && currentButtonSelection >= 0) {
-					AudioSource.PlayClipAtPoint(CursorMoveSound, Camera.main.transform.position);
-				} else {
-					currentButtonSelection = Mathf.Clamp(currentButtonSelection, 0, numberOfButtonsVisible - 1);
-				}
-
-				dirKeyDown = true;
-			}
-		} else {
-			if(v == 0) {
-				dirKeyDown = false;
-			}
-		}
-
-		GUI.FocusControl(currentButtonSelection.ToString());
-
-	}
-
+	
 	private void checkForVictory () {
 		if (PlayerCombatants.Find ((BattleCombatant c) => c.HitPoints > 0 && c.participatingInBattle) == null) {
 			//this means the players are all dead and/or not participating

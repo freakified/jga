@@ -62,6 +62,7 @@ public class MusicPlayer : MonoBehaviour {
 		soundSource.volume = 1.0f;
 		fadingOut = false;
 		music = newMusic;
+
 		soundSource.loop = shouldLoop;
 		
 		if(newMusic != null) {
