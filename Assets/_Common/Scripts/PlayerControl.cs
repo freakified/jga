@@ -48,7 +48,7 @@ public class PlayerControl : MonoBehaviour
 	void FixedUpdate ()
 	{
 		// Cache the horizontal input.
-		float h = Input.GetAxis("Horizontal");
+		float h = Input.GetAxisRaw("Horizontal");
 
 		// check for touch input
 		if(Input.touchCount > 0) {

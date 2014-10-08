@@ -9,7 +9,7 @@ public class PlayerCartControl : MonoBehaviour {
 
 	
 	public float forwardSpeed = 5f;				// The fastest the player can travel in the x axis.
-	public float turnSpeed = 4f;
+	private float turnSpeed = 6f;
 
 	public AudioClip smashSound, bigSmash;
 

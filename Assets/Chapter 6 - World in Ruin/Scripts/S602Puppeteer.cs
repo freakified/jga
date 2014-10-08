@@ -94,6 +94,7 @@ public class S602Puppeteer : CutscenePuppeteer {
      	}
 
 		if(!junkHasBeenDumped && CurrentScene >=16 && ChefTony.transform.position.x < -23.12f) {
+			Physics2D.IgnoreLayerCollision(11, 12);
 			dumpJunkEasterEgg();
 		}
 	}

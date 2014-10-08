@@ -16837,10 +16837,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 5
-  turnSpeed: 8
   smashSound: {fileID: 8300000, guid: 8e371be3da0b240b7b42165595bc7179, type: 3}
   bigSmash: {fileID: 8300000, guid: 3095befa143324337a52b6f08656eca4, type: 3}
-  maxHP: 1
+  maxHP: 10
   smokeEmissionMin: 50
   smokeEmissionMax: 200
   explosionPrefab: {fileID: 19800000, guid: 167115e3563c7436f87b011f61e120dd, type: 2}
