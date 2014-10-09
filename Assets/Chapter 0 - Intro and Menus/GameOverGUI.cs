@@ -8,7 +8,7 @@ public class GameOverGUI : BaseGUI {
 	public override void Start() {
 		base.Start();
 
-		keyboardControlEnabled = true;
+		guiControlEnabled = true;
 	}
 
 	public override void OnGUI() {
@@ -32,7 +32,7 @@ public class GameOverGUI : BaseGUI {
 
 	private void goToMainMenu() {
 		if(!goingToMainMenu) {
-			//FadeAndNext(Color.black, 2.0f, "0-03 Main menu", true);
+			Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 2.0f, "0-03 Main menu", true);
 
 			goingToMainMenu = true;
 		}

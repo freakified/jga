@@ -9,8 +9,8 @@ public class BaseGUI : MonoBehaviour {
 	// gui scaling info
 	protected int targetScreenWidth = 640;
 
-	// keyboard control globals
-	protected bool keyboardControlEnabled = false;
+	// control (mostly keyboard/input) globals
+	protected bool guiControlEnabled = false;
 
 	protected int numberOfButtonsVisible = 0;
 	protected int currentButtonSelection = 0;
@@ -21,18 +21,16 @@ public class BaseGUI : MonoBehaviour {
 
 	public virtual void Start() {
 		//load menu select sound
-		cursorMoveSound = (AudioClip)Resources.LoadAssetAtPath(
-			"Assets/_Common/Sounds/menu_select.wav", typeof(AudioClip));
+		cursorMoveSound = Resources.Load<AudioClip>("menu_select");
 
 		//load gui skin
-		guiSkin = (GUISkin)Resources.LoadAssetAtPath(
-			"Assets/_Common/Materials/DefaultSkin.guiskin", typeof(GUISkin));
+		guiSkin = Resources.Load<GUISkin>("DefaultSkin");
 	}
 
 	public virtual void Update() {
 		//check for inputs
 
-		if(keyboardControlEnabled) {
+		if(guiControlEnabled) {
 			elapsedTime += Time.deltaTime;
 		} else {
 			elapsedTime = 0;
@@ -50,10 +48,10 @@ public class BaseGUI : MonoBehaviour {
 	}
 
 	public virtual void OnGUI() {
-		GUI.skin = guiSkin;
-		scaleGUI(guiSkin);
+		if(guiControlEnabled) {
+			GUI.skin = guiSkin;
+			scaleGUI(guiSkin);
 
-		if(keyboardControlEnabled) {
 			GUI.FocusControl(currentButtonSelection.ToString());
 
 		}

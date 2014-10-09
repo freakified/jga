@@ -45,7 +45,7 @@ public class BattleController : BaseGUI {
 
 		turnState = BattleTurnState.Attacking;
 		battleEnabled = true;
-		keyboardControlEnabled = true;
+		guiControlEnabled = true;
 
 		// ignore collision with other battlers
 		Physics2D.IgnoreLayerCollision(10, 10, true); 
@@ -70,14 +70,14 @@ public class BattleController : BaseGUI {
 
 	public void PauseBattle() {
 		battleEnabled = false;
-		keyboardControlEnabled = false;
+		guiControlEnabled = false;
 
 		Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}
 
 	public void ResumeBattle() {
 		battleEnabled = true;
-		keyboardControlEnabled = true;
+		guiControlEnabled = true;
 
 		Physics2D.IgnoreLayerCollision(10, 10, true); 
 	}
@@ -458,7 +458,7 @@ public class BattleController : BaseGUI {
 
 	private void playersDefeated() {
 		if(!gameOverInProgress) {
-			FadeAndNext(Color.black, 5, "x-01 Game Over", true);
+			Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 5, "x-01 Game Over", true);
 			gameOverInProgress = true;
 		}
 	}
@@ -474,29 +474,8 @@ public class BattleController : BaseGUI {
 		// if the enemies are defeated, bring everyone back to life:
 		PlayerCombatants.ForEach (c => c.Heal(c.MaxHitPoints));
 
-		// for now, don't re-enable battler collision to see if this
-		// fixes our issue with colliding with corpses
+		// don't re-enable battler collision to avoid collisions with corpses
 		//Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}
 
-	// TODO make this code not repeat everywhere
-	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
-
-		if(fadeMusic && GameObject.Find("BGM")) {
-			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
-		}
-		
-		StartCoroutine(FadeAndNext(fadeTo, seconds, nextScene));
-	}
-	
-	private IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
-		CameraFade fader = Camera.main.GetComponent<CameraFade>();
-
-		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
-		fader.StartFade(fadeTo, seconds);
-		yield return new WaitForSeconds(seconds/2);
-		if(nextScene != null)
-			Application.LoadLevel(nextScene);
-	}
-	
 }

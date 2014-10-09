@@ -8,7 +8,7 @@ public class MainMenuGUI : BaseGUI {
 	public override void Start() {
 		base.Start();
 
-		keyboardControlEnabled = true;
+		guiControlEnabled = true;
 
 		currentSave = PlayerPrefs.GetInt("HighestCompletedChapter", -1);
 	}
@@ -75,7 +75,7 @@ public class MainMenuGUI : BaseGUI {
 	private void beginGame() {
 		if(!actionTaken) {
 			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(1.0f);
-			StartCoroutine(FadeAndNext(Color.black, 2.0f, "01 Elevator Entry"));
+			Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 2.0f, "01 Elevator Entry");
 			
 			actionTaken = true;
 		}
@@ -89,16 +89,5 @@ public class MainMenuGUI : BaseGUI {
 			actionTaken = true;
 		}	
 	}
-
-
 	
-	protected IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
-		CameraFade fader = Camera.main.GetComponent<CameraFade>();
-		
-		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
-		fader.StartFade(fadeTo, seconds);
-		yield return new WaitForSeconds(seconds);
-		if(nextScene != null)
-			Application.LoadLevel(nextScene);
-	}
 }

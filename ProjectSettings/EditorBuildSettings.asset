@@ -5,89 +5,89 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 0 - Intro and Menus/0-01 Title Card 1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 0 - Intro and Menus/0-03 Main Menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 0 - Intro and Menus/0-04 Chapter Selection.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 1 - Dreams/Scenes/01 Elevator Entry.unity
   - enabled: 1
     path: Assets/Chapter 1 - Dreams/Scenes/02 Elevator Entry 2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 1 - Dreams/Scenes/03 Elevator Entry 3.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 2 - France/Scenes/2-01 Limbo.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 2 - France/Scenes/2-02 France 1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 2 - France/Scenes/2-03 Inside Payphone.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 2 - France/Scenes/2-04 France 2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 2 - France/Scenes/2-05 Cart Race.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 3 - A No-Kill Home/Scenes/3-01 Limbo.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 3 - A No-Kill Home/Scenes/3-10 Orphanage.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 4 - The Shrine of Lost Dreams/Scenes/4-01 Shrine Exterior.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 4 - The Shrine of Lost Dreams/Scenes/4-02 Temple Interior.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 4 - The Shrine of Lost Dreams/Scenes/4-03 Limbo.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 4 - The Shrine of Lost Dreams/Scenes/4-04 Temple Interior
       2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-01 Outside Facility.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-02 Outside Facility
       2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-03 Inside Facility
       1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-04 Inside Facility
       2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-05 Elevator Entry.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-06 Elevator Entry 2.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-07 Control Room.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 5 - Your Tax Dollars At Work/Scenes/5-08 Limbo.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-01 World in ruin.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-02 Plains of eternity.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-03 The Fortress.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-04 Another Fortress.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-05 Entrance to EVIL.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-06 Courting death.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-07 Fiddling contest.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-08 Revelation.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-09 The Final Battle.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-09a Limbo.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-10 Atonement.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 7 - Epilogue/Scenes/7-01 Fate of James.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 7 - Epilogue/Scenes/7-02 Fate of Like Mike.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 7 - Epilogue/Scenes/7-03 Fate of Chef Tony.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 7 - Epilogue/Scenes/7-04 Title Card.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Chapter 0 - Intro and Menus/x-01 Game Over.unity

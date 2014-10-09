@@ -1,9 +1,5 @@
-﻿// simple fading script
-// A texture is stretched over the entire screen. The color of the pixel is set each frame until it reaches its target color.
-
-
-using UnityEngine;
-
+﻿using UnityEngine;
+using System.Collections;
 
 public class CameraFade : MonoBehaviour
 {   
@@ -91,5 +87,25 @@ public class CameraFade : MonoBehaviour
 			m_TargetScreenOverlayColor = newScreenOverlayColor;
 			m_DeltaColor = (m_TargetScreenOverlayColor - m_CurrentScreenOverlayColor) / fadeDuration;
 		}
+	}
+
+	public void FadeAndNext(Color fadeTo, float seconds, string nextScene) {
+		FadeAndNext(fadeTo, seconds, nextScene, false);
+	}
+
+	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
+		if(fadeMusic) {
+			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
+		}
+		
+		StartCoroutine(FadeAndNextCoroutine(fadeTo, seconds, nextScene));
+	}
+	
+	private IEnumerator FadeAndNextCoroutine(Color fadeTo, float seconds, string nextScene) {
+		SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
+		StartFade(fadeTo, seconds);
+		yield return new WaitForSeconds(seconds);
+		if(nextScene != null)
+			Application.LoadLevel(nextScene);
 	}
 }

@@ -57,7 +57,7 @@ public class PauseGUI : BaseGUI {
 	}
 	private void pause() {
 		isPaused = true;
-		keyboardControlEnabled = true;
+		guiControlEnabled = true;
 
 		BattleController temp = GameObject.Find("Scripts").GetComponent<BattleController>();
 
@@ -77,7 +77,7 @@ public class PauseGUI : BaseGUI {
 
 	private void unpause() {
 		isPaused = false;
-		keyboardControlEnabled = false;
+		guiControlEnabled = false;
 
 		if(battleWasPaused) {
 			GameObject.Find("Scripts").GetComponent<BattleController>().ResumeBattle();
@@ -93,7 +93,7 @@ public class PauseGUI : BaseGUI {
 	
 	private void goToMainMenu() {
 		Time.timeScale = 1;
-		FadeAndNext(Color.black, 2.0f, "0-03 Main menu", true);
+		Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 2.0f, "0-03 Main menu", true);
 	}
 
 
@@ -103,25 +103,5 @@ public class PauseGUI : BaseGUI {
 		if(cc) {
 			cc.pauseDialog = false;
 		}
-	}
-
-	// TODO make this code not repeat everywhere
-	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
-		
-		if(fadeMusic && GameObject.Find("BGM")) {
-			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
-		}
-		
-		StartCoroutine(FadeAndNext(fadeTo, seconds, nextScene));
-	}
-	
-	private IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
-		CameraFade fader = Camera.main.GetComponent<CameraFade>();
-		
-		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
-		fader.StartFade(fadeTo, seconds);
-		yield return new WaitForSeconds(seconds);
-		if(nextScene != null)
-			Application.LoadLevel(nextScene);
 	}
 }

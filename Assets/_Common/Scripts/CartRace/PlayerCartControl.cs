@@ -15,9 +15,7 @@ public class PlayerCartControl : MonoBehaviour {
 
 	public int maxHP = 4;
 	private int currentHP;
-
-	private MusicPlayer mp;
-
+	
 	private float minZ = -3.6f;
 	private float maxZ = -0.2f;
 
@@ -35,8 +33,6 @@ public class PlayerCartControl : MonoBehaviour {
 	private int emissionIncrement;
 
 	void Start() {
-		mp = GameObject.Find("BGM").GetComponent<MusicPlayer>();
-
 		emissionIncrement = (smokeEmissionMax - smokeEmissionMin) / maxHP - 1;
 
 		currentHP = maxHP;
@@ -79,7 +75,7 @@ public class PlayerCartControl : MonoBehaviour {
 
 				AudioSource.PlayClipAtPoint(bigSmash, Camera.main.transform.position);
 
-				FadeAndNext(Color.black, 2, "3-01 Limbo");
+				Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 2, "3-01 Limbo", true);
 			} 
 		
 		}
@@ -138,29 +134,9 @@ public class PlayerCartControl : MonoBehaviour {
 	
 	private void gameOver() {
 		if(!gameOverInProgress) {
-			FadeAndNext(Color.black, 5, "x-01 Game Over", true);
+			Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 5, "x-01 Game Over", true);
 			gameOverInProgress = true;
 		}
-	}
-
-	// TODO make this code not repeat everywhere
-	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
-		
-		if(fadeMusic && GameObject.Find("BGM")) {
-			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
-		}
-		
-		StartCoroutine(FadeAndNext(fadeTo, seconds, nextScene));
-	}
-	
-	private IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
-		CameraFade fader = Camera.main.GetComponent<CameraFade>();
-		
-		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
-		fader.StartFade(fadeTo, seconds);
-		yield return new WaitForSeconds(seconds);
-		if(nextScene != null)
-			Application.LoadLevel(nextScene);
 	}
 
 }
