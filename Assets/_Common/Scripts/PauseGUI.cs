@@ -26,6 +26,7 @@ public class PauseGUI : BaseGUI {
 		base.OnGUI();
 
 		if(isPaused) {
+			GUI.depth = -1001; //appear over fades
 			DrawPauseMenu();
 		}
 	}
