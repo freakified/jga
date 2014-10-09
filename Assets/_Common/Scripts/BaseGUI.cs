@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicGUI : MonoBehaviour {
+public class BaseGUI : MonoBehaviour {
 
 	protected GUISkin guiSkin;
 	protected AudioClip cursorMoveSound;
@@ -10,7 +10,7 @@ public class BasicGUI : MonoBehaviour {
 	protected int targetScreenWidth = 640;
 
 	// keyboard control globals
-	protected bool keyboardControlEnabled = true;
+	protected bool keyboardControlEnabled = false;
 
 	protected int numberOfButtonsVisible = 0;
 	protected int currentButtonSelection = 0;
@@ -31,6 +31,7 @@ public class BasicGUI : MonoBehaviour {
 
 	public virtual void Update() {
 		//check for inputs
+
 		if(keyboardControlEnabled) {
 			elapsedTime += Time.deltaTime;
 		} else {
@@ -44,14 +45,17 @@ public class BasicGUI : MonoBehaviour {
 			}
 			input2IsDown = Input.GetButtonDown("Cancel");
 		}
+
+		checkKeyControlFocus();
 	}
 
 	public virtual void OnGUI() {
-		if(keyboardControlEnabled) {
-			GUI.skin = guiSkin;
-			scaleGUI(guiSkin);
+		GUI.skin = guiSkin;
+		scaleGUI(guiSkin);
 
-			checkKeyControlFocus();
+		if(keyboardControlEnabled) {
+			GUI.FocusControl(currentButtonSelection.ToString());
+
 		}
 	}
 
@@ -64,6 +68,7 @@ public class BasicGUI : MonoBehaviour {
 		guiSkin.button.fontSize = scalePx (16);
 		guiSkin.customStyles[4].fontSize = scalePx(31);
 		guiSkin.customStyles[5].fontSize = scalePx(16);
+		guiSkin.customStyles[6].fontSize = scalePx(16);
 		
 		//padding for label styles
 		guiSkin.label.padding.top = scalePx (5);
@@ -82,14 +87,23 @@ public class BasicGUI : MonoBehaviour {
 		guiSkin.button.padding.top = scalePx (3);
 		guiSkin.button.padding.bottom = scalePx (3);
 		
-		// custom button
+		// custom buttons
 		guiSkin.customStyles[5].fixedWidth = scalePx (200);
-
-		guiSkin.customStyles[5].margin.bottom = scalePx (4);
+		guiSkin.customStyles[5].margin.bottom = scalePx (10);
 		guiSkin.customStyles[5].padding.left = scalePx (10);
 		guiSkin.customStyles[5].padding.right = scalePx (10);
-		guiSkin.customStyles[5].padding.top = scalePx (15);
-		guiSkin.customStyles[5].padding.bottom = scalePx (15);
+		guiSkin.customStyles[5].padding.top = scalePx (10);
+		guiSkin.customStyles[5].padding.bottom = scalePx (10);
+
+		guiSkin.customStyles[6].margin.right = scalePx (10);
+		guiSkin.customStyles[6].margin.left = scalePx (10);
+		guiSkin.customStyles[6].margin.top = scalePx (5);
+		guiSkin.customStyles[6].margin.bottom = scalePx (5);
+		guiSkin.customStyles[6].padding.left = scalePx (10);
+		guiSkin.customStyles[6].padding.right = scalePx (10);
+		guiSkin.customStyles[6].padding.top = scalePx (10);
+		guiSkin.customStyles[6].padding.bottom = scalePx (10);
+		guiSkin.customStyles[6].fixedWidth = (Screen.width - scalePx(50)) / 3;
 	}
 
 	protected int scalePx(int targetSize) {
@@ -108,7 +122,11 @@ public class BasicGUI : MonoBehaviour {
 				}
 				
 				if(currentButtonSelection < numberOfButtonsVisible && currentButtonSelection >= 0) {
+					//correct for altered time scale (this allows the sound to play even when paused)
+					float tempTimeScale = Time.timeScale;
+					Time.timeScale = 1;
 					AudioSource.PlayClipAtPoint(cursorMoveSound, Camera.main.transform.position);
+					Time.timeScale = tempTimeScale;
 				} else {
 					currentButtonSelection = Mathf.Clamp(currentButtonSelection, 0, numberOfButtonsVisible - 1);
 				}
@@ -121,7 +139,6 @@ public class BasicGUI : MonoBehaviour {
 			}
 		}
 		
-		GUI.FocusControl(currentButtonSelection.ToString());
-		
+
 	}
 }

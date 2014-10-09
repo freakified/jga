@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class PauseGUI : BasicGUI {
+public class PauseGUI : BaseGUI {
 
 	private bool isPaused = false;
 	private bool battleWasPaused = false;
-	
+
+	public override void Start() {
+		base.Start();
+	}
+
 	public override void Update() {
 		base.Update();
 		
@@ -52,6 +56,7 @@ public class PauseGUI : BasicGUI {
 	}
 	private void pause() {
 		isPaused = true;
+		keyboardControlEnabled = true;
 
 		BattleController temp = GameObject.Find("Scripts").GetComponent<BattleController>();
 
@@ -71,6 +76,7 @@ public class PauseGUI : BasicGUI {
 
 	private void unpause() {
 		isPaused = false;
+		keyboardControlEnabled = false;
 
 		if(battleWasPaused) {
 			GameObject.Find("Scripts").GetComponent<BattleController>().ResumeBattle();

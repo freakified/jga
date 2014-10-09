@@ -1,22 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainMenuGUI : MonoBehaviour {
-
-	public GUISkin guiSkin;
-	public AudioClip MenuSelectSound;
-
+public class MainMenuGUI : BaseGUI {
 	private int currentSave;
+	private bool actionTaken = false;
 
-	bool buttonPressed = false;
+	public override void Start() {
+		base.Start();
 
-	void Start() {
+		keyboardControlEnabled = true;
+
 		currentSave = PlayerPrefs.GetInt("HighestCompletedChapter", -1);
 	}
 
-	void OnGUI() {
-		GUI.skin = guiSkin;
-		scaleGUI(guiSkin);
+	public override void OnGUI() {
+		base.OnGUI();
 
 		GUILayout.BeginArea(AspectUtility.screenRect);
 
@@ -25,7 +23,7 @@ public class MainMenuGUI : MonoBehaviour {
 		numberOfButtonsVisible = 0;
 
 		GUI.SetNextControlName("0");
-		if(GUILayout.Button("Start New Game")) {
+		if(GUILayout.Button("Start New Game", guiSkin.customStyles[5])) {
 			beginGame();
 		}
 
@@ -41,110 +39,25 @@ public class MainMenuGUI : MonoBehaviour {
 			GUI.enabled = false;
 		}
 
-		if(GUILayout.Button("Chapter Selection")) {
+		if(GUILayout.Button("Chapter Selection", guiSkin.customStyles[5])) {
 			goToChapterSelect();
 		}
 
 		GUI.enabled = true;
 		GUI.SetNextControlName(numberOfButtonsVisible.ToString());
-		if(GUILayout.Button("Quit JGA")) {
+		if(GUILayout.Button("Quit JGA", guiSkin.customStyles[5])) {
 			Application.Quit();
 		}
 		
 		numberOfButtonsVisible++;
 
-
-
 		GUILayout.EndArea();
 		GUILayout.EndArea();
-
-		checkKeyControlFocus();
 	}
 
-	private void beginGame() {
-		if(!buttonPressed) {
-			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(1.0f);
-			StartCoroutine(FadeAndNext(Color.black, 2.0f, "01 Elevator Entry"));
 
-			buttonPressed = true;
-		}
-	}
-
-	protected IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
-		CameraFade fader = Camera.main.GetComponent<CameraFade>();
-		
-		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
-		fader.StartFade(fadeTo, seconds);
-		yield return new WaitForSeconds(seconds);
-		if(nextScene != null)
-			Application.LoadLevel(nextScene);
-	}
-
-	private void goToChapterSelect() {
-		if(!buttonPressed) {
-			AudioSource.PlayClipAtPoint(MenuSelectSound, Vector3.zero);
-			//TODO: this should automatically skip the chapter scene if only one chapter has been unlocked
-			//StartCoroutine(FadeAndNext(Color.black, 2.0f, "0-04 Chapter Selection"));
-			Application.LoadLevel("0-04 Chapter Selection");
-
-			buttonPressed = true;
-		}	
-	}
-
-	void Update() {
-		input1IsDown = Input.GetButtonDown("Select");
-	}
-
-	private void scaleGUI(GUISkin guiSkin) {
-		//fonts
-		guiSkin.button.fontSize = scalePx (17);
-		guiSkin.button.margin.bottom = scalePx(10);
-
-		//padding for buttons
-		guiSkin.button.padding.left = scalePx (15);
-		guiSkin.button.padding.right = scalePx (15);
-		guiSkin.button.padding.top = scalePx (10);
-		guiSkin.button.padding.bottom = scalePx (10);
-		guiSkin.button.alignment = TextAnchor.MiddleCenter;
-		guiSkin.button.fixedWidth = scalePx (200);
-	}
-
-	private int scalePx(int targetSize) {
-		return (int)((targetSize * Screen.width) / 640);
-	}
-
-	private int numberOfButtonsVisible = 0;
-	private int currentButtonSelection = 0;
-	private bool dirKeyDown = false;
-	
-	private bool input1IsDown = false;
-
-	private void checkKeyControlFocus() {
-		float v = Input.GetAxisRaw("Vertical");
-		
-		if(!dirKeyDown) { 
-			if(v != 0) {
-				if(v < 0) {
-					currentButtonSelection++;
-				} else {
-					currentButtonSelection--;
-				}
-				
-				if(currentButtonSelection < numberOfButtonsVisible && currentButtonSelection >= 0) {
-					AudioSource.PlayClipAtPoint(MenuSelectSound, Camera.main.transform.position);
-				} else {
-					currentButtonSelection = Mathf.Clamp(currentButtonSelection, 0, numberOfButtonsVisible - 1);
-				}
-				
-				dirKeyDown = true;
-			}
-		} else {
-			if(v == 0) {
-				dirKeyDown = false;
-			}
-		}
-		
-		GUI.FocusControl(currentButtonSelection.ToString());
+	public override void Update() {
+		base.Update();
 
 		if(input1IsDown) {
 			if(currentButtonSelection == 0) {
@@ -157,6 +70,35 @@ public class MainMenuGUI : MonoBehaviour {
 				}
 			} 
 		}
+	}
+
+	private void beginGame() {
+		if(!actionTaken) {
+			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(1.0f);
+			StartCoroutine(FadeAndNext(Color.black, 2.0f, "01 Elevator Entry"));
+			
+			actionTaken = true;
+		}
+	}
+	
+	private void goToChapterSelect() {
+		if(!actionTaken) {
+			AudioSource.PlayClipAtPoint(cursorMoveSound, Vector3.zero);
+			Application.LoadLevel("0-04 Chapter Selection");
+			
+			actionTaken = true;
+		}	
+	}
+
+
+	
+	protected IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
+		CameraFade fader = Camera.main.GetComponent<CameraFade>();
 		
+		fader.SetScreenOverlayColor (new Color(fadeTo.r, fadeTo.g, fadeTo.b, 0));
+		fader.StartFade(fadeTo, seconds);
+		yield return new WaitForSeconds(seconds);
+		if(nextScene != null)
+			Application.LoadLevel(nextScene);
 	}
 }

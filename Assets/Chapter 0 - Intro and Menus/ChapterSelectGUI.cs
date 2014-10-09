@@ -2,13 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ChapterSelectGUI : MonoBehaviour {
-
-	public GUISkin guiSkin;
-	public AudioClip MenuSelectSound;
-
+public class ChapterSelectGUI : BaseGUI {
+	
 	private List<ChapterInfo> chapters;
 	private int currentSave;
+
+	private bool levelSelected = false;
 
 	private struct ChapterInfo {
 		public int Number;
@@ -16,7 +15,11 @@ public class ChapterSelectGUI : MonoBehaviour {
 		public string SceneName;
 	}
 
-	void Start() {
+	public override void Start() {
+		base.Start();
+
+		keyboardControlEnabled = true;
+
 		// get saved chapter
 		currentSave = PlayerPrefs.GetInt("HighestCompletedChapter", -1);
 
@@ -113,9 +116,8 @@ public class ChapterSelectGUI : MonoBehaviour {
 	}
 
 
-	void OnGUI() {
-		GUI.skin = guiSkin;
-		scaleGUI(guiSkin);
+	public override void OnGUI() {
+		base.OnGUI();
 
 		GUILayout.BeginArea(AspectUtility.screenRect);
 		
@@ -131,13 +133,13 @@ public class ChapterSelectGUI : MonoBehaviour {
 
 				if(currentSave < i) { 
 					GUI.enabled = false;
-					GUILayout.Button("Chapter " + c.Number + "\n<b>???</b>");
+					GUILayout.Button("Chapter " + c.Number + "\n<b>???</b>", guiSkin.customStyles[6]);
 					GUI.enabled = true;
 
 				} else {
 					GUI.SetNextControlName (i.ToString());
 
-					if(GUILayout.Button("Chapter " + c.Number + "\n<b>" + c.DisplayName + "</b>")) {
+					if(GUILayout.Button("Chapter " + c.Number + "\n<b>" + c.DisplayName + "</b>", guiSkin.customStyles[6])) {
 						jumpToLevel(c.SceneName);
 					}
 					numberOfButtonsVisible++;
@@ -150,45 +152,25 @@ public class ChapterSelectGUI : MonoBehaviour {
 		GUILayout.EndArea();
 		GUILayout.EndArea();
 
-		checkKeyControlFocus();
-
 	}
 
+	public override void Update() {
+		base.Update();
 
-	bool levelSelected = false;
-
-
+		if(input1IsDown) {
+			jumpToLevel(chapters[currentButtonSelection].SceneName);
+		}
+	}
+	
 	private void jumpToLevel(string scene) {
 		if(!levelSelected) {
-			AudioSource.PlayClipAtPoint(MenuSelectSound, Vector3.zero);
+			AudioSource.PlayClipAtPoint(cursorMoveSound, Vector3.zero);
 
 			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(1.0f);
 			StartCoroutine(FadeAndNext(Color.black, 2.0f, scene));
 
 			levelSelected = true;
 		}	
-	}
-
-	private void scaleGUI(GUISkin guiSkin) {
-		//fonts
-		guiSkin.button.fontSize = scalePx (16);
-
-		guiSkin.button.margin.top = 0;
-		guiSkin.button.margin.bottom = scalePx(10);
-		guiSkin.button.margin.right = scalePx(10);
-		guiSkin.button.margin.left = scalePx(10);
-
-		//padding for buttons
-		guiSkin.button.padding.left = scalePx (15);
-		guiSkin.button.padding.right = scalePx (10);
-		guiSkin.button.padding.top = scalePx (10);
-		guiSkin.button.padding.bottom = scalePx (10);
-		guiSkin.button.fixedWidth = (Screen.width - scalePx(50)) / 3;
-		guiSkin.button.alignment = TextAnchor.MiddleLeft;
-	}
-
-	private int scalePx(int targetSize) {
-		return (int)((targetSize * Screen.width) / 640);
 	}
 
 	protected IEnumerator FadeAndNext(Color fadeTo, float seconds, string nextScene) {
@@ -201,19 +183,12 @@ public class ChapterSelectGUI : MonoBehaviour {
 			Application.LoadLevel(nextScene);
 	}
 
-	private bool input1IsDown = false;
+	// special horizontal keyboard control globals
+	protected bool dirKeyDownV = false;
+	protected bool dirKeyDownH = false;
 
-	void Update() {
-		input1IsDown = Input.GetButtonDown("Select");
-	}
-
-	// keyboard control globals
-	private int numberOfButtonsVisible = 0;
-	private int currentButtonSelection = 0;
-	private bool dirKeyDownV = false;
-	private bool dirKeyDownH = false;
-
-	private void checkKeyControlFocus() {
+	// special horizontal keyboard control
+	protected override void checkKeyControlFocus() {
 		float v = Input.GetAxisRaw("Vertical");
 		
 		if(!dirKeyDownV) { 
@@ -227,7 +202,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 				}
 				
 				if(currentButtonSelection < numberOfButtonsVisible && currentButtonSelection >= 0) {
-					AudioSource.PlayClipAtPoint(MenuSelectSound, Camera.main.transform.position);
+					AudioSource.PlayClipAtPoint(cursorMoveSound, Camera.main.transform.position);
 				} else {
 					currentButtonSelection = origSel;
 				}
@@ -259,7 +234,7 @@ public class ChapterSelectGUI : MonoBehaviour {
 				
 
 				if(origSel != currentButtonSelection) {
-					AudioSource.PlayClipAtPoint(MenuSelectSound, Camera.main.transform.position);
+					AudioSource.PlayClipAtPoint(cursorMoveSound, Camera.main.transform.position);
 				}
 
 				dirKeyDownH = true;
@@ -274,9 +249,6 @@ public class ChapterSelectGUI : MonoBehaviour {
 		
 		GUI.FocusControl(currentButtonSelection.ToString());
 
-		if(input1IsDown) {
-			jumpToLevel(chapters[currentButtonSelection].SceneName);
-		}
 		
 	}
 }
