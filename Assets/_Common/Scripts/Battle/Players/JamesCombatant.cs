@@ -124,6 +124,7 @@ public class JamesCombatant : PlayerCombatant {
 				currentAnimation = AnimationSequence.None;
 				attackAnimationState = AttackAnimationState.Off;
 				AnimationInProgress = false;
+				transform.position = new Vector3(initialPosition.x, transform.position.y, transform.position.z);
 			}
 
 			break;

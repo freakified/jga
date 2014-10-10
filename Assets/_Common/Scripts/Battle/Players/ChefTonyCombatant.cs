@@ -19,7 +19,7 @@ public class ChefTonyCombatant : PlayerCombatant {
 	private AnimationSequence currentAnimation = AnimationSequence.None;
 	private AttackAnimationState attackAnimationState = AttackAnimationState.Off;
 	
-	private Vector2 initialPosition;
+	private Vector3 initialPosition;
 
 	private float initialDrag;
 
@@ -158,6 +158,9 @@ public class ChefTonyCombatant : PlayerCombatant {
 				currentAnimation = AnimationSequence.None;
 				attackAnimationState = AttackAnimationState.Off;
 				AnimationInProgress = false;
+
+				// reset X position to inital value
+				transform.position = new Vector3(initialPosition.x, transform.position.y, initialPosition.z);
 				
 				// reset drag to initial value
 				setDragEnabled(true);
