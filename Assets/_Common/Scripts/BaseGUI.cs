@@ -10,7 +10,10 @@ public class BaseGUI : MonoBehaviour {
 	protected int targetScreenWidth = 640;
 
 	// control (mostly keyboard/input) globals
-	protected bool guiControlEnabled = false;
+	private bool guiControlEnabled = false;
+
+	// this allows for multiple BaseGUIs to not constantly hide each others' cursors
+	private static int cursorShowRequests = 0;
 
 	protected int numberOfButtonsVisible = 0;
 	protected int currentButtonSelection = 0;
@@ -18,7 +21,7 @@ public class BaseGUI : MonoBehaviour {
 	protected bool input1IsDown = false;
 	protected bool input2IsDown = false;
 	protected float elapsedTime = 0;
-
+	
 	public virtual void Start() {
 		//load menu select sound
 		cursorMoveSound = Resources.Load<AudioClip>("menu_select");
@@ -27,8 +30,20 @@ public class BaseGUI : MonoBehaviour {
 		guiSkin = Resources.Load<GUISkin>("DefaultSkin");
 	}
 
+	public virtual void OnDestroy() {
+		disableGuiControl();
+	}
+	
 	public virtual void Update() {
 		//check for inputs
+
+		print (cursorShowRequests);
+
+		if(cursorShowRequests > 0) {
+			Screen.showCursor = true;
+		} else  {
+			Screen.showCursor = false;
+		}
 
 		if(guiControlEnabled) {
 			elapsedTime += Time.deltaTime;
@@ -45,6 +60,20 @@ public class BaseGUI : MonoBehaviour {
 		}
 
 		checkKeyControlFocus();
+	}
+
+	protected void enableGuiControl() {
+		if(!guiControlEnabled) {
+			guiControlEnabled = true;
+			cursorShowRequests++;
+		}
+	}
+
+	protected void disableGuiControl() {
+		if(guiControlEnabled) {
+			guiControlEnabled = false;
+			cursorShowRequests--;
+		}
 	}
 
 	public virtual void OnGUI() {

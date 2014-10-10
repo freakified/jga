@@ -5,19 +5,25 @@ public class PauseGUI : BaseGUI {
 
 	private bool isPaused = false;
 	private bool battleWasPaused = false;
+	private int guiDepth = -1001;
+
+	private CameraFade fader;
 
 	public override void Start() {
 		base.Start();
+		fader = Camera.main.GetComponent<CameraFade>();
 	}
 
 	public override void Update() {
 		base.Update();
 		
 		if(Input.GetButtonDown("Pause")) {
-			if(!isPaused) {
-				pause();
-			} else {
-				unpause();
+			if(!fader.isFading) {
+				if(!isPaused) {
+					pause();
+				} else {
+					unpause();
+				}
 			}
 		}
 	}
@@ -26,7 +32,7 @@ public class PauseGUI : BaseGUI {
 		base.OnGUI();
 
 		if(isPaused) {
-			GUI.depth = -1001; //appear over fades
+			GUI.depth = guiDepth; //appear over fades
 			DrawPauseMenu();
 		}
 	}
@@ -57,7 +63,7 @@ public class PauseGUI : BaseGUI {
 	}
 	private void pause() {
 		isPaused = true;
-		guiControlEnabled = true;
+		enableGuiControl();
 
 		BattleController temp = GameObject.Find("Scripts").GetComponent<BattleController>();
 
@@ -77,7 +83,7 @@ public class PauseGUI : BaseGUI {
 
 	private void unpause() {
 		isPaused = false;
-		guiControlEnabled = false;
+		disableGuiControl();
 
 		if(battleWasPaused) {
 			GameObject.Find("Scripts").GetComponent<BattleController>().ResumeBattle();
@@ -93,6 +99,7 @@ public class PauseGUI : BaseGUI {
 	
 	private void goToMainMenu() {
 		Time.timeScale = 1;
+		guiDepth = 0;
 		Camera.main.GetComponent<CameraFade>().FadeAndNext(Color.black, 2.0f, "0-03 Main menu", true);
 	}
 

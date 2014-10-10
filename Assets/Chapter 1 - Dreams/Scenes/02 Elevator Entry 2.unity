@@ -641,6 +641,7 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
+  pauseDialog: 0
   autoplayAtStart: 0
   delayBeforeAutoplay: 1.5
   textSpeed: 50
@@ -655,9 +656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016d0b783331540f3a9befc3501f721f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  TargetScreenWidth: 640
-  CursorMoveSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
   PlayerCombatants:
   - {fileID: 1795993615}
   EnemyCombatants:
@@ -761,6 +759,54 @@ Prefab:
   m_RootGameObject: {fileID: 1510869171}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1001 &746718224
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.55507922
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .00839791074
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: playAtStart
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+  m_RootGameObject: {fileID: 1208307666}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &1085360634
 Prefab:
   m_ObjectHideFlags: 0
@@ -801,6 +847,51 @@ Prefab:
   m_RootGameObject: {fileID: 115193896}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1208307666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+  m_PrefabInternal: {fileID: 746718224}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1208307668}
+  - 114: {fileID: 1208307667}
+  m_Layer: 0
+  m_Name: BGM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1208307667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f,
+    type: 2}
+  m_PrefabInternal: {fileID: 746718224}
+  m_GameObject: {fileID: 1208307666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 0}
+  loop: 1
+  playAtStart: 0
+  OnlyPlayIfNoMusicPlaying: 0
+  fadingOut: 0
+--- !u!4 &1208307668
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+  m_PrefabInternal: {fileID: 746718224}
+  m_GameObject: {fileID: 1208307666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.55507922, y: .00839791074, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1 &1312162135
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,8 +1025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &1510869173
 Transform:
   m_ObjectHideFlags: 0

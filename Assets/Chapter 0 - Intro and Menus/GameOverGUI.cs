@@ -8,7 +8,7 @@ public class GameOverGUI : BaseGUI {
 	public override void Start() {
 		base.Start();
 
-		guiControlEnabled = true;
+		enableGuiControl();
 	}
 
 	public override void OnGUI() {

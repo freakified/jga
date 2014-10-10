@@ -45,7 +45,7 @@ public class BattleController : BaseGUI {
 
 		turnState = BattleTurnState.Attacking;
 		battleEnabled = true;
-		guiControlEnabled = true;
+		enableGuiControl();
 
 		// ignore collision with other battlers
 		Physics2D.IgnoreLayerCollision(10, 10, true); 
@@ -70,14 +70,14 @@ public class BattleController : BaseGUI {
 
 	public void PauseBattle() {
 		battleEnabled = false;
-		guiControlEnabled = false;
+		disableGuiControl();
 
 		Physics2D.IgnoreLayerCollision(10, 10, false); 
 	}
 
 	public void ResumeBattle() {
 		battleEnabled = true;
-		guiControlEnabled = true;
+		enableGuiControl();
 
 		Physics2D.IgnoreLayerCollision(10, 10, true); 
 	}
@@ -465,6 +465,7 @@ public class BattleController : BaseGUI {
 
 	private void enemiesDefeated() {
 		battleEnabled = false;
+		disableGuiControl();
 
 		// notify registered listeners
 		if(OnBattleEvent != null) {

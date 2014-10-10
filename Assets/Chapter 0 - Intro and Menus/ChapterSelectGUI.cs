@@ -18,7 +18,7 @@ public class ChapterSelectGUI : BaseGUI {
 	public override void Start() {
 		base.Start();
 
-		guiControlEnabled = true;
+		enableGuiControl();
 
 		// get saved chapter
 		currentSave = PlayerPrefs.GetInt("HighestCompletedChapter", -1);

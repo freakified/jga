@@ -8,7 +8,7 @@ public class MainMenuGUI : BaseGUI {
 	public override void Start() {
 		base.Start();
 
-		guiControlEnabled = true;
+		enableGuiControl();
 
 		currentSave = PlayerPrefs.GetInt("HighestCompletedChapter", -1);
 	}
