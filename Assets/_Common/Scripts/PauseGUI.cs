@@ -31,9 +31,27 @@ public class PauseGUI : BaseGUI {
 	public override void OnGUI() {
 		base.OnGUI();
 
+		#if UNITY_ANDROID
+		DrawMobilePauseButton();
+		#endif
+
 		if(isPaused) {
 			GUI.depth = guiDepth; //appear over fades
 			DrawPauseMenu();
+		}
+	}
+
+	private void DrawMobilePauseButton() {
+		if(GUI.Button(new Rect(AspectUtility.screenWidth - scalePx(35),
+		                       AspectUtility.screenRect.y + scalePx(5),
+		                       scalePx(30),
+		                       scalePx(30)),
+		              "\u2759 \u2759")) {
+			if(!isPaused) {
+				pause();
+			} else {
+				unpause();
+			}
 		}
 	}
 

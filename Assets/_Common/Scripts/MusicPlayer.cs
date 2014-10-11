@@ -27,16 +27,8 @@ public class MusicPlayer : MonoBehaviour {
 			//if there is already a music player active
 			//just tell *it* to play our song, and then self-destruct
 
-			if(playAtStart) {
-				if(OnlyPlayIfNoMusicPlaying) {
-					if(!this.soundSource.isPlaying) {
-						instance.PlayMusic(this.music, this.loop);
-					}
-				} else {
-					instance.PlayMusic(this.music, this.loop);
-				}
-
-
+			if(playAtStart && !OnlyPlayIfNoMusicPlaying) {
+				instance.PlayMusic(this.music, this.loop);
 			} else {
 				instance.music = this.music;
 				instance.loop = this.loop;

@@ -37,8 +37,6 @@ public class BaseGUI : MonoBehaviour {
 	public virtual void Update() {
 		//check for inputs
 
-		print (cursorShowRequests);
-
 		if(cursorShowRequests > 0) {
 			Screen.showCursor = true;
 		} else  {
@@ -77,12 +75,11 @@ public class BaseGUI : MonoBehaviour {
 	}
 
 	public virtual void OnGUI() {
+		GUI.skin = guiSkin;
+		scaleGUI(guiSkin);
+
 		if(guiControlEnabled) {
-			GUI.skin = guiSkin;
-			scaleGUI(guiSkin);
-
 			GUI.FocusControl(currentButtonSelection.ToString());
-
 		}
 	}
 

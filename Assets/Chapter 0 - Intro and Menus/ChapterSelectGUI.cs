@@ -121,7 +121,7 @@ public class ChapterSelectGUI : BaseGUI {
 
 		GUILayout.BeginArea(AspectUtility.screenRect);
 		
-		GUILayout.BeginArea(new Rect(scalePx(15), scalePx(60), Screen.width - scalePx(20), Screen.height - scalePx(40)));
+		GUILayout.BeginArea(new Rect(scalePx(15), scalePx(40), Screen.width - scalePx(20), Screen.height - scalePx(40)));
 
 		numberOfButtonsVisible = 0;
 
@@ -149,8 +149,23 @@ public class ChapterSelectGUI : BaseGUI {
 			GUILayout.EndHorizontal();
 		}
 
+		GUI.SetNextControlName (numberOfButtonsVisible.ToString());
+		
+		if(GUI.Button(new Rect(0,
+		                       AspectUtility.screenHeight - scalePx(80),
+		                       guiSkin.customStyles[6].fixedWidth,
+		                       scalePx(30)),
+			"\u2190 Back to Main Menu")) {
+			Application.LoadLevel("0-03 Main Menu");
+		}
+		
+		numberOfButtonsVisible++;
+
+
 		GUILayout.EndArea();
 		GUILayout.EndArea();
+
+
 
 	}
 
@@ -158,6 +173,12 @@ public class ChapterSelectGUI : BaseGUI {
 		base.Update();
 
 		if(input1IsDown) {
+			if(currentButtonSelection == chapters.Count) {
+				Application.LoadLevel("0-03 Main Menu"); // the back button was pressed
+			} else {
+				jumpToLevel(chapters[currentButtonSelection].SceneName);
+			}
+		} else if(input2IsDown) {
 			jumpToLevel(chapters[currentButtonSelection].SceneName);
 		}
 	}
