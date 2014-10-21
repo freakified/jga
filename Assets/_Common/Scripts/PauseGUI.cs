@@ -12,6 +12,13 @@ public class PauseGUI : BaseGUI {
 	public override void Start() {
 		base.Start();
 		fader = Camera.main.GetComponent<CameraFade>();
+
+		// save the current scene for the game over "try again" feature
+		// (note: this doesn't really belong here, but every level has a PauseGUI script
+		//  and so this where where I decided to put it)
+		PlayerPrefs.SetString("LastScenePlayed", Application.loadedLevelName);
+
+		PlayerPrefs.Save();
 	}
 
 	public override void Update() {
@@ -42,6 +49,8 @@ public class PauseGUI : BaseGUI {
 	}
 
 	private void DrawMobilePauseButton() {
+		GUILayout.BeginArea(AspectUtility.screenRect);
+
 		if(GUI.Button(new Rect(AspectUtility.screenWidth - scalePx(35),
 		                       AspectUtility.screenRect.y + scalePx(5),
 		                       scalePx(30),
@@ -53,6 +62,8 @@ public class PauseGUI : BaseGUI {
 				unpause();
 			}
 		}
+
+		GUILayout.EndArea();
 	}
 
 	private void DrawPauseMenu() {

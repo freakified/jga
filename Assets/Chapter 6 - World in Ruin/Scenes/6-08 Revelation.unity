@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlashbackSound: {fileID: 8300000, guid: 78ee23e6c41c540acaae7fcbc446e557, type: 3}
-  EvilMusic: {fileID: 8300000, guid: 111ed88eaec1c4701b735ab2dbf342be, type: 3}
+  EvilMusic: {fileID: 0}
   FinalBossMusic: {fileID: 8300000, guid: c0df743aa7ff94928884f86ca0f5cd21, type: 3}
   FlashbackBGList:
   - {fileID: 21300000, guid: 7d64e8c9946c34af097016703516e335, type: 3}
@@ -647,9 +647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016d0b783331540f3a9befc3501f721f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  TargetScreenWidth: 640
-  CursorMoveSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
   PlayerCombatants:
   - {fileID: 1795993615}
   - {fileID: 635275739}
@@ -688,8 +685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &699035083
 Transform:
   m_ObjectHideFlags: 0

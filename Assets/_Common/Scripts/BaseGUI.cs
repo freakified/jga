@@ -127,11 +127,11 @@ public class BaseGUI : MonoBehaviour {
 		guiSkin.customStyles[6].padding.right = scalePx (10);
 		guiSkin.customStyles[6].padding.top = scalePx (10);
 		guiSkin.customStyles[6].padding.bottom = scalePx (10);
-		guiSkin.customStyles[6].fixedWidth = (Screen.width - scalePx(50)) / 3;
+		guiSkin.customStyles[6].fixedWidth = (AspectUtility.screenWidth - scalePx(50)) / 3;
 	}
 
 	protected int scalePx(int targetSize) {
-		return (int)((targetSize * Screen.width) / targetScreenWidth);
+		return (int)((targetSize * AspectUtility.screenWidth) / targetScreenWidth);
 	}
 
 	protected virtual void checkKeyControlFocus() {

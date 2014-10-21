@@ -198,7 +198,7 @@ public class BattleController : BaseGUI {
 		Rect[] attackButtons = new Rect[numAttacks];
 
 		// draw the attack selection box
-		areaHeight = scalePx (50 + 30 * numAttacks);
+		areaHeight = scalePx (55 + 30 * numAttacks);
 		GUILayout.BeginArea (new Rect (0, 0, scalePx (210), areaHeight), guiSkin.customStyles [0]);
 		GUILayout.Label ("ATTACK", guiSkin.customStyles [3]);
 		PlayerAttack attack;
@@ -293,10 +293,16 @@ public class BattleController : BaseGUI {
 
 				if(availableTarget.isShielded) {
 					status = "Shielded";
+				} else if(availableTarget.immuneToDamage) {
+					status = "Immune";
 				} else if(availableTarget.HitPoints == 0 && chosenAttack.Type == AttackType.Heal) {
 					status = "Revive";
 					isTargetable = true;
 				}
+			}
+
+			if(availableTarget.isSleeping) {
+				status += ", Sleeping";
 			}
 
 			if(isTargetable) {

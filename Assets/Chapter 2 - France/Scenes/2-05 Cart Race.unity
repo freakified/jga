@@ -7600,8 +7600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &772886876
 Transform:
   m_ObjectHideFlags: 0
@@ -19976,6 +19974,10 @@ Prefab:
       propertyPath: music
       value: 
       objectReference: {fileID: 8300000, guid: f1bebef760a684c239d071e0997ce10d, type: 3}
+    - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
+      propertyPath: playAtStart
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
   m_RootGameObject: {fileID: 1030368461}

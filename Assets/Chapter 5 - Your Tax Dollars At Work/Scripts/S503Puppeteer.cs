@@ -50,13 +50,16 @@ public class S503Puppeteer : CutscenePuppeteer {
 			startTimer();
 		} else if(CurrentScene == 3) {
 			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+		} else if(CurrentScene == 8) {
+			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+
 		}
 	}
 
 	public void HandleBattleEvent(BattleEvent type) {
 		switch(type) {
 		case BattleEvent.Finished:
-			ChefTony.GetComponent<PlayerFreeze>().UnFreeze();
+			nextScene();
 
 			break;
 		}

@@ -282,8 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &202518487
 Transform:
   m_ObjectHideFlags: 0

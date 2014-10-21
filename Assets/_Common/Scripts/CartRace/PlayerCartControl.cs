@@ -48,10 +48,12 @@ public class PlayerCartControl : MonoBehaviour {
 			if(Input.touchCount > 0) {
 				Touch t = Input.GetTouch(0);
 
-				if(t.position.y > Camera.main.WorldToScreenPoint(transform.position).y + 2) {
-					v = 1;
-				} else if(t.position.y < Camera.main.WorldToScreenPoint(transform.position).y - 2) {
-					v = -1;
+				if(t.position.x < AspectUtility.screenWidth / 2) {
+					if(t.position.y > Camera.main.WorldToScreenPoint(transform.position).y + 2) {
+						v = 1;
+					} else if(t.position.y < Camera.main.WorldToScreenPoint(transform.position).y - 2) {
+						v = -1;
+					}
 				}
 			}
 

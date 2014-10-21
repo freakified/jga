@@ -40,7 +40,7 @@ public class ChapterSelectGUI : BaseGUI {
 		// 1
 		c.Number = currentNum;
 		c.DisplayName = "Seek the Shoes";
-		c.SceneName = "2-04 France 1";
+		c.SceneName = "2-02 France 1";
 		chapters.Add (c);
 		currentNum++;
 
@@ -109,8 +109,8 @@ public class ChapterSelectGUI : BaseGUI {
 
 		// 11
 		c.Number = currentNum;
-		c.DisplayName = "Final Battle";
-		c.SceneName = "6-09 Final Battle";
+		c.DisplayName = "True Power";
+		c.SceneName = "6-09 The Final Battle";
 		chapters.Add (c);
 
 	}

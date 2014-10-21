@@ -17,7 +17,7 @@ public class TextScalerScript : MonoBehaviour {
 	void Start () {
 		text = GetComponent<GUIText>();
 
-		int calcFontSize = (targetFontSize * Screen.width) / targetResolutionWidth;
+		int calcFontSize = (targetFontSize * AspectUtility.screenWidth) / targetResolutionWidth;
 
 		text.fontSize = calcFontSize;
 	}
