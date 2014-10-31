@@ -8,10 +8,17 @@ public class PauseGUI : BaseGUI {
 	private int guiDepth = -1001;
 
 	private CameraFade fader;
+	private MusicPlayer mus;
 
 	public override void Start() {
 		base.Start();
 		fader = Camera.main.GetComponent<CameraFade>();
+
+		GameObject bgm = GameObject.Find ("BGM");
+
+		if(bgm) {
+			mus = bgm.GetComponent<MusicPlayer>();
+		}
 
 		// save the current scene for the game over "try again" feature
 		// (note: this doesn't really belong here, but every level has a PauseGUI script
@@ -107,6 +114,10 @@ public class PauseGUI : BaseGUI {
 			cc.pauseDialog = true;
 		}
 
+		if(mus) {
+			mus.Pause();
+		}
+
 		Time.timeScale = 0;
 	}
 
@@ -119,7 +130,9 @@ public class PauseGUI : BaseGUI {
 			battleWasPaused = false;
 		}
 
-
+		if(mus) {
+			mus.UnPause();
+		}
 
 		Time.timeScale = 1;
 		Invoke("unpauseDialog", 0.1f);

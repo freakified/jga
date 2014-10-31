@@ -8,6 +8,7 @@ public class MusicPlayer : MonoBehaviour {
 	public bool playAtStart = true;
 	public bool OnlyPlayIfNoMusicPlaying = false;
 	private AudioSource soundSource;
+	private bool paused = false;
 
 	private static MusicPlayer instance = null;
 
@@ -65,6 +66,22 @@ public class MusicPlayer : MonoBehaviour {
 
 	public void PlayMusic() {
 		PlayMusic(this.music, this.loop);
+	}
+
+
+
+	public void Pause() {
+		if(!paused) {
+			soundSource.Pause();
+			paused = true;
+		}
+	}
+
+	public void UnPause() {
+		if(paused) {
+			soundSource.Play();
+			paused = false;
+		}
 	}
 
 	//stops the current music immediately
