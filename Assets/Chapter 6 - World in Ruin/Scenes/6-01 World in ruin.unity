@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 565208ed1674746d4a921450bee0ab77, type: 3}
+  music: {fileID: 8300000, guid: 53ad36886624442da9cc95fb93d262b1, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RainSound: {fileID: 8300000, guid: 6ad86359ba93243aa998ccbd8ce1ae63, type: 3}
-  JamesIntro: {fileID: 8300000, guid: 18bd6aa0d628946bd833e5166839df5f, type: 3}
+  JamesIntro: {fileID: 8300000, guid: 6091823f4874342a09b99d7636570993, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -3000,7 +3000,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 565208ed1674746d4a921450bee0ab77, type: 3}
+      objectReference: {fileID: 8300000, guid: 53ad36886624442da9cc95fb93d262b1, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 1

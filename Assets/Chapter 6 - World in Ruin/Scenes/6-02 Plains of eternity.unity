@@ -2067,7 +2067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 565208ed1674746d4a921450bee0ab77, type: 3}
+  music: {fileID: 8300000, guid: 53ad36886624442da9cc95fb93d262b1, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
@@ -6295,7 +6295,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 565208ed1674746d4a921450bee0ab77, type: 3}
+      objectReference: {fileID: 8300000, guid: 53ad36886624442da9cc95fb93d262b1, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 1
@@ -6905,8 +6905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &1614719452
 Transform:
   m_ObjectHideFlags: 0
@@ -7682,6 +7680,7 @@ MonoBehaviour:
   NextSceneName: 6-03 The Fortress
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
   FadeDuration: 4
+  FadeMusic: 1
 --- !u!1 &1977819525
 GameObject:
   m_ObjectHideFlags: 0

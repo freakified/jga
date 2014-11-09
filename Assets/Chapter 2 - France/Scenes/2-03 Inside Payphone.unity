@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aec7ce7044a143b5b28f5135e333356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evilMusic: {fileID: 8300000, guid: 111ed88eaec1c4701b735ab2dbf342be, type: 3}
+  evilMusic: {fileID: 8300000, guid: 9d9e76af29c0c4bdfab23fdcdff8d55b, type: 3}
   hangupSound: {fileID: 8300000, guid: c65aa9b9673b5422b8c85a20fda983a6, type: 3}
 --- !u!4 &682367760
 Transform:
@@ -514,8 +514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &1901597009
 Transform:
   m_ObjectHideFlags: 0

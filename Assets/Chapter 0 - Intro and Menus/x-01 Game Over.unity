@@ -277,8 +277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af70cbda35ab429eb8fda82c6a3f24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -307,6 +305,7 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
+  pauseDialog: 0
   autoplayAtStart: 0
   delayBeforeAutoplay: 1.5
   textSpeed: 50
@@ -352,7 +351,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 6d70fa634002440dea24f926526c67d2, type: 3}
+      objectReference: {fileID: 8300000, guid: 07bd543052b89450fa2bd5decd2157af, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: loop
       value: 0
@@ -394,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 6d70fa634002440dea24f926526c67d2, type: 3}
+  music: {fileID: 8300000, guid: 07bd543052b89450fa2bd5decd2157af, type: 3}
   loop: 0
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0

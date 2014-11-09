@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f0992714b6a435e8e3510e4284d13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInDuration: 10
+  fadeInDuration: 5
   fadeInFrom: {r: 1, g: 1, b: 1, a: 1}
   isFading: 1
 --- !u!114 &12071423
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 55270c448158c4f48a53a280079565e6, type: 3}
+  music: {fileID: 8300000, guid: 230b77f96c2074a529eafca535654102, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
@@ -807,7 +807,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 55270c448158c4f48a53a280079565e6, type: 3}
+      objectReference: {fileID: 8300000, guid: 230b77f96c2074a529eafca535654102, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: m_Enabled
       value: 1
@@ -1066,6 +1066,7 @@ MonoBehaviour:
   NextSceneName: 
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
   FadeDuration: 1
+  FadeMusic: 0
 --- !u!1001 &1977351981
 Prefab:
   m_ObjectHideFlags: 0

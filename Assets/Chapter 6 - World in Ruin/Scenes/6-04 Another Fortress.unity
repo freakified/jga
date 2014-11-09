@@ -1475,8 +1475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &229814217
 Transform:
   m_ObjectHideFlags: 0
@@ -1838,7 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GasplosionParticles: {fileID: 1890038827}
-  EvilMusic: {fileID: 8300000, guid: 111ed88eaec1c4701b735ab2dbf342be, type: 3}
+  EvilMusic: {fileID: 8300000, guid: 64f63d3af1ec844688c9332f14c5f818, type: 3}
   GasBlastSound: {fileID: 8300000, guid: 9e39fb7391e4a4305960467a89291774, type: 3}
 --- !u!4 &682367760
 Transform:
@@ -5224,7 +5222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextSceneName: 6-05 Entrance to EVIL
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
-  FadeDuration: 4
+  FadeDuration: 2
+  FadeMusic: 1
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0

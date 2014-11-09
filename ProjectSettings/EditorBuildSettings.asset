@@ -82,6 +82,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Chapter 6 - World in Ruin/Scenes/6-10 Atonement.unity
   - enabled: 1
+    path: Assets/Chapter 6 - World in Ruin/Scenes/6-10a Limbo.unity
+  - enabled: 1
     path: Assets/Chapter 7 - Epilogue/Scenes/7-01 Fate of James.unity
   - enabled: 1
     path: Assets/Chapter 7 - Epilogue/Scenes/7-02 Fate of Like Mike.unity
@@ -89,5 +91,7 @@ EditorBuildSettings:
     path: Assets/Chapter 7 - Epilogue/Scenes/7-03 Fate of Chef Tony.unity
   - enabled: 1
     path: Assets/Chapter 7 - Epilogue/Scenes/7-04 Title Card.unity
+  - enabled: 1
+    path: Assets/Chapter 7 - Epilogue/Scenes/7-05 Credits 1.unity
   - enabled: 1
     path: Assets/Chapter 0 - Intro and Menus/x-01 Game Over.unity

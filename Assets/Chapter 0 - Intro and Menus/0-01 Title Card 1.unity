@@ -303,6 +303,7 @@ GameObject:
   - 4: {fileID: 682367760}
   - 114: {fileID: 682367762}
   - 114: {fileID: 682367759}
+  - 114: {fileID: 682367761}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -334,6 +335,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &682367761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682367758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca78ca23a39bc4a7cace70558724a75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &682367762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +362,7 @@ MonoBehaviour:
   dialogText: {fileID: 13200000, guid: 68e896cbde0594a168e0843e879ff452, type: 2}
   textBox: {fileID: 400000, guid: fd426748f62d14763a03a287def8f40a, type: 2}
   dialogNextText: {fileID: 13200000, guid: b33a362c524684b4bb05aef0000aa131, type: 2}
+  pauseDialog: 0
   autoplayAtStart: 0
   delayBeforeAutoplay: 1.5
   textSpeed: 50

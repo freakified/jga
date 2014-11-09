@@ -68,6 +68,9 @@ public class MusicPlayer : MonoBehaviour {
 		PlayMusic(this.music, this.loop);
 	}
 
+	public bool IsPlaying() {
+		return soundSource.isPlaying;
+	}
 
 
 	public void Pause() {

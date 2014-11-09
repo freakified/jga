@@ -33,11 +33,11 @@ public class S605Puppeteer : CutscenePuppeteer {
 				nextScene();
 			}
 		} else if(CurrentScene == 9) {
-			if(timerIsGreaterThan(6.0f)) {
+			if(timerIsGreaterThan(2.5f)) {
 				nextScene();
 			}
 		} else if(CurrentScene == 10) {
-			if(timerIsGreaterThan(11.0f)) {
+			if(timerIsGreaterThan(5.5f)) {
 				playSound(LightsActivateSound);
 				FadeAndNext(Color.white, 1f, "6-06 Courting death", false);
 				nextScene();
@@ -57,7 +57,7 @@ public class S605Puppeteer : CutscenePuppeteer {
 			mus.StopMusic(3.0f);
 		} else if(CurrentScene == 9) {
 			mus.PlayMusic(EvilEmergesTheme, false);
-			GetComponent<CutsceneController>().textSpeed = 10;
+			GetComponent<CutsceneController>().textSpeed = 15;
 			startTimer();
 		} else if(CurrentScene == 10) {
 			startTimer();

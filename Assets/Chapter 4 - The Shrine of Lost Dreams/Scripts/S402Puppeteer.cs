@@ -50,7 +50,7 @@ public class S402Puppeteer : CutscenePuppeteer {
 			if(!ExamineNextText.enabled && timerIsGreaterThan(5)) {
 				ExamineNextText.enabled = true;
 				stopTimer();
-			} else if(Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) {
+			} else if(ExamineNextText.enabled && Input.GetButtonDown("Select") || Input.GetMouseButtonDown(0)) {
 				GameObject.Destroy(ExamineInfo);
 				nextScene();
 			}

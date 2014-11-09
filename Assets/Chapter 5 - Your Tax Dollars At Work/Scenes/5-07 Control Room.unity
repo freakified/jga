@@ -908,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: f1013820ea0624dbeb4a75e2e1f20310, type: 3}
+  music: {fileID: 8300000, guid: 9895559182fc94047adeb6fa3b5b74d2, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
@@ -962,7 +962,7 @@ MonoBehaviour:
   ExplosionSound1: {fileID: 8300000, guid: 9e39fb7391e4a4305960467a89291774, type: 3}
   ExplosionSound2: {fileID: 8300000, guid: f045bf8331ccc4344802f6d12cfa0c6f, type: 3}
   knife: {fileID: 8300000, guid: e7da17a40e8f743efbfe45424ad3a286, type: 3}
-  DramaticMusic: {fileID: 8300000, guid: ce167a49848054ae487542dde483c6ed, type: 3}
+  DramaticMusic: {fileID: 8300000, guid: 2ea96879661934c11af389d8ec90ad19, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -1035,8 +1035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiSkin: {fileID: 11400000, guid: 675cf74fd910f40588d4d7c36e5d8803, type: 2}
-  MenuSelectSound: {fileID: 8300000, guid: e9120e5cc15bf4cacabfe0c77802d193, type: 3}
 --- !u!4 &801219356
 Transform:
   m_ObjectHideFlags: 0
@@ -3337,7 +3335,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: f1013820ea0624dbeb4a75e2e1f20310, type: 3}
+      objectReference: {fileID: 8300000, guid: 9895559182fc94047adeb6fa3b5b74d2, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: loop
       value: 1

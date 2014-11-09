@@ -467,6 +467,46 @@ GUIText:
     rgba: 4280854828
   m_PixelCorrect: 1
   m_RichText: 1
+--- !u!1 &176678055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+  m_PrefabInternal: {fileID: 630658245}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 176678057}
+  - 114: {fileID: 176678056}
+  m_Layer: 0
+  m_Name: PauseScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &176678056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: d8a8505f5dac045f8929f84fc27ebacb,
+    type: 2}
+  m_PrefabInternal: {fileID: 630658245}
+  m_GameObject: {fileID: 176678055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f82d88a519284b1b98eaea756db068a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &176678057
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+  m_PrefabInternal: {fileID: 630658245}
+  m_GameObject: {fileID: 176678055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.342727751, y: .103678629, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &271015954
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +618,8 @@ GUIText:
 
     Jon Tilden
 
+    James Tilden
+
     Anamary Leal'
   m_Anchor: 1
   m_Alignment: 1
@@ -660,12 +702,6 @@ GUIText:
   m_Text: 'Austin Cory Bart
 
     Eleonor Cayford
-
-    Andrew Chiusano
-
-    Lisa Douglass
-
-    Anamary Leal
 
     K Styles
 
@@ -803,7 +839,7 @@ GUIText:
   m_GameObject: {fileID: 478673256}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Written by
+  m_Text: Story
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -818,6 +854,50 @@ GUIText:
     rgba: 4280854828
   m_PixelCorrect: 1
   m_RichText: 1
+--- !u!1001 &630658245
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.342727751
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .103678629
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d8a8505f5dac045f8929f84fc27ebacb, type: 2}
+  m_RootGameObject: {fileID: 176678055}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &682367758
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3051204263cf94539b75112ac9058048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CreditsSpeed: .150000006
+  CreditsSpeed: .0949999988
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -1474,7 +1554,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1155679418}
   m_Layer: 0
-  m_Name: Written by
+  m_Name: Scenario Design
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2069,7 +2149,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1879334009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: .180000007, z: 0}
+  m_LocalPosition: {x: .5, y: .209999993, z: 0}
   m_LocalScale: {x: .5, y: 1, z: 1}
   m_Children:
   - {fileID: 1272917668}

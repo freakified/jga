@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 793262db707af44c0a28c853fc4530c1, type: 3}
+  music: {fileID: 8300000, guid: faf26e5f25c3b47119967014e81e9dbe, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a65f61e6f3674564a244d0100683401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EvilEmergesTheme: {fileID: 8300000, guid: ca5538078525d4c3bb0b09c2cc9d9e41, type: 3}
+  EvilEmergesTheme: {fileID: 8300000, guid: 8913b3c9911d3478d9c9fa8f1936ba8b, type: 3}
   LightsActivateSound: {fileID: 8300000, guid: e1a8a8e8b96e8483688d22e3c6745639, type: 3}
 --- !u!4 &682367760
 Transform:
@@ -2055,7 +2055,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 793262db707af44c0a28c853fc4530c1, type: 3}
+      objectReference: {fileID: 8300000, guid: faf26e5f25c3b47119967014e81e9dbe, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 1

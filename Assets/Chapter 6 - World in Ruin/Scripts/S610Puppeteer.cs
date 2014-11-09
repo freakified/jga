@@ -39,7 +39,7 @@ public class S610Puppeteer : CutscenePuppeteer {
 			}
 
 			if(timerIsGreaterThan(5.0f)) {
-				FadeAndNext(Color.white, 20, "7-01 Fate of James", false);
+				FadeAndNext(Color.white, 10, "6-10a Limbo", false);
 				mus.PlayMusic(EpilogMusic, false);
 				nextScene();
 			}

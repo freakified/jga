@@ -1537,7 +1537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: c0df743aa7ff94928884f86ca0f5cd21, type: 3}
+  music: {fileID: 8300000, guid: 5b113907302a24101be924f60431888e, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 1
@@ -4992,7 +4992,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: c0df743aa7ff94928884f86ca0f5cd21, type: 3}
+      objectReference: {fileID: 8300000, guid: 5b113907302a24101be924f60431888e, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 1
@@ -7594,7 +7594,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: d74abebfd3fde4751b067e5bf040e57f, type: 3}
   ImmunityNotificationPrefab: {fileID: 100000, guid: bb5b85d3bab064ac4a420cc6d9b33513,
     type: 2}
-  InitialHealth: 2000
+  InitialHealth: 10
 --- !u!1 &1795993606
 GameObject:
   m_ObjectHideFlags: 0

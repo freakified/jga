@@ -33,8 +33,8 @@ public class S704Puppeteer : CutscenePuppeteer {
 				nextScene();
 			}
 		} else if(CurrentScene == 2) {
-			if(timerIsGreaterThan(5.0f)) {
-				FadeAndNext(Color.black, 10.0f, null, false);
+			if(timerIsGreaterThan(4.0f)) {
+				FadeAndNext(Color.black, 5.0f, "7-05 Credits 1", false);
 				nextScene();
 			}
 		}

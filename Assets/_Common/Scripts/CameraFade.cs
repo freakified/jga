@@ -85,7 +85,7 @@ public class CameraFade : MonoBehaviour
 		else					// initiate the fade: set the target-color and the delta-color
 		{
 			m_TargetScreenOverlayColor = newScreenOverlayColor;
-			m_DeltaColor = (m_TargetScreenOverlayColor - m_CurrentScreenOverlayColor) / fadeDuration;
+			m_DeltaColor = (m_TargetScreenOverlayColor - m_CurrentScreenOverlayColor) / (fadeDuration * 2);
 		}
 	}
 
@@ -95,7 +95,7 @@ public class CameraFade : MonoBehaviour
 
 	public void FadeAndNext(Color fadeTo, float seconds, string nextScene, bool fadeMusic) {
 		if(fadeMusic) {
-			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds / 2);
+			GameObject.Find("BGM").GetComponent<MusicPlayer>().StopMusic(seconds);
 		}
 		
 		StartCoroutine(FadeAndNextCoroutine(fadeTo, seconds, nextScene));

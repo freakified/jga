@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: f1013820ea0624dbeb4a75e2e1f20310, type: 3}
+  music: {fileID: 8300000, guid: 9895559182fc94047adeb6fa3b5b74d2, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
@@ -769,10 +769,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGBlackout: {fileID: 1238578859}
-  FlanagansTheme: {fileID: 8300000, guid: 3d55851328d5846c1b1e2287f836213d, type: 3}
-  BattleMusic: {fileID: 8300000, guid: 53f786c0f9ca847fcb7093139d1e8d38, type: 3}
-  VictoryMusic: {fileID: 8300000, guid: a4bbd53a040854f4489f14626f9d580b, type: 3}
-  ShoesTheme: {fileID: 8300000, guid: 63ef9b8261827462498e90537bb5c6a0, type: 3}
+  FlanagansTheme: {fileID: 8300000, guid: edcfa975ac7cb4fa7bcb3e374fdbaad9, type: 3}
+  BattleMusic: {fileID: 8300000, guid: d291edd51bb9f4da0bff38facd0a8f45, type: 3}
+  VictoryMusic: {fileID: 8300000, guid: e5620669df3944374af2b4ed99dec40f, type: 3}
+  ShoesTheme: {fileID: 8300000, guid: c5468ac5faae44392b2ead06727a35b8, type: 3}
 --- !u!4 &682367760
 Transform:
   m_ObjectHideFlags: 0
@@ -883,7 +883,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: f1013820ea0624dbeb4a75e2e1f20310, type: 3}
+      objectReference: {fileID: 8300000, guid: 9895559182fc94047adeb6fa3b5b74d2, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 1

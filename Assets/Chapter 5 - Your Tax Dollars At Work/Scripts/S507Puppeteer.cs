@@ -143,7 +143,7 @@ public class S507Puppeteer : CutscenePuppeteer {
 			}
 		} else if (CurrentScene == 51) {
 			if(timerIsGreaterThan(2.0f)) {
-				FadeAndNext(Color.green, 5.0f, "5-08 Limbo", true);
+				FadeAndNext(Color.green, 5.0f, "5-08 Limbo", false);
 				nextScene();
 			}
 		}

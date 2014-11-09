@@ -322,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 3a9cd4418875f4a87be36618794bf50f, type: 3}
+  music: {fileID: 8300000, guid: d45fb4e99a41144f1ad4b8e951499ed2, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
@@ -1059,7 +1059,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 3a9cd4418875f4a87be36618794bf50f, type: 3}
+      objectReference: {fileID: 8300000, guid: d45fb4e99a41144f1ad4b8e951499ed2, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 1

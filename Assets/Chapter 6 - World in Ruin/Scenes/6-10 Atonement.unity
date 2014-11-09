@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f0992714b6a435e8e3510e4284d13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInDuration: 20
+  fadeInDuration: 10
   fadeInFrom: {r: 1, g: 1, b: 1, a: 1}
   isFading: 1
 --- !u!114 &12071423
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 315a3d4b335d140ce88cef1ad134f125, type: 3}
+  music: {fileID: 8300000, guid: f1e0afc643d504d4fa766c44cced010a, type: 3}
   loop: 1
   playAtStart: 0
   OnlyPlayIfNoMusicPlaying: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6507b607ca0f493cb2745482d3fc8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EpilogMusic: {fileID: 8300000, guid: f1741c7bd335b457ca2b95a1dceae420, type: 3}
+  EpilogMusic: {fileID: 8300000, guid: 57f51040807d54d70b1e98e5eb0298ec, type: 3}
   Rain: {fileID: 8300000, guid: 6ad86359ba93243aa998ccbd8ce1ae63, type: 3}
   Explosion: {fileID: 8300000, guid: 9e39fb7391e4a4305960467a89291774, type: 3}
 --- !u!4 &682367760
@@ -2316,7 +2316,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 315a3d4b335d140ce88cef1ad134f125, type: 3}
+      objectReference: {fileID: 8300000, guid: f1e0afc643d504d4fa766c44cced010a, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 0
@@ -5108,6 +5108,7 @@ MonoBehaviour:
   NextSceneName: 6-02 Plains of eternity
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
   FadeDuration: 4
+  FadeMusic: 0
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0

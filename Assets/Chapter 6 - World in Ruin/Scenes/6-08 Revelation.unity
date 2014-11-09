@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: f1013820ea0624dbeb4a75e2e1f20310, type: 3}
-  loop: 0
+  music: {fileID: 8300000, guid: 9895559182fc94047adeb6fa3b5b74d2, type: 3}
+  loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 0
   fadingOut: 0
@@ -597,8 +597,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlashbackSound: {fileID: 8300000, guid: 78ee23e6c41c540acaae7fcbc446e557, type: 3}
-  EvilMusic: {fileID: 0}
-  FinalBossMusic: {fileID: 8300000, guid: c0df743aa7ff94928884f86ca0f5cd21, type: 3}
+  EvilMusic: {fileID: 8300000, guid: 64f63d3af1ec844688c9332f14c5f818, type: 3}
+  FinalBossMusic: {fileID: 8300000, guid: 5b113907302a24101be924f60431888e, type: 3}
   FlashbackBGList:
   - {fileID: 21300000, guid: 7d64e8c9946c34af097016703516e335, type: 3}
   - {fileID: 21300000, guid: 817278789a8ef463995852457d718374, type: 3}
@@ -2298,14 +2298,14 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: f1013820ea0624dbeb4a75e2e1f20310, type: 3}
+      objectReference: {fileID: 8300000, guid: 9895559182fc94047adeb6fa3b5b74d2, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: playAtStart
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: m_Enabled
@@ -2882,6 +2882,7 @@ MonoBehaviour:
   NextSceneName: 6-02 Plains of eternity
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
   FadeDuration: 4
+  FadeMusic: 0
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0

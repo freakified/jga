@@ -452,7 +452,7 @@ Prefab:
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 6bc7385dc2fc2486295ee8d563338fb0, type: 3}
+      objectReference: {fileID: 8300000, guid: 62ac2d6e077254e818ff5454e49885b2, type: 3}
     - target: {fileID: 11400000, guid: b48c4ba88200c46138a587b3ee0ff51f, type: 2}
       propertyPath: loop
       value: 1
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af59977678ae433d8c4e71365929996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 6bc7385dc2fc2486295ee8d563338fb0, type: 3}
+  music: {fileID: 8300000, guid: 62ac2d6e077254e818ff5454e49885b2, type: 3}
   loop: 1
   playAtStart: 1
   OnlyPlayIfNoMusicPlaying: 1

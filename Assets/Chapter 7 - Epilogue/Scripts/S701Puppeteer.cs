@@ -9,7 +9,7 @@ public class S701Puppeteer : CutscenePuppeteer {
 	void Start () {
 		startTimer();
 
-		Invoke ("startCameraMotion", 3f);
+		Invoke ("startCameraMotion", 4f);
 	}
 
 
