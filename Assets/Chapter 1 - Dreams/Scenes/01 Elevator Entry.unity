@@ -1771,6 +1771,7 @@ MonoBehaviour:
   NextSceneName: 02 Elevator Entry 2
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
   FadeDuration: 1
+  FadeMusic: 0
 --- !u!1 &1993481070
 GameObject:
   m_ObjectHideFlags: 0
