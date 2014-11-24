@@ -1398,6 +1398,7 @@ MonoBehaviour:
   NextSceneName: 
   FadeToColor: {r: 0, g: 0, b: 0, a: 1}
   FadeDuration: 1
+  FadeMusic: 0
 --- !u!1001 &1946065733
 Prefab:
   m_ObjectHideFlags: 0

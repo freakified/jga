@@ -11,7 +11,7 @@ PlayerSettings:
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: Freakified
-  productName: 'JGA: Crossroads of Destiny'
+  productName: JGA
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 32000
@@ -41,7 +41,7 @@ PlayerSettings:
   captureSingleScreen: 1
   Override IPod Music: 0
   Prepare IOS For Recording: 0
-  enableHWStatistics: 1
+  enableHWStatistics: 0
   usePlayerLog: 1
   stripPhysics: 0
   forceSingleInstance: 0
@@ -65,12 +65,12 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.freakified.jga
+  iPhoneBundleIdentifier: net.freakified.jga
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 61b75a90635dc421586abeff285819c9
   iPhoneBundleVersion: 1.0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 3
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -80,7 +80,7 @@ PlayerSettings:
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
-  APKExpansionFiles: 0
+  APKExpansionFiles: 1
   StripUnusedMeshComponents: 0
   iPhoneSdkVersion: 988
   iPhoneTargetOSVersion: 16
@@ -98,15 +98,47 @@ PlayerSettings:
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
-  resolutionDialogBanner: {fileID: 0}
+  AndroidKeystoreName: Build/android_keystore.keystore
+  AndroidKeyaliasName: freakified_key
+  resolutionDialogBanner: {fileID: 2800000, guid: c55032b28f7d948d0b60329b324058bb,
+    type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 2800000, guid: f4e028daa75584b2b9d595390e1987b3, type: 3}
+    - m_Icon: {fileID: 2800000, guid: 9c068367df4fa4c1bbbd63e7e9ba4ebc, type: 3}
       m_Size: 128
-  m_BuildTargetBatching: []
+  - m_BuildTarget: Android
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: ddaedee46e1fb46c18fd6b76e1b64991, type: 3}
+      m_Size: 144
+    - m_Icon: {fileID: 2800000, guid: ba5bca46f2e3f4d38a0051585d3771f2, type: 3}
+      m_Size: 96
+    - m_Icon: {fileID: 2800000, guid: daa0c196dc0534523809906f57b45ef6, type: 3}
+      m_Size: 72
+    - m_Icon: {fileID: 2800000, guid: 96947b05118f341eb9016273f524fcca, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 2800000, guid: 2d658693684a74a8b82b8a82c9db63d8, type: 3}
+      m_Size: 36
+  - m_BuildTarget: Standalone
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: 9c068367df4fa4c1bbbd63e7e9ba4ebc, type: 3}
+      m_Size: 1024
+    - m_Icon: {fileID: 2800000, guid: fa7326456ebe94b308852501e0e9bcaa, type: 3}
+      m_Size: 512
+    - m_Icon: {fileID: 0}
+      m_Size: 256
+    - m_Icon: {fileID: 0}
+      m_Size: 128
+    - m_Icon: {fileID: 2800000, guid: 96947b05118f341eb9016273f524fcca, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 2800000, guid: 56e1d2826163445669a6c78ed8368e4d, type: 3}
+      m_Size: 32
+    - m_Icon: {fileID: 2800000, guid: 52473e59a941e4ef0a43079b81a1dd81, type: 3}
+      m_Size: 16
+  m_BuildTargetBatching:
+  - m_BuildTarget: Android
+    m_StaticBatching: 1
+    m_DynamicBatching: 1
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
   XboxTitleId: 

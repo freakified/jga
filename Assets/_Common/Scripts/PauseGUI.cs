@@ -58,11 +58,11 @@ public class PauseGUI : BaseGUI {
 	private void DrawMobilePauseButton() {
 		GUILayout.BeginArea(AspectUtility.screenRect);
 
-		if(GUI.Button(new Rect(AspectUtility.screenWidth - scalePx(35),
+		if(GUI.Button(new Rect(AspectUtility.screenWidth - scalePx(40),
 		                       AspectUtility.screenRect.y + scalePx(5),
-		                       scalePx(30),
+		                       scalePx(35),
 		                       scalePx(30)),
-		              "\u2759 \u2759")) {
+		              "\u275a \u275a")) {
 			if(!isPaused) {
 				pause();
 			} else {
