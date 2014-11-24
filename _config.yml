@@ -1,0 +1,9 @@
+# Site settings
+title: "JGA: Crossroads of Destiny"
+description: "A story-driven RPG in which the fate of the world lies in your hands."
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown 
+permalink: pretty

@@ -1,0 +1,223 @@
+body {
+  font-family: "Gentium Basic", serif;
+  font-size: 22px;
+  font-style: italic;
+  color: white;
+  text-align: center;
+  background: black;
+  overflow: hidden;
+}
+
+.main {
+  perspective: 100px;
+  -moz-perspective: 100px;
+  -webkit-perspective: 100px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sky_bg {
+  background: transparent url('images/plainsbg.jpg') center top no-repeat;
+  background-size: 100% 50vh;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transform: translate3d(0, 0, -100px) scale(2);
+  -moz-transform: translate3d(0, 0, -100px) scale(2);
+  -webkit-transform: translate3d(0, 0, -100px) scale(2);
+}
+
+@media (max-width: 1280px) {
+  .sky_bg {
+    background-size: 1280px 50vh;
+  }
+}
+
+h1, .subtitle, .teaser {
+  font-family: Muli;
+  font-style: normal;
+}
+
+.title {
+  transform: translate3d(0px, -50px, -60px) scale(1.5);
+  -webkit-transform: translate3d(0px, -50px, -60px) scale(1.5);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.title h1, .subtitle, .ground {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.title h1 {
+  font-size: 200px;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 24px;
+  margin: -20px 0 0 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ground {
+  padding-bottom: 50px;
+  background-color: black;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}
+
+.teaser {
+  text-transform: uppercase;
+  font-size: 42px;
+  margin-top: 70px;
+  margin-bottom: 60px;
+}
+
+@media (min-width: 800px) {
+  .desc {
+    max-width: 800px;
+  }
+}
+
+.desc {
+  text-align: justify;
+  margin: 0 auto;
+  color: #c6c6c6;
+  padding: 0 50px 50px;
+}
+
+.drop_cap {
+  float: left;
+  color: #903;
+  font-size: 75px;
+  display: block;
+  width: 45px;
+  height: 60px;
+  line-height: 66px;
+  color: white;
+}
+
+.character {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -78px;
+}
+
+.like_mike {
+  background-image: url('images/chars/like_mike.png');
+  left: 10px;
+}
+
+.chef_tony {
+  background-image: url('images/chars/chef_tony.png');
+  left: 90px;
+}
+
+.james {
+  background-image: url('images/chars/james.png');
+  left: 15%;
+  top: -160px;
+}
+
+.james_cloud {
+  background-image: url("images/chars/james_cloud.png");
+  background-size: 100% auto;
+  width: 187px;
+  height: 120px;
+  position: absolute;
+  left: -137px;
+  top: -46px;
+  z-index: -1;
+}
+
+.gpig {
+  background-image: url('images/chars/gpig.png');
+  right: 115px;
+}
+
+.scientist {
+  background-image: url('images/chars/scientist.png');
+  right: 70px;
+}
+
+.daria {
+  background-image: url('images/chars/daria.png');
+  right: 10px;
+}
+
+.btn-download {
+  text-align: left;
+  height: 63px;
+}
+
+.btn-download i {
+  float: left;
+  padding-right: 16px;
+  margin-top: 5px;
+}
+
+.button_desc {
+  font-size: 14px;
+  font-family: "Gentium Basic", serif;
+  font-style: italic;
+  margin-left: 23px;
+}
+
+
+#download_button_group.platform-windows #mac_download,
+#download_button_group.platform-windows #linux_download,
+#download_button_group.platform-mac #windows_download,
+#download_button_group.platform-mac #linux_download, 
+#download_button_group.platform-linux #windows_download,
+#download_button_group.platform-linux #mac_download {
+  display: none;
+}
+
+#download_button_group .btn-download {
+  border-radius: 5px 0 0 5px;
+}
+
+
+#download_button_group .download_menu {
+  height: 63px;
+  width: 40px;
+}
+
+/* bootstrap overrides */
+.btn-default {
+  font-family: Muli;
+  font-style: normal;
+  border: 1px solid #7ED321;
+  background: rgba(126,210,33,0.25);
+  transition: background-color 0.1s;
+  color: white;
+}
+
+.btn-default:hover, .btn-default:focus {
+  border-color: #7ED321;
+  color: white;
+  background: rgba(126,210,33,0.35);
+  outline: none;
+}
+
+.btn-default:active, .btn-group.open .dropdown-toggle {
+  background-color: white;
+  border-color: white;
+  color: black;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  margin: 0 auto;
+}
+
+.carousel {
+  margin: 70px;
+}

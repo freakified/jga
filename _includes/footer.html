@@ -1,0 +1,16 @@
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  var platform;
+
+  if(navigator.platform.toUpperCase().indexOf('WIN') !== -1) {
+    platform = 'platform-windows';
+  } else if(navigator.platform.toUpperCase().indexOf('MAC') !== -1) {
+    platform = 'platform-mac';
+  } else if(navigator.platform.toUpperCase().indexOf('LINUX') !== -1) {
+    platform = 'platform-linux';
+  }
+  
+  $('#download_button_group').addClass(platform);
+</script>
