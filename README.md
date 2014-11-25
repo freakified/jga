@@ -1,4 +1,4 @@
-tilden.github.io
+JGA: Crossroads of Destiny Website
 ================
 
-My lovely Jekyll blog. One day, it will also be a portfolio. One day.
+Featuring trendy parallax scrolling and a platform-detecting download button.
