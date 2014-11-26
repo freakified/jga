@@ -70,7 +70,7 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 61b75a90635dc421586abeff285819c9
   iPhoneBundleVersion: 1.0
-  AndroidBundleVersionCode: 3
+  AndroidBundleVersionCode: 4
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -98,7 +98,7 @@ PlayerSettings:
   iPadHighResLandscapeSplashScreen: {fileID: 0}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: Build/android_keystore.keystore
+  AndroidKeystoreName: /Users/Dan/Dropbox/Development/NG/Game-Unity/android_keystore.keystore
   AndroidKeyaliasName: freakified_key
   resolutionDialogBanner: {fileID: 2800000, guid: c55032b28f7d948d0b60329b324058bb,
     type: 3}
