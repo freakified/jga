@@ -40,6 +40,14 @@ public class PauseGUI : BaseGUI {
 				}
 			}
 		}
+
+		if(isPaused && Input.GetButtonDown("Select")) {
+			if(currentButtonSelection == 0) {
+				unpause();
+			} else if(currentButtonSelection == 1) {
+				goToMainMenu();
+			}
+		}
 	}
 
 	public override void OnGUI() {

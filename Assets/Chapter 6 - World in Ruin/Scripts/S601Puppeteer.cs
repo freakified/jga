@@ -20,7 +20,7 @@ public class S601Puppeteer : CutscenePuppeteer {
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 
 
-		playSound(RainSound);
+		playSound(RainSound, true);
 		ctanim.SetInteger("HP", 0);
 		startTimer();
 

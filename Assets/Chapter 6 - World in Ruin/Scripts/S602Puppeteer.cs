@@ -20,7 +20,7 @@ public class S602Puppeteer : CutscenePuppeteer {
 
 		junk = new List<Rigidbody2D>(GameObject.Find ("RandomJunk").GetComponentsInChildren<Rigidbody2D>());
 
-		playSound(RainSound);
+		playSound(RainSound, true);
 		startTimer();
 
 	}

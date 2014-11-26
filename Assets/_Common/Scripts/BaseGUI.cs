@@ -21,7 +21,7 @@ public class BaseGUI : MonoBehaviour {
 	protected bool input1IsDown = false;
 	protected bool input2IsDown = false;
 	protected float elapsedTime = 0;
-	
+
 	public virtual void Start() {
 		//load menu select sound
 		cursorMoveSound = Resources.Load<AudioClip>("menu_select");
@@ -35,29 +35,29 @@ public class BaseGUI : MonoBehaviour {
 	}
 	
 	public virtual void Update() {
-		//check for inputs
-
-		if(cursorShowRequests > 0) {
-			Screen.showCursor = true;
-		} else  {
-			Screen.showCursor = false;
-		}
-
 		if(guiControlEnabled) {
 			elapsedTime += Time.deltaTime;
+
+			if(cursorShowRequests > 0) {
+				Screen.showCursor = true;
+			} else  {
+				Screen.showCursor = false;
+			}
+
+			//delay before accepting input, to prevent collisions with cutscene prompts
+			if(elapsedTime > 0.5f) {
+				if(!Input.GetKeyDown(KeyCode.Space)) {
+					input1IsDown = Input.GetButtonDown("Select");
+				}
+				input2IsDown = Input.GetButtonDown("Cancel");
+			}
+			
+			checkKeyControlFocus();
 		} else {
 			elapsedTime = 0;
 		}
 		
-		//delay before accepting input, to prevent collisions with cutscene prompts
-		if(elapsedTime > 0.5f) {
-			if(!Input.GetKeyDown(KeyCode.Space)) {
-				input1IsDown = Input.GetButtonDown("Select");
-			}
-			input2IsDown = Input.GetButtonDown("Cancel");
-		}
 
-		checkKeyControlFocus();
 	}
 
 	protected void enableGuiControl() {

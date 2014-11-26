@@ -22,7 +22,7 @@ public class S610Puppeteer : CutscenePuppeteer {
 
 		mus = GameObject.Find ("BGM").GetComponent<MusicPlayer>();
 
-		playSound(Rain);
+		playSound(Rain, true);
 	}
 
 	
