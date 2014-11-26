@@ -32,3 +32,8 @@ ExportedObj/
 # Icon?
 ehthumbs.db
 Thumbs.db
+
+# music
+x*.ogg
+x*.ogg.meta
+
