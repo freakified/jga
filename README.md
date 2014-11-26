@@ -9,11 +9,9 @@ Ten years have passed since James, the greatest gasmaster the world had ever kno
 * Interact with a cast of colorful characters
 * Use your knife prowess to slice through a variety of enemies via simplified, turn-based, RPG-style combat!
 
-## A full-length indie RPG that is completely open source!
-
-JGA includes:
+## A full-length indie RPG that is completely open source, including...
 
 * A linear cutscene system allowing for long-winded conversations between characters.
 * A turn-based RPG battle system with a status effect (sleep) 
-* A chapter based save system which supports
+* A chapter based save system 
 * Much more!
