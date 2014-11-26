@@ -1,5 +1,4 @@
 # ![JGA Icon](Assets/_Common/Materials/Icons/144.png) JGA: Crossroads of Destiny
-===
 
 ## A story-driven RPG in which the fate of the world lies in your hands.
 
