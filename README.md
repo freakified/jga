@@ -15,3 +15,10 @@ Ten years have passed since James, the greatest gasmaster the world had ever kno
 * A turn-based RPG battle system with a status effect (sleep) 
 * A chapter based save system 
 * Much more!
+
+## Original Soundtrack
+Listen to the CC-licensed on [Soundcloud](https://soundcloud.com/freakified/sets/jga-crossroads-of-destiny-ost), or just grab the OGG files directly from this repo.
+
+## License
+All music and art assets are licensed under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license unless otherwise noted. The rest of the game and associated source code are licensed under the [MIT License](http://opensource.org/licenses/MIT)!
+
