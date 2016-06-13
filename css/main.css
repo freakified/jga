@@ -6,6 +6,7 @@ body {
   text-align: center;
   background: black;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .main {
